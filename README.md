@@ -18,6 +18,6 @@
 - `config/_default/menus.toml`: to change website's header menu
 - `content/home`: what to include in home page
 - `content/authors/admin/_index.md`: biogrphy detail (education, etc.)
-- `static/media/cv.pdf': where cv is located
+- `static/media/cv.pdf`: where cv is located
 - `content/publication`: each publication has to be a folder
 
