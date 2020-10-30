@@ -10,7 +10,7 @@
 - this will create `public` repository. This is the Git repo. Go to that repo.
 - git add .
 - git commit -m "blah"
-- git push origin master
+- git push origin master (note that this is pushed to `master` branch, not `main`)
 
 ## Frequently used 
 - `blogdown::serve_site()`: to host locally
