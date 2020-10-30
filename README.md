@@ -7,7 +7,7 @@
 
 ## How to deploy on Github pages:
 - In terminal, in `../Rice/website` repository, run `$ hugo`  
-- this will create `public` repository. This is the Git repo.  
+- this will create `public` repository. This is the Git repo. Go to that repo.
 - git add .
 - git commit -m "blah"
 - git push origin master
