@@ -88,7 +88,7 @@
 &lt;p&gt;It turns out that the vector space properties that Euclidean space has mostly translates to state space, with a few tweaks. Let&amp;rsquo;s recap the properties of (3-dimensional) Euclidean space first.&lt;/p&gt;
 &lt;p&gt;Euclidean space (in 3-dimension for illustration) has the following properties:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;an element $r$ is called a (3-dimensional) &amp;ldquo;vector&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;An element $r$ is called a (3-dimensional) &amp;ldquo;vector&amp;rdquo;&lt;/li&gt;
 &lt;li&gt;Vector addition: $r_1 + r_2 = r_3 \in \mathbb{R}^3$&lt;/li&gt;
 &lt;li&gt;Commutativity of vector addition: $r_1 + r_2 = r_2 + r_1$&lt;/li&gt;
 &lt;li&gt;Associativity of vector addition: $(r_1 + r_2) + r_3 = r_1 + (r_2 + r_3)$&lt;/li&gt;
@@ -102,7 +102,7 @@
 &lt;p&gt;The above properties more or less translate directly to state space.&lt;/p&gt;
 &lt;p&gt;State space $\mathcal{V}$ has the following properties:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;an element $| \psi \rangle$ is called a &amp;ldquo;ket&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;An element $| \psi \rangle$ is called a &amp;ldquo;ket&amp;rdquo;&lt;/li&gt;
 &lt;li&gt;Vector addition: $|\psi_1 \rangle + |\psi_2\rangle = |\psi_3 \rangle \in \mathcal{V}$&lt;/li&gt;
 &lt;li&gt;Commutativity of vector addition: $|\psi_1 \rangle + |\psi_2\rangle = |\psi_2 \rangle + |\psi_1 \rangle$&lt;/li&gt;
 &lt;li&gt;Associativity of vector addition: $(|\psi_1 \rangle + |\psi_2\rangle) + |\psi_3\rangle = |\psi_1 \rangle + (|\psi_2\rangle +|\psi_3\rangle)$&lt;/li&gt;
@@ -151,7 +151,7 @@
 &lt;/ul&gt;
 &lt;p&gt;Before stating the properties of multiplication of operators, let&amp;rsquo;s start with its definition:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Definition of multiplication of operators: $(\hat{A}\hat{B}) |\psi\rangle = \hat{A} ( \hat{B} |\psi \rangle )$&lt;/li&gt;
+&lt;li&gt;Multiplication of operators: $(\hat{A}\hat{B}) |\psi\rangle = \hat{A} ( \hat{B} |\psi \rangle )$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Above can also be thought of as $\hat{A}$ acting on the new state, $\hat{B} |\psi \rangle = |\psi&#39; \rangle$, i.e. $\hat{A} |\psi&#39; \rangle$. Now we state the properties of multiplication of operators:&lt;/p&gt;
 &lt;ul&gt;
