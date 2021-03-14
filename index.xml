@@ -117,12 +117,12 @@
 &lt;p&gt;Scalar product in Euclidean space:&lt;/p&gt;
 &lt;p&gt;$SP(r_1, r_2) = r_1 \bullet r_2 = c, \quad c \in \mathbb{R}$&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Conjugation: $r_1 \bullet r_2 = r_2 \bullet r_1$.&lt;/li&gt;
+&lt;li&gt;Conjugation: $r_1 \bullet r_2 = r_2 \bullet r_1$&lt;/li&gt;
 &lt;li&gt;Linearity: $r_1 \bullet a (r_2) = a(r_1) \bullet r_2 =  a(r_1 \bullet r_2)$  and $r_1 \bullet (r_2 + r_3) = r_1 \bullet r_2 + r_1 + r_3$&lt;/li&gt;
-&lt;li&gt;Positivity: $r_1 \bullet r_1 \geq 0$, and $r_1 \bullet r_2 = 0$ if and only if $r_1 = 0$.&lt;/li&gt;
+&lt;li&gt;Positivity: $r_1 \bullet r_1 \geq 0$, and $r_1 \bullet r_2 = 0$ if and only if $r_1 = 0$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Scalar product in state space:&lt;/p&gt;
-&lt;p&gt;$SP(|\psi_1,~|\psi_2\rangle) = c, \quad c \in \mathbb{C}$.&lt;/p&gt;
+&lt;p&gt;$SP(|\psi_1,~|\psi_2\rangle) = c, \quad c \in \mathbb{C}$&lt;/p&gt;
 &lt;p&gt;Notice that the scalar $c$ is now a complex number, which is one of the crucial differences of state space and Euclidean space. Now we look at the properties of scalar product in state space:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Conjugation: $SP(|\psi \rangle,~|\phi \rangle) = [SP(|\phi \rangle,~|\psi \rangle)]^*$&lt;/li&gt;
@@ -143,7 +143,7 @@
 &lt;p&gt;Operators are mathematical objects that allow us to describe physical properties, such as position, momentum, and energy. Let&amp;rsquo;s start by the second postulate of quantum mechanics:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Postulate II:&lt;/strong&gt; A physical quantity $\mathcal{A}$ is described by an operator $\hat{A}$ acting on the state space space $\mathcal{V}$, and this operator is an observable.&lt;/p&gt;
 &lt;p&gt;In other words, an operator acts on elements of state space $\mathcal{V}$, which are kets, and these kets are modified by the operator $\hat{A}$ in some manner. This can be written is $\hat{A} |\psi \rangle = |\psi&#39; \rangle$, meaning that the operator $\hat{A}$ acts on the ket $| \psi \rangle$, which is modified to another ket $|\psi&#39; \rangle$. It&amp;rsquo;s important to remember that the operators in quantum mechanics can act on the superposition of different states:&lt;/p&gt;
-&lt;p&gt;$$\hat{A} (a_1 |\psi_1 \rangle + a_2 |\psi_2 \rangle) = a_1 \hat{A} |\psi_1 \rangle + a_2 \hat{A} | \psi_2 \rangle$$&lt;/p&gt;
+&lt;p&gt;$$\hat{A} (a_1 |\psi_1 \rangle + a_2 |\psi_2 \rangle) = a_1 \hat{A} |\psi_1 \rangle + a_2 \hat{A} | \psi_2 \rangle.$$&lt;/p&gt;
 &lt;p&gt;As can be guessed from the above expression, these operators are called &amp;ldquo;linear operators.&amp;rdquo; Fortunately, in quantum mechanics, we can always work with linear operators, which makes the study of quantum mechanics a lot easier. Similarly to the properties of addition and multiplication of kets we studied earlier, (linear) operators have basic properties:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Associativity of addition: $\hat{A} + (\hat{B} + \hat{C}) = (\hat{A} + \hat{B}) + \hat{C}$&lt;/li&gt;
@@ -156,15 +156,15 @@
 &lt;p&gt;Above can also be thought of as $\hat{A}$ acting on the new state, $\hat{B} |\psi \rangle = |\psi&#39; \rangle$, i.e. $\hat{A} |\psi&#39; \rangle$. Now we state the properties of multiplication of operators:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Associativity of multiplication: $\hat{A} (\hat{B}\hat{C}) = (\hat{A} \hat{B}) \hat{C}$&lt;/li&gt;
-&lt;li&gt;Non-commutativity of multiplication: $\hat{A} \hat{B} \neq \hat{B} \hat{A}$.&lt;/li&gt;
+&lt;li&gt;Non-commutativity of multiplication: $\hat{A} \hat{B} \neq \hat{B} \hat{A}$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The non-commutativity of multiplication is one of the most important properties of operators in quantum mechanics. Due to this aspect, we also define commutators:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Commutator: $[\hat{A}, \hat{B}] = \hat{A}\hat{B} - \hat{B} \hat{A}$.&lt;/li&gt;
+&lt;li&gt;Commutator: $[\hat{A}, \hat{B}] = \hat{A}\hat{B} - \hat{B} \hat{A}$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The non-commutativity of multiplication of operators, and consequently the notion of  commutators play a fundamental role in quantum mechanics. Specifically, two operators that do not commute are associated with properties that cannot be measured simultaneously in a quantum system, such as position and momentum operators.&lt;/p&gt;
 &lt;p&gt;Now, we introduce the notion of the adjoint operator. Adjoint operator can be thought of as the dual of the operator introduced above, just like a ket corresponds to a bra in the dual space. We can write this as follows:&lt;/p&gt;
-&lt;p&gt;$$|\psi&#39;\rangle =\hat{A}|\psi \rangle \longleftrightarrow \langle \psi&#39; | = \langle \psi|\hat{A}^\dagger$$&lt;/p&gt;
+&lt;p&gt;$$|\psi&#39;\rangle =\hat{A}|\psi \rangle \longleftrightarrow \langle \psi&#39; | = \langle \psi|\hat{A}^\dagger.$$&lt;/p&gt;
 &lt;p&gt;Adjoint operator is also linear, just like the operator introduced previously. With this notion, we can introduce some particularly important operators in quantum mechanics:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Hermitian operator: $\hat{A} = \hat{A}^\dagger$&lt;/li&gt;
@@ -211,10 +211,10 @@ c_i&#39; &amp;amp;= \langle u_i | \psi&#39; \rangle = \langle u_i | \hat{A} | \p
 &lt;p&gt;$$\begin{aligned}
 |\psi&#39;\rangle &amp;amp;= \sum_i \left( \sum_j \langle u_i|\hat{A}|u_j \rangle \langle u_j|\psi\rangle \right) |u_i\rangle \\&lt;br&gt;
 &amp;amp;= \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) |\psi\rangle \\&lt;br&gt;
-&amp;amp;= \hat{A} |\psi\rangle
+&amp;amp;= \hat{A} |\psi\rangle.
 \end{aligned}$$&lt;/p&gt;
 &lt;p&gt;Therefore, we see that we can write the operator $\hat{A}$ as&lt;/p&gt;
-&lt;p&gt;$$\hat{A} = \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) = \sum_{ij} A_{ij} |u_i\rangle \langle u_j|$$&lt;/p&gt;
+&lt;p&gt;$$\hat{A} = \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) = \sum_{ij} A_{ij} |u_i\rangle \langle u_j|,$$&lt;/p&gt;
 &lt;p&gt;where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle \in \mathbb{C}$. Therefore, we arrive at a scalar value $A_{ij}$ that represents the operator $\hat{A}$ in the ${ |u_i\rangle }$ basis, just like how $c_i = \langle u_i | \psi \rangle$ represents the ket $|\psi \rangle$ in the same basis.&lt;/p&gt;
 &lt;p&gt;With the above, we close this chapter, and thus part 1 of this blog post about basics of quantum mechanics. In the next part, we will study matrix formulation of quantum mechanics, how to change basis, and a particularly import basis called eigenbasis.&lt;/p&gt;
 </description>
