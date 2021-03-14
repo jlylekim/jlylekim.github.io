@@ -282,9 +282,9 @@
   <meta property="twitter:image" content="https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2021-02-25T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2021-03-13T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2021-02-25T20:05:33-06:00">
+    <meta property="article:modified_time" content="2021-03-13T20:05:33-06:00">
   
 
   
@@ -312,8 +312,8 @@
   },
   "headline": "Fast quantum state tomography via accelerated non-convex programming",
   
-  "datePublished": "2021-02-25T00:00:00Z",
-  "dateModified": "2021-02-25T20:05:33-06:00",
+  "datePublished": "2021-03-13T00:00:00Z",
+  "dateModified": "2021-03-13T20:05:33-06:00",
   
   "author": {
     "@type": "Person",
@@ -659,7 +659,7 @@
           Last updated on
       
     
-    Feb 25, 2021
+    Mar 13, 2021
   </span>
   
 
@@ -712,7 +712,7 @@
 <p>Quantum state tomography (QST) is one of the main procedures to identify the nature of imperfections in hardware implementation. High-level procedure is to measure the quantum system, estimate the density matrix using the measured data, and analyze the &ldquo;fit&rdquo; between the estimated density matrix and the true density matrix.</p>
 <p>QST is generally not scalable due to two bottlenecks: $i)$ large data has to be collected to perform tomography; and $ii)$ the space of density matrices grows exponentially, from which the one that is consistent with the data has to be found.</p>
 <p>To address the first bottleneck, prior information is often assumed and leveraged to reduce the number of data required. For example, in compressed sensing QST,  it assumes that the density matrix is of low-rank. Similarly, in neural network QST, the wavefunctions are assumed to be real and positive.</p>
-<p>For instance, below is &ldquo;Greenberger–Horne–Zeilinger&rdquo; state, or GHZ state for short. As can be seen, only four corners of the real part has non-zero entries. Therefore, this state is not only of low-rank, but also sparse.</p>
+<p>To give a concrete example, below is &ldquo;Greenberger–Horne–Zeilinger&rdquo; state, or GHZ state for short. As can be seen, only four corners of the real part has non-zero entries. Therefore, this state is both of low-rank and sparse.</p>
 
 
 
@@ -835,21 +835,22 @@
 </figure>
 -->
 <p>With regards to the second bottleneck, variants of gradient descent convex solvers were proposed under synthetic scenarios. However, due to the exponentially increasing space of density matrices, these methods often can be only applied to relatively small system, on top of relying on special-purpose hardware.</p>
-<p>On the other hand, non-convex optimization methods can perform much faster than convex methods. It was recently shown that one can formulate compressed sensing QST as a non-convex problem, and solve it with rigorous convergence guarantees, and allowing density matrix estimation in large system.</p>
-<p>In this blogpost, we consider the set up where $n$-qubit state is close to a pure state, thus its density matrix is of low-rank. We introduce an accelerated non-convex algorithm with provable gaurantee, which we call <em>MiFGD</em>, short for &ldquo;Momentum inspired Factored Gradient Descent&rdquo;.</p>
+<p>On the other hand, non-convex optimization methods can perform much faster than convex methods. It was recently shown that one can formulate compressed sensing QST as a non-convex problem, and solve it with rigorous convergence guarantees, and allowing density matrix estimation in large system. A relevant result can be seen in the <em>Results</em> section below, where we compare our proposed non-convex method with convex methods from $\texttt{Qiskit}$.</p>
+<p>In this blogpost, we consider the setup where $n$-qubit state is close to a pure state, thus its density matrix is of low-rank. We introduce an accelerated non-convex algorithm with provable gaurantee, which we call $\texttt{MiFGD}$, short for &ldquo;Momentum inspired Factored Gradient Descent&rdquo;.</p>
 <h2 id="problem-setup">Problem setup</h2>
-<p>We consider the reconstruction of a low-rank density matrix $\rho^\star \in \mathbb{C}^{d \times d}$ on a $n$-qubit Hilbert space where $d=2^n$ through the following $\ell_2$-norm reconstruction objective:</p>
+<p>We consider the reconstruction of a low-rank density matrix $\rho^\star \in \mathbb{C}^{d \times d}$ on a $n$-qubit Hilbert space, where $d=2^n$, through the following $\ell_2$-norm reconstruction objective:</p>
 <p>\begin{align}
-&amp; \min_{\rho \in \mathbb{C}^{d \times d}}
-&amp; &amp; f(\rho) := \tfrac{1}{2} |\mathcal{A}(\rho) - y|_2^2 \\<br>
-&amp; \text{subject to}
-&amp; &amp; \rho \succeq 0, ~\texttt{rank}(\rho) \leq r.
+\min_{\rho \in \mathbb{C}^{d \times d}}
+\quad &amp; f(\rho) := \tfrac{1}{2} |\mathcal{A}(\rho) - y|_2^2 \\<br>
+\text{subject to}
+\quad&amp; \rho \succeq 0, ~\texttt{rank}(\rho) \leq r.
 \end{align}</p>
-<p>Here, $y \in \mathbb{R}^m$ is the measured data through quantum computer or simulation, $\mathcal{A}(\cdot): \mathbb{C}^{d \times d} \rightarrow \mathbb{R}^m$ is the linear sensing map. The sensing map relates the density matrix $\rho^\star$ to the measurements through the Born rule: $\left( \mathcal{A}(\rho) \right)_i = \text{Tr}(A_i \rho),$ where $A_i \in \mathcal{C}^{d \times d},~i=1, \dots, m$ are the sensing matrices. The type of sensing matrices used in quantum state tomography will be discussed later. From the objective function above, we see two constraints: $i)$ the density matrix $\rho$ is a positive-definite matrix, and $ii)$ the rank of the density matrix is less than $r$.</p>
-<p>In particular, we focus on the setting called <em>compressed sensing quantum state tomography</em>, where the number of measured data, $m$, is much smaller than the problem dimension, $d$. Compressed sensing is a powerful optimization framework developed by WHO and WHO, and requires the following pivotal assumption on the sensing matrix $\mathcal{A}(\cdot)$, namely ``Restricted Isometry Property'' (RIP):</p>
+<p>Here, $y \in \mathbb{R}^m$ is the measured data through quantum computer or simulation, and $\mathcal{A}(\cdot): \mathbb{C}^{d \times d} \rightarrow \mathbb{R}^m$ is the linear sensing map. The sensing map relates the density matrix $\rho$ to the measurements through the Born rule: $\left( \mathcal{A}(\rho) \right)_i = \text{Tr}(A_i \rho),$ where $A_i \in \mathbb{C}^{d \times d},~i=1, \dots, m$ are the sensing matrices. Type of sensing matrices used in quantum state tomography will be discussed later. From the objective function above, we see two constraints: $i)$ the density matrix $\rho$ is a positive-semidefinite matrix, and $ii)$ the rank of the density matrix is less than $r$.</p>
+<p>In particular, we focus on <em>compressed sensing quantum state tomography</em> setting mentioned earlier, where the number of measured data, $m$, is much smaller than the problem dimension, $d$. Compressed sensing is a powerful optimization framework developed mainly by <a href="https://statweb.stanford.edu/~candes/" target="_blank" rel="noopener">Emmanuel Candès</a>, <a href="https://jrom.ece.gatech.edu/" target="_blank" rel="noopener">Justin Romberg</a>, <a href="https://www.math.ucla.edu/~tao/" target="_blank" rel="noopener">Terence Tao</a> and <a href="https://web.stanford.edu/dept/statistics/cgi-bin/donoho/" target="_blank" rel="noopener">David Donoho</a>, and requires the following pivotal assumption on the sensing matrix $\mathcal{A}(\cdot)$, namely the <strong>Restricted Isometry Property (RIP)</strong> (on $\texttt{rank}$-$r$ matrices):</p>
 <p>\begin{align}
 (1 - \delta_r) \cdot  || X ||_F^2 \leq || \mathcal{A}(X) ||_2^2 \leq (1 + \delta_r) \cdot ||X||_F^2.
 \end{align}</p>
+<p>Intuitively, the above RIP assumption states that the sensing matrices $\mathcal{A}(\cdot)$ only &ldquo;marginally&rdquo; changes the norm of the matrix $X$.</p>
 <p>Going back to the main optimization problem, we instead propose to solve a factorized version of it, following recent works \cite{FGD}:
 \begin{align}
 \min_{U \in \mathbb{C}^{d \times r}} \tfrac{1}{2} || \mathcal{A} (UU^\dagger) - y ||_2^2,
@@ -991,10 +992,10 @@ The results are shown in the figure below. Some notable remarks: $i)$ For small-
 
 
 
-<figure id="figure-comparison-with-qucumber-methods">
+<figure id="figure-performance-comparison-with-textttqiskit-methods">
 
 
-  <a data-fancybox="" href="/post/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png" data-caption="Comparison with Qucumber methods">
+  <a data-fancybox="" href="/post/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png" data-caption="Performance comparison with $\texttt{Qiskit}$ methods">
 
 
   <img data-src="/post/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="90%" height="354">
@@ -1004,7 +1005,7 @@ The results are shown in the figure below. Some notable remarks: $i)$ For small-
   
   
   <figcaption>
-    Comparison with Qucumber methods
+    Performance comparison with $\texttt{Qiskit}$ methods
   </figcaption>
 
 
@@ -1041,10 +1042,10 @@ What is notable is the scalability of $\texttt{MiFGD}$ compared to neural networ
 
 
 
-<figure id="figure-comparison-with-qucumber-methods">
+<figure id="figure-performance-comparison-with-textttqucumber-methods">
 
 
-  <a data-fancybox="" href="/post/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png" data-caption="Comparison with Qucumber methods">
+  <a data-fancybox="" href="/post/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png" data-caption="Performance comparison with $\texttt{Qucumber}$ methods">
 
 
   <img data-src="/post/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="90%" height="408">
@@ -1054,7 +1055,7 @@ What is notable is the scalability of $\texttt{MiFGD}$ compared to neural networ
   
   
   <figcaption>
-    Comparison with Qucumber methods
+    Performance comparison with $\texttt{Qucumber}$ methods
   </figcaption>
 
 
