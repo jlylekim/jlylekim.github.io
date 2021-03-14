@@ -13,6 +13,152 @@
     </image>
     
     <item>
+      <title>Basics of quantum mechanics (part 1)</title>
+      <link>https://jlylekim.github.io/post/quantum-mechanics-1/</link>
+      <pubDate>Thu, 25 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/post/quantum-mechanics-1/</guid>
+      <description>&lt;h1 id=&#34;basics-quantum-mechanics-part-1&#34;&gt;Basics quantum mechanics: part 1&lt;/h1&gt;
+&lt;p&gt;In this series of blog posts, I want to introduce some basics of quantum mechanics, which can be helpful to start learning about quantum computing. I myself do not have any physics background, and found the series of videos (&lt;a href=&#34;https://www.youtube.com/playlist?list=PL8W2boV7eVfmMcKF-ljTvAJQ2z-vILSxb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.youtube.com/playlist?list=PL8W2boV7eVfmMcKF-ljTvAJQ2z-vILSxb&lt;/a&gt;) extremely helpful. This post is mainly based on this series of lectures, and I hope it is helpful to anyone who wants to start learning quantum computing.&lt;/p&gt;
+&lt;h2 id=&#34;1-dirac-notation-in-state-space&#34;&gt;1. Dirac notation in state space&lt;/h2&gt;
+&lt;p&gt;State space is is the name we give to the vector space in which the quantum system lives. Just like Euclidean space, which is used to describe the &amp;ldquo;world&amp;rdquo; in classical mechanics, state space is another vector space that shares many similarities with Euclidean space. For instance, just like Euclidean space, state space also is equipped with an inner product, thus making it a Hilbert space.&lt;/p&gt;
+&lt;p&gt;Even though we use a lot of linear algebra in quantum mechanics, we use quite different notation, called &amp;ldquo;Dirac notation,&amp;rdquo; invented by one of the founders quantum mechanics, Paul Dirac. We start with the first postulate of quantum mechanics:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Postulate I:&lt;/strong&gt; The state of a physical system is characterized by a state vector that belongs to a complex vector space $\mathcal{V}$, called the state space of the system.&lt;/p&gt;
+&lt;p&gt;It turns out that the vector space properties that Euclidean space has mostly translates to state space, with a few tweaks. Let&amp;rsquo;s recap the properties of (3-dimensional) Euclidean space first.&lt;/p&gt;
+&lt;p&gt;Euclidean space (in 3-dimension for illustration) has the following properties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;an element $r$ is called a (3-dimensional) &amp;ldquo;vector&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Vector addition: $r_1 + r_2 = r_3 \in \mathbb{R}^3$&lt;/li&gt;
+&lt;li&gt;Commutativity of vector addition: $r_1 + r_2 = r_2 + r_1$&lt;/li&gt;
+&lt;li&gt;Associativity of vector addition: $(r_1 + r_2) + r_3 = r_1 + (r_2 + r_3)$&lt;/li&gt;
+&lt;li&gt;Identity for vector addition: $0 + r = r$&lt;/li&gt;
+&lt;li&gt;Inverse of vector addition: $r + (-r) = 0$&lt;/li&gt;
+&lt;li&gt;Scalar multiplication: $a \cdot r \in \mathbb{R}^3$&lt;/li&gt;
+&lt;li&gt;Associativity of scalar multiplication: $a(br) = (ab)r$&lt;/li&gt;
+&lt;li&gt;Distributivity of scalar multiplication: $(a + b )r = ar + br$, and $a(r_1 + r_2) = ar_1 + ar_2$&lt;/li&gt;
+&lt;li&gt;Identity for vector multiplication: $1\cdot r = r$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The above properties more or less translate directly to state space.&lt;/p&gt;
+&lt;p&gt;State space $\mathcal{V}$ has the following properties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;an element $| \psi \rangle$ is called a &amp;ldquo;ket&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Vector addition: $|\psi_1 \rangle + |\psi_2\rangle = |\psi_3 \rangle \in \mathcal{V}$&lt;/li&gt;
+&lt;li&gt;Commutativity of vector addition: $|\psi_1 \rangle + |\psi_2\rangle = |\psi_2 \rangle + |\psi_1 \rangle$&lt;/li&gt;
+&lt;li&gt;Associativity of vector addition: $(|\psi_1 \rangle + |\psi_2\rangle) + |\psi_3\rangle = |\psi_1 \rangle + (|\psi_2\rangle +|\psi_3\rangle)$&lt;/li&gt;
+&lt;li&gt;Identity for vector addition: $0 + |\psi\rangle = |\psi \rangle$&lt;/li&gt;
+&lt;li&gt;Inverse of vector addition:$|\psi \rangle + (- |\psi \rangle) = 0$&lt;/li&gt;
+&lt;li&gt;Sacalar multiplication: $a | \psi \rangle \in \mathcal{V}$&lt;/li&gt;
+&lt;li&gt;Associativity of scalar multiplication: $a( b | \psi \rangle ) = (ab) | \psi \rangle$&lt;/li&gt;
+&lt;li&gt;Distributivity of scalar multiplication: $(a+b) | \psi \rangle = a| \psi \rangle + b | \psi \rangle$, and $a ( | \psi_1 \rangle + | \psi_2 \rangle ) = a| \psi_1 \rangle + b| \psi_2 \rangle$&lt;/li&gt;
+&lt;li&gt;Identity for vector multiplication: $1 | \psi \rangle = | \psi \rangle$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, we move to some differences. Both Euclidean space and state space are subsets of Hilbert space, and thus are equipped with scalar (inner) product.&lt;/p&gt;
+&lt;p&gt;Scalar product in Euclidean space:&lt;/p&gt;
+&lt;p&gt;$SP(r_1, r_2) = r_1 \bullet r_2 = c, \quad c \in \mathbb{R}$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Conjugation: $r_1 \bullet r_2 = r_2 \bullet r_1$.&lt;/li&gt;
+&lt;li&gt;Linearity: $r_1 \bullet a (r_2) = a(r_1) \bullet r_2 =  a(r_1 \bullet r_2)$  and $r_1 \bullet (r_2 + r_3) = r_1 \bullet r_2 + r_1 + r_3$&lt;/li&gt;
+&lt;li&gt;Positivity: $r_1 \bullet r_1 \geq 0$, and $r_1 \bullet r_2 = 0$ if and only if $r_1 = 0$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Scalar product in state space:&lt;/p&gt;
+&lt;p&gt;$SP(|\psi_1,~|\psi_2\rangle) = c, \quad c \in \mathbb{C}$.&lt;/p&gt;
+&lt;p&gt;Notice that the scalar $c$ is now a complex number, which is one of the crucial differences of state space and Euclidean space. Now we look at the properties of scalar product in state space:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Conjugation: $SP(|\psi \rangle,~|\phi \rangle) = [SP(|\phi \rangle,~|\psi \rangle)]^*$&lt;/li&gt;
+&lt;li&gt;Linearity in second argument: $SP(|\psi \rangle,~a |\phi \rangle) = a SP(|\psi \rangle,~|\phi \rangle)$ and $SP(|\psi \rangle,~|\phi \rangle + |\chi\rangle) = SP(|\psi \rangle,~|\phi \rangle) + SP(|\psi \rangle,~|\chi \rangle)$&lt;/li&gt;
+&lt;li&gt;Anti-linearity in first argument: $SP(a|\psi \rangle,~ |\phi \rangle) = [SP(|\psi \rangle,~a|\psi \rangle)]^* = a^*[SP(|\phi \rangle, |\psi\rangle)
+]^* = a^* SP(|\psi \rangle, |\phi \rangle)$ where $a^*$ is a complex conjugate.&lt;/li&gt;
+&lt;li&gt;Positivity: $SP( |\psi \rangle, |\psi \rangle ) \geq 0$, and $SP( |\psi \rangle, |\psi \rangle ) = 0$ iff $|\psi \rangle = 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So the main difference comes from the fact that state space lives in complex vector space, rather than real vector space. Through the scalar product, we can define some basic notations for quantum mechanics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$SP(|\psi\rangle, |\phi\rangle)  \implies \langle \psi |\phi \rangle$ is called &amp;ldquo;braket.&amp;rdquo; As one can guess, $\langle \psi |$ is called &amp;ldquo;bra,&amp;rdquo; and it corresponds to a row vector.&lt;/li&gt;
+&lt;li&gt;As one can guess, $\langle \psi |$ is called &amp;ldquo;bra,&amp;rdquo; and it corresponds to a row vector. (And of course $|\phi \rangle$ corresponds to a column vector.)&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Ket&amp;rdquo; $|\psi \rangle \in \mathcal{V}$ maps to &amp;ldquo;bra&amp;rdquo; $\langle \psi | \in \mathcal{V}^*$ in dual space&lt;/li&gt;
+&lt;li&gt;Scalar product is anti-linear in the first argument: $a|\psi\rangle \longleftrightarrow a^* \langle \psi |$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With this basic notation equipped, let&amp;rsquo;s study a concept called &amp;ldquo;operators&amp;rdquo; in the next chapter.&lt;/p&gt;
+&lt;h2 id=&#34;2-operators-in-quantum-mechanics&#34;&gt;2. Operators in quantum mechanics&lt;/h2&gt;
+&lt;p&gt;Operators are mathematical objects that allow us to describe physical properties, such as position, momentum, and energy. Let&amp;rsquo;s start by the second postulate of quantum mechanics:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Postulate II:&lt;/strong&gt; A physical quantity $\mathcal{A}$ is described by an operator $\hat{A}$ acting on the state space space $\mathcal{V}$, and this operator is an observable.&lt;/p&gt;
+&lt;p&gt;In other words, an operator acts on elements of state space $\mathcal{V}$, which are kets, and these kets are modified by the operator $\hat{A}$ in some manner. This can be written is $\hat{A} |\psi \rangle = |\psi&#39; \rangle$, meaning that the operator $\hat{A}$ acts on the ket $| \psi \rangle$, which is modified to another ket $|\psi&#39; \rangle$. It&amp;rsquo;s important to remember that the operators in quantum mechanics can act on the superposition of different states:&lt;/p&gt;
+&lt;p&gt;$$\hat{A} (a_1 |\psi_1 \rangle + a_2 |\psi_2 \rangle) = a_1 \hat{A} |\psi_1 \rangle + a_2 \hat{A} | \psi_2 \rangle$$&lt;/p&gt;
+&lt;p&gt;As can be guessed from the above expression, these operators are called &amp;ldquo;linear operators.&amp;rdquo; Fortunately, in quantum mechanics, we can always work with linear operators, which makes the study of quantum mechanics a lot easier. Similarly to the properties of addition and multiplication of kets we studied earlier, (linear) operators have basic properties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Associativity of addition: $\hat{A} + (\hat{B} + \hat{C}) = (\hat{A} + \hat{B}) + \hat{C}$&lt;/li&gt;
+&lt;li&gt;Commutativity of addition: $\hat{A} + \hat{B} = \hat{B} + \hat{A}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Before stating the properties of multiplication of operators, let&amp;rsquo;s start with its definition:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Definition of multiplication of operators: $(\hat{A}\hat{B}) |\psi\rangle = \hat{A} ( \hat{B} |\psi \rangle )$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Above can also be thought of as $\hat{A}$ acting on the new state, $\hat{B} |\psi \rangle = |\psi&#39; \rangle$, i.e. $\hat{A} |\psi&#39; \rangle$. Now we state the properties of multiplication of operators:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Associativity of multiplication: $\hat{A} (\hat{B}\hat{C}) = (\hat{A} \hat{B}) \hat{C}$&lt;/li&gt;
+&lt;li&gt;Non-commutativity of multiplication: $\hat{A} \hat{B} \neq \hat{B} \hat{A}$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The non-commutativity of multiplication is one of the most important properties of operators in quantum mechanics. Due to this aspect, we also define commutators:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commutator: $[\hat{A}, \hat{B}] = \hat{A}\hat{B} - \hat{B} \hat{A}$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The non-commutativity of multiplication of operators, and consequently the notion of  commutators play a fundamental role in quantum mechanics. Specifically, two operators that do not commute are associated with properties that cannot be measured simultaneously in a quantum system, such as position and momentum operators.&lt;/p&gt;
+&lt;p&gt;Now, we introduce the notion of the adjoint operator. Adjoint operator can be thought of as the dual of the operator introduced above, just like a ket corresponds to a bra in the dual space. We can write this as follows:&lt;/p&gt;
+&lt;p&gt;$$|\psi&#39;\rangle =\hat{A}|\psi \rangle \longleftrightarrow \langle \psi&#39; | = \langle \psi|\hat{A}^\dagger$$&lt;/p&gt;
+&lt;p&gt;Adjoint operator is also linear, just like the operator introduced previously. With this notion, we can introduce some particularly important operators in quantum mechanics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hermitian operator: $\hat{A} = \hat{A}^\dagger$&lt;/li&gt;
+&lt;li&gt;Unitary operator: $\hat{A}^{-1} = \hat{A}^\dagger$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Another important way to write an operator is through &amp;ldquo;outer product.&amp;rdquo; It turns out that outer product is also an operator, which can be seen below:&lt;/p&gt;
+&lt;p&gt;$$(|\phi \rangle \langle \psi | ) |\chi \rangle = | \phi \rangle ( \langle \psi | \chi \rangle ) = a|\phi \rangle,$$&lt;/p&gt;
+&lt;p&gt;where we denoted the scalar (inner) product $\langle \psi | \chi \rangle$ as $a \in \mathbb{C}$.&lt;/p&gt;
+&lt;p&gt;We close this chapter with some basic mathematical properties of operators:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\langle \psi | \hat{A}^\dagger | \rho \rangle = \langle \rho |\hat{A}|\psi\rangle^*$&lt;/li&gt;
+&lt;li&gt;$(\hat{A}^\dagger)^\dagger = \hat{A}$&lt;/li&gt;
+&lt;li&gt;$(a \hat{A})^\dagger = a^* \hat{A}^\dagger$&lt;/li&gt;
+&lt;li&gt;$(\hat{A} + \hat{B})^\dagger = \hat{A}^\dagger + \hat{B}^\dagger$&lt;/li&gt;
+&lt;li&gt;$(\hat{A}\hat{B})^\dagger = \hat{B}^\dagger \hat{A}^\dagger$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-representations-in-quantum-mechanics&#34;&gt;3. Representations in quantum mechanics&lt;/h2&gt;
+&lt;p&gt;Just like choosing convenient basis in Euclidean space leads to simpler notations, in quantum mechanics, if we choose convenient basis, it can simplify mathematical representations as well. We represent state space with an orthonormal basis. Orthonormal basis are mathematically defined as a set ${ |u_i\rangle }$ such that $\langle u_i | u_j \rangle = \delta_{ij}$, where $\delta_{ij} = 1$ if $i = j$, and $0$ otherwise (this is known as the &amp;ldquo;kronecker delta&amp;rdquo; function). Also, every ket in the state space, $|\psi \rangle \in \mathcal{V}$, can be respresented as a unique linear combination of the set ${ |u_i\rangle }$, i.e. $|\psi \rangle = \sum_i c_i |u_i \rangle$.&lt;/p&gt;
+&lt;p&gt;Since we&amp;rsquo;re working with orthonormal basis, it is quite easy to find a specific coefficient as follows:&lt;/p&gt;
+&lt;p&gt;$$\langle u_j | \psi \rangle = \langle u_j | \left( \sum_i c_i |u_i \rangle \right) = \sum_i c_i \langle u_j | u_i \rangle = \sum_i c_i \delta_{ij} = c_j.$$&lt;/p&gt;
+&lt;p&gt;In words, we can say that ${ c_i }$ are a representation of a ket $|\psi \rangle$ in the ${ |u_i\rangle }$ basis. An important concept of representation is &amp;ldquo;closure relation&amp;rdquo;:&lt;/p&gt;
+&lt;p&gt;$$\begin{aligned}
+|\psi \rangle &amp;amp;= \sum_i \langle u_i | \psi \rangle |u_i \rangle  = \left( \sum_i |u_i \rangle \langle u_i \right) | \psi \rangle \\&lt;br&gt;
+&amp;amp;= \sum_i c_i | u_i\rangle \quad \text{where}\quad c_i = \langle u_i | \psi \rangle.
+\end{aligned}$$&lt;/p&gt;
+&lt;p&gt;Recall from Chapter 2 that an operator can be written as an outer product. In that sense, from the above, we can see that $\sum_i |u_i \rangle \langle u_i |$ is an operator (notice that I emphasized this with parentheses) that, given a state $|\psi\rangle$, returns the same state $|\psi \rangle$. Thus, we can also write $\sum_i |u_i \rangle \langle u_i | = \mathbb{I}$, where $\mathbb{I}$ is an identity matrix. This result is sometimes also called the &amp;ldquo;resultion of the identity (in the&lt;br&gt;
+${|u_i\rangle }$ basis).&amp;rdquo; Similar result holds for a bra $\langle \psi | \in \mathcal{V}^*$ :&lt;/p&gt;
+&lt;p&gt;$$\begin{aligned}
+\langle \psi | = \langle \psi | \mathbb{I} = \langle \psi | \left(  \sum_i |u_i \rangle \langle u_i | \right) &amp;amp;= \sum_i \langle \psi | u_i \rangle \langle u_i |  \\&lt;br&gt;
+&amp;amp;= \sum_i c_i^* \langle u_i |  \quad \text{where} \quad c_i^* = \langle u_i | \psi \rangle^*  = \langle \psi | u_i \rangle.
+\end{aligned}$$&lt;/p&gt;
+&lt;p&gt;Now, let&amp;rsquo;s look at how we represent operators. Recall the definition of an operator $\hat{A} |\psi\rangle = |\psi&#39; \rangle$. Using the same ${ |u_i \rangle }$ basis as before, we can write down both kets as below:&lt;/p&gt;
+&lt;p&gt;$$\begin{aligned}
+|\psi\rangle &amp;amp;= \sum_i c_i | u_i \rangle \quad\text{for}\quad c_i = \langle u_i | \psi \rangle \\&lt;br&gt;
+|\psi&#39;\rangle &amp;amp;= \sum_i c_i&#39; | u_i \rangle \quad\text{for}\quad c_i&#39; = \langle u_i | \psi&#39; \rangle.
+\end{aligned}$$&lt;/p&gt;
+&lt;p&gt;Notice that we can write $c_i&#39;$ in an alternative way as follows:&lt;/p&gt;
+&lt;p&gt;$$\begin{aligned}
+c_i&#39; &amp;amp;= \langle u_i | \psi&#39; \rangle = \langle u_i | \hat{A} | \psi \rangle = \langle u_i | \hat{A}\mathbb{I} | \psi \rangle
+\quad\text{(recall closure relation)}
+\\ &amp;amp;= \langle u_i | \hat{A} \left( \sum_j |u_j \rangle \langle u_j | \right) |\psi\rangle = \sum_j \langle u_i |\hat{A} |u_j \rangle \langle u_j | \psi \rangle.
+\end{aligned}$$&lt;/p&gt;
+&lt;p&gt;Using this alternative form of $c_i&#39;$, we can write down the ket $|\psi&#39;\rangle$ in a different form:&lt;/p&gt;
+&lt;p&gt;$$\begin{aligned}
+|\psi&#39;\rangle &amp;amp;= \sum_i \left( \sum_j \langle u_i|\hat{A}|u_j \rangle \langle u_j|\psi\rangle \right) |u_i\rangle \\&lt;br&gt;
+&amp;amp;= \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) |\psi\rangle \\&lt;br&gt;
+&amp;amp;= \hat{A} |\psi\rangle
+\end{aligned}$$&lt;/p&gt;
+&lt;p&gt;Therefore, we see that we can write the operator $\hat{A}$ as&lt;/p&gt;
+&lt;p&gt;$$\hat{A} = \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) = \sum_{ij} A_{ij} |u_i\rangle \langle u_j|$$&lt;/p&gt;
+&lt;p&gt;where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle \in \mathbb{C}$. Therefore, we arrive at a scalar value $A_{ij}$ that represents the operator $\hat{A}$ in the ${ |u_i\rangle }$ basis, just like how $c_i = \langle u_i | \psi \rangle$ represents the ket $|\psi \rangle$ in the same basis.&lt;/p&gt;
+&lt;p&gt;With the above, we close this chapter, and thus part 1 of this blog post about basics of quantum mechanics. In the next part, we will study matrix formulation of quantum mechanics, how to change basis, and a particularly import basis called eigenbasis.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Fast quantum state tomography via accelerated non-convex programming</title>
       <link>https://jlylekim.github.io/post/acc-qst/</link>
       <pubDate>Thu, 25 Feb 2021 00:00:00 +0000</pubDate>
