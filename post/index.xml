@@ -5,12 +5,524 @@
     <link>https://jlylekim.github.io/post/</link>
       <atom:link href="https://jlylekim.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2021 Junhyung Lyle Kim</copyright><lastBuildDate>Sat, 13 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2021 Junhyung Lyle Kim</copyright><lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
       <title>Posts</title>
       <link>https://jlylekim.github.io/post/</link>
     </image>
+    
+    <item>
+      <title>Fast quantum state tomography via accelerated non-convex programming</title>
+      <link>https://jlylekim.github.io/post/acc-qst/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/post/acc-qst/</guid>
+      <description>&lt;p&gt;WORK IN PROGRESS.&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;!---
+![](qst_target_state-ghz.png)
+--&gt;
+&lt;p&gt;Quantum state tomography (QST) is one of the main procedures to identify the nature of imperfections in hardware implementation. High-level procedure is to measure the quantum system, estimate the density matrix using the measured data, and analyze the &amp;ldquo;fit&amp;rdquo; between the estimated density matrix and the true density matrix.&lt;/p&gt;
+&lt;p&gt;QST is generally not scalable due to two bottlenecks: $i)$ large data has to be collected to perform tomography; and $ii)$ the space of density matrices grows exponentially, from which the one that is consistent with the data has to be found.&lt;/p&gt;
+&lt;p&gt;To address the first bottleneck, prior information is often assumed and leveraged to reduce the number of data required. For example, in compressed sensing QST,  it assumes that the density matrix is of low-rank. Similarly, in neural network QST, the wavefunctions are assumed to be real and positive.&lt;/p&gt;
+&lt;p&gt;To give a concrete example, below is &amp;ldquo;Greenberger–Horne–Zeilinger&amp;rdquo; state, or GHZ state for short. As can be seen, only four corners of the real part has non-zero entries. Therefore, this state is both of low-rank and sparse.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-greenbergerhornezeilinger-ghz-state&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/qst_target_state-ghz_hu5cebf586677247af595308610eedda41_310860_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Greenberger–Horne–Zeilinger (GHZ) state&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/qst_target_state-ghz_hu5cebf586677247af595308610eedda41_310860_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;50%&#34; height=&#34;1200&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Greenberger–Horne–Zeilinger (GHZ) state
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;!-- 
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-hadamard-state&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/qst_target_state-hadamard_hu8cb2f83c54a06c2154b5b4ba8899e717_340631_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Hadamard state&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/qst_target_state-hadamard_hu8cb2f83c54a06c2154b5b4ba8899e717_340631_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;30%&#34; height=&#34;1200&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Hadamard state
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+--&gt;
+&lt;!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-random-state&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;qst_target_state-random.png&#34; data-caption=&#34;Random state&#34;&gt;
+
+
+  &lt;img src=&#34;qst_target_state-random.png&#34; alt=&#34;&#34; width=&#34;30%&#34; &gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Random state
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+--&gt;
+&lt;p&gt;With regards to the second bottleneck, variants of gradient descent convex solvers were proposed under synthetic scenarios. However, due to the exponentially increasing space of density matrices, these methods often can be only applied to relatively small system, on top of relying on special-purpose hardware.&lt;/p&gt;
+&lt;p&gt;On the other hand, non-convex optimization methods can perform much faster than convex methods. It was recently shown that one can formulate compressed sensing QST as a non-convex problem, and solve it with rigorous convergence guarantees, and allowing density matrix estimation in large system. A relevant result can be seen in the &lt;em&gt;Results&lt;/em&gt; section below, where we compare our proposed non-convex method with convex methods from $\texttt{Qiskit}$.&lt;/p&gt;
+&lt;p&gt;In this blogpost, we consider the setup where $n$-qubit state is close to a pure state, thus its density matrix is of low-rank. We introduce an accelerated non-convex algorithm with provable gaurantee, which we call $\texttt{MiFGD}$, short for &amp;ldquo;Momentum inspired Factored Gradient Descent&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;problem-setup&#34;&gt;Problem setup&lt;/h2&gt;
+&lt;p&gt;We consider the reconstruction of a low-rank density matrix $\rho^\star \in \mathbb{C}^{d \times d}$ on a $n$-qubit Hilbert space, where $d=2^n$, through the following $\ell_2$-norm reconstruction objective:&lt;/p&gt;
+&lt;p&gt;\begin{align}
+\label{eq:objective} \tag{1}
+\min_{\rho \in \mathbb{C}^{d \times d}}
+\quad &amp;amp; f(\rho) := \tfrac{1}{2} |\mathcal{A}(\rho) - y|_2^2 \\&lt;br&gt;
+\text{subject to}
+\quad&amp;amp; \rho \succeq 0, ~\texttt{rank}(\rho) \leq r.
+\end{align}&lt;/p&gt;
+&lt;p&gt;Here, $y \in \mathbb{R}^m$ is the measured data through quantum computer or simulation, and $\mathcal{A}(\cdot): \mathbb{C}^{d \times d} \rightarrow \mathbb{R}^m$ is the linear sensing map. The sensing map relates the density matrix $\rho$ to the measurements through the Born rule: $\left( \mathcal{A}(\rho) \right)_i = \text{Tr}(A_i \rho),$ where $A_i \in \mathbb{C}^{d \times d},~i=1, \dots, m$ are the sensing matrices. Type of sensing matrices used in quantum state tomography will be discussed later. From the objective function above, we see two constraints: $i)$ the density matrix $\rho$ is a positive-semidefinite matrix, and $ii)$ the rank of the density matrix is less than $r$.&lt;/p&gt;
+&lt;p&gt;In particular, we focus on &lt;em&gt;compressed sensing quantum state tomography&lt;/em&gt; setting mentioned earlier, where the number of measured data, $m$, is much smaller than the problem dimension, $d$. Compressed sensing is a powerful optimization framework developed mainly by &lt;a href=&#34;https://statweb.stanford.edu/~candes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Emmanuel Candès&lt;/a&gt;, &lt;a href=&#34;https://jrom.ece.gatech.edu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Justin Romberg&lt;/a&gt;, &lt;a href=&#34;https://www.math.ucla.edu/~tao/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Terence Tao&lt;/a&gt; and &lt;a href=&#34;https://web.stanford.edu/dept/statistics/cgi-bin/donoho/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;David Donoho&lt;/a&gt;, and requires the following pivotal assumption on the sensing matrix $\mathcal{A}(\cdot)$, namely the &lt;strong&gt;Restricted Isometry Property (RIP)&lt;/strong&gt; (on $\texttt{rank}$-$r$ matrices):&lt;/p&gt;
+&lt;p&gt;\begin{align}
+\label{eq:rip} \tag{2}
+(1 - \delta_r) \cdot  || X ||_F^2 \leq || \mathcal{A}(X) ||_2^2 \leq (1 + \delta_r) \cdot ||X||_F^2.
+\end{align}&lt;/p&gt;
+&lt;p&gt;Intuitively, the above RIP assumption states that the sensing matrices $\mathcal{A}(\cdot)$ only &amp;ldquo;marginally&amp;rdquo; changes the norm of the matrix $X$.&lt;/p&gt;
+&lt;p&gt;Going back to the main optimization problem in Eq. \eqref{eq:objective}, we instead propose to solve a factorized version of it, following recent works \cite{FGD}:
+\begin{align}
+\label{eq:factored-obj} \tag{3}
+\min_{U \in \mathbb{C}^{d \times r}} \tfrac{1}{2} || \mathcal{A} (UU^\dagger) - y ||_2^2,
+\end{align}
+where $U^\dagger$ denotes the adjoint of $U$. The motivation is rather clear: in the original objective function in Eq. \eqref{eq:objective}, the density matrix $\rho$ is represented as a $d \times d$ Hermitian matrix, and due to the (non-convex) $\texttt{rank}(\cdot)$ constraint, a method to project onto the set of low-rank matrices is required. Instead, we work in the space of the factors $U \in \mathbb{C}^{d \times r}$, and by taking an outer-product, the $\texttt{rank}(\cdot)$ constraint and the PSD constraint $\rho \succeq 0$ are directly satisfied, leading to the non-convex formulation in Eq. \eqref{eq:factored-obj}. But how do we solve such problem?&lt;/p&gt;
+&lt;p&gt;A common approach is to use gradient descent on $U$, which iterates as follows:
+\begin{align}
+\label{eq:fgd} \tag{4}
+U_{i+1} &amp;amp;= U_{i} - \eta \nabla f(U_i U_i^\dagger) \cdot U_i \\&lt;br&gt;
+&amp;amp;= U_{i} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(U_i U_i^\dagger) - y\right) \cdot U_i.
+\end{align}
+Here, $\mathcal{A}^\dagger: \mathbb{R}^m \rightarrow \mathbb{C}^{d \times d}$ is the adjoint of $\mathcal{A}$, defined as $\mathcal{A}^\dagger = \sum_{i=1}^m x_i A_i.$ $\eta$ is a hyperparameter called step size or learning rate. This method in Eq. \eqref{eq:fgd} was utilized to solve the non-convex objective function in Eq. \eqref{eq:factored-obj}, (surprisingly) with provably gaurantees \cite{FGD}.&lt;/p&gt;
+&lt;h2 id=&#34;momentum-inspired-factored-gradient-descent&#34;&gt;Momentum-inspired Factored Gradient Descent&lt;/h2&gt;
+&lt;p&gt;Momentum is one of the most common way to achieve acceleration, and exists in various forms, including Polyaks momentum, Nesterov&amp;rsquo;s acceleration, classical momentum, etc. They end up behaving pretty similarly, and we will not get into the detail of different acceleration methods in this post.&lt;/p&gt;
+&lt;p&gt;A common feature accross acceleration methods is that, with proper hyper-parameter tuning, they can provide accelerated convergence rate, with virtually no additional computation. This is exactly the motivation of the $\texttt{MiFGD}$ algorithm we propose for solving the non-convex objective in Eq. \eqref{eq:factored-obj}:
+\begin{align}
+\label{eq:mifgd} \tag{5}
+U_{i+1} &amp;amp;= Z_{i} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(Z_i Z_i^\dagger) - y\right) \cdot Z_i, \\&lt;br&gt;
+Z_{i+1} &amp;amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
+\end{align}&lt;/p&gt;
+&lt;p&gt;Here, $Z_i$ is a rectangular matrix (with the same dimension as $U_i$) which accumulates the &amp;ldquo;momentum&amp;rdquo; of the iterates $U_i$. $\mu$ is the momentum parameter that balances the weight between the previous estimate $U_i$ and the current estimate $U_{i+1}.$&lt;/p&gt;
+&lt;p&gt;While the $\texttt{MiFGD}$ algorithm in Eq. \eqref{eq:mifgd} looks quite similar to $\texttt{FGD}$ in Eq. \eqref{eq:fgd}, it complicates the convergence theory significantly. This is because the two-step momentum procedure has to be considered as can be seen in Eq. \eqref{eq:mifgd}, on top of the fact that the objective function in Eq. \eqref{eq:factored-obj} is non-convex. We will not get into the details of the thoery here; interested readers are referred to our paper \cite{arxiv}. We finish this section with an informal theorem that illustrates the convergence behavior of $\texttt{MiFGD}$:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Theorem 1&lt;/strong&gt; ($\texttt{MiFGD}$ convergence rate (informal). Assume that $\mathcal{A}$ satisfies the RIP for some constant $0 &amp;lt; \delta_{2r} &amp;lt;1$. Let $y = \mathcal{A}(\rho^\star)$ denote the set of measurements, by measuring the quantum density matrix $\rho^\star$. Given a good initialization point $U_0$ and setting step size $\eta$ and momentum $\mu$ appropriately, $\texttt{MiFGD}$ converges with a linear rate to a region—with radius that depends on $O(\mu)$—around the global solution $\rho^\star$.&lt;/p&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;In this section, we review some of the results. First, we obtain real quantum data from IBM&amp;rsquo;s Quantum Processing Unit (QPU) by realizing two types of quantum states: $\texttt{GHZ minus}(n)$ and $\texttt{Hadamard}(n)$, for $n = 6, 8$, where $n$ is the number of qubits. In quantum computing, obtaining &amp;ldquo;measurements&amp;rdquo; itself is not a trivial process. We will not get into the details of how we obtain the measurements, but we highlight that, in the following plots, we only use $20$% of the measurement that are information-theoretically compelete, i.e. we sample $m = 0.2 \cdot d^2$ measurements, and only use those to reconstruct the quantum state. We compare the effect of different momentum parameters in the figure below, where the accuracy of the estimated density matrix $\widehat{\rho}$ is measured with the true density matrix $\rho^\star$ in terms of the squared Frobenius norm:&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-mifgd-performance-on-real-quantum-data-from-ibm-qpu-top-left-textttghzminus6-top-right-textttghzminus8-bottom-left-texttthadamard6-bottom-right-texttthadamard8&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/ibm-data_hu9ed558def99604cea272504d5b0afe6e_128657_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;MiFGD performance on real quantum data from IBM QPU. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/ibm-data_hu9ed558def99604cea272504d5b0afe6e_128657_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    MiFGD performance on real quantum data from IBM QPU. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Quantum data is inherently noisy. To highlight the level of noise existing in real quantum data, in the plot below, we also perform the same experiment using simulated quantum data using IBM&amp;rsquo;s QASM simulator in $\texttt{qiskit-aer}$.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-textttmifgd-performance-on-synthetic-data-using-ibms-quantum-simulator-top-left-textttghzminus6-top-right-textttghzminus8-bottom-left-texttthadamard6-bottom-right-texttthadamard8&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/simulator-data_hu1586622ad382eaa8ab67ffb7b3e9beca_132295_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;$\texttt{MiFGD}$ performance on synthetic data using IBM&amp;amp;rsquo;s quantum simulator. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/simulator-data_hu1586622ad382eaa8ab67ffb7b3e9beca_132295_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    $\texttt{MiFGD}$ performance on synthetic data using IBM&amp;rsquo;s quantum simulator. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;We see a similar trend with the result using real quantum data from IBM&amp;rsquo;s QPU. However, we see that the overall accuracy of the reconstucted and the target states, $|| \hat{\rho} - \rho^\star||_F^2$, is in general lower for the real quantum data&amp;ndash;they do not reach the accuracy level of $10^{-1}$, which is acchieved for all cases using QASM quantum simulator. This trend is summarized in the figure below:&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-final-fidelity-of-textttmifgd-comparison-using-real-quantum-data-from-ibms-qpu-and-simulated-quantum-data-using-qasm&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/qpu-vs-qasm_hu5758ce60bc0bf36c5fbb63063c04e7bf_40419_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Final fidelity of $\texttt{MiFGD}$ comparison using real quantum data from IBM&amp;amp;rsquo;s QPU and simulated quantum data using QASM&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/qpu-vs-qasm_hu5758ce60bc0bf36c5fbb63063c04e7bf_40419_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;225&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Final fidelity of $\texttt{MiFGD}$ comparison using real quantum data from IBM&amp;rsquo;s QPU and simulated quantum data using QASM
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;performance-comparison-with-qst-methods-in-textttqiskit&#34;&gt;Performance comparison with QST methods in $\texttt{Qiskit}$&lt;/h4&gt;
+&lt;p&gt;Next, we compare the performance of $\texttt{MiFGD}$ with QST methods provided by &lt;a href=&#34;https://qiskit.org/documentation/stubs/qiskit.ignis.verification.TomographyFitter.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;$\texttt{Qiskit}$&lt;/a&gt;, again using QASM simulator. $\texttt{Qiskit}$ provides two QST methods: $(i)$ the $\texttt{CVXPY}$ method which relies on convex optimiztion, and $(ii)$ the $\texttt{lstsq}$ which ruses least-squares fitting. Both methods solve the following full tomography problem (not compressed sensing QST problem):&lt;/p&gt;
+&lt;p&gt;\begin{align}
+&amp;amp; \min_{\rho \in \mathbb{C}^{d \times d}}
+&amp;amp; &amp;amp; f(\rho) := \tfrac{1}{2} |\mathcal{A}(\rho) - y|_2^2 \\&lt;br&gt;
+&amp;amp; \text{subject to}
+&amp;amp; &amp;amp; \rho \succeq 0, ~\texttt{Tr}(\rho) = 1.
+\end{align}&lt;/p&gt;
+&lt;p&gt;We consider the following cases: $\texttt{GHZ}(n), \texttt{Hadamard}(n),$ and $\texttt{Random}(n)$ for $n = 3, \dots, 8$.
+The results are shown in the figure below. Some notable remarks: $i)$ For small-scale scenarios ($n=3, 4$), $\texttt{CVXPY}$ and $\texttt{lstsq}$ attain almost perfect fidelity, while being comparable or faster than $\texttt{MiFGD}$. $ii)$ The difference in performance becomes apparent from $n = 6$ and on: while $\texttt{MiFGD}$ attains 98% fidelity in $&amp;lt;5 $ seconds, $\texttt{CVXPY}$ and $\texttt{lstsq}$ require up to hundreds of seconds to find a good solution. Finally, while $\texttt{MiFGD}$ gets to high-fidelity solutions in seconds for $n = 7, 8$, $\texttt{CVXPY}$ and $\texttt{lstsq}$ methods require more than 12 hours execution time; however, their execution never ended, since the memory usage exceeded the system&amp;rsquo;s available memory.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-performance-comparison-with-textttqiskit-methods&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qiskit}$ methods&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;354&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Performance comparison with $\texttt{Qiskit}$ methods
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;performance-comparison-with-neural-network-qst-using-textttqucumber&#34;&gt;Performance comparison with neural-network QST using $\texttt{Qucumber}$&lt;/h4&gt;
+&lt;p&gt;We also compare with neural-network based QST methods, proivded by &lt;a href=&#34;https://qucumber.readthedocs.io/en/stable/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;$\texttt{Qucumber}$&lt;/a&gt;. We consider the same quantum states as with $\texttt{Qiskit}$ experiments, but here we consider the case where only 50% of the measurements are available.&lt;/p&gt;
+&lt;p&gt;We report the fidelity of the reconstruction as a function of elapsed training time for $n = 3, 4$ in the figure below for all methods provided by $\texttt{Qucumber}$: $\texttt{PRWF}, \texttt{CWF}$, and $\texttt{DM}$. Note that Time (secs) on $x$-axis is plotted with log-scale.
+We observe that for all cases, Qucumber methods are orders of magnitude slower than $\texttt{MiFGD}$.
+For the $\texttt{Hadamard}(n)$ and $\texttt{Random}(n)$, reaching reasonable fidelities is significantly slower for both $\texttt{CWF}$ and $\texttt{DM}$, while $\texttt{PRWF}$ hardly improves its performance throughout the training.
+For the $\texttt{GHZ}$ case, $\texttt{CWF}$ and $\texttt{DM}$ also shows &lt;em&gt;non-monotonic&lt;/em&gt; behaviors: even after a few thousands of seconds, fidelities have not ``stabilized&#39;&#39;, while $\texttt{PRWF}$ stabilizes in very low fidelities.
+In comparison $\texttt{MiFGD}$ is several orders of magnitude faster than both $\texttt{CWF}$ and $\texttt{DM}$ and fidelity smoothly increases to comparable or higher values.
+What is notable is the scalability of $\texttt{MiFGD}$ compared to neural network approaches for higher values of $n$.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-performance-comparison-with-textttqucumber-methods&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qucumber}$ methods&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;408&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Performance comparison with $\texttt{Qucumber}$ methods
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;In the table below, we report the final fidelities (within the 3 hour time window), and reported times. We see that for many cases, $\texttt{CWF}$ and $\texttt{DM}$ methods did not complete a single iterations within 3 hours.&lt;/p&gt;
+&lt;!-- For a stark contrast,  $\texttt{MiFGD}$ for $n=8$ took less than 25 seconds, while $\texttt{PRWF}$, which is the fastest neural-network method provided by $\texttt{Qucumber}$, took more than 40 seconds for $n=3$. --&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-comparison-with-qucumber-methods&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/nn-comparison_hua17c2be52f23f3de862b40367885380f_171885_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Comparison with Qucumber methods&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/nn-comparison_hua17c2be52f23f3de862b40367885380f_171885_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;740&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Comparison with Qucumber methods
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;the-effect-of-parallelization-in-textttmifgd&#34;&gt;The effect of parallelization in $\texttt{MiFGD}$&lt;/h4&gt;
+&lt;p&gt;We also study the effect of paralleization in running $\texttt{MiFGD}$. We parallelize the iteration step across a number
+of processes, that can be either distributed and network connected, or sharing memory in a multicore environment.
+Our approach is based on Message Passing Interface (MPI) specification. We assign to each process a subset of the measurement labels consumed by the parallel computation. At each step, a process first computes the local gradient using a subset of measurements. These local gradients are then communicated so that they can be added up to form the full gradient, and the full gradient is shared with each worker.&lt;/p&gt;
+&lt;p&gt;In our first round of experiments, we investigate the scalability of the parallelization approach. We vary the number $p$ of parallel processes ($p=1, 2, 4, 8, 16, 32, 48, 64, 80, 96$), collect timings for reconstructing $\texttt{GHZ}(4)$, $\texttt{Random}(6)$ and $\texttt{GHZminums}(8)$ states and report speedups $T_p/T_1$ we gain from $\texttt{MiFGD}$ in the figure bloew (left panel). We observe that the benefits of parallelization are pronounced for bigger problems (here: $n=8$ qubits) and maximum scalability results when we use all physical cores ($48$ in our platform).&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-effect-of-parallelization-of-textttmifgd-left-scalability-of-parallelization-of-textttmifgd-for-different-number-of-processors-middle-fidelity-versus-time-consued-for-different-number-of-processors-on-texttthadamard10-state-right-the-effect-of-momentum-on-texttthadamard10-state-with-48-processors&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/parallel_hub9237cb47336b5cec8dd803d37ed29cf_49045_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Effect of parallelization of $\texttt{MiFGD}$. Left: scalability of parallelization of $\texttt{MiFGD}$ for different number of processors. Middle: fidelity versus time consued for different number of processors on $\texttt{Hadamard}(10)$ state. Right: The effect of momentum on $\texttt{Hadamard}(10)$ state with 48 processors.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/parallel_hub9237cb47336b5cec8dd803d37ed29cf_49045_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;210&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Effect of parallelization of $\texttt{MiFGD}$. Left: scalability of parallelization of $\texttt{MiFGD}$ for different number of processors. Middle: fidelity versus time consued for different number of processors on $\texttt{Hadamard}(10)$ state. Right: The effect of momentum on $\texttt{Hadamard}(10)$ state with 48 processors.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Further, we move to larger problems ($n=10$ qubits: reporting on reconstructing $\texttt{Hadamard}(10)$ state) and focus on the effect parallelization to achieving a given level of fidelity in reconstruction. In the middle panel of the figure above, we illustrate the fidelity as a function of the time spent in the iteration loop of $\texttt{MiFGD}$ for ($p=8, 16, 32, 48, 64$): we observe the smooth path to convergence in all $p$ counts which again minimizes compute time for $p=48$. Note that in this case we use $10$% of the complete measurements, and the momenutum parameter $\mu=\frac{1}{4}$.&lt;/p&gt;
+&lt;p&gt;Finally, in the right panel of the figure above, we fix the number of processes to $p=48$, in order to minimize compute time and increase the percentage of used measurements to $20$% of the complete measurements available for $\texttt{Hadamard}(10)$. We vary the momentum parameter from $\mu=0$ (no acceleration) to $\mu=\frac{1}{4}$, and confirm that we indeed get faster convergence times in the latter case while the fidelity value remains the same (i.e. coinciding upper plateau value in the plots). We can also compare with the previous fidelity versus time plot, where the same $\mu$ but half the measurements are consumed: more measurements translate to faster convergence times (plateau is reached roughly $25$% faster; compare the green line with the yellow line in the previous plot).&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;We have introduced the $\texttt{MiFGD}$ algorithm for the factorized form of the low-rank QST problems.
+We proved that, under certain assumptions on the problem parameters, $\texttt{MiFGD}$ converges linearly to a neighborhood of the optimal solution, whose size depends on the momentum parameter $\mu$, while using acceleration motions in a non-convex setting.
+We demonstrate empirically, using both simulated and real data, that $\texttt{MiFGD}$ outperforms non-accelerated methods on both the original problem domain and the factorized space, contributing to recent efforts on testing QST algorithms in real quantum data.
+These results expand on existing work in the literature illustrating the promise of factorized methods for certain low-rank matrix problems.
+Finally, we provide a publicly available implementation of our approach, compatible to the open-source software $\texttt{Qiskit}$, where we further exploit parallel computations in $\texttt{MiFGD}$ by extending its implementation to enable efficient, parallel execution over shared and distributed memory systems.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Basics of quantum mechanics (part 1)</title>
@@ -155,415 +667,6 @@ c_i&#39; &amp;amp;= \langle u_i | \psi&#39; \rangle = \langle u_i | \hat{A} | \p
 &lt;p&gt;$$\hat{A} = \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) = \sum_{ij} A_{ij} |u_i\rangle \langle u_j|,$$&lt;/p&gt;
 &lt;p&gt;where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle \in \mathbb{C}$. Therefore, we arrive at a scalar value $A_{ij}$ that represents the operator $\hat{A}$ in the $\{ |u_i\rangle \}$ basis, just like how $c_i = \langle u_i | \psi \rangle$ represents the ket $|\psi \rangle$ in the same basis.&lt;/p&gt;
 &lt;p&gt;With the above, we close this chapter, and thus part 1 of this blog post about basics of quantum mechanics. In the next part, we will study matrix formulation of quantum mechanics, how to change basis, and a particularly import basis called eigenbasis.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Fast quantum state tomography via accelerated non-convex programming</title>
-      <link>https://jlylekim.github.io/post/acc-qst/</link>
-      <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>https://jlylekim.github.io/post/acc-qst/</guid>
-      <description>&lt;p&gt;WORK IN PROGRESS.&lt;/p&gt;
-&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;!---
-![](qst_target_state-ghz.png)
---&gt;
-&lt;p&gt;Quantum state tomography (QST) is one of the main procedures to identify the nature of imperfections in hardware implementation. High-level procedure is to measure the quantum system, estimate the density matrix using the measured data, and analyze the &amp;ldquo;fit&amp;rdquo; between the estimated density matrix and the true density matrix.&lt;/p&gt;
-&lt;p&gt;QST is generally not scalable due to two bottlenecks: $i)$ large data has to be collected to perform tomography; and $ii)$ the space of density matrices grows exponentially, from which the one that is consistent with the data has to be found.&lt;/p&gt;
-&lt;p&gt;To address the first bottleneck, prior information is often assumed and leveraged to reduce the number of data required. For example, in compressed sensing QST,  it assumes that the density matrix is of low-rank. Similarly, in neural network QST, the wavefunctions are assumed to be real and positive.&lt;/p&gt;
-&lt;p&gt;To give a concrete example, below is &amp;ldquo;Greenberger–Horne–Zeilinger&amp;rdquo; state, or GHZ state for short. As can be seen, only four corners of the real part has non-zero entries. Therefore, this state is both of low-rank and sparse.&lt;/p&gt;
-
-
-
-
-
-
-  
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-greenbergerhornezeilinger-ghz-state&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/qst_target_state-ghz_hu5cebf586677247af595308610eedda41_310860_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Greenberger–Horne–Zeilinger (GHZ) state&#34;&gt;
-
-
-  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/qst_target_state-ghz_hu5cebf586677247af595308610eedda41_310860_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;50%&#34; height=&#34;1200&#34;&gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption&gt;
-    Greenberger–Horne–Zeilinger (GHZ) state
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
-&lt;!-- 
-
-
-
-
-
-  
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-hadamard-state&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/qst_target_state-hadamard_hu8cb2f83c54a06c2154b5b4ba8899e717_340631_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Hadamard state&#34;&gt;
-
-
-  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/qst_target_state-hadamard_hu8cb2f83c54a06c2154b5b4ba8899e717_340631_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;30%&#34; height=&#34;1200&#34;&gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption&gt;
-    Hadamard state
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
---&gt;
-&lt;!--
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-random-state&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;qst_target_state-random.png&#34; data-caption=&#34;Random state&#34;&gt;
-
-
-  &lt;img src=&#34;qst_target_state-random.png&#34; alt=&#34;&#34; width=&#34;30%&#34; &gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption&gt;
-    Random state
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
---&gt;
-&lt;p&gt;With regards to the second bottleneck, variants of gradient descent convex solvers were proposed under synthetic scenarios. However, due to the exponentially increasing space of density matrices, these methods often can be only applied to relatively small system, on top of relying on special-purpose hardware.&lt;/p&gt;
-&lt;p&gt;On the other hand, non-convex optimization methods can perform much faster than convex methods. It was recently shown that one can formulate compressed sensing QST as a non-convex problem, and solve it with rigorous convergence guarantees, and allowing density matrix estimation in large system. A relevant result can be seen in the &lt;em&gt;Results&lt;/em&gt; section below, where we compare our proposed non-convex method with convex methods from $\texttt{Qiskit}$.&lt;/p&gt;
-&lt;p&gt;In this blogpost, we consider the setup where $n$-qubit state is close to a pure state, thus its density matrix is of low-rank. We introduce an accelerated non-convex algorithm with provable gaurantee, which we call $\texttt{MiFGD}$, short for &amp;ldquo;Momentum inspired Factored Gradient Descent&amp;rdquo;.&lt;/p&gt;
-&lt;h2 id=&#34;problem-setup&#34;&gt;Problem setup&lt;/h2&gt;
-&lt;p&gt;We consider the reconstruction of a low-rank density matrix $\rho^\star \in \mathbb{C}^{d \times d}$ on a $n$-qubit Hilbert space, where $d=2^n$, through the following $\ell_2$-norm reconstruction objective:&lt;/p&gt;
-&lt;p&gt;\begin{align}
-\min_{\rho \in \mathbb{C}^{d \times d}}
-\quad &amp;amp; f(\rho) := \tfrac{1}{2} |\mathcal{A}(\rho) - y|_2^2 \\&lt;br&gt;
-\text{subject to}
-\quad&amp;amp; \rho \succeq 0, ~\texttt{rank}(\rho) \leq r.
-\end{align}&lt;/p&gt;
-&lt;p&gt;Here, $y \in \mathbb{R}^m$ is the measured data through quantum computer or simulation, and $\mathcal{A}(\cdot): \mathbb{C}^{d \times d} \rightarrow \mathbb{R}^m$ is the linear sensing map. The sensing map relates the density matrix $\rho$ to the measurements through the Born rule: $\left( \mathcal{A}(\rho) \right)_i = \text{Tr}(A_i \rho),$ where $A_i \in \mathbb{C}^{d \times d},~i=1, \dots, m$ are the sensing matrices. Type of sensing matrices used in quantum state tomography will be discussed later. From the objective function above, we see two constraints: $i)$ the density matrix $\rho$ is a positive-semidefinite matrix, and $ii)$ the rank of the density matrix is less than $r$.&lt;/p&gt;
-&lt;p&gt;In particular, we focus on &lt;em&gt;compressed sensing quantum state tomography&lt;/em&gt; setting mentioned earlier, where the number of measured data, $m$, is much smaller than the problem dimension, $d$. Compressed sensing is a powerful optimization framework developed mainly by &lt;a href=&#34;https://statweb.stanford.edu/~candes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Emmanuel Candès&lt;/a&gt;, &lt;a href=&#34;https://jrom.ece.gatech.edu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Justin Romberg&lt;/a&gt;, &lt;a href=&#34;https://www.math.ucla.edu/~tao/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Terence Tao&lt;/a&gt; and &lt;a href=&#34;https://web.stanford.edu/dept/statistics/cgi-bin/donoho/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;David Donoho&lt;/a&gt;, and requires the following pivotal assumption on the sensing matrix $\mathcal{A}(\cdot)$, namely the &lt;strong&gt;Restricted Isometry Property (RIP)&lt;/strong&gt; (on $\texttt{rank}$-$r$ matrices):&lt;/p&gt;
-&lt;p&gt;\begin{align}
-(1 - \delta_r) \cdot  || X ||_F^2 \leq || \mathcal{A}(X) ||_2^2 \leq (1 + \delta_r) \cdot ||X||_F^2.
-\end{align}&lt;/p&gt;
-&lt;p&gt;Intuitively, the above RIP assumption states that the sensing matrices $\mathcal{A}(\cdot)$ only &amp;ldquo;marginally&amp;rdquo; changes the norm of the matrix $X$.&lt;/p&gt;
-&lt;p&gt;Going back to the main optimization problem, we instead propose to solve a factorized version of it, following recent works \cite{FGD}:
-\begin{align}
-\min_{U \in \mathbb{C}^{d \times r}} \tfrac{1}{2} || \mathcal{A} (UU^\dagger) - y ||_2^2,
-\end{align}
-where $U^\dagger$ denotes the adjoint of $U$. The motivation is rather clear: in the original problem formulation, the density matrix $\rho$ is represented as a $d \times d$ Hermitian matrix, and due to the (non-convex) $\texttt{rank}(\cdot)$ constraint, a method to project onto the set of low-rank matrices is required. Instead, we work in the space of the factors $U \in \mathbb{C}^{d \times r}$, and by taking an outer-product, the $\texttt{rank}(\cdot)$ constraint and the PSD constraint $\rho \succeq 0$ are directly satisfied, leading to the non-convex formulation above. But how do we solve such problem?&lt;/p&gt;
-&lt;p&gt;A common approach is to use gradient descent on $U$, which iterates as follows:
-\begin{align}
-U_{i+1} &amp;amp;= U_{i} - \eta \nabla f(U_i U_i^\dagger) \cdot U_i \\&lt;br&gt;
-&amp;amp;= U_{i} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(U_i U_i^\dagger) - y\right) \cdot U_i.
-\end{align}
-Here, $\mathcal{A}^\dagger: \mathbb{R}^m \rightarrow \mathbb{C}^{d \times d}$ is the adjoint of $\mathcal{A}$, defined as $\mathcal{A}^\dagger = \sum_{i=1}^m x_i A_i.$ $\eta$ is a hyperparameter called step size or learning rate. This method was utilized to solve the non-convex objective function above, (surprisingly) with provably gaurantees \cite{FGD}.&lt;/p&gt;
-&lt;h2 id=&#34;momentum-inspired-factored-gradient-descent&#34;&gt;Momentum-inspired Factored Gradient Descent&lt;/h2&gt;
-&lt;p&gt;Momentum is one of the most common way to achieve acceleration, and exists in various forms, including Polyaks momentum, Nesterov&amp;rsquo;s acceleration, classical momentum, etc. They end up behaving pretty similarly, and we will not get into the detail of different acceleration methods in this post.&lt;/p&gt;
-&lt;p&gt;A common feature accross acceleration methods is that, with proper hyper-parameter tuning, they can provide accelerated convergence rate, with virtually no additional computation. This is exactly the motivation of the following method we proposed for QST:
-\begin{align}
-U_{i+1} &amp;amp;= Z_{i} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(Z_i Z_i^\dagger) - y\right) \cdot Z_i, \\&lt;br&gt;
-Z_{i+1} &amp;amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
-\end{align}&lt;/p&gt;
-&lt;p&gt;Here, $Z_i$ is a rectangular matrix (with the same dimension as $U_i$) which accumulates the ``momentum&#39;&#39; of the iterates $U_i$. $\mu$ is the momentum parameter that balances the weight between the previous estimate $U_i$ and the current estimate $U_{i+1}.$&lt;/p&gt;
-&lt;p&gt;While momentum provides accelerated convergence with no additional computational overhead, it complicates the convergence theory significantly. We will not get into the details of the thoery here; interested readers are referred to our paper \cite{arxiv}.&lt;/p&gt;
-&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
-&lt;p&gt;In this section, we review some of the results. First, we obtain real quantum data from IBM by realizing two types of quantum states (GHZ minus and Hadamard, for both 6-qubits and 8 qubits) on IBM&amp;rsquo;s Quantum Processing Unit (QPU). In quantum computing, obtaining ``measurements&#39;&#39; is not a trivial process. We will not get into the details of how we actually obtain the measurements, but we highlight that we use 20% of the measurement that are information-theoretically compelete, i.e. we sample $m = 0.2 \cdot d^2$ measurements, and only use those to reconstruct the quantum state.&lt;/p&gt;
-
-
-
-
-
-
-  
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-mifgd-performance-on-real-quantum-data-from-ibm-top-left-ghzminus-6-top-right-ghzminus-8-bottom-left-hadamard-6-bottom-right-hadamard-8&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/ibm-data_hu9ed558def99604cea272504d5b0afe6e_128657_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;MiFGD performance on real quantum data from IBM. Top-left: GHZminus (6), Top-right: GHZminus (8), Bottom-left: Hadamard (6), Bottom-right: Hadamard (8)&#34;&gt;
-
-
-  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/ibm-data_hu9ed558def99604cea272504d5b0afe6e_128657_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption&gt;
-    MiFGD performance on real quantum data from IBM. Top-left: GHZminus (6), Top-right: GHZminus (8), Bottom-left: Hadamard (6), Bottom-right: Hadamard (8)
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
-&lt;p&gt;To highlight the level of noise existing in real quantum data, in the below plot, we also perofrm the same experiment using simulated quantum data using QASM simulator in $\texttt{qiskit-aer}$.&lt;/p&gt;
-
-
-
-
-
-
-  
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-mifgd-performance-on-synthetic-data-using-ibms-quantum-simulator-top-left-ghzminus-6-top-right-ghzminus-8-bottom-left-hadamard-6-bottom-right-hadamard-8&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/simulator-data_hu1586622ad382eaa8ab67ffb7b3e9beca_132295_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;MiFGD performance on synthetic data using IBM&amp;amp;rsquo;s quantum simulator. Top-left: GHZminus (6), Top-right: GHZminus (8), Bottom-left: Hadamard (6), Bottom-right: Hadamard (8)&#34;&gt;
-
-
-  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/simulator-data_hu1586622ad382eaa8ab67ffb7b3e9beca_132295_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption&gt;
-    MiFGD performance on synthetic data using IBM&amp;rsquo;s quantum simulator. Top-left: GHZminus (6), Top-right: GHZminus (8), Bottom-left: Hadamard (6), Bottom-right: Hadamard (8)
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
-&lt;p&gt;In general, we see similar trend with the result using real quantum data from IBM&amp;rsquo;s QPU. However, we see that the overall Frobenius norm error of the reconstucted and the target states, $|| \hat{\rho} - \rho^\star||_F^2$, is in general higher for the real quantum data&amp;ndash;they do not reach the error level of $10^{-1}$, which is acchieved for all cases using QASM quantum simulator.&lt;/p&gt;
-&lt;h4 id=&#34;performance-comparison-with-qst-methods-in-textttqiskit&#34;&gt;Performance comparison with QST methods in $\texttt{Qiskit}$&lt;/h4&gt;
-&lt;p&gt;Next, we compair $\texttt{MiFGD}$ with quantum state tomography methods provided by $\texttt{Qiskit}$, using QASM simulator. $\texttt{Qiskit}$ provides two quantum state tomography methods: $(i)$ the $\texttt{CVXPY}$ method which relies on convex optimiztion, and $(ii)$ the $\texttt{lstsq}$ which ruses least-squares fitting. Both methods solve the following full tomography problem:&lt;/p&gt;
-&lt;p&gt;\begin{align}
-&amp;amp; \min_{\rho \in \mathbb{C}^{d \times d}}
-&amp;amp; &amp;amp; f(\rho) := \tfrac{1}{2} |\mathcal{A}(\rho) - y|_2^2 \\&lt;br&gt;
-&amp;amp; \text{subject to}
-&amp;amp; &amp;amp; \rho \succeq 0, ~\texttt{Tr}(\rho) = 1.
-\end{align}&lt;/p&gt;
-&lt;p&gt;We consider the following cases: $\texttt{GHZ}(n), \texttt{Hadamard}(n),$ and $\texttt{Random}(n)$ for $n = 3, \dots, 8$.
-The results are shown in the figure below. Some notable remarks: $i)$ For small-scale scenarios ($n=3, 4$), $\texttt{CVXPY}$ and $\texttt{lstsq}$ attain almost perfect fidelity, while being comparable or faster than $\texttt{MiFGD}$. $ii)$ The difference in performance becomes apparent from $n = 6$ and on: while $\texttt{MiFGD}$ attains 98% fidelity in $&amp;lt;5 $ seconds, $\texttt{CVXPY}$ and $\texttt{lstsq}$ require up to hundreds of seconds to find a good solution. Finally, while $\texttt{MiFGD}$ gets to high-fidelity solutions in seconds for $n = 7, 8$, $\texttt{CVXPY}$ and $\texttt{lstsq}$ methods require more than 12 hours execution time; however, their execution never ended, since the memory usage exceeded the system&amp;rsquo;s available memory.&lt;/p&gt;
-
-
-
-
-
-
-  
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-performance-comparison-with-textttqiskit-methods&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qiskit}$ methods&#34;&gt;
-
-
-  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;90%&#34; height=&#34;354&#34;&gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption&gt;
-    Performance comparison with $\texttt{Qiskit}$ methods
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
-&lt;h4 id=&#34;performance-comparison-with-neural-network-qst-using-textttqucumber&#34;&gt;Performance comparison with neural-network QST using $\texttt{Qucumber}$&lt;/h4&gt;
-&lt;p&gt;We also compare with neural-network based QST methods, proivded by $\texttt{Qucumber}$. We consider the same quantum states as with $\texttt{Qiskit}$ experiments, but here we consider the case where only 50% of the measurements are available.&lt;/p&gt;
-&lt;p&gt;We report the fidelity of the reconstruction as a function of elapsed training time for $n = 3, 4$ in the figure below for all methods provided by $\texttt{Qucumber}$: $\texttt{PRWF}, \texttt{CWF}$, and $\texttt{DM}$. Note that Time (secs) on $x$-axis is plotted with log-scale.
-We observe that for all cases, Qucumber methods are orders of magnitude slower than \texttt{MiFGD}.
-For the $\texttt{Hadamard}(n)$ and $\texttt{Random}(n)$, reaching reasonable fidelities is significantly slower for both $\texttt{CWF}$ and $\texttt{DM}$, while $\texttt{PRWF}$ hardly improves its performance throughout the training.
-For the $\texttt{GHZ}$ case, $\texttt{CWF}$ and $\texttt{DM}$ also shows &lt;em&gt;non-monotonic&lt;/em&gt; behaviors: even after a few thousands of seconds, fidelities have not ``stabilized&#39;&#39;, while \texttt{PRWF} stabilizes in very low fidelities.
-In comparison $\texttt{MiFGD}$ is several orders of magnitude faster than both $\texttt{CWF}$ and $\texttt{DM}$ and fidelity smoothly increases to comparable or higher values.
-What is notable is the scalability of $\texttt{MiFGD}$ compared to neural network approaches for higher values of $n$.&lt;/p&gt;
-
-
-
-
-
-
-  
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-performance-comparison-with-textttqucumber-methods&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qucumber}$ methods&#34;&gt;
-
-
-  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;90%&#34; height=&#34;408&#34;&gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption&gt;
-    Performance comparison with $\texttt{Qucumber}$ methods
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
-&lt;p&gt;In the table below, we report the final fidelities (within the 3 hour time window), and reported times. We see that for many cases, $\texttt{CWF}$ and $\texttt{DM}$ methods did not complete a single iterations within 3 hours.&lt;/p&gt;
-&lt;!-- For a stark contrast,  $\texttt{MiFGD}$ for $n=8$ took less than 25 seconds, while $\texttt{PRWF}$, which is the fastest neural-network method provided by $\texttt{Qucumber}$, took more than 40 seconds for $n=3$. --&gt;
-
-
-
-
-
-
-  
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure id=&#34;figure-comparison-with-qucumber-methods&#34;&gt;
-
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/nn-comparison_hua17c2be52f23f3de862b40367885380f_171885_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Comparison with Qucumber methods&#34;&gt;
-
-
-  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/nn-comparison_hua17c2be52f23f3de862b40367885380f_171885_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;740&#34;&gt;
-&lt;/a&gt;
-
-
-  
-  
-  &lt;figcaption&gt;
-    Comparison with Qucumber methods
-  &lt;/figcaption&gt;
-
-
-&lt;/figure&gt;
-
 </description>
     </item>
     
