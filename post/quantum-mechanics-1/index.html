@@ -807,21 +807,21 @@
 <li>$(\hat{A}\hat{B})^\dagger = \hat{B}^\dagger \hat{A}^\dagger$</li>
 </ul>
 <h2 id="3-representations-in-quantum-mechanics">3. Representations in quantum mechanics</h2>
-<p>Just like choosing convenient basis in Euclidean space leads to simpler notations, in quantum mechanics, if we choose convenient basis, it can simplify mathematical representations as well. We represent state space with an orthonormal basis. Orthonormal basis are mathematically defined as a set ${ |u_i\rangle }$ such that $\langle u_i | u_j \rangle = \delta_{ij}$, where $\delta_{ij} = 1$ if $i = j$, and $0$ otherwise (this is known as the &ldquo;kronecker delta&rdquo; function). Also, every ket in the state space, $|\psi \rangle \in \mathcal{V}$, can be respresented as a unique linear combination of the set ${ |u_i\rangle }$, i.e. $|\psi \rangle = \sum_i c_i |u_i \rangle$.</p>
+<p>Just like choosing convenient basis in Euclidean space leads to simpler notations, in quantum mechanics, if we choose convenient basis, it can simplify mathematical representations as well. We represent state space with an orthonormal basis. Orthonormal basis are mathematically defined as a set $\{ |u_i\rangle \}$ such that $\langle u_i | u_j \rangle = \delta_{ij}$, where $\delta_{ij} = 1$ if $i = j$, and $0$ otherwise (this is known as the &ldquo;kronecker delta&rdquo; function). Also, every ket in the state space, $|\psi \rangle \in \mathcal{V}$, can be respresented as a unique linear combination of the set $\{ |u_i\rangle \}$, i.e. $|\psi \rangle = \sum_i c_i |u_i \rangle$.</p>
 <p>Since we&rsquo;re working with orthonormal basis, it is quite easy to find a specific coefficient as follows:</p>
 <p>$$\langle u_j | \psi \rangle = \langle u_j | \left( \sum_i c_i |u_i \rangle \right) = \sum_i c_i \langle u_j | u_i \rangle = \sum_i c_i \delta_{ij} = c_j.$$</p>
-<p>In words, we can say that ${ c_i }$ are a representation of a ket $|\psi \rangle$ in the ${ |u_i\rangle }$ basis. An important concept of representation is &ldquo;closure relation&rdquo;:</p>
+<p>In words, we can say that $\{ c_i \}$ are a representation of a ket $|\psi \rangle$ in the $\{ |u_i\rangle \}$ basis. An important concept of representation is &ldquo;closure relation&rdquo;:</p>
 <p>$$\begin{aligned}
 |\psi \rangle &amp;= \sum_i \langle u_i | \psi \rangle |u_i \rangle  = \left( \sum_i |u_i \rangle \langle u_i \right) | \psi \rangle \\<br>
 &amp;= \sum_i c_i | u_i\rangle \quad \text{where}\quad c_i = \langle u_i | \psi \rangle.
 \end{aligned}$$</p>
 <p>Recall from Chapter 2 that an operator can be written as an outer product. In that sense, from the above, we can see that $\sum_i |u_i \rangle \langle u_i |$ is an operator (notice that I emphasized this with parentheses) that, given a state $|\psi\rangle$, returns the same state $|\psi \rangle$. Thus, we can also write $\sum_i |u_i \rangle \langle u_i | = \mathbb{I}$, where $\mathbb{I}$ is an identity matrix. This result is sometimes also called the &ldquo;resultion of the identity (in the<br>
-${|u_i\rangle }$ basis).&rdquo; Similar result holds for a bra $\langle \psi | \in \mathcal{V}^*$ :</p>
+$\{|u_i\rangle \}$ basis).&rdquo; Similar result holds for a bra $\langle \psi | \in \mathcal{V}^*$ :</p>
 <p>$$\begin{aligned}
 \langle \psi | = \langle \psi | \mathbb{I} = \langle \psi | \left(  \sum_i |u_i \rangle \langle u_i | \right) &amp;= \sum_i \langle \psi | u_i \rangle \langle u_i |  \\<br>
 &amp;= \sum_i c_i^* \langle u_i |  \quad \text{where} \quad c_i^* = \langle u_i | \psi \rangle^*  = \langle \psi | u_i \rangle.
 \end{aligned}$$</p>
-<p>Now, let&rsquo;s look at how we represent operators. Recall the definition of an operator $\hat{A} |\psi\rangle = |\psi' \rangle$. Using the same ${ |u_i \rangle }$ basis as before, we can write down both kets as below:</p>
+<p>Now, let&rsquo;s look at how we represent operators. Recall the definition of an operator $\hat{A} |\psi\rangle = |\psi' \rangle$. Using the same $\{ |u_i \rangle \}$ basis as before, we can write down both kets as below:</p>
 <p>$$\begin{aligned}
 |\psi\rangle &amp;= \sum_i c_i | u_i \rangle \quad\text{for}\quad c_i = \langle u_i | \psi \rangle \\<br>
 |\psi'\rangle &amp;= \sum_i c_i' | u_i \rangle \quad\text{for}\quad c_i' = \langle u_i | \psi' \rangle.
@@ -840,7 +840,7 @@ c_i' &amp;= \langle u_i | \psi' \rangle = \langle u_i | \hat{A} | \psi \rangle =
 \end{aligned}$$</p>
 <p>Therefore, we see that we can write the operator $\hat{A}$ as</p>
 <p>$$\hat{A} = \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) = \sum_{ij} A_{ij} |u_i\rangle \langle u_j|,$$</p>
-<p>where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle \in \mathbb{C}$. Therefore, we arrive at a scalar value $A_{ij}$ that represents the operator $\hat{A}$ in the ${ |u_i\rangle }$ basis, just like how $c_i = \langle u_i | \psi \rangle$ represents the ket $|\psi \rangle$ in the same basis.</p>
+<p>where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle \in \mathbb{C}$. Therefore, we arrive at a scalar value $A_{ij}$ that represents the operator $\hat{A}$ in the $\{ |u_i\rangle \}$ basis, just like how $c_i = \langle u_i | \psi \rangle$ represents the ket $|\psi \rangle$ in the same basis.</p>
 <p>With the above, we close this chapter, and thus part 1 of this blog post about basics of quantum mechanics. In the next part, we will study matrix formulation of quantum mechanics, how to change basis, and a particularly import basis called eigenbasis.</p>
 
     </div>
