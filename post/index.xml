@@ -25,8 +25,8 @@
 &lt;p&gt;Quantum state tomography (QST) is one of the main procedures to identify the nature of imperfections in quantum processing unit (QPU) implementation. High-level procedure is to measure the quantum system, estimate the density matrix using the measured data, and analyze the &amp;ldquo;fit&amp;rdquo; between the estimated density matrix and the true density matrix.&lt;/p&gt;
 &lt;p&gt;QST is generally not scalable due to two bottlenecks: $i)$ large data has to be collected to perform tomography; and $ii)$ the space of density matrices grows exponentially, from which the one that is consistent with the data has to be found.&lt;/p&gt;
 &lt;p&gt;To address the first bottleneck, prior information is often assumed and leveraged to reduce the number of data required. For example, in compressed sensing QST,  it assumes that the density matrix is of low-rank. Similarly, in neural network QST, the wavefunctions are assumed to be real and positive.&lt;/p&gt;
-&lt;p&gt;To give a concrete example, below is &amp;ldquo;Greenberger–Horne–Zeilinger&amp;rdquo; state, or GHZ state for short. As can be seen, only four corners of the real part has non-zero entries. Therefore, this state is both of low-rank and sparse.&lt;/p&gt;
-
+&lt;p&gt;To give a concrete example, in the figure below, real (top) and imaginary (bottom) parts of four different states are shown: $i)$ $\texttt{GHZ}$ state, $ii)$ $\texttt{GHZminus}$ state, $iii)$ $\texttt{Hadamard}$ state, and $iv)$ $\texttt{Random}$ state. As can be seen, for $\texttt{GHZ}$ and $\texttt{GHZminus}$ states, only four corners of the real part has non-zero entries. Therefore, these states are both of low-rank and sparse.&lt;/p&gt;
+&lt;!--
 
 
 
@@ -63,6 +63,48 @@
   
   &lt;figcaption&gt;
     Greenberger–Horne–Zeilinger (GHZ) state
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+--&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-from-left-to-right-textttghz-textttghzminus-texttthadamard-and-textttrandom-states-all-states-are-in-4-qubit-system&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/post/acc-qst/state-plots_hu9736c4582f4c1c7a26a8563df014da3f_333023_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;From left to right: $\texttt{GHZ}$, $\texttt{GHZminus}$, $\texttt{Hadamard}$, and $\texttt{Random}$ states. All states are in 4-qubit system.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/post/acc-qst/state-plots_hu9736c4582f4c1c7a26a8563df014da3f_333023_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;411&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    From left to right: $\texttt{GHZ}$, $\texttt{GHZminus}$, $\texttt{Hadamard}$, and $\texttt{Random}$ states. All states are in 4-qubit system.
   &lt;/figcaption&gt;
 
 
