@@ -84,7 +84,7 @@
 &lt;!---
 ![](qst_target_state-ghz.png)
 --&gt;
-&lt;p&gt;Quantum state tomography (QST) is one of the main procedures to identify the nature of imperfections in hardware implementation. High-level procedure is to measure the quantum system, estimate the density matrix using the measured data, and analyze the &amp;ldquo;fit&amp;rdquo; between the estimated density matrix and the true density matrix.&lt;/p&gt;
+&lt;p&gt;Quantum state tomography (QST) is one of the main procedures to identify the nature of imperfections in quantum processing unit (QPU) implementation. High-level procedure is to measure the quantum system, estimate the density matrix using the measured data, and analyze the &amp;ldquo;fit&amp;rdquo; between the estimated density matrix and the true density matrix.&lt;/p&gt;
 &lt;p&gt;QST is generally not scalable due to two bottlenecks: $i)$ large data has to be collected to perform tomography; and $ii)$ the space of density matrices grows exponentially, from which the one that is consistent with the data has to be found.&lt;/p&gt;
 &lt;p&gt;To address the first bottleneck, prior information is often assumed and leveraged to reduce the number of data required. For example, in compressed sensing QST,  it assumes that the density matrix is of low-rank. Similarly, in neural network QST, the wavefunctions are assumed to be real and positive.&lt;/p&gt;
 &lt;p&gt;To give a concrete example, below is &amp;ldquo;Greenberger–Horne–Zeilinger&amp;rdquo; state, or GHZ state for short. As can be seen, only four corners of the real part has non-zero entries. Therefore, this state is both of low-rank and sparse.&lt;/p&gt;
@@ -217,7 +217,7 @@
 &lt;p&gt;\begin{align}
 \label{eq:objective} \tag{1}
 \min_{\rho \in \mathbb{C}^{d \times d}}
-\quad &amp;amp; f(\rho) := \tfrac{1}{2} |\mathcal{A}(\rho) - y|_2^2 \\&lt;br&gt;
+\quad &amp;amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\&lt;br&gt;
 \text{subject to}
 \quad&amp;amp; \rho \succeq 0, ~\texttt{rank}(\rho) \leq r.
 \end{align}&lt;/p&gt;
@@ -386,7 +386,7 @@ Z_{i+1} &amp;amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
 &lt;p&gt;Next, we compare the performance of $\texttt{MiFGD}$ with QST methods provided by &lt;a href=&#34;https://qiskit.org/documentation/stubs/qiskit.ignis.verification.TomographyFitter.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;$\texttt{Qiskit}$&lt;/a&gt;, again using QASM simulator. $\texttt{Qiskit}$ provides two QST methods: $(i)$ the $\texttt{CVXPY}$ method which relies on convex optimiztion, and $(ii)$ the $\texttt{lstsq}$ which ruses least-squares fitting. Both methods solve the following full tomography problem (not compressed sensing QST problem):&lt;/p&gt;
 &lt;p&gt;\begin{align}
 &amp;amp; \min_{\rho \in \mathbb{C}^{d \times d}}
-&amp;amp; &amp;amp; f(\rho) := \tfrac{1}{2} |\mathcal{A}(\rho) - y|_2^2 \\&lt;br&gt;
+&amp;amp; &amp;amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\&lt;br&gt;
 &amp;amp; \text{subject to}
 &amp;amp; &amp;amp; \rho \succeq 0, ~\texttt{Tr}(\rho) = 1.
 \end{align}&lt;/p&gt;
