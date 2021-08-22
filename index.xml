@@ -675,8 +675,7 @@ three hours using compressive sensing. IFAC-PapersOnLine, 52(11):188 – 193, 20
 |\psi \rangle &amp;amp;= \sum_i \langle u_i | \psi \rangle |u_i \rangle  = \left( \sum_i |u_i \rangle \langle u_i \right) | \psi \rangle \\&lt;br&gt;
 &amp;amp;= \sum_i c_i | u_i\rangle \quad \text{where}\quad c_i = \langle u_i | \psi \rangle.
 \end{aligned}$$&lt;/p&gt;
-&lt;p&gt;Recall from Chapter 2 that an operator can be written as an outer product. In that sense, from the above, we can see that $\sum_i |u_i \rangle \langle u_i |$ is an operator (notice that I emphasized this with parentheses) that, given a state $|\psi\rangle$, returns the same state $|\psi \rangle$. Thus, we can also write $\sum_i |u_i \rangle \langle u_i | = \mathbb{I}$, where $\mathbb{I}$ is an identity matrix. This result is sometimes also called the &amp;ldquo;resultion of the identity (in the&lt;br&gt;
-$\{|u_i\rangle \}$ basis).&amp;rdquo; Similar result holds for a bra $\langle \psi | \in \mathcal{V}^*$ :&lt;/p&gt;
+&lt;p&gt;Recall from Chapter 2 that an operator can be written as an outer product. In that sense, from the above, we can see that $\sum_i |u_i \rangle \langle u_i |$ is an operator (notice that I emphasized this with parentheses) that, given a state $|\psi\rangle$, returns the same state $|\psi \rangle$. Thus, we can also write $\sum_i |u_i \rangle \langle u_i | = \mathbb{I}$, where $\mathbb{I}$ is an identity matrix. This result is sometimes also called the &amp;ldquo;resultion of the identity (in the $\{|u_i\rangle \}$ basis).&amp;rdquo; Similar result holds for a bra $\langle \psi | \in \mathcal{V}^*$ :&lt;/p&gt;
 &lt;p&gt;$$\begin{aligned}
 \langle \psi | = \langle \psi | \mathbb{I} = \langle \psi | \left(  \sum_i |u_i \rangle \langle u_i | \right) &amp;amp;= \sum_i \langle \psi | u_i \rangle \langle u_i |  \\&lt;br&gt;
 &amp;amp;= \sum_i c_i^* \langle u_i |  \quad \text{where} \quad c_i^* = \langle u_i | \psi \rangle^*  = \langle \psi | u_i \rangle.
@@ -703,6 +702,14 @@ c_i&#39; &amp;amp;= \langle u_i | \psi&#39; \rangle = \langle u_i | \hat{A} | \p
 &lt;p&gt;where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle \in \mathbb{C}$. Therefore, we arrive at a scalar value $A_{ij}$ that represents the operator $\hat{A}$ in the $\{ |u_i\rangle \}$ basis, just like how $c_i = \langle u_i | \psi \rangle$ represents the ket $|\psi \rangle$ in the same basis.&lt;/p&gt;
 &lt;p&gt;With the above, we close this chapter, and thus part 1 of this blog post about basics of quantum mechanics. In the next part, we will study matrix formulation of quantum mechanics, how to change basis, and a particularly import basis called eigenbasis.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Fast quantum state reconstruction via accelerated non-convex programming</title>
+      <link>https://jlylekim.github.io/publication/kim-2021-fast/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/kim-2021-fast/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -845,6 +852,29 @@ Three
 &lt;h1 id=&#34;questions&#34;&gt;Questions?&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://spectrum.chat/academic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>News</title>
+      <link>https://jlylekim.github.io/news/news/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 -0600</pubDate>
+      <guid>https://jlylekim.github.io/news/news/</guid>
+      <description>
+
+
+
+
+
+
+
+
+&lt;p&gt;&lt;strong&gt;[24 Jul 2021]&lt;/strong&gt; I am co-organizing the workshop &amp;ldquo;&lt;a href=&#34;https://sites.google.com/view/optml-icml2021/home&#34;&gt;Beyond first-order methods in ML systems&lt;/a&gt;&amp;rdquo; in ICML 2021. (Co-organizers: &lt;a href=&#34;https://aberahas.engin.umich.edu/&#34;&gt;Albert S. Berahas&lt;/a&gt;, &lt;a href=&#34;https://sites.google.com/view/raghub/home&#34;&gt;Raghu Bollapragada&lt;/a&gt;, &lt;a href=&#34;https://rixonc.github.io/&#34;&gt;Rixon Crane&lt;/a&gt;, &lt;a href=&#34;http://amirgholami.org/&#34;&gt;Amir Gholami&lt;/a&gt;, &lt;a href=&#34;https://akyrillidis.github.io/about/&#34;&gt;Anastasios Kyrillidis&lt;/a&gt;, &lt;a href=&#34;https://www.stat.berkeley.edu/~mmahoney/&#34;&gt;Michael Mahoney&lt;/a&gt;, &lt;a href=&#34;https://people.smp.uq.edu.au/FredRoosta/&#34;&gt;Fred Roosta&lt;/a&gt;, and &lt;a href=&#34;https://www.math.canterbury.ac.nz/~r.tappenden/&#34;&gt;Rachael Tappenden&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[15 Apr 2021]&lt;/strong&gt; I passed my qualification exam (research project defense). Committee: Profs. &lt;a href=&#34;https://akyrillidis.github.io/about/&#34;&gt;Anastasios Kyrillidis&lt;/a&gt; (chair), &lt;a href=&#34;https://segarra.rice.edu/&#34;&gt;Santiago Segarra&lt;/a&gt;, and &lt;a href=&#34;http://richb.rice.edu/&#34;&gt;Richard Baraniuk&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[14 Apr 2021]&lt;/strong&gt; Our paper &amp;ldquo;&lt;a href=&#34;https://arxiv.org/abs/2104.07006&#34;&gt;Fast quantum state tomography via accelerated non-convex programming&lt;/a&gt;&amp;rdquo; is on arXiv. A relevant blog post can be found &lt;a href=&#34;https://jlylekim.github.io/post/acc-qst/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[01 Dec 2019]&lt;/strong&gt; I officially joined &lt;a href=&#34;https://akyrillidis.github.io/group/&#34;&gt;OptimaLab&lt;/a&gt; led by &lt;a href=&#34;https://akyrillidis.github.io/about/&#34;&gt;Prof. Anastasios Kyrillidis&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[25 Aug 2019]&lt;/strong&gt; I started my Ph.D. studies in &lt;a href=&#34;https://cs.rice.edu/&#34;&gt;Computer Science at Rice University&lt;/a&gt;.&lt;/p&gt;
+
 </description>
     </item>
     

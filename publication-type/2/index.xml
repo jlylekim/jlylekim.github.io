@@ -5,12 +5,20 @@
     <link>https://jlylekim.github.io/publication-type/2/</link>
       <atom:link href="https://jlylekim.github.io/publication-type/2/index.xml" rel="self" type="application/rss+xml" />
     <description>2</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2021 Junhyung Lyle Kim</copyright><lastBuildDate>Tue, 01 Sep 2015 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2021 Junhyung Lyle Kim</copyright><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
       <title>2</title>
       <link>https://jlylekim.github.io/publication-type/2/</link>
     </image>
+    
+    <item>
+      <title>Fast quantum state reconstruction via accelerated non-convex programming</title>
+      <link>https://jlylekim.github.io/publication/kim-2021-fast/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/kim-2021-fast/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>An example journal article</title>

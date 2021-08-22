@@ -613,8 +613,7 @@ three hours using compressive sensing. IFAC-PapersOnLine, 52(11):188 – 193, 20
 |\psi \rangle &amp;amp;= \sum_i \langle u_i | \psi \rangle |u_i \rangle  = \left( \sum_i |u_i \rangle \langle u_i \right) | \psi \rangle \\&lt;br&gt;
 &amp;amp;= \sum_i c_i | u_i\rangle \quad \text{where}\quad c_i = \langle u_i | \psi \rangle.
 \end{aligned}$$&lt;/p&gt;
-&lt;p&gt;Recall from Chapter 2 that an operator can be written as an outer product. In that sense, from the above, we can see that $\sum_i |u_i \rangle \langle u_i |$ is an operator (notice that I emphasized this with parentheses) that, given a state $|\psi\rangle$, returns the same state $|\psi \rangle$. Thus, we can also write $\sum_i |u_i \rangle \langle u_i | = \mathbb{I}$, where $\mathbb{I}$ is an identity matrix. This result is sometimes also called the &amp;ldquo;resultion of the identity (in the&lt;br&gt;
-$\{|u_i\rangle \}$ basis).&amp;rdquo; Similar result holds for a bra $\langle \psi | \in \mathcal{V}^*$ :&lt;/p&gt;
+&lt;p&gt;Recall from Chapter 2 that an operator can be written as an outer product. In that sense, from the above, we can see that $\sum_i |u_i \rangle \langle u_i |$ is an operator (notice that I emphasized this with parentheses) that, given a state $|\psi\rangle$, returns the same state $|\psi \rangle$. Thus, we can also write $\sum_i |u_i \rangle \langle u_i | = \mathbb{I}$, where $\mathbb{I}$ is an identity matrix. This result is sometimes also called the &amp;ldquo;resultion of the identity (in the $\{|u_i\rangle \}$ basis).&amp;rdquo; Similar result holds for a bra $\langle \psi | \in \mathcal{V}^*$ :&lt;/p&gt;
 &lt;p&gt;$$\begin{aligned}
 \langle \psi | = \langle \psi | \mathbb{I} = \langle \psi | \left(  \sum_i |u_i \rangle \langle u_i | \right) &amp;amp;= \sum_i \langle \psi | u_i \rangle \langle u_i |  \\&lt;br&gt;
 &amp;amp;= \sum_i c_i^* \langle u_i |  \quad \text{where} \quad c_i^* = \langle u_i | \psi \rangle^*  = \langle \psi | u_i \rangle.
