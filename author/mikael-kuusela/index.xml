@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mikael Kuusela | Junhyung Lyle Kim</title>
+    <link>https://jlylekim.github.io/author/mikael-kuusela/</link>
+      <atom:link href="https://jlylekim.github.io/author/mikael-kuusela/index.xml" rel="self" type="application/rss+xml" />
+    <description>Mikael Kuusela</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2021 Junhyung Lyle Kim</copyright><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
+      <title>Mikael Kuusela</title>
+      <link>https://jlylekim.github.io/author/mikael-kuusela/</link>
+    </image>
+    
+    <item>
+      <title>Undersmoothed uncertainty quantification for unfolding</title>
+      <link>https://jlylekim.github.io/publication/preprint/undersmoothed-unfolding-2019/</link>
+      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/preprint/undersmoothed-unfolding-2019/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
