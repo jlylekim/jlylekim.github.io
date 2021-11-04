@@ -1,0 +1,1527 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  
+  <meta name="generator" content="Wowchemy 4.8.0 for Hugo">
+  
+
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="J. Lyle Kim">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Read more">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://jlylekim.github.io/blog/acc-qst/">
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#d8e2dc">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js" integrity="sha512-TmDwFLhg3UA4ZG0Eb4MIyT1O1Mb+Oww5kFG0uHqXsdbyZz9DcvYQhKpGgNkamAI6h2lGGZq2X8ftOJvF/XjTUg==" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400%7CZen+Antique%7CDM+Mono:400%7COpen+Sans:400&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="https://jlylekim.github.io/blog/acc-qst/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Junhyung Lyle Kim">
+  <meta property="og:url" content="https://jlylekim.github.io/blog/acc-qst/">
+  <meta property="og:title" content="Fast quantum state tomography via accelerated non-convex programming | Junhyung Lyle Kim">
+  <meta property="og:description" content="Read more"><meta property="og:image" content="https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2021-03-17T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2021-03-17T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Fast quantum state tomography via accelerated non-convex programming | Junhyung Lyle Kim</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class=" ">
+
+  
+  
+  
+  
+    <script>const isSiteThemeDark = false;</script>
+  
+  
+  <script src="/js/load-theme.js"></script>
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Junhyung Lyle Kim</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Junhyung Lyle Kim</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>HOME</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/blog"><span>BLOG</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>CONTACT</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/media/cv.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      
+
+      
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Fast quantum state tomography via accelerated non-convex programming</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Mar 17, 2021
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>This blog post is about my recent work on quantum state tomography using (accelerated) non-convex programming.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> Our manuscript is on <a href="https://arxiv.org/abs/2104.07006" target="_blank" rel="noopener">arXiv</a>. This is a joint work with my advisor <a href="https://akyrillidis.github.io/about/" target="_blank" rel="noopener">Prof. Tasos Kyrillidis</a> at Rice University, <a href="https://scholar.google.com/citations?user=te_1dnAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Amir Kalev</a> at USC, and <a href="https://researcher.watson.ibm.com/researcher/view.php?person=us-gkollias" target="_blank" rel="noopener">Dr. Georgios Kollias</a> and <a href="https://scholar.google.com/citations?user=9uuZX3IAAAAJ&amp;hl=en" target="_blank" rel="noopener">Dr. Ken Wei</a> at IBM Quantum.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Quantum state tomography (QST) is one of the main procedures to identify the nature of imperfections in quantum processing unit (QPU) implementation. High-level procedure is to measure the quantum system, estimate the density matrix using the measured data, and analyze the &ldquo;fit&rdquo; between the estimated density matrix and the true density matrix.</p>
+<p>QST is generally not scalable due to two bottlenecks: $i)$ large data has to be collected to perform tomography; and $ii)$ the space of density matrices grows exponentially, from which the one that is consistent with the data has to be found.</p>
+<p>To address the first bottleneck, prior information is often assumed and leveraged to reduce the number of data required. For example, in compressed sensing QST, <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>  it assumes that the density matrix is of low-rank. Similarly, in neural network QST, the wavefunctions are assumed to be real and positive. <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> <sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> <sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></p>
+<p>To give a concrete example, in the figure below, real (top) and imaginary (bottom) parts of four different states are shown: $i)$ $\texttt{GHZ}$ state, $ii)$ $\texttt{GHZminus}$ state, $iii)$ $\texttt{Hadamard}$ state, and $iv)$ $\texttt{Random}$ state; for the mathematical description of the above states, refer to our paper. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> As can be seen, for $\texttt{GHZ}$ and $\texttt{GHZminus}$ states, only four corners of the real parts have non-zero entries. Therefore, the density matrices of these states are both of low-rank and sparse. If these kinds of &ldquo;structures&rdquo; are smartly leveraged, one can sometimes confine the search space of density matrices greatly, leading to less number of measurements required for successful tomography results.</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-from-left-to-right-textttghz-textttghzminus-texttthadamard-and-textttrandom-states-all-states-are-in-4-qubit-system">
+
+
+  <a data-fancybox="" href="/blog/acc-qst/state-plots_hu9736c4582f4c1c7a26a8563df014da3f_333023_2000x2000_fit_lanczos_2.png" data-caption="From left to right: $\texttt{GHZ}$, $\texttt{GHZminus}$, $\texttt{Hadamard}$, and $\texttt{Random}$ states. All states are in 4-qubit system.">
+
+
+  <img data-src="/blog/acc-qst/state-plots_hu9736c4582f4c1c7a26a8563df014da3f_333023_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="100%" height="411">
+</a>
+
+
+  
+  
+  <figcaption>
+    From left to right: $\texttt{GHZ}$, $\texttt{GHZminus}$, $\texttt{Hadamard}$, and $\texttt{Random}$ states. All states are in 4-qubit system.
+  </figcaption>
+
+
+</figure>
+
+<p>With regards to the second bottleneck, variants of gradient descent convex solvers were proposed under synthetic scenarios. <sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup> <sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup> <sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup> <sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup> However, due to the exponentially increasing space of density matrices, these methods often can be only applied to relatively small system, on top of relying on special-purpose hardwares and proper distributed system designs.<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup></p>
+<p>On the contrary, non-convex optimization methods can perform much faster. It was recently shown that one can formulate compressed sensing QST as a non-convex problem,<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup> which can be solved with rigorous convergence guarantees, allowing density matrix estimation in a large system. A relevant result can be seen in the <strong>Results</strong> section below, where we compare our proposed (accelerated) non-convex method with <a href="https://qiskit.org/documentation/stubs/qiskit.ignis.verification.TomographyFitter.html" target="_blank" rel="noopener">convex methods from $\texttt{Qiskit}$</a>.</p>
+<p>In this work, we consider the setup where $n$-qubit state is close to a pure state, thus its density matrix is of low-rank. We introduce an accelerated non-convex algorithm with provable gaurantees, which we call $\texttt{MiFGD}$, short for &ldquo;$\texttt{M}$omentum $\texttt{i}$nspired $\texttt{F}$actored $\texttt{G}$radient $\texttt{D}$escent.&rdquo;</p>
+<h2 id="problem-setup">Problem setup</h2>
+<p>We consider the reconstruction of a low-rank density matrix $\rho^\star \in \mathbb{C}^{d \times d}$ on a $n$-qubit Hilbert space, where $d=2^n$, through the following $\ell_2$-norm reconstruction objective:</p>
+<p>\begin{align}
+\label{eq:objective} \tag{1}
+\min_{\rho \in \mathbb{C}^{d \times d}}
+\quad &amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\<br>
+\text{subject to}
+\quad&amp; \rho \succeq 0, ~\texttt{rank}(\rho) \leq r.
+\end{align}</p>
+<p>Here, $y \in \mathbb{R}^m$ is the measured data through quantum computer or simulation, and $\mathcal{A}(\cdot): \mathbb{C}^{d \times d} \rightarrow \mathbb{R}^m$ is the linear sensing map. The sensing map relates the density matrix $\rho$ to the measurements through <a href="https://en.wikipedia.org/wiki/Born_rule" target="_blank" rel="noopener">Born rule</a>: $\left( \mathcal{A}(\rho) \right)_i = \text{Tr}(A_i \rho),$ where $A_i \in \mathbb{C}^{d \times d},~i=1, \dots, m$ are the sensing matrices. <!--Type of sensing matrices used in quantum state tomography will be discussed later.--> From the objective function above, we see two constraints: $i)$ the density matrix $\rho$ is a positive semidefinite matrix (which is a convex constraint), and $ii)$ the rank of the density matrix is less than $r$ (which is a non-convex constraint).</p>
+<p>As mentioned earlier, we focus on <em>compressed sensing quantum state tomography</em> setting, where the number of measured data $m$ is much smaller than the problem dimension $O(d^2)$. Compressed sensing is a powerful optimization framework developed mainly by <a href="https://statweb.stanford.edu/~candes/" target="_blank" rel="noopener">Emmanuel Candès</a>, <a href="https://jrom.ece.gatech.edu/" target="_blank" rel="noopener">Justin Romberg</a>, <a href="https://www.math.ucla.edu/~tao/" target="_blank" rel="noopener">Terence Tao</a> and <a href="https://web.stanford.edu/dept/statistics/cgi-bin/donoho/" target="_blank" rel="noopener">David Donoho</a>, and requires the following pivotal assumption on the sensing matrix $\mathcal{A}(\cdot)$, namely the <strong>Restricted Isometry Property (RIP)</strong> (on $\texttt{rank}$-$r$ matrices): <sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup></p>
+<p>\begin{align}
+\label{eq:rip} \tag{2}
+(1 - \delta_r) \cdot  || X ||_F^2 \leq || \mathcal{A}(X) ||_2^2 \leq (1 + \delta_r) \cdot ||X||_F^2.
+\end{align}</p>
+<p>Intuitively, the above RIP assumption states that the sensing matrices $\mathcal{A}(\cdot)$ only &ldquo;marginally&rdquo; changes the norm of the matrix $X$.</p>
+<p>Going back to the main optimization problem in Eq. \eqref{eq:objective}, instead of solving it as is, we propose to solve a factorized version of it, following recent work <sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup>:
+\begin{align}
+\label{eq:factored-obj} \tag{3}
+\min_{U \in \mathbb{C}^{d \times r}} f(UU^\dagger) := \tfrac{1}{2} || \mathcal{A} (UU^\dagger) - y ||_2^2,
+\end{align}
+where $U^\dagger$ denotes the <a href="https://en.wikipedia.org/wiki/Conjugate_transpose" target="_blank" rel="noopener">adjoint</a> of $U$. The motivation is rather clear: in the original objective function in Eq. \eqref{eq:objective}, the density matrix $\rho$ is represented as a $d \times d$ Hermitian matrix, and due to the (non-convex) $\texttt{rank}(\cdot)$ constraint, some method to project onto the set of low-rank matrices is required. Instead, we work in the space of the factors $U \in \mathbb{C}^{d \times r}$, and by taking an outer-product, the $\texttt{rank}(\cdot)$ constraint and the PSD constraint $\rho \succeq 0$ are automatically satisfied, leading to the non-convex formulation in Eq. \eqref{eq:factored-obj}. But how do we solve such problem?</p>
+<p>A common approach is to use gradient descent on $U$, which iterates as follows:
+\begin{align}
+\label{eq:fgd} \tag{4}
+U_{i+1} &amp;= U_{i} - \eta \nabla f(U_i U_i^\dagger) \cdot U_i \\<br>
+&amp;= U_{i} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(U_i U_i^\dagger) - y\right) \cdot U_i.
+\end{align}</p>
+<!--HERE IT IS NOT CLEAR WHAT IS f - DEFINE IT IN EQ.(3).-->
+<p>Here, $\mathcal{A}^\dagger: \mathbb{R}^m \rightarrow \mathbb{C}^{d \times d}$ is the adjoint of $\mathcal{A}$, defined as $\mathcal{A}^\dagger = \sum_{i=1}^m x_i A_i.$ $\eta$ is a hyperparameter called step size or learning rate. This method is called &ldquo;$\texttt{F}$actored $\texttt{G}$radient $\texttt{D}$escent&rdquo; ($\texttt{FGD}$), and was utilized to solve the non-convex objective function in Eq. \eqref{eq:factored-obj}, (surprisingly) with provable gaurantees.<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup></p>
+<h2 id="momentum-inspired-factored-gradient-descent">Momentum-inspired Factored Gradient Descent</h2>
+<p>Momentum is one of the de facto techniques to achieve acceleration in gradient descent type of algorithms. Acceleration methods exist in various forms, including Polyak&rsquo;s momentum, Nesterov&rsquo;s acceleration, classical momentum, etc. They end up behaving pretty similarly, and we will not get into the detail of different acceleration methods in this post. For interested readers, I recommend this <a href="https://jlmelville.github.io/mize/nesterov.html" target="_blank" rel="noopener">blog post</a> by James Melville.</p>
+<p>A common feature accross acceleration methods is that, with proper hyper-parameter tuning, they can provide accelerated convergence rate with virtually no additional computation. This is exactly the motivation of the $\texttt{MiFGD}$ algorithm we propose for solving the non-convex objective in Eq. \eqref{eq:factored-obj}, and the algorithm proceeds as follows:
+\begin{align}
+\label{eq:mifgd} \tag{5}
+U_{i+1} &amp;= Z_{i} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(Z_i Z_i^\dagger) - y\right) \cdot Z_i, \\<br>
+Z_{i+1} &amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
+\end{align}</p>
+<p>Here, $Z_i \in \mathbb{C}^{d\times r}$ is a rectangular matrix (with the same dimension as $U_i$) which accumulates the &ldquo;momentum&rdquo; of the iterates $U_i$. $\mu$ is the momentum parameter that balances the weight between the previous estimate $U_i$ and the current estimate $U_{i+1}.$</p>
+<p>While the $\texttt{MiFGD}$ algorithm in Eq. \eqref{eq:mifgd} looks quite similar to $\texttt{FGD}$ in Eq. \eqref{eq:fgd}, it complicates the convergence theory significantly. This is because the two-step momentum procedure has to be considered, on top of the fact that the objective function in Eq. \eqref{eq:factored-obj} is non-convex. We will not get into the details of the convergence thoery here; interested readers are referred to our paper.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> We finish this section with an informal theorem that illustrates the convergence behavior of $\texttt{MiFGD}$:</p>
+<p><strong>Theorem 1</strong> ($\texttt{MiFGD}$ convergence rate (informal)). Assume that $\mathcal{A}(\cdot)$ satisfies the RIP for some constant $0 &lt; \delta_{2r} &lt;1$. Let $y = \mathcal{A}(\rho^\star)$ denote the set of measurements, by measuring the quantum density matrix $\rho^\star$. Given a good initialization point $U_0$, and setting step size $\eta$ and momentum $\mu$ appropriately, $\texttt{MiFGD}$ converges with a linear rate to a region—with radius that depends on $O(\mu)$—around the global solution $\rho^\star$.</p>
+<h2 id="results">Results</h2>
+<p>In this section, we review some of the experimental results. First, we obtain real quantum data from IBM&rsquo;s Quantum Processing Unit (QPU) by realizing two types of quantum states: $\texttt{GHZminus}(n)$ and $\texttt{Hadamard}(n)$, for $n = 6, 8$, where $n$ is the number of qubits. In quantum computing, obtaining measurements itself is not a trivial process, which we will not get into the detail in this post. Yet, we highlight that, in the following plots, we only use $20$% of the measurements that are information-theoretically compelete, i.e. we sample $m = 0.2 \cdot d^2$ measurements (recall that we are working on compressed sensing QST setting). We compare the effect of different momentum parameters in the figure below, where the accuracy of the estimated density matrix $\widehat{\rho}$ is measured with the true density matrix $\rho^\star$ in terms of the squared Frobenius norm, i.e. $||\widehat{\rho} - \rho^\star||_F^2$:</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-textttmifgd-performance-on-real-quantum-data-from-ibm-qpu-top-left-textttghzminus6-top-right-textttghzminus8-bottom-left-texttthadamard6-bottom-right-texttthadamard8">
+
+
+  <a data-fancybox="" href="/blog/acc-qst/ibm-data_hu9ed558def99604cea272504d5b0afe6e_128657_2000x2000_fit_lanczos_2.png" data-caption="$\texttt{MiFGD}$ performance on real quantum data from IBM QPU. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.">
+
+
+  <img data-src="/blog/acc-qst/ibm-data_hu9ed558def99604cea272504d5b0afe6e_128657_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="60%" height="545">
+</a>
+
+
+  
+  
+  <figcaption>
+    $\texttt{MiFGD}$ performance on real quantum data from IBM QPU. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.
+  </figcaption>
+
+
+</figure>
+
+<p>Above figure summarizes the performance of $\texttt{MiFGD}$. In the legends, $\mu^\star$ is the momentum parameter proposed by our theory; however, it should be noted that $\texttt{MiFGD}$ converges with larger momentum values than $\mu^\star$, in particular featuring a steep dive to convergence for the largest value of $\mu$ we tested. Moreover, the above figure also highlights the universality of our approach: its performance is oblivious to the quantum state reconstructed, as long as it satisfies purity or it is close to a pure state. Our method does not require any additional structure assumptions in the quantum state.</p>
+<p>It should be noted that quantum data are inherently noisy. To highlight the level of noise existing in real quantum data, in the figure below, we also plot the performance of $\texttt{MiFGD}$ in the same setting using simulated quantum data from IBM&rsquo;s <a href="https://github.com/Qiskit/openqasm" target="_blank" rel="noopener">QASM</a> simulator:  <!--in $\texttt{qiskit-aer}$.--></p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-textttmifgd-performance-on-synthetic-data-using-ibms-qasm-simulator-top-left-textttghzminus6-top-right-textttghzminus8-bottom-left-texttthadamard6-bottom-right-texttthadamard8">
+
+
+  <a data-fancybox="" href="/blog/acc-qst/simulator-data_hu1586622ad382eaa8ab67ffb7b3e9beca_132295_2000x2000_fit_lanczos_2.png" data-caption="$\texttt{MiFGD}$ performance on synthetic data using IBM&amp;rsquo;s QASM simulator. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.">
+
+
+  <img data-src="/blog/acc-qst/simulator-data_hu1586622ad382eaa8ab67ffb7b3e9beca_132295_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="60%" height="545">
+</a>
+
+
+  
+  
+  <figcaption>
+    $\texttt{MiFGD}$ performance on synthetic data using IBM&rsquo;s QASM simulator. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.
+  </figcaption>
+
+
+</figure>
+
+<p>We see a similar trend with the result using real quantum data from IBM&rsquo;s QPU. However, we see that the overall accuracy of the reconstucted and the target states, $|| \hat{\rho} - \rho^\star||_F^2$, is generally lower for the real quantum data&ndash;they do not reach the accuracy level of $10^{-1}$, which is acchieved for all cases using QASM simulator. This difference is summarized in the figure below:</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-final-fidelity-of-textttmifgd-comparison-using-real-quantum-data-from-ibms-qpu-and-simulated-quantum-data-using-qasm">
+
+
+  <a data-fancybox="" href="/blog/acc-qst/qpu-vs-qasm_hu5758ce60bc0bf36c5fbb63063c04e7bf_40419_2000x2000_fit_lanczos_2.png" data-caption="Final fidelity of $\texttt{MiFGD}$ comparison using real quantum data from IBM&amp;rsquo;s QPU and simulated quantum data using QASM.">
+
+
+  <img data-src="/blog/acc-qst/qpu-vs-qasm_hu5758ce60bc0bf36c5fbb63063c04e7bf_40419_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="100%" height="225">
+</a>
+
+
+  
+  
+  <figcaption>
+    Final fidelity of $\texttt{MiFGD}$ comparison using real quantum data from IBM&rsquo;s QPU and simulated quantum data using QASM.
+  </figcaption>
+
+
+</figure>
+
+<h4 id="performance-comparison-with-qst-methods-in-textttqiskit">Performance comparison with QST methods in $\texttt{Qiskit}$</h4>
+<p>Now, we compare the performance of $\texttt{MiFGD}$ with <a href="https://qiskit.org/documentation/stubs/qiskit.ignis.verification.TomographyFitter.html" target="_blank" rel="noopener">QST methods</a> from <a href="https://qiskit.org/" target="_blank" rel="noopener">$\texttt{Qiskit}$</a>, again using IBM&rsquo;s QASM simulator. $\texttt{Qiskit}$ provides two QST methods: $i)$ the $\texttt{CVXPY}$ method which relies on convex optimiztion, and $ii)$ the $\texttt{lstsq}$ which ruses least-squares fitting. Both methods solve the following full tomography problem (not compressed sensing QST problem):</p>
+<p>\begin{align}
+\min_{\rho \in \mathbb{C}^{d \times d}}
+\quad &amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\<br>
+\text{subject to}
+\quad &amp; \rho \succeq 0, ~\texttt{Tr}(\rho) = 1.
+\end{align}</p>
+<p>We note that $\texttt{MiFGD}$ is not restricted to ``tall'' $U$ scenarios to encode PSD and rank constraints: even without rank constraints, one could still exploit the matrix decomposition $\rho = UU^\dagger$ to avoid the PSD projection, $\rho \succeq 0$, where $U \in \mathbb{C}^{d \times d}$.</p>
+<p>We consider the following cases: $\texttt{GHZ}(n), \texttt{Hadamard}(n),$ and $\texttt{Random}(n)$ for $n = 3, \dots, 8$.
+The results are shown in the figure below:</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-performance-comparison-with-textttqiskit-methods-all-experiments-are-performed-on-a-13-macbook-pro-with-23-ghz-quad-core-intel-core-i7-cpu-and-32-gb-ram">
+
+
+  <a data-fancybox="" href="/blog/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png" data-caption="Performance comparison with $\texttt{Qiskit}$ methods. All experiments are performed on a 13” Macbook Pro with 2.3 GHz Quad-Core Intel Core i7 CPU and 32 GB RAM.">
+
+
+  <img data-src="/blog/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="100%" height="354">
+</a>
+
+
+  
+  
+  <figcaption>
+    Performance comparison with $\texttt{Qiskit}$ methods. All experiments are performed on a 13” Macbook Pro with 2.3 GHz Quad-Core Intel Core i7 CPU and 32 GB RAM.
+  </figcaption>
+
+
+</figure>
+
+<p>Some notable remarks: $i)$ For small-scale scenarios ($n=3, 4$), $\texttt{CVXPY}$ and $\texttt{lstsq}$ attain almost perfect fidelity, while being comparable or faster than $\texttt{MiFGD}$. $ii)$ The difference in performance becomes apparent from $n = 6$ and on: while $\texttt{MiFGD}$ attains $98$% fidelity in less than $5$ seconds, $\texttt{CVXPY}$ and $\texttt{lstsq}$ require up to hundreds of seconds to find a good solution. Finally, while $\texttt{MiFGD}$ gets to high-fidelity solutions in seconds for $n = 7, 8$, $\texttt{CVXPY}$ and $\texttt{lstsq}$ methods require more than 12 hours execution time; however, their execution never ended, since the memory usage exceeded the system&rsquo;s available memory.</p>
+<h4 id="performance-comparison-with-neural-network-qst-using-textttqucumber">Performance comparison with neural-network QST using $\texttt{Qucumber}$</h4>
+<p>Next, we compare the performance of $\texttt{MiFGD}$ compare with neural-network based QST methods, proivded by <a href="https://qucumber.readthedocs.io/en/stable/" target="_blank" rel="noopener">$\texttt{Qucumber}$</a>. We consider the same quantum states as with $\texttt{Qiskit}$ experiments, but here we consider the case where only $50$% of the measurements are available.</p>
+<p>We report the fidelity of the reconstruction as a function of elapsed training time for $n = 3, 4$ in the figure below for all methods provided by $\texttt{Qucumber}$: $\texttt{PRWF}, \texttt{CWF}$, and $\texttt{DM}$. Note that Time (secs) on $x$-axis is plotted with log-scale.</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-performance-comparison-with-textttqucumber-methods-all-experiments-are-performed-on-a-nvidia-geforce-gtx-1080-ti-with-11gb-ram">
+
+
+  <a data-fancybox="" href="/blog/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png" data-caption="Performance comparison with $\texttt{Qucumber}$ methods. All experiments are performed on a NVidia GeForce GTX 1080 TI with 11GB RAM.">
+
+
+  <img data-src="/blog/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="100%" height="408">
+</a>
+
+
+  
+  
+  <figcaption>
+    Performance comparison with $\texttt{Qucumber}$ methods. All experiments are performed on a NVidia GeForce GTX 1080 TI with 11GB RAM.
+  </figcaption>
+
+
+</figure>
+
+<p>We observe that for all cases, $\texttt{Qucumber}$ methods are orders of magnitude slower than $\texttt{MiFGD}$.
+For the $\texttt{Hadamard}(n)$ and $\texttt{Random}(n)$, reaching reasonable fidelities is significantly slower for both $\texttt{CWF}$ and $\texttt{DM},$ while $\texttt{PRWF}$ hardly improves its performance throughout the training.
+For the $\texttt{GHZ}$ case, $\texttt{CWF}$ and $\texttt{DM}$ also shows <em>non-monotonic</em> behaviors: even after a few thousands of seconds, fidelities have not &ldquo;stabilized&rdquo;, while $\texttt{PRWF}$ stabilizes in very low fidelities.
+In comparison, $\texttt{MiFGD}$ is several orders of magnitude faster than both $\texttt{CWF}$ and $\texttt{DM}$ and fidelity smoothly increases to comparable or higher values. What is notable is the scalability of $\texttt{MiFGD}$ compared to neural network approaches for higher values of $n$.</p>
+<p>To see this more clearly, in the table below, we report the final fidelities (within the $3$ hour time window), and reported times. We see that for many cases, $\texttt{CWF}$ and $\texttt{DM}$ methods did not complete a single iterations within $3$ hours.</p>
+<!-- For a stark contrast,  $\texttt{MiFGD}$ for $n=8$ took less than 25 seconds, while $\texttt{PRWF}$, which is the fastest neural-network method provided by $\texttt{Qucumber}$, took more than 40 seconds for $n=3$. -->
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-comparison-with-qucumber-methods">
+
+
+  <a data-fancybox="" href="/blog/acc-qst/nn-comparison_hua17c2be52f23f3de862b40367885380f_171885_2000x2000_fit_lanczos_2.png" data-caption="Comparison with Qucumber methods.">
+
+
+  <img data-src="/blog/acc-qst/nn-comparison_hua17c2be52f23f3de862b40367885380f_171885_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="70%" height="740">
+</a>
+
+
+  
+  
+  <figcaption>
+    Comparison with Qucumber methods.
+  </figcaption>
+
+
+</figure>
+
+<h4 id="the-effect-of-parallelization-in-textttmifgd">The effect of parallelization in $\texttt{MiFGD}$</h4>
+<p>We also study the effect of paralleization in running $\texttt{MiFGD}$. We parallelize the iteration step across a number
+of processes, that can be either distributed and network connected, or sharing memory in a multicore environment.
+Our approach is based on <a href="https://en.wikipedia.org/wiki/Message_Passing_Interface" target="_blank" rel="noopener">Message Passing Interface (MPI)</a> specification. We assign to each process a subset of the measurement labels consumed by the parallel computation. At each step, a process first computes the local gradient using a subset of measurements. These local gradients are then communicated so that they can be added up to form the full gradient, and the full gradient is shared with each worker.</p>
+<p>In our first round of experiments, we investigate the scalability of the parallelization approach. We vary the number $p$ of parallel processes $(p=1, 2, 4, 8, 16, 32, 48, 64, 80, 96)$, collect timings for reconstructing $\texttt{GHZ}(4)$, $\texttt{Random}(6)$ and $\texttt{GHZminus}(8)$ states, and report speedups $T_p/T_1$ we gain from $\texttt{MiFGD}$ in the figure bloew (left panel). We observe that the benefits of parallelization are pronounced for bigger problems (here: $n=8$ qubits) and maximum scalability results when we use all physical cores ($48$ in our platform).</p>
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-effect-of-parallelization-of-textttmifgd-left-scalability-of-parallelization-of-textttmifgd-for-different-number-of-processors-middle-fidelity-versus-time-consued-for-different-number-of-processors-on-texttthadamard10-state-right-the-effect-of-momentum-on-texttthadamard10-state-with-48-processors">
+
+
+  <a data-fancybox="" href="/blog/acc-qst/parallel_hub9237cb47336b5cec8dd803d37ed29cf_49045_2000x2000_fit_lanczos_2.png" data-caption="Effect of parallelization of $\texttt{MiFGD}$. Left: scalability of parallelization of $\texttt{MiFGD}$ for different number of processors. Middle: fidelity versus time consued for different number of processors on $\texttt{Hadamard}(10)$ state. Right: The effect of momentum on $\texttt{Hadamard}(10)$ state with 48 processors.">
+
+
+  <img data-src="/blog/acc-qst/parallel_hub9237cb47336b5cec8dd803d37ed29cf_49045_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="100%" height="210">
+</a>
+
+
+  
+  
+  <figcaption>
+    Effect of parallelization of $\texttt{MiFGD}$. Left: scalability of parallelization of $\texttt{MiFGD}$ for different number of processors. Middle: fidelity versus time consued for different number of processors on $\texttt{Hadamard}(10)$ state. Right: The effect of momentum on $\texttt{Hadamard}(10)$ state with 48 processors.
+  </figcaption>
+
+
+</figure>
+
+<p>Further, we move to larger problems ($n=10$ qubits: reporting on reconstructing $\texttt{Hadamard}(10)$ state) and focus on the effect parallelization to achieving a given level of fidelity in reconstruction. In the middle panel of the figure above, we illustrate the fidelity as a function of the time spent in the iteration loop of $\texttt{MiFGD}$ for ($p=8, 16, 32, 48, 64$): we observe the smooth path to convergence in all $p$ counts which again minimizes compute time for $p=48$. Note that in this case we use $10$% of the complete measurements, and the momenutum parameter $\mu=\frac{1}{4}$.</p>
+<p>Finally, in the right panel of the figure above, we fix the number of processes to $p=48$, in order to minimize compute time and increase the percentage of used measurements to $20$% of the complete measurements available for $\texttt{Hadamard}(10)$. We vary the momentum parameter from $\mu=0$ (no acceleration) to $\mu=\frac{1}{4}$, and confirm that we indeed get faster convergence times in the latter case while the fidelity value remains the same (i.e. coinciding upper plateau value in the plots). We can also compare with the previous fidelity versus time plot, where the same $\mu$ but half the measurements are consumed: more measurements translate to faster convergence times (plateau is reached roughly $25$% faster; compare the green line with the yellow line in the previous plot).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have introduced the $\texttt{MiFGD}$ algorithm for the factorized form of the low-rank QST problems.
+We proved that, under certain assumptions on the problem parameters, $\texttt{MiFGD}$ converges linearly to a neighborhood of the optimal solution, whose size depends on the momentum parameter $\mu$, while using acceleration motions in a non-convex setting.
+We demonstrate empirically, using both simulated and real data, that $\texttt{MiFGD}$ outperforms non-accelerated methods on both the original problem domain and the factorized space, contributing to recent efforts on testing QST algorithms in real quantum data.
+These results expand on existing work in the literature illustrating the promise of factorized methods for certain low-rank matrix problems.
+Finally, we provide a publicly available implementation of our approach, compatible to the open-source software $\texttt{Qiskit}$, where we further exploit parallel computations in $\texttt{MiFGD}$ by extending its implementation to enable efficient, parallel execution over shared and distributed memory systems.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Junhyung Lyle Kim, George Kollias, Amir Kalev, Ken X. Wei, Anastasios Kyrillidis. Fast quantum state reconstruction via accelerated non-convex programming. arXiv preprint arXiv:2104.07006, 2021. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>D. Gross, Y.-K. Liu, S. Flammia, S. Becker, and J. Eisert. Quantum state tomography via compressed
+sensing. Physical review letters, 105(15):150401, 2010. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>A. Kalev, R. Kosut, and I. Deutsch. Quantum tomography protocols with positivity are compressed
+sensing protocols. NPJ Quantum Information, 1:15018, 2015. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>Giacomo Torlai, Guglielmo Mazzola, Juan Carrasquilla, Matthias Troyer, Roger Melko, and Giuseppe
+Carleo. Neural-network quantum state tomography. Nat. Phys., 14:447–450, May 2018. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p>Giacomo Torlai and Roger Melko. Machine-learning quantum states in the NISQ era. Annual Review
+of Condensed Matter Physics, 11, 2019. <a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p>Matthew JS Beach, Isaac De Vlugt, Anna Golubeva, Patrick Huembeli, Bohdan Kulchytskyy, Xiuzhe
+Luo, Roger G Melko, Ejaaz Merali, and Giacomo Torlai. Qucumber: wavefunction reconstruction with neural networks. SciPost Physics, 7(1):009, 2019. <a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7" role="doc-endnote">
+<p>D. Gonçalve, M. Gomes-Ruggiero, and C. Lavor. A projected gradient method for optimization over
+density matrices. Optimization Methods and Software, 31(2):328–341, 2016. <a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8" role="doc-endnote">
+<p>E. Bolduc, G. Knee, E. Gauger, and J. Leach. Projected gradient descent algorithms for quantum state tomography. npj Quantum Information, 3(1):44, 2017. <a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9" role="doc-endnote">
+<p>Jiangwei Shang, Zhengyun Zhang, and Hui Khoon Ng. Superfast maximum-likelihood reconstruction
+for quantum tomography. Phys. Rev. A, 95:062336, Jun 2017. <a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10" role="doc-endnote">
+<p>Zhilin Hu, Kezhi Li, Shuang Cong, and Yaru Tang. Reconstructing pure 14-qubit quantum states in
+three hours using compressive sensing. IFAC-PapersOnLine, 52(11):188 – 193, 2019. 5th IFAC Conference on Intelligent Control and Automation Sciences ICONS 2019. <a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11" role="doc-endnote">
+<p>Zhibo Hou, Han-Sen Zhong, Ye Tian, Daoyi Dong, Bo Qi, Li Li, Yuanlong Wang, Franco Nori, Guo-Yong Xiang, Chuan-Feng Li, et al. Full reconstruction of a 14-qubit state within four hours. New Journal of Physics, 18(8):083036, 2016. <a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12" role="doc-endnote">
+<p>A. Kyrillidis, A. Kalev, D. Park, S. Bhojanapalli, C. Caramanis, and S. Sanghavi. Provable quantum state tomography via non-convex methods. npj Quantum Information, 4(36), 2018. <a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:13" role="doc-endnote">
+<p>Benjamin Recht, Maryam Fazel, and Pablo A Parrilo. Guaranteed minimum-rank solutions of linear matrix equations via nuclear norm minimization. SIAM review, 52(3):471–501, 2010. <a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://jlylekim.github.io/blog/acc-qst/&amp;text=Fast%20quantum%20state%20tomography%20via%20accelerated%20non-convex%20programming" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://jlylekim.github.io/blog/acc-qst/&amp;t=Fast%20quantum%20state%20tomography%20via%20accelerated%20non-convex%20programming" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Fast%20quantum%20state%20tomography%20via%20accelerated%20non-convex%20programming&amp;body=https://jlylekim.github.io/blog/acc-qst/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://jlylekim.github.io/blog/acc-qst/&amp;title=Fast%20quantum%20state%20tomography%20via%20accelerated%20non-convex%20programming" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Fast%20quantum%20state%20tomography%20via%20accelerated%20non-convex%20programming%20https://jlylekim.github.io/blog/acc-qst/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://jlylekim.github.io/blog/acc-qst/&amp;title=Fast%20quantum%20state%20tomography%20via%20accelerated%20non-convex%20programming" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://jlylekim.github.io/"><img class="avatar mr-3 avatar-square" src="/author/j.-lyle-kim/avatar_hue7ebf735c082bc6fadfb428d6ab62d40_2554560_270x270_fill_q90_lanczos_center.jpg" alt="J. Lyle Kim"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://jlylekim.github.io/">J. Lyle Kim</a></h5>
+      <h6 class="card-subtitle">Ph.D. student in Computer Science</h6>
+      <p class="card-text">Ph.D. student in Computer Science at Rice University.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:jlylekim@rice.edu" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/jlylekim" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=Ku197mP8hmUC&amp;hl=en&amp;authuser=1" target="_blank" rel="noopener">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/jlylekim" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/jlylekim/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/wowchemy.min.4c2bca31150ce93c5a5e43b8a50f22fd.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    © Copyright 2021 Junhyung Lyle Kim
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    Published with
+    <a href="https://wowchemy.com" target="_blank" rel="noopener">Wowchemy</a>  —
+    the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">
+    open source</a> website builder that empowers creators.
+    
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

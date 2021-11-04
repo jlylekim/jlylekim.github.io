@@ -33,17 +33,17 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/post/acc-qst/</loc>
+    <loc>https://jlylekim.github.io/blog/acc-qst/</loc>
     <lastmod>2021-03-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/post/</loc>
+    <loc>https://jlylekim.github.io/blog/</loc>
     <lastmod>2021-03-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/post/quantum-mechanics-1/</loc>
+    <loc>https://jlylekim.github.io/blog/quantum-mechanics-1/</loc>
     <lastmod>2021-03-13T20:05:33-06:00</lastmod>
   </url>
   
@@ -194,6 +194,10 @@
   
   <url>
     <loc>https://jlylekim.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/post/</loc>
   </url>
   
 </urlset>
