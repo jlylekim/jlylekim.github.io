@@ -43,6 +43,11 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/category/acceleration/</loc>
+    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/publication/preprint/sppam-opt2021/</loc>
     <lastmod>2021-12-01T00:00:00+00:00</lastmod>
   </url>
@@ -58,12 +63,27 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/categories/</loc>
+    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/tag/convex-optimization/</loc>
     <lastmod>2021-12-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/category/convex-optimization/</loc>
+    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/tag/implicit-methods/</loc>
+    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/implicit-methods/</loc>
     <lastmod>2021-12-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -79,6 +99,11 @@
   
   <url>
     <loc>https://jlylekim.github.io/tag/proximal-point-algorithm/</loc>
+    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/proximal-point-algorithm/</loc>
     <lastmod>2021-12-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -108,12 +133,27 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/category/frank-wolfe-algorithm/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/tag/lotterty-ticket-hypothesis/</loc>
     <lastmod>2021-07-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/category/lotterty-ticket-hypothesis/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/tag/machine-learning/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/machine-learning/</loc>
     <lastmod>2021-07-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -138,6 +178,11 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/category/low-rank-factorization/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/author/mohammad-taha-toghani/</loc>
     <lastmod>2021-06-01T00:00:00+00:00</lastmod>
   </url>
@@ -153,7 +198,17 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/category/non-convex-optimization/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/tag/semi-definite-programming/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/semi-definite-programming/</loc>
     <lastmod>2021-06-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -178,7 +233,7 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/author/ken-x-wei/</loc>
+    <loc>https://jlylekim.github.io/author/ken-x.-wei/</loc>
     <lastmod>2021-04-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -188,13 +243,8 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/category/acceleration/</loc>
-    <lastmod>2021-03-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/categories/</loc>
-    <lastmod>2021-03-17T00:00:00+00:00</lastmod>
+    <loc>https://jlylekim.github.io/category/quantum-computing/</loc>
+    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -203,22 +253,7 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/category/low-rank-factorization/</loc>
-    <lastmod>2021-03-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/non-convex-optimization/</loc>
-    <lastmod>2021-03-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/blog/</loc>
-    <lastmod>2021-03-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/quantum-computing/</loc>
     <lastmod>2021-03-17T00:00:00+00:00</lastmod>
   </url>
   
@@ -238,6 +273,11 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/category/high-energy-physics/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/author/mikael-kuusela/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
@@ -248,12 +288,12 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/publication/preprint/undersmoothed-unfolding-2019/</loc>
+    <loc>https://jlylekim.github.io/category/uncertainty-quantification/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/tag/unfolding/</loc>
+    <loc>https://jlylekim.github.io/publication/preprint/undersmoothed-unfolding-2019/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
