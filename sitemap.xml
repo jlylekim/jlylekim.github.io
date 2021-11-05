@@ -34,76 +34,111 @@
   
   <url>
     <loc>https://jlylekim.github.io/publication-type/3/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/acceleration/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication/preprint/sppam-opt2021/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jlylekim.github.io/author/anastasios-kyrillidis/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jlylekim.github.io/authors/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/convex/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/implicit-methods/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/junhyung-lyle-kim/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/panos-toulis/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/proximal-point-algorithm/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication_types/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tags/</loc>
-    <lastmod>2021-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/amir-kalev/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jlylekim.github.io/author/cameron-wolfe/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/frank-wolfe-algorithm/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/junhyung-lyle-kim/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/lotterty-ticket-hypothesis/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/machine-learning/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication/preprint/provable-lottery-ticket/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication_types/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/qihan-wang/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tags/</loc>
+    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/acceleration/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/jose-antonio-lara-benitez/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/low-rank-factorization/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/mohammad-taha-toghani/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/non-convex/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/semi-definite-programming/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/zhiwei-zhang/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/amir-kalev/</loc>
     <lastmod>2021-04-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -118,47 +153,12 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/author/jose-antonio-lara-benitez/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/author/ken-x-wei/</loc>
     <lastmod>2021-04-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/tag/low-rank-factorization/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/mohammad-taha-toghani/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/non-convex/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/tag/quantum-computing/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/semi-definite-programming/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/zhiwei-zhang/</loc>
     <lastmod>2021-04-01T00:00:00+00:00</lastmod>
   </url>
   
