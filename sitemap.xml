@@ -123,7 +123,7 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/tag/non-convex/</loc>
+    <loc>https://jlylekim.github.io/tag/non-convex-optimization/</loc>
     <lastmod>2021-06-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -163,12 +163,37 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/category/acceleration/</loc>
+    <lastmod>2021-03-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/categories/</loc>
+    <lastmod>2021-03-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/blog/acc-qst/</loc>
     <lastmod>2021-03-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/category/low-rank-factorization/</loc>
+    <lastmod>2021-03-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/non-convex-optimization/</loc>
+    <lastmod>2021-03-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/blog/</loc>
+    <lastmod>2021-03-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/quantum-computing/</loc>
     <lastmod>2021-03-17T00:00:00+00:00</lastmod>
   </url>
   
@@ -250,10 +275,6 @@
   <url>
     <loc>https://jlylekim.github.io/project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/categories/</loc>
   </url>
   
   <url>

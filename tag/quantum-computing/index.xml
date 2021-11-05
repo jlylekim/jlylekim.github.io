@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>quantum computing | Junhyung Lyle Kim</title>
+    <title>quantum computing | JUNHYUNG LYLE KIM</title>
     <link>https://jlylekim.github.io/tag/quantum-computing/</link>
       <atom:link href="https://jlylekim.github.io/tag/quantum-computing/index.xml" rel="self" type="application/rss+xml" />
     <description>quantum computing</description>
@@ -18,6 +18,637 @@
       <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
       <guid>https://jlylekim.github.io/publication/preprint/mifgd-2021/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Fast quantum state tomography via accelerated non-convex programming</title>
+      <link>https://jlylekim.github.io/blog/acc-qst/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/blog/acc-qst/</guid>
+      <description>&lt;p&gt;This blog post is about my recent work on quantum state tomography using (accelerated) non-convex programming.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; Our manuscript is on &lt;a href=&#34;https://arxiv.org/abs/2104.07006&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;arXiv&lt;/a&gt;. This is a joint work with my advisor &lt;a href=&#34;https://akyrillidis.github.io/about/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prof. Tasos Kyrillidis&lt;/a&gt; at Rice University, &lt;a href=&#34;https://scholar.google.com/citations?user=te_1dnAAAAAJ&amp;amp;hl=en&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Amir Kalev&lt;/a&gt; at USC, and &lt;a href=&#34;https://researcher.watson.ibm.com/researcher/view.php?person=us-gkollias&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Georgios Kollias&lt;/a&gt; and &lt;a href=&#34;https://scholar.google.com/citations?user=9uuZX3IAAAAJ&amp;amp;hl=en&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Ken Wei&lt;/a&gt; at IBM Quantum.&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Quantum state tomography (QST) is one of the main procedures to identify the nature of imperfections in quantum processing unit (QPU) implementation. High-level procedure is to measure the quantum system, estimate the density matrix using the measured data, and analyze the &amp;ldquo;fit&amp;rdquo; between the estimated density matrix and the true density matrix.&lt;/p&gt;
+&lt;p&gt;QST is generally not scalable due to two bottlenecks: $i)$ large data has to be collected to perform tomography; and $ii)$ the space of density matrices grows exponentially, from which the one that is consistent with the data has to be found.&lt;/p&gt;
+&lt;p&gt;To address the first bottleneck, prior information is often assumed and leveraged to reduce the number of data required. For example, in compressed sensing QST, &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;  it assumes that the density matrix is of low-rank. Similarly, in neural network QST, the wavefunctions are assumed to be real and positive. &lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;To give a concrete example, in the figure below, real (top) and imaginary (bottom) parts of four different states are shown: $i)$ $\texttt{GHZ}$ state, $ii)$ $\texttt{GHZminus}$ state, $iii)$ $\texttt{Hadamard}$ state, and $iv)$ $\texttt{Random}$ state; for the mathematical description of the above states, refer to our paper. &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; As can be seen, for $\texttt{GHZ}$ and $\texttt{GHZminus}$ states, only four corners of the real parts have non-zero entries. Therefore, the density matrices of these states are both of low-rank and sparse. If these kinds of &amp;ldquo;structures&amp;rdquo; are smartly leveraged, one can sometimes confine the search space of density matrices greatly, leading to less number of measurements required for successful tomography results.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-from-left-to-right-textttghz-textttghzminus-texttthadamard-and-textttrandom-states-all-states-are-in-4-qubit-system&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/state-plots_hu9736c4582f4c1c7a26a8563df014da3f_333023_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;From left to right: $\texttt{GHZ}$, $\texttt{GHZminus}$, $\texttt{Hadamard}$, and $\texttt{Random}$ states. All states are in 4-qubit system.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/state-plots_hu9736c4582f4c1c7a26a8563df014da3f_333023_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;411&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    From left to right: $\texttt{GHZ}$, $\texttt{GHZminus}$, $\texttt{Hadamard}$, and $\texttt{Random}$ states. All states are in 4-qubit system.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;With regards to the second bottleneck, variants of gradient descent convex solvers were proposed under synthetic scenarios. &lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt; However, due to the exponentially increasing space of density matrices, these methods often can be only applied to relatively small system, on top of relying on special-purpose hardwares and proper distributed system designs.&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;On the contrary, non-convex optimization methods can perform much faster. It was recently shown that one can formulate compressed sensing QST as a non-convex problem,&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt; which can be solved with rigorous convergence guarantees, allowing density matrix estimation in a large system. A relevant result can be seen in the &lt;strong&gt;Results&lt;/strong&gt; section below, where we compare our proposed (accelerated) non-convex method with &lt;a href=&#34;https://qiskit.org/documentation/stubs/qiskit.ignis.verification.TomographyFitter.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;convex methods from $\texttt{Qiskit}$&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In this work, we consider the setup where $n$-qubit state is close to a pure state, thus its density matrix is of low-rank. We introduce an accelerated non-convex algorithm with provable gaurantees, which we call $\texttt{MiFGD}$, short for &amp;ldquo;$\texttt{M}$omentum $\texttt{i}$nspired $\texttt{F}$actored $\texttt{G}$radient $\texttt{D}$escent.&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;problem-setup&#34;&gt;Problem setup&lt;/h2&gt;
+&lt;p&gt;We consider the reconstruction of a low-rank density matrix $\rho^\star \in \mathbb{C}^{d \times d}$ on a $n$-qubit Hilbert space, where $d=2^n$, through the following $\ell_2$-norm reconstruction objective:&lt;/p&gt;
+&lt;p&gt;\begin{align}
+\label{eq:objective} \tag{1}
+\min_{\rho \in \mathbb{C}^{d \times d}}
+\quad &amp;amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\&lt;br&gt;
+\text{subject to}
+\quad&amp;amp; \rho \succeq 0, ~\texttt{rank}(\rho) \leq r.
+\end{align}&lt;/p&gt;
+&lt;p&gt;Here, $y \in \mathbb{R}^m$ is the measured data through quantum computer or simulation, and $\mathcal{A}(\cdot): \mathbb{C}^{d \times d} \rightarrow \mathbb{R}^m$ is the linear sensing map. The sensing map relates the density matrix $\rho$ to the measurements through &lt;a href=&#34;https://en.wikipedia.org/wiki/Born_rule&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Born rule&lt;/a&gt;: $\left( \mathcal{A}(\rho) \right)_i = \text{Tr}(A_i \rho),$ where $A_i \in \mathbb{C}^{d \times d},~i=1, \dots, m$ are the sensing matrices. &lt;!--Type of sensing matrices used in quantum state tomography will be discussed later.--&gt; From the objective function above, we see two constraints: $i)$ the density matrix $\rho$ is a positive semidefinite matrix (which is a convex constraint), and $ii)$ the rank of the density matrix is less than $r$ (which is a non-convex constraint).&lt;/p&gt;
+&lt;p&gt;As mentioned earlier, we focus on &lt;em&gt;compressed sensing quantum state tomography&lt;/em&gt; setting, where the number of measured data $m$ is much smaller than the problem dimension $O(d^2)$. Compressed sensing is a powerful optimization framework developed mainly by &lt;a href=&#34;https://statweb.stanford.edu/~candes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Emmanuel Candès&lt;/a&gt;, &lt;a href=&#34;https://jrom.ece.gatech.edu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Justin Romberg&lt;/a&gt;, &lt;a href=&#34;https://www.math.ucla.edu/~tao/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Terence Tao&lt;/a&gt; and &lt;a href=&#34;https://web.stanford.edu/dept/statistics/cgi-bin/donoho/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;David Donoho&lt;/a&gt;, and requires the following pivotal assumption on the sensing matrix $\mathcal{A}(\cdot)$, namely the &lt;strong&gt;Restricted Isometry Property (RIP)&lt;/strong&gt; (on $\texttt{rank}$-$r$ matrices): &lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;\begin{align}
+\label{eq:rip} \tag{2}
+(1 - \delta_r) \cdot  || X ||_F^2 \leq || \mathcal{A}(X) ||_2^2 \leq (1 + \delta_r) \cdot ||X||_F^2.
+\end{align}&lt;/p&gt;
+&lt;p&gt;Intuitively, the above RIP assumption states that the sensing matrices $\mathcal{A}(\cdot)$ only &amp;ldquo;marginally&amp;rdquo; changes the norm of the matrix $X$.&lt;/p&gt;
+&lt;p&gt;Going back to the main optimization problem in Eq. \eqref{eq:objective}, instead of solving it as is, we propose to solve a factorized version of it, following recent work &lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;:
+\begin{align}
+\label{eq:factored-obj} \tag{3}
+\min_{U \in \mathbb{C}^{d \times r}} f(UU^\dagger) := \tfrac{1}{2} || \mathcal{A} (UU^\dagger) - y ||_2^2,
+\end{align}
+where $U^\dagger$ denotes the &lt;a href=&#34;https://en.wikipedia.org/wiki/Conjugate_transpose&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;adjoint&lt;/a&gt; of $U$. The motivation is rather clear: in the original objective function in Eq. \eqref{eq:objective}, the density matrix $\rho$ is represented as a $d \times d$ Hermitian matrix, and due to the (non-convex) $\texttt{rank}(\cdot)$ constraint, some method to project onto the set of low-rank matrices is required. Instead, we work in the space of the factors $U \in \mathbb{C}^{d \times r}$, and by taking an outer-product, the $\texttt{rank}(\cdot)$ constraint and the PSD constraint $\rho \succeq 0$ are automatically satisfied, leading to the non-convex formulation in Eq. \eqref{eq:factored-obj}. But how do we solve such problem?&lt;/p&gt;
+&lt;p&gt;A common approach is to use gradient descent on $U$, which iterates as follows:
+\begin{align}
+\label{eq:fgd} \tag{4}
+U_{i+1} &amp;amp;= U_{i} - \eta \nabla f(U_i U_i^\dagger) \cdot U_i \\&lt;br&gt;
+&amp;amp;= U_{i} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(U_i U_i^\dagger) - y\right) \cdot U_i.
+\end{align}&lt;/p&gt;
+&lt;!--HERE IT IS NOT CLEAR WHAT IS f - DEFINE IT IN EQ.(3).--&gt;
+&lt;p&gt;Here, $\mathcal{A}^\dagger: \mathbb{R}^m \rightarrow \mathbb{C}^{d \times d}$ is the adjoint of $\mathcal{A}$, defined as $\mathcal{A}^\dagger = \sum_{i=1}^m x_i A_i.$ $\eta$ is a hyperparameter called step size or learning rate. This method is called &amp;ldquo;$\texttt{F}$actored $\texttt{G}$radient $\texttt{D}$escent&amp;rdquo; ($\texttt{FGD}$), and was utilized to solve the non-convex objective function in Eq. \eqref{eq:factored-obj}, (surprisingly) with provable gaurantees.&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&#34;momentum-inspired-factored-gradient-descent&#34;&gt;Momentum-inspired Factored Gradient Descent&lt;/h2&gt;
+&lt;p&gt;Momentum is one of the de facto techniques to achieve acceleration in gradient descent type of algorithms. Acceleration methods exist in various forms, including Polyak&amp;rsquo;s momentum, Nesterov&amp;rsquo;s acceleration, classical momentum, etc. They end up behaving pretty similarly, and we will not get into the detail of different acceleration methods in this post. For interested readers, I recommend this &lt;a href=&#34;https://jlmelville.github.io/mize/nesterov.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;blog post&lt;/a&gt; by James Melville.&lt;/p&gt;
+&lt;p&gt;A common feature accross acceleration methods is that, with proper hyper-parameter tuning, they can provide accelerated convergence rate with virtually no additional computation. This is exactly the motivation of the $\texttt{MiFGD}$ algorithm we propose for solving the non-convex objective in Eq. \eqref{eq:factored-obj}, and the algorithm proceeds as follows:
+\begin{align}
+\label{eq:mifgd} \tag{5}
+U_{i+1} &amp;amp;= Z_{i} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(Z_i Z_i^\dagger) - y\right) \cdot Z_i, \\&lt;br&gt;
+Z_{i+1} &amp;amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
+\end{align}&lt;/p&gt;
+&lt;p&gt;Here, $Z_i \in \mathbb{C}^{d\times r}$ is a rectangular matrix (with the same dimension as $U_i$) which accumulates the &amp;ldquo;momentum&amp;rdquo; of the iterates $U_i$. $\mu$ is the momentum parameter that balances the weight between the previous estimate $U_i$ and the current estimate $U_{i+1}.$&lt;/p&gt;
+&lt;p&gt;While the $\texttt{MiFGD}$ algorithm in Eq. \eqref{eq:mifgd} looks quite similar to $\texttt{FGD}$ in Eq. \eqref{eq:fgd}, it complicates the convergence theory significantly. This is because the two-step momentum procedure has to be considered, on top of the fact that the objective function in Eq. \eqref{eq:factored-obj} is non-convex. We will not get into the details of the convergence thoery here; interested readers are referred to our paper.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; We finish this section with an informal theorem that illustrates the convergence behavior of $\texttt{MiFGD}$:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Theorem 1&lt;/strong&gt; ($\texttt{MiFGD}$ convergence rate (informal)). Assume that $\mathcal{A}(\cdot)$ satisfies the RIP for some constant $0 &amp;lt; \delta_{2r} &amp;lt;1$. Let $y = \mathcal{A}(\rho^\star)$ denote the set of measurements, by measuring the quantum density matrix $\rho^\star$. Given a good initialization point $U_0$, and setting step size $\eta$ and momentum $\mu$ appropriately, $\texttt{MiFGD}$ converges with a linear rate to a region—with radius that depends on $O(\mu)$—around the global solution $\rho^\star$.&lt;/p&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;In this section, we review some of the experimental results. First, we obtain real quantum data from IBM&amp;rsquo;s Quantum Processing Unit (QPU) by realizing two types of quantum states: $\texttt{GHZminus}(n)$ and $\texttt{Hadamard}(n)$, for $n = 6, 8$, where $n$ is the number of qubits. In quantum computing, obtaining measurements itself is not a trivial process, which we will not get into the detail in this post. Yet, we highlight that, in the following plots, we only use $20$% of the measurements that are information-theoretically compelete, i.e. we sample $m = 0.2 \cdot d^2$ measurements (recall that we are working on compressed sensing QST setting). We compare the effect of different momentum parameters in the figure below, where the accuracy of the estimated density matrix $\widehat{\rho}$ is measured with the true density matrix $\rho^\star$ in terms of the squared Frobenius norm, i.e. $||\widehat{\rho} - \rho^\star||_F^2$:&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-textttmifgd-performance-on-real-quantum-data-from-ibm-qpu-top-left-textttghzminus6-top-right-textttghzminus8-bottom-left-texttthadamard6-bottom-right-texttthadamard8&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/ibm-data_hu9ed558def99604cea272504d5b0afe6e_128657_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;$\texttt{MiFGD}$ performance on real quantum data from IBM QPU. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/ibm-data_hu9ed558def99604cea272504d5b0afe6e_128657_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    $\texttt{MiFGD}$ performance on real quantum data from IBM QPU. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Above figure summarizes the performance of $\texttt{MiFGD}$. In the legends, $\mu^\star$ is the momentum parameter proposed by our theory; however, it should be noted that $\texttt{MiFGD}$ converges with larger momentum values than $\mu^\star$, in particular featuring a steep dive to convergence for the largest value of $\mu$ we tested. Moreover, the above figure also highlights the universality of our approach: its performance is oblivious to the quantum state reconstructed, as long as it satisfies purity or it is close to a pure state. Our method does not require any additional structure assumptions in the quantum state.&lt;/p&gt;
+&lt;p&gt;It should be noted that quantum data are inherently noisy. To highlight the level of noise existing in real quantum data, in the figure below, we also plot the performance of $\texttt{MiFGD}$ in the same setting using simulated quantum data from IBM&amp;rsquo;s &lt;a href=&#34;https://github.com/Qiskit/openqasm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;QASM&lt;/a&gt; simulator:  &lt;!--in $\texttt{qiskit-aer}$.--&gt;&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-textttmifgd-performance-on-synthetic-data-using-ibms-qasm-simulator-top-left-textttghzminus6-top-right-textttghzminus8-bottom-left-texttthadamard6-bottom-right-texttthadamard8&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/simulator-data_hu1586622ad382eaa8ab67ffb7b3e9beca_132295_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;$\texttt{MiFGD}$ performance on synthetic data using IBM&amp;amp;rsquo;s QASM simulator. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/simulator-data_hu1586622ad382eaa8ab67ffb7b3e9beca_132295_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    $\texttt{MiFGD}$ performance on synthetic data using IBM&amp;rsquo;s QASM simulator. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;We see a similar trend with the result using real quantum data from IBM&amp;rsquo;s QPU. However, we see that the overall accuracy of the reconstucted and the target states, $|| \hat{\rho} - \rho^\star||_F^2$, is generally lower for the real quantum data&amp;ndash;they do not reach the accuracy level of $10^{-1}$, which is acchieved for all cases using QASM simulator. This difference is summarized in the figure below:&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-final-fidelity-of-textttmifgd-comparison-using-real-quantum-data-from-ibms-qpu-and-simulated-quantum-data-using-qasm&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/qpu-vs-qasm_hu5758ce60bc0bf36c5fbb63063c04e7bf_40419_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Final fidelity of $\texttt{MiFGD}$ comparison using real quantum data from IBM&amp;amp;rsquo;s QPU and simulated quantum data using QASM.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/qpu-vs-qasm_hu5758ce60bc0bf36c5fbb63063c04e7bf_40419_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;225&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Final fidelity of $\texttt{MiFGD}$ comparison using real quantum data from IBM&amp;rsquo;s QPU and simulated quantum data using QASM.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;performance-comparison-with-qst-methods-in-textttqiskit&#34;&gt;Performance comparison with QST methods in $\texttt{Qiskit}$&lt;/h4&gt;
+&lt;p&gt;Now, we compare the performance of $\texttt{MiFGD}$ with &lt;a href=&#34;https://qiskit.org/documentation/stubs/qiskit.ignis.verification.TomographyFitter.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;QST methods&lt;/a&gt; from &lt;a href=&#34;https://qiskit.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;$\texttt{Qiskit}$&lt;/a&gt;, again using IBM&amp;rsquo;s QASM simulator. $\texttt{Qiskit}$ provides two QST methods: $i)$ the $\texttt{CVXPY}$ method which relies on convex optimiztion, and $ii)$ the $\texttt{lstsq}$ which ruses least-squares fitting. Both methods solve the following full tomography problem (not compressed sensing QST problem):&lt;/p&gt;
+&lt;p&gt;\begin{align}
+\min_{\rho \in \mathbb{C}^{d \times d}}
+\quad &amp;amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\&lt;br&gt;
+\text{subject to}
+\quad &amp;amp; \rho \succeq 0, ~\texttt{Tr}(\rho) = 1.
+\end{align}&lt;/p&gt;
+&lt;p&gt;We note that $\texttt{MiFGD}$ is not restricted to ``tall&#39;&#39; $U$ scenarios to encode PSD and rank constraints: even without rank constraints, one could still exploit the matrix decomposition $\rho = UU^\dagger$ to avoid the PSD projection, $\rho \succeq 0$, where $U \in \mathbb{C}^{d \times d}$.&lt;/p&gt;
+&lt;p&gt;We consider the following cases: $\texttt{GHZ}(n), \texttt{Hadamard}(n),$ and $\texttt{Random}(n)$ for $n = 3, \dots, 8$.
+The results are shown in the figure below:&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-performance-comparison-with-textttqiskit-methods-all-experiments-are-performed-on-a-13-macbook-pro-with-23-ghz-quad-core-intel-core-i7-cpu-and-32-gb-ram&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qiskit}$ methods. All experiments are performed on a 13” Macbook Pro with 2.3 GHz Quad-Core Intel Core i7 CPU and 32 GB RAM.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;354&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Performance comparison with $\texttt{Qiskit}$ methods. All experiments are performed on a 13” Macbook Pro with 2.3 GHz Quad-Core Intel Core i7 CPU and 32 GB RAM.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Some notable remarks: $i)$ For small-scale scenarios ($n=3, 4$), $\texttt{CVXPY}$ and $\texttt{lstsq}$ attain almost perfect fidelity, while being comparable or faster than $\texttt{MiFGD}$. $ii)$ The difference in performance becomes apparent from $n = 6$ and on: while $\texttt{MiFGD}$ attains $98$% fidelity in less than $5$ seconds, $\texttt{CVXPY}$ and $\texttt{lstsq}$ require up to hundreds of seconds to find a good solution. Finally, while $\texttt{MiFGD}$ gets to high-fidelity solutions in seconds for $n = 7, 8$, $\texttt{CVXPY}$ and $\texttt{lstsq}$ methods require more than 12 hours execution time; however, their execution never ended, since the memory usage exceeded the system&amp;rsquo;s available memory.&lt;/p&gt;
+&lt;h4 id=&#34;performance-comparison-with-neural-network-qst-using-textttqucumber&#34;&gt;Performance comparison with neural-network QST using $\texttt{Qucumber}$&lt;/h4&gt;
+&lt;p&gt;Next, we compare the performance of $\texttt{MiFGD}$ compare with neural-network based QST methods, proivded by &lt;a href=&#34;https://qucumber.readthedocs.io/en/stable/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;$\texttt{Qucumber}$&lt;/a&gt;. We consider the same quantum states as with $\texttt{Qiskit}$ experiments, but here we consider the case where only $50$% of the measurements are available.&lt;/p&gt;
+&lt;p&gt;We report the fidelity of the reconstruction as a function of elapsed training time for $n = 3, 4$ in the figure below for all methods provided by $\texttt{Qucumber}$: $\texttt{PRWF}, \texttt{CWF}$, and $\texttt{DM}$. Note that Time (secs) on $x$-axis is plotted with log-scale.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-performance-comparison-with-textttqucumber-methods-all-experiments-are-performed-on-a-nvidia-geforce-gtx-1080-ti-with-11gb-ram&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qucumber}$ methods. All experiments are performed on a NVidia GeForce GTX 1080 TI with 11GB RAM.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;408&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Performance comparison with $\texttt{Qucumber}$ methods. All experiments are performed on a NVidia GeForce GTX 1080 TI with 11GB RAM.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;We observe that for all cases, $\texttt{Qucumber}$ methods are orders of magnitude slower than $\texttt{MiFGD}$.
+For the $\texttt{Hadamard}(n)$ and $\texttt{Random}(n)$, reaching reasonable fidelities is significantly slower for both $\texttt{CWF}$ and $\texttt{DM},$ while $\texttt{PRWF}$ hardly improves its performance throughout the training.
+For the $\texttt{GHZ}$ case, $\texttt{CWF}$ and $\texttt{DM}$ also shows &lt;em&gt;non-monotonic&lt;/em&gt; behaviors: even after a few thousands of seconds, fidelities have not &amp;ldquo;stabilized&amp;rdquo;, while $\texttt{PRWF}$ stabilizes in very low fidelities.
+In comparison, $\texttt{MiFGD}$ is several orders of magnitude faster than both $\texttt{CWF}$ and $\texttt{DM}$ and fidelity smoothly increases to comparable or higher values. What is notable is the scalability of $\texttt{MiFGD}$ compared to neural network approaches for higher values of $n$.&lt;/p&gt;
+&lt;p&gt;To see this more clearly, in the table below, we report the final fidelities (within the $3$ hour time window), and reported times. We see that for many cases, $\texttt{CWF}$ and $\texttt{DM}$ methods did not complete a single iterations within $3$ hours.&lt;/p&gt;
+&lt;!-- For a stark contrast,  $\texttt{MiFGD}$ for $n=8$ took less than 25 seconds, while $\texttt{PRWF}$, which is the fastest neural-network method provided by $\texttt{Qucumber}$, took more than 40 seconds for $n=3$. --&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-comparison-with-qucumber-methods&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison_hua17c2be52f23f3de862b40367885380f_171885_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Comparison with Qucumber methods.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison_hua17c2be52f23f3de862b40367885380f_171885_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;740&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Comparison with Qucumber methods.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;the-effect-of-parallelization-in-textttmifgd&#34;&gt;The effect of parallelization in $\texttt{MiFGD}$&lt;/h4&gt;
+&lt;p&gt;We also study the effect of paralleization in running $\texttt{MiFGD}$. We parallelize the iteration step across a number
+of processes, that can be either distributed and network connected, or sharing memory in a multicore environment.
+Our approach is based on &lt;a href=&#34;https://en.wikipedia.org/wiki/Message_Passing_Interface&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Message Passing Interface (MPI)&lt;/a&gt; specification. We assign to each process a subset of the measurement labels consumed by the parallel computation. At each step, a process first computes the local gradient using a subset of measurements. These local gradients are then communicated so that they can be added up to form the full gradient, and the full gradient is shared with each worker.&lt;/p&gt;
+&lt;p&gt;In our first round of experiments, we investigate the scalability of the parallelization approach. We vary the number $p$ of parallel processes $(p=1, 2, 4, 8, 16, 32, 48, 64, 80, 96)$, collect timings for reconstructing $\texttt{GHZ}(4)$, $\texttt{Random}(6)$ and $\texttt{GHZminus}(8)$ states, and report speedups $T_p/T_1$ we gain from $\texttt{MiFGD}$ in the figure bloew (left panel). We observe that the benefits of parallelization are pronounced for bigger problems (here: $n=8$ qubits) and maximum scalability results when we use all physical cores ($48$ in our platform).&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-effect-of-parallelization-of-textttmifgd-left-scalability-of-parallelization-of-textttmifgd-for-different-number-of-processors-middle-fidelity-versus-time-consued-for-different-number-of-processors-on-texttthadamard10-state-right-the-effect-of-momentum-on-texttthadamard10-state-with-48-processors&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/parallel_hub9237cb47336b5cec8dd803d37ed29cf_49045_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Effect of parallelization of $\texttt{MiFGD}$. Left: scalability of parallelization of $\texttt{MiFGD}$ for different number of processors. Middle: fidelity versus time consued for different number of processors on $\texttt{Hadamard}(10)$ state. Right: The effect of momentum on $\texttt{Hadamard}(10)$ state with 48 processors.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/parallel_hub9237cb47336b5cec8dd803d37ed29cf_49045_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;210&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Effect of parallelization of $\texttt{MiFGD}$. Left: scalability of parallelization of $\texttt{MiFGD}$ for different number of processors. Middle: fidelity versus time consued for different number of processors on $\texttt{Hadamard}(10)$ state. Right: The effect of momentum on $\texttt{Hadamard}(10)$ state with 48 processors.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Further, we move to larger problems ($n=10$ qubits: reporting on reconstructing $\texttt{Hadamard}(10)$ state) and focus on the effect parallelization to achieving a given level of fidelity in reconstruction. In the middle panel of the figure above, we illustrate the fidelity as a function of the time spent in the iteration loop of $\texttt{MiFGD}$ for ($p=8, 16, 32, 48, 64$): we observe the smooth path to convergence in all $p$ counts which again minimizes compute time for $p=48$. Note that in this case we use $10$% of the complete measurements, and the momenutum parameter $\mu=\frac{1}{4}$.&lt;/p&gt;
+&lt;p&gt;Finally, in the right panel of the figure above, we fix the number of processes to $p=48$, in order to minimize compute time and increase the percentage of used measurements to $20$% of the complete measurements available for $\texttt{Hadamard}(10)$. We vary the momentum parameter from $\mu=0$ (no acceleration) to $\mu=\frac{1}{4}$, and confirm that we indeed get faster convergence times in the latter case while the fidelity value remains the same (i.e. coinciding upper plateau value in the plots). We can also compare with the previous fidelity versus time plot, where the same $\mu$ but half the measurements are consumed: more measurements translate to faster convergence times (plateau is reached roughly $25$% faster; compare the green line with the yellow line in the previous plot).&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;We have introduced the $\texttt{MiFGD}$ algorithm for the factorized form of the low-rank QST problems.
+We proved that, under certain assumptions on the problem parameters, $\texttt{MiFGD}$ converges linearly to a neighborhood of the optimal solution, whose size depends on the momentum parameter $\mu$, while using acceleration motions in a non-convex setting.
+We demonstrate empirically, using both simulated and real data, that $\texttt{MiFGD}$ outperforms non-accelerated methods on both the original problem domain and the factorized space, contributing to recent efforts on testing QST algorithms in real quantum data.
+These results expand on existing work in the literature illustrating the promise of factorized methods for certain low-rank matrix problems.
+Finally, we provide a publicly available implementation of our approach, compatible to the open-source software $\texttt{Qiskit}$, where we further exploit parallel computations in $\texttt{MiFGD}$ by extending its implementation to enable efficient, parallel execution over shared and distributed memory systems.&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Junhyung Lyle Kim, George Kollias, Amir Kalev, Ken X. Wei, Anastasios Kyrillidis. Fast quantum state reconstruction via accelerated non-convex programming. arXiv preprint arXiv:2104.07006, 2021. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;D. Gross, Y.-K. Liu, S. Flammia, S. Becker, and J. Eisert. Quantum state tomography via compressed
+sensing. Physical review letters, 105(15):150401, 2010. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;A. Kalev, R. Kosut, and I. Deutsch. Quantum tomography protocols with positivity are compressed
+sensing protocols. NPJ Quantum Information, 1:15018, 2015. &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Giacomo Torlai, Guglielmo Mazzola, Juan Carrasquilla, Matthias Troyer, Roger Melko, and Giuseppe
+Carleo. Neural-network quantum state tomography. Nat. Phys., 14:447–450, May 2018. &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Giacomo Torlai and Roger Melko. Machine-learning quantum states in the NISQ era. Annual Review
+of Condensed Matter Physics, 11, 2019. &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Matthew JS Beach, Isaac De Vlugt, Anna Golubeva, Patrick Huembeli, Bohdan Kulchytskyy, Xiuzhe
+Luo, Roger G Melko, Ejaaz Merali, and Giacomo Torlai. Qucumber: wavefunction reconstruction with neural networks. SciPost Physics, 7(1):009, 2019. &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:7&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;D. Gonçalve, M. Gomes-Ruggiero, and C. Lavor. A projected gradient method for optimization over
+density matrices. Optimization Methods and Software, 31(2):328–341, 2016. &lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:8&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;E. Bolduc, G. Knee, E. Gauger, and J. Leach. Projected gradient descent algorithms for quantum state tomography. npj Quantum Information, 3(1):44, 2017. &lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:9&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Jiangwei Shang, Zhengyun Zhang, and Hui Khoon Ng. Superfast maximum-likelihood reconstruction
+for quantum tomography. Phys. Rev. A, 95:062336, Jun 2017. &lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:10&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Zhilin Hu, Kezhi Li, Shuang Cong, and Yaru Tang. Reconstructing pure 14-qubit quantum states in
+three hours using compressive sensing. IFAC-PapersOnLine, 52(11):188 – 193, 2019. 5th IFAC Conference on Intelligent Control and Automation Sciences ICONS 2019. &lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:11&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Zhibo Hou, Han-Sen Zhong, Ye Tian, Daoyi Dong, Bo Qi, Li Li, Yuanlong Wang, Franco Nori, Guo-Yong Xiang, Chuan-Feng Li, et al. Full reconstruction of a 14-qubit state within four hours. New Journal of Physics, 18(8):083036, 2016. &lt;a href=&#34;#fnref:11&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:12&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;A. Kyrillidis, A. Kalev, D. Park, S. Bhojanapalli, C. Caramanis, and S. Sanghavi. Provable quantum state tomography via non-convex methods. npj Quantum Information, 4(36), 2018. &lt;a href=&#34;#fnref:12&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:13&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Benjamin Recht, Maryam Fazel, and Pablo A Parrilo. Guaranteed minimum-rank solutions of linear matrix equations via nuclear norm minimization. SIAM review, 52(3):471–501, 2010. &lt;a href=&#34;#fnref:13&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Basics of quantum mechanics (part 1)</title>
+      <link>https://jlylekim.github.io/blog/quantum-mechanics-1/</link>
+      <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/blog/quantum-mechanics-1/</guid>
+      <description>&lt;!--# Basics quantum mechanics: part 1--&gt;
+&lt;p&gt;In this series of blog posts, I want to introduce some basics of quantum mechanics, which can be helpful to start learning about quantum computing. I myself do not have any physics background, and found &lt;a href=&#34;https://www.youtube.com/playlist?list=PL8W2boV7eVfmMcKF-ljTvAJQ2z-vILSxb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this series of videos&lt;/a&gt; extremely helpful. This post is mainly based on this series of lectures, and I hope it is helpful to anyone who wants to start learning quantum computing.&lt;/p&gt;
+&lt;h2 id=&#34;1-dirac-notation-in-state-space&#34;&gt;1. Dirac notation in state space&lt;/h2&gt;
+&lt;p&gt;State space is the name we give to the vector space in which the quantum system lives. Just like Euclidean space, which is used to describe the &amp;ldquo;world&amp;rdquo; in classical mechanics, state space is another vector space that shares many similarities with Euclidean space. For instance, just like Euclidean space, state space also is equipped with an inner product, thus making it a Hilbert space.&lt;/p&gt;
+&lt;p&gt;Even though we use a lot of linear algebra in quantum mechanics, we use quite different notation, called &amp;ldquo;Dirac notation,&amp;rdquo; invented by one of the founders quantum mechanics, Paul Dirac. We start with the first postulate of quantum mechanics:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Postulate I:&lt;/strong&gt; The state of a physical system is characterized by a state vector that belongs to a complex vector space $\mathcal{V}$, called the state space of the system.&lt;/p&gt;
+&lt;p&gt;It turns out that the vector space properties that Euclidean space has mostly translates to state space, with a few tweaks. Let&amp;rsquo;s recap the properties of (3-dimensional) Euclidean space first.&lt;/p&gt;
+&lt;p&gt;Euclidean space (in 3-dimension for illustration) has the following properties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An element $r$ is called a (3-dimensional) &amp;ldquo;vector&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Vector addition: $r_1 + r_2 = r_3 \in \mathbb{R}^3$&lt;/li&gt;
+&lt;li&gt;Commutativity of vector addition: $r_1 + r_2 = r_2 + r_1$&lt;/li&gt;
+&lt;li&gt;Associativity of vector addition: $(r_1 + r_2) + r_3 = r_1 + (r_2 + r_3)$&lt;/li&gt;
+&lt;li&gt;Identity for vector addition: $0 + r = r$&lt;/li&gt;
+&lt;li&gt;Inverse of vector addition: $r + (-r) = 0$&lt;/li&gt;
+&lt;li&gt;Scalar multiplication: $a \cdot r \in \mathbb{R}^3$&lt;/li&gt;
+&lt;li&gt;Associativity of scalar multiplication: $a(br) = (ab)r$&lt;/li&gt;
+&lt;li&gt;Distributivity of scalar multiplication: $(a + b )r = ar + br$, and $a(r_1 + r_2) = ar_1 + ar_2$&lt;/li&gt;
+&lt;li&gt;Identity for vector multiplication: $1\cdot r = r$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The above properties more or less translate directly to state space.&lt;/p&gt;
+&lt;p&gt;State space $\mathcal{V}$ has the following properties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An element $| \psi \rangle$ is called a &amp;ldquo;ket&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Vector addition: $|\psi_1 \rangle + |\psi_2\rangle = |\psi_3 \rangle \in \mathcal{V}$&lt;/li&gt;
+&lt;li&gt;Commutativity of vector addition: $|\psi_1 \rangle + |\psi_2\rangle = |\psi_2 \rangle + |\psi_1 \rangle$&lt;/li&gt;
+&lt;li&gt;Associativity of vector addition: $(|\psi_1 \rangle + |\psi_2\rangle) + |\psi_3\rangle = |\psi_1 \rangle + (|\psi_2\rangle +|\psi_3\rangle)$&lt;/li&gt;
+&lt;li&gt;Identity for vector addition: $0 + |\psi\rangle = |\psi \rangle$&lt;/li&gt;
+&lt;li&gt;Inverse of vector addition:$|\psi \rangle + (- |\psi \rangle) = 0$&lt;/li&gt;
+&lt;li&gt;Sacalar multiplication: $a | \psi \rangle \in \mathcal{V}$&lt;/li&gt;
+&lt;li&gt;Associativity of scalar multiplication: $a( b | \psi \rangle ) = (ab) | \psi \rangle$&lt;/li&gt;
+&lt;li&gt;Distributivity of scalar multiplication: $(a+b) | \psi \rangle = a| \psi \rangle + b | \psi \rangle$, and $a ( | \psi_1 \rangle + | \psi_2 \rangle ) = a| \psi_1 \rangle + b| \psi_2 \rangle$&lt;/li&gt;
+&lt;li&gt;Identity for vector multiplication: $1 | \psi \rangle = | \psi \rangle$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, we move to some differences. Both Euclidean space and state space are subsets of Hilbert space, and thus are equipped with scalar (inner) product.&lt;/p&gt;
+&lt;p&gt;Scalar product in Euclidean space:&lt;/p&gt;
+&lt;p&gt;$SP(r_1, r_2) = r_1 \bullet r_2 = c, \quad c \in \mathbb{R}$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Conjugation: $r_1 \bullet r_2 = r_2 \bullet r_1$&lt;/li&gt;
+&lt;li&gt;Linearity: $r_1 \bullet a (r_2) = a(r_1) \bullet r_2 =  a(r_1 \bullet r_2)$  and $r_1 \bullet (r_2 + r_3) = r_1 \bullet r_2 + r_1 + r_3$&lt;/li&gt;
+&lt;li&gt;Positivity: $r_1 \bullet r_1 \geq 0$, and $r_1 \bullet r_2 = 0$ if and only if $r_1 = 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Scalar product in state space:&lt;/p&gt;
+&lt;p&gt;$SP(|\psi_1,~|\psi_2\rangle) = c, \quad c \in \mathbb{C}$&lt;/p&gt;
+&lt;p&gt;Notice that the scalar $c$ is now a complex number, which is one of the crucial differences of state space and Euclidean space. Now we look at the properties of scalar product in state space:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Conjugation: $SP(|\psi \rangle,~|\phi \rangle) = [SP(|\phi \rangle,~|\psi \rangle)]^*$&lt;/li&gt;
+&lt;li&gt;Linearity in second argument: $SP(|\psi \rangle,~a |\phi \rangle) = a SP(|\psi \rangle,~|\phi \rangle)$ and $SP(|\psi \rangle,~|\phi \rangle + |\chi\rangle) = SP(|\psi \rangle,~|\phi \rangle) + SP(|\psi \rangle,~|\chi \rangle)$&lt;/li&gt;
+&lt;li&gt;Anti-linearity in first argument: $SP(a|\psi \rangle,~ |\phi \rangle) = [SP(|\psi \rangle,~a|\psi \rangle)]^* = a^*[SP(|\phi \rangle, |\psi\rangle)
+]^* = a^* SP(|\psi \rangle, |\phi \rangle)$ where $a^*$ is a complex conjugate.&lt;/li&gt;
+&lt;li&gt;Positivity: $SP( |\psi \rangle, |\psi \rangle ) \geq 0$, and $SP( |\psi \rangle, |\psi \rangle ) = 0$ iff $|\psi \rangle = 0$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So the main difference comes from the fact that state space lives in complex vector space, rather than real vector space. Through the scalar product, we can define some basic notations for quantum mechanics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$SP(|\psi\rangle, |\phi\rangle)  \implies \langle \psi |\phi \rangle$ is called &amp;ldquo;braket.&amp;rdquo; As one can guess, $\langle \psi |$ is called &amp;ldquo;bra,&amp;rdquo; and it corresponds to a row vector.&lt;/li&gt;
+&lt;li&gt;As one can guess, $\langle \psi |$ is called &amp;ldquo;bra,&amp;rdquo; and it corresponds to a row vector. (And of course $|\phi \rangle$ corresponds to a column vector.)&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Ket&amp;rdquo; $|\psi \rangle \in \mathcal{V}$ maps to &amp;ldquo;bra&amp;rdquo; $\langle \psi | \in \mathcal{V}^*$ in dual space&lt;/li&gt;
+&lt;li&gt;Scalar product is anti-linear in the first argument: $a|\psi\rangle \longleftrightarrow a^* \langle \psi |$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With this basic notation equipped, let&amp;rsquo;s study a concept called &amp;ldquo;operators&amp;rdquo; in the next chapter.&lt;/p&gt;
+&lt;h2 id=&#34;2-operators-in-quantum-mechanics&#34;&gt;2. Operators in quantum mechanics&lt;/h2&gt;
+&lt;p&gt;Operators are mathematical objects that allow us to describe physical properties, such as position, momentum, and energy. Let&amp;rsquo;s start by the second postulate of quantum mechanics:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Postulate II:&lt;/strong&gt; A physical quantity $\mathcal{A}$ is described by an operator $\hat{A}$ acting on the state space space $\mathcal{V}$, and this operator is an observable.&lt;/p&gt;
+&lt;p&gt;In other words, an operator acts on elements of state space $\mathcal{V}$, which are kets, and these kets are modified by the operator $\hat{A}$ in some manner. This can be written is $\hat{A} |\psi \rangle = |\psi&#39; \rangle$, meaning that the operator $\hat{A}$ acts on the ket $| \psi \rangle$, which is modified to another ket $|\psi&#39; \rangle$. It&amp;rsquo;s important to remember that the operators in quantum mechanics can act on the superposition of different states:&lt;/p&gt;
+&lt;p&gt;$$\hat{A} (a_1 |\psi_1 \rangle + a_2 |\psi_2 \rangle) = a_1 \hat{A} |\psi_1 \rangle + a_2 \hat{A} | \psi_2 \rangle.$$&lt;/p&gt;
+&lt;p&gt;As can be guessed from the above expression, these operators are called &amp;ldquo;linear operators.&amp;rdquo; Fortunately, in quantum mechanics, we can always work with linear operators, which makes the study of quantum mechanics a lot easier. Similarly to the properties of addition and multiplication of kets we studied earlier, (linear) operators have basic properties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Associativity of addition: $\hat{A} + (\hat{B} + \hat{C}) = (\hat{A} + \hat{B}) + \hat{C}$&lt;/li&gt;
+&lt;li&gt;Commutativity of addition: $\hat{A} + \hat{B} = \hat{B} + \hat{A}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Before stating the properties of multiplication of operators, let&amp;rsquo;s start with its definition:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiplication of operators: $(\hat{A}\hat{B}) |\psi\rangle = \hat{A} ( \hat{B} |\psi \rangle )$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Above can also be thought of as $\hat{A}$ acting on the new state, $\hat{B} |\psi \rangle = |\psi&#39; \rangle$, i.e. $\hat{A} |\psi&#39; \rangle$. Now we state the properties of multiplication of operators:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Associativity of multiplication: $\hat{A} (\hat{B}\hat{C}) = (\hat{A} \hat{B}) \hat{C}$&lt;/li&gt;
+&lt;li&gt;Non-commutativity of multiplication: $\hat{A} \hat{B} \neq \hat{B} \hat{A}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The non-commutativity of multiplication is one of the most important properties of operators in quantum mechanics. Due to this aspect, we also define commutators:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commutator: $[\hat{A}, \hat{B}] = \hat{A}\hat{B} - \hat{B} \hat{A}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The non-commutativity of multiplication of operators, and consequently the notion of  commutators play a fundamental role in quantum mechanics. Specifically, two operators that do not commute are associated with properties that cannot be measured simultaneously in a quantum system, such as position and momentum operators.&lt;/p&gt;
+&lt;p&gt;Now, we introduce the notion of the adjoint operator. Adjoint operator can be thought of as the dual of the operator introduced above, just like a ket corresponds to a bra in the dual space. We can write this as follows:&lt;/p&gt;
+&lt;p&gt;$$|\psi&#39;\rangle =\hat{A}|\psi \rangle \longleftrightarrow \langle \psi&#39; | = \langle \psi|\hat{A}^\dagger.$$&lt;/p&gt;
+&lt;p&gt;Adjoint operator is also linear, just like the operator introduced previously. With this notion, we can introduce some particularly important operators in quantum mechanics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hermitian operator: $\hat{A} = \hat{A}^\dagger$&lt;/li&gt;
+&lt;li&gt;Unitary operator: $\hat{A}^{-1} = \hat{A}^\dagger$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Another important way to write an operator is through &amp;ldquo;outer product.&amp;rdquo; It turns out that outer product is also an operator, which can be seen below:&lt;/p&gt;
+&lt;p&gt;$$(|\phi \rangle \langle \psi | ) |\chi \rangle = | \phi \rangle ( \langle \psi | \chi \rangle ) = a|\phi \rangle,$$&lt;/p&gt;
+&lt;p&gt;where we denoted the scalar (inner) product $\langle \psi | \chi \rangle$ as $a \in \mathbb{C}$.&lt;/p&gt;
+&lt;p&gt;We close this chapter with some basic mathematical properties of operators:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\langle \psi | \hat{A}^\dagger | \rho \rangle = \langle \rho |\hat{A}|\psi\rangle^*$&lt;/li&gt;
+&lt;li&gt;$(\hat{A}^\dagger)^\dagger = \hat{A}$&lt;/li&gt;
+&lt;li&gt;$(a \hat{A})^\dagger = a^* \hat{A}^\dagger$&lt;/li&gt;
+&lt;li&gt;$(\hat{A} + \hat{B})^\dagger = \hat{A}^\dagger + \hat{B}^\dagger$&lt;/li&gt;
+&lt;li&gt;$(\hat{A}\hat{B})^\dagger = \hat{B}^\dagger \hat{A}^\dagger$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-representations-in-quantum-mechanics&#34;&gt;3. Representations in quantum mechanics&lt;/h2&gt;
+&lt;p&gt;Just like choosing convenient basis in Euclidean space leads to simpler notations, in quantum mechanics, if we choose convenient basis, it can simplify mathematical representations as well. We represent state space with an orthonormal basis. Orthonormal basis are mathematically defined as a set $\{ |u_i\rangle \}$ such that $\langle u_i | u_j \rangle = \delta_{ij}$, where $\delta_{ij} = 1$ if $i = j$, and $0$ otherwise (this is known as the &amp;ldquo;kronecker delta&amp;rdquo; function). Also, every ket in the state space, $|\psi \rangle \in \mathcal{V}$, can be respresented as a unique linear combination of the set $\{ |u_i\rangle \}$, i.e. $|\psi \rangle = \sum_i c_i |u_i \rangle$.&lt;/p&gt;
+&lt;p&gt;Since we&amp;rsquo;re working with orthonormal basis, it is quite easy to find a specific coefficient as follows:&lt;/p&gt;
+&lt;p&gt;$$\langle u_j | \psi \rangle = \langle u_j | \left( \sum_i c_i |u_i \rangle \right) = \sum_i c_i \langle u_j | u_i \rangle = \sum_i c_i \delta_{ij} = c_j.$$&lt;/p&gt;
+&lt;p&gt;In words, we can say that $\{ c_i \}$ are a representation of a ket $|\psi \rangle$ in the $\{ |u_i\rangle \}$ basis. An important concept of representation is &amp;ldquo;closure relation&amp;rdquo;:&lt;/p&gt;
+&lt;p&gt;$$\begin{aligned}
+|\psi \rangle &amp;amp;= \sum_i \langle u_i | \psi \rangle |u_i \rangle  = \left( \sum_i |u_i \rangle \langle u_i \right) | \psi \rangle \\&lt;br&gt;
+&amp;amp;= \sum_i c_i | u_i\rangle \quad \text{where}\quad c_i = \langle u_i | \psi \rangle.
+\end{aligned}$$&lt;/p&gt;
+&lt;p&gt;Recall from Chapter 2 that an operator can be written as an outer product. In that sense, from the above, we can see that $\sum_i |u_i \rangle \langle u_i |$ is an operator (notice that I emphasized this with parentheses) that, given a state $|\psi\rangle$, returns the same state $|\psi \rangle$. Thus, we can also write $\sum_i |u_i \rangle \langle u_i | = \mathbb{I}$, where $\mathbb{I}$ is an identity matrix. This result is sometimes also called the &amp;ldquo;resultion of the identity (in the $\{|u_i\rangle \}$ basis).&amp;rdquo; Similar result holds for a bra $\langle \psi | \in \mathcal{V}^*$ :&lt;/p&gt;
+&lt;p&gt;$$\begin{aligned}
+\langle \psi | = \langle \psi | \mathbb{I} = \langle \psi | \left(  \sum_i |u_i \rangle \langle u_i | \right) &amp;amp;= \sum_i \langle \psi | u_i \rangle \langle u_i |  \\&lt;br&gt;
+&amp;amp;= \sum_i c_i^* \langle u_i |  \quad \text{where} \quad c_i^* = \langle u_i | \psi \rangle^*  = \langle \psi | u_i \rangle.
+\end{aligned}$$&lt;/p&gt;
+&lt;p&gt;Now, let&amp;rsquo;s look at how we represent operators. Recall the definition of an operator $\hat{A} |\psi\rangle = |\psi&#39; \rangle$. Using the same $\{ |u_i \rangle \}$ basis as before, we can write down both kets as below:&lt;/p&gt;
+&lt;p&gt;$$\begin{aligned}
+|\psi\rangle &amp;amp;= \sum_i c_i | u_i \rangle \quad\text{for}\quad c_i = \langle u_i | \psi \rangle \\&lt;br&gt;
+|\psi&#39;\rangle &amp;amp;= \sum_i c_i&#39; | u_i \rangle \quad\text{for}\quad c_i&#39; = \langle u_i | \psi&#39; \rangle.
+\end{aligned}$$&lt;/p&gt;
+&lt;p&gt;Notice that we can write $c_i&#39;$ in an alternative way as follows:&lt;/p&gt;
+&lt;p&gt;$$\begin{aligned}
+c_i&#39; &amp;amp;= \langle u_i | \psi&#39; \rangle = \langle u_i | \hat{A} | \psi \rangle = \langle u_i | \hat{A}\mathbb{I} | \psi \rangle
+\quad\text{(recall closure relation)}
+\\ &amp;amp;= \langle u_i | \hat{A} \left( \sum_j |u_j \rangle \langle u_j | \right) |\psi\rangle = \sum_j \langle u_i |\hat{A} |u_j \rangle \langle u_j | \psi \rangle.
+\end{aligned}$$&lt;/p&gt;
+&lt;p&gt;Using this alternative form of $c_i&#39;$, we can write down the ket $|\psi&#39;\rangle$ in a different form:&lt;/p&gt;
+&lt;p&gt;$$\begin{aligned}
+|\psi&#39;\rangle &amp;amp;= \sum_i \left( \sum_j \langle u_i|\hat{A}|u_j \rangle \langle u_j|\psi\rangle \right) |u_i\rangle \\&lt;br&gt;
+&amp;amp;= \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) |\psi\rangle \\&lt;br&gt;
+&amp;amp;= \hat{A} |\psi\rangle.
+\end{aligned}$$&lt;/p&gt;
+&lt;p&gt;Therefore, we see that we can write the operator $\hat{A}$ as&lt;/p&gt;
+&lt;p&gt;$$\hat{A} = \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) = \sum_{ij} A_{ij} |u_i\rangle \langle u_j|,$$&lt;/p&gt;
+&lt;p&gt;where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle \in \mathbb{C}$. Therefore, we arrive at a scalar value $A_{ij}$ that represents the operator $\hat{A}$ in the $\{ |u_i\rangle \}$ basis, just like how $c_i = \langle u_i | \psi \rangle$ represents the ket $|\psi \rangle$ in the same basis.&lt;/p&gt;
+&lt;p&gt;With the above, we close this chapter, and thus part 1 of this blog post about basics of quantum mechanics. In the next part, we will study matrix formulation of quantum mechanics, how to change basis, and a particularly import basis called eigenbasis.&lt;/p&gt;
+&lt;p&gt;{{ template &amp;ldquo;_internal/disqus.html&amp;rdquo; . }}&lt;/p&gt;
+</description>
     </item>
     
   </channel>
