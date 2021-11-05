@@ -506,7 +506,7 @@ three hours using compressive sensing. IFAC-PapersOnLine, 52(11):188 – 193, 20
     </item>
     
     <item>
-      <title>Basics of quantum mechanics (part 1)</title>
+      <title>Basics of quantum mechanics</title>
       <link>https://jlylekim.github.io/blog/quantum-mechanics-1/</link>
       <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
       <guid>https://jlylekim.github.io/blog/quantum-mechanics-1/</guid>
@@ -647,7 +647,6 @@ c_i&#39; &amp;amp;= \langle u_i | \psi&#39; \rangle = \langle u_i | \hat{A} | \p
 &lt;p&gt;$$\hat{A} = \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) = \sum_{ij} A_{ij} |u_i\rangle \langle u_j|,$$&lt;/p&gt;
 &lt;p&gt;where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle \in \mathbb{C}$. Therefore, we arrive at a scalar value $A_{ij}$ that represents the operator $\hat{A}$ in the $\{ |u_i\rangle \}$ basis, just like how $c_i = \langle u_i | \psi \rangle$ represents the ket $|\psi \rangle$ in the same basis.&lt;/p&gt;
 &lt;p&gt;With the above, we close this chapter, and thus part 1 of this blog post about basics of quantum mechanics. In the next part, we will study matrix formulation of quantum mechanics, how to change basis, and a particularly import basis called eigenbasis.&lt;/p&gt;
-&lt;p&gt;{{ template &amp;ldquo;_internal/disqus.html&amp;rdquo; . }}&lt;/p&gt;
 </description>
     </item>
     

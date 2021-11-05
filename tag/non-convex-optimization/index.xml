@@ -5,20 +5,12 @@
     <link>https://jlylekim.github.io/tag/non-convex-optimization/</link>
       <atom:link href="https://jlylekim.github.io/tag/non-convex-optimization/index.xml" rel="self" type="application/rss+xml" />
     <description>non-convex optimization</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2021 Junhyung Lyle Kim</copyright><lastBuildDate>Tue, 01 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2021 Junhyung Lyle Kim</copyright><lastBuildDate>Thu, 01 Apr 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
       <title>non-convex optimization</title>
       <link>https://jlylekim.github.io/tag/non-convex-optimization/</link>
     </image>
-    
-    <item>
-      <title>Momentum-inspired low-rank coordinate descent for diagonally constrained SDPs</title>
-      <link>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</link>
-      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Fast quantum state reconstruction via accelerated non-convex programming</title>
