@@ -13,9 +13,17 @@
     </image>
     
     <item>
-      <title>Acceleration and stability of stochastic proximal point algorithm</title>
-      <link>https://jlylekim.github.io/publication/preprint/sppam-opt2021/</link>
+      <title>Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum</title>
+      <link>https://jlylekim.github.io/publication/preprint/sppam-2021/</link>
       <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/preprint/sppam-2021/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Acceleration and stability of the stochastic proximal point algorithm</title>
+      <link>https://jlylekim.github.io/publication/preprint/sppam-opt2021/</link>
+      <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
       <guid>https://jlylekim.github.io/publication/preprint/sppam-opt2021/</guid>
       <description></description>
     </item>
