@@ -75,6 +75,31 @@
     </item>
     
     <item>
+      <title>News</title>
+      <link>https://jlylekim.github.io/news/news/</link>
+      <pubDate>Wed, 01 Dec 2021 00:00:00 -0600</pubDate>
+      <guid>https://jlylekim.github.io/news/news/</guid>
+      <description>
+
+
+
+
+
+
+
+
+&lt;p&gt;&lt;strong&gt;[27 Oct 2021]&lt;/strong&gt; I presented &amp;ldquo;&lt;a href=&#34;https://arxiv.org/abs/2104.07006&#34;&gt;Fast quantum state tomography via accelerated non-convex programming&lt;/a&gt;&amp;rdquo; at &lt;a href=&#34;http://meetings2.informs.org/wordpress/anaheim2021/&#34;&gt;INFORMS 2021&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[20 Oct 2021]&lt;/strong&gt; Our paper &amp;ldquo;&lt;a href=&#34;https://jlylekim.github.io/publication/preprint/sppam-opt2021/&#34;&gt;Acceleration and Stability of the Stochastic Proximal Point Algorithm&lt;/a&gt;&amp;rdquo; has been accepted for a spotlight presentation at &lt;a href=&#34;https://neurips.cc/Conferences/2021/ScheduleMultitrack?event=21836&#34;&gt;NeurIPS 2021 Workshop on Optimization for Machine Learning&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[24 Jul 2021]&lt;/strong&gt; I am co-organizing a workshop &amp;ldquo;&lt;a href=&#34;https://sites.google.com/view/optml-icml2021/home&#34;&gt;Beyond first-order methods in ML systems&lt;/a&gt;&amp;rdquo; in ICML 2021. (Co-organizers: &lt;a href=&#34;https://aberahas.engin.umich.edu/&#34;&gt;Albert S. Berahas&lt;/a&gt;, &lt;a href=&#34;https://sites.google.com/view/raghub/home&#34;&gt;Raghu Bollapragada&lt;/a&gt;, &lt;a href=&#34;https://rixonc.github.io/&#34;&gt;Rixon Crane&lt;/a&gt;, &lt;a href=&#34;http://amirgholami.org/&#34;&gt;Amir Gholami&lt;/a&gt;, &lt;a href=&#34;https://akyrillidis.github.io/about/&#34;&gt;Anastasios Kyrillidis&lt;/a&gt;, &lt;a href=&#34;https://www.stat.berkeley.edu/~mmahoney/&#34;&gt;Michael Mahoney&lt;/a&gt;, &lt;a href=&#34;https://people.smp.uq.edu.au/FredRoosta/&#34;&gt;Fred Roosta&lt;/a&gt;, and &lt;a href=&#34;https://www.math.canterbury.ac.nz/~r.tappenden/&#34;&gt;Rachael Tappenden&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[15 Apr 2021]&lt;/strong&gt; I passed my qualification exam (research project defense). Committee: Profs. &lt;a href=&#34;https://akyrillidis.github.io/about/&#34;&gt;Anastasios Kyrillidis&lt;/a&gt; (chair), &lt;a href=&#34;https://segarra.rice.edu/&#34;&gt;Santiago Segarra&lt;/a&gt;, and &lt;a href=&#34;http://richb.rice.edu/&#34;&gt;Richard Baraniuk&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[14 Apr 2021]&lt;/strong&gt; Our paper &amp;ldquo;&lt;a href=&#34;https://arxiv.org/abs/2104.07006&#34;&gt;Fast quantum state tomography via accelerated non-convex programming&lt;/a&gt;&amp;rdquo; is on arXiv. A relevant blog post can be found &lt;a href=&#34;https://jlylekim.github.io/post/acc-qst/&#34;&gt;here&lt;/a&gt;. This work was also featured in &lt;a href=&#34;https://syncedreview.com/2021/04/20/rice-university-ibm-usc-study-pushes-quantum-state-tomography-beyond-current-computation-capabilities/&#34;&gt;this article&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[01 Dec 2019]&lt;/strong&gt; I officially joined &lt;a href=&#34;https://akyrillidis.github.io/group/&#34;&gt;OptimaLab&lt;/a&gt; led by &lt;a href=&#34;https://akyrillidis.github.io/about/&#34;&gt;Prof. Anastasios Kyrillidis&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[25 Aug 2019]&lt;/strong&gt; I started my Ph.D. studies in &lt;a href=&#34;https://cs.rice.edu/&#34;&gt;Computer Science&lt;/a&gt; at &lt;a href=&#34;https://www.rice.edu/&#34;&gt;Rice University&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+    </item>
+    
+    <item>
       <title>Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum</title>
       <link>https://jlylekim.github.io/publication/preprint/sppam-2021/</link>
       <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
