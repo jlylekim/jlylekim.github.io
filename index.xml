@@ -5,7 +5,7 @@
     <link>https://jlylekim.github.io/</link>
       <atom:link href="https://jlylekim.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>JUNHYUNG LYLE KIM</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2021 Junhyung Lyle Kim</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2022 Junhyung Lyle Kim</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
       <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
       <title>JUNHYUNG LYLE KIM</title>
@@ -88,6 +88,7 @@
 
 
 
+&lt;p&gt;&lt;strong&gt;[01 Mar 2022]&lt;/strong&gt; Our paper &amp;ldquo;&lt;a href=&#34;https://arxiv.org/pdf/2111.06171.pdf&#34;&gt;Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum&lt;/a&gt;&amp;rdquo; has been accepted at &lt;a href=&#34;https://l4dc.stanford.edu&#34;&gt;Learning for Dynamics and Control (L4DC) 2022&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[27 Oct 2021]&lt;/strong&gt; I presented &amp;ldquo;&lt;a href=&#34;https://arxiv.org/abs/2104.07006&#34;&gt;Fast quantum state tomography via accelerated non-convex programming&lt;/a&gt;&amp;rdquo; at &lt;a href=&#34;http://meetings2.informs.org/wordpress/anaheim2021/&#34;&gt;INFORMS 2021&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[20 Oct 2021]&lt;/strong&gt; Our paper &amp;ldquo;&lt;a href=&#34;https://jlylekim.github.io/publication/preprint/sppam-opt2021/&#34;&gt;Acceleration and Stability of the Stochastic Proximal Point Algorithm&lt;/a&gt;&amp;rdquo; has been accepted for a spotlight presentation at &lt;a href=&#34;https://neurips.cc/Conferences/2021/ScheduleMultitrack?event=21836&#34;&gt;NeurIPS 2021 Workshop on Optimization for Machine Learning&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[24 Jul 2021]&lt;/strong&gt; I am co-organizing a workshop &amp;ldquo;&lt;a href=&#34;https://sites.google.com/view/optml-icml2021/home&#34;&gt;Beyond first-order methods in ML systems&lt;/a&gt;&amp;rdquo; in ICML 2021. (Co-organizers: &lt;a href=&#34;https://aberahas.engin.umich.edu/&#34;&gt;Albert S. Berahas&lt;/a&gt;, &lt;a href=&#34;https://sites.google.com/view/raghub/home&#34;&gt;Raghu Bollapragada&lt;/a&gt;, &lt;a href=&#34;https://rixonc.github.io/&#34;&gt;Rixon Crane&lt;/a&gt;, &lt;a href=&#34;http://amirgholami.org/&#34;&gt;Amir Gholami&lt;/a&gt;, &lt;a href=&#34;https://akyrillidis.github.io/about/&#34;&gt;Anastasios Kyrillidis&lt;/a&gt;, &lt;a href=&#34;https://www.stat.berkeley.edu/~mmahoney/&#34;&gt;Michael Mahoney&lt;/a&gt;, &lt;a href=&#34;https://people.smp.uq.edu.au/FredRoosta/&#34;&gt;Fred Roosta&lt;/a&gt;, and &lt;a href=&#34;https://www.math.canterbury.ac.nz/~r.tappenden/&#34;&gt;Rachael Tappenden&lt;/a&gt;).&lt;/p&gt;
@@ -101,17 +102,17 @@
     
     <item>
       <title>Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum</title>
-      <link>https://jlylekim.github.io/publication/preprint/sppam-2021/</link>
+      <link>https://jlylekim.github.io/publication/conference-paper/sppam-l4dc2022/</link>
       <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://jlylekim.github.io/publication/preprint/sppam-2021/</guid>
+      <guid>https://jlylekim.github.io/publication/conference-paper/sppam-l4dc2022/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Acceleration and stability of the stochastic proximal point algorithm</title>
-      <link>https://jlylekim.github.io/publication/preprint/sppam-opt2021/</link>
+      <link>https://jlylekim.github.io/publication/conference-paper/sppam-opt2021/</link>
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://jlylekim.github.io/publication/preprint/sppam-opt2021/</guid>
+      <guid>https://jlylekim.github.io/publication/conference-paper/sppam-opt2021/</guid>
       <description></description>
     </item>
     
