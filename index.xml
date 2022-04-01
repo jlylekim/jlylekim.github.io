@@ -635,7 +635,159 @@ three hours using compressive sensing. IFAC-PapersOnLine, 52(11):188 – 193, 20
     </item>
     
     <item>
-      <title>Basics of quantum mechanics</title>
+      <title>Basics of quantum mechanics (part 2)</title>
+      <link>https://jlylekim.github.io/blog/quantum-mechanics-1/</link>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/blog/quantum-mechanics-1/</guid>
+      <description>&lt;!-- # Basics of quantum mechanics (part 2) --&gt;
+&lt;p&gt;We continue our study of basics of quantum mechanics. Part 1 of this blog series can be found &lt;a href=&#34;https://jlylekim.github.io/post/quantum-mechanics-1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;4-matrix-formulation-of-quantum-mechanics&#34;&gt;4. Matrix formulation of quantum mechanics&lt;/h2&gt;
+&lt;p&gt;Matrix formulation of quantum mechanics was first proposed by &lt;a href=&#34;https://en.wikipedia.org/wiki/Werner_Heisenberg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Werner Heisenberg&lt;/a&gt;, &lt;a href=&#34;https://en.wikipedia.org/wiki/Max_Born&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Max Born&lt;/a&gt;, and &lt;a href=&#34;https://en.wikipedia.org/wiki/Pascual_Jordan&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pascual Jordan&lt;/a&gt;. Later, it was unified with wave mechanics formulation introduced by &lt;a href=&#34;https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Erwin Schrödinger&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Matrix formulation is particularly useful when we work with finite discrete bases. This is because by using matrix formulation, quantum mechanical quantities can be expressed mostly in matrix multiplication, which is something we understand quite well from linear algebra, and also has been highly optimized both in terms of software (e.g. leveraging structures like sparsity) and hardware (e.g. using GPUs).&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s start with the basics. Recall that a ket $| \psi \rangle = \sum_i c_i |u_i \rangle$ where $c_i = \langle u_i | \psi \rangle$, which can be thought of as the representation of the ket $|\psi\rangle$ in the ${|u_i\rangle}$ basis. To write the ket $|\psi\rangle$ in matrix form, we simply stack the representation as a column vector as follows:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{bmatrix}
+\langle u_1 | \psi \rangle\\&lt;br&gt;
+\langle u_2 | \psi \rangle\\&lt;br&gt;
+\vdots\\&lt;br&gt;
+\langle u_i | \psi \rangle\\&lt;br&gt;
+\vdots
+\end{bmatrix}
+= \begin{bmatrix}
+c_1\\&lt;br&gt;
+c_2\\&lt;br&gt;
+\vdots\\&lt;br&gt;
+c_i\\&lt;br&gt;
+\vdots
+\end{bmatrix}.
+$$&lt;/p&gt;
+&lt;p&gt;Similarly, to express a bra $\langle \psi | = \sum_i c_i^* \langle u_i |$ where $c_i^* = \langle \psi | u_i \rangle = \langle u_i | \psi \rangle^*$, we write them as a row vector:&lt;/p&gt;
+&lt;p&gt;$$[\langle \psi | u_1 \rangle~\langle \psi | u_2 \rangle \cdots \langle \psi | u_i \rangle \cdots ]
+= [c_1^* c_2^* \cdots c_i^* \cdots].
+$$&lt;/p&gt;
+&lt;p&gt;Now, we look at an operator $\hat{A} = \sum_{ij} A_{ij} |u_i \rangle \langle u_j|$ where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle$, which can be expressed as a matrix:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{bmatrix}
+A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1j} &amp;amp; \cdots \\&lt;br&gt;
+A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2j} &amp;amp; \cdots \\&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp;  &amp;amp; \vdots &amp;amp;  \\&lt;br&gt;
+A_{i1} &amp;amp; A_{i2} &amp;amp; \cdots &amp;amp; A_{ij} &amp;amp; \cdots \\&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp;  &amp;amp; \vdots &amp;amp;
+\end{bmatrix}
+$$&lt;/p&gt;
+&lt;p&gt;As an example, let&amp;rsquo;s write the expression $|\psi&#39;\rangle = \hat{A} |\psi\rangle$ in terms of matrix formulation. First, recall the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$|\psi&#39;\rangle = \sum_i c_i&#39; |u_i\rangle$&lt;/li&gt;
+&lt;li&gt;$|\psi\rangle = \sum_i c_i |u_i\rangle$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then, we can express the coefficient $c_i&#39;$ as follows:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+c_i&#39; &amp;amp;= \langle u_i | \psi&#39; \rangle = \langle u_i | \hat{A}| \psi \rangle = \langle u_i | \hat{A} \mathbb{I} | \psi \rangle \\&lt;br&gt;
+&amp;amp;= \langle u_i | \hat{A} \left( \sum_j |u_j \rangle \langle u_j | \right) |\psi \rangle = \sum_j \langle u_i | \hat{A} | u_j \rangle \langle u_j | \psi \rangle \\&lt;br&gt;
+&amp;amp;= \sum_j A_{ij} c_j.
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;The last expression from the above can be expressed in matrix formulation as follows:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;\begin{bmatrix}
+A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1j} &amp;amp; \cdots \\&lt;br&gt;
+A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2j} &amp;amp; \cdots \\&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp;  &amp;amp; \vdots &amp;amp;  \\&lt;br&gt;
+A_{i1} &amp;amp; A_{i2} &amp;amp; \cdots &amp;amp; A_{ij} &amp;amp; \cdots \\&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp;  &amp;amp; \vdots &amp;amp;
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+c_1\\&lt;br&gt;
+c_2\\&lt;br&gt;
+\vdots\\&lt;br&gt;
+c_i\\&lt;br&gt;
+\vdots
+\end{bmatrix} =
+\begin{bmatrix}
+A_{11}c_1 + \dots + A_{1j}c_j \dots \\&lt;br&gt;
+A_{21}c_1 + \dots + A_{2j}c_j \dots \\&lt;br&gt;
+\vdots\\&lt;br&gt;
+A_{i1}c_1 + \dots + A_{ij}c_j \dots \\&lt;br&gt;
+\vdots
+\end{bmatrix} =
+\begin{bmatrix}
+c_1&#39;\\&lt;br&gt;
+c_2&#39;\\&lt;br&gt;
+\vdots\\&lt;br&gt;
+c_i&#39;\\&lt;br&gt;
+\vdots
+\end{bmatrix}
+\end{aligned}.
+$$&lt;/p&gt;
+&lt;p&gt;Therefore, we arrive at the matrix formulation for $c_i&#39;$ we began with. Similarly, we can express other quantum mechanical quantities we have seen in terms of matrix formulation.&lt;/p&gt;
+&lt;h2 id=&#34;5-change-of-basis-in-quantum-mechanics&#34;&gt;5. Change of basis in quantum mechanics&lt;/h2&gt;
+&lt;p&gt;Recall that we can represent state space with an orthonormal basis. For example, we have been working with the basis ${ | u_i \rangle }$ where $\langle u_i | u_j \rangle = \delta_{ij}$. Then, we can express a ket $|\psi\rangle$ in the ${ |u_i\rangle }$ basis, i.e.&lt;/p&gt;
+&lt;p&gt;$$
+|\psi \rangle = \sum_i c_i | u_i \rangle \quad\text{where}\quad c_i = \langle u_i | \psi \rangle.
+$$&lt;/p&gt;
+&lt;p&gt;We will look at how to express the ket $|\psi\rangle$ in different basis, ${ |v_j \rangle }$, i.e.&lt;/p&gt;
+&lt;p&gt;$$
+|\psi \rangle = \sum_j d_j | v_j \rangle \quad\text{where}\quad d_j = \langle v_j | \psi \rangle.
+$$&lt;/p&gt;
+&lt;p&gt;The step goes as follows: first, express the coefficient $d_j$ as above. Then, insert an identity, and using the resolution of the identity matrix &lt;em&gt;in&lt;/em&gt; ${ |u_i \rangle }$ basis, we find an expression that relates the coefficient $d_j$ and $c_i$. Mathematically,&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+d_j &amp;amp;= \langle v_j | \psi \rangle = \langle v_j | \mathbb{I} | \psi \rangle = \langle v_j | \left( \sum_i |u_i \rangle \langle u_i | \right) | \psi \rangle \\&lt;br&gt;
+&amp;amp;= \sum_i \langle v_j | u_i \rangle \langle u_i | \psi \rangle = \sum_i S_{ji} c_i.
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;Thus, to compute $d_j$ given $c_i$, we simply need to compute the quantity $S_{ji} = \langle v_j | u_i \rangle$, which is called an &amp;ldquo;overlap.&amp;rdquo; Using the matrix formulation we studied in the previous chapter, we can also express this relationship as follows:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{bmatrix}
+d_1\\&lt;br&gt;
+d_2\\&lt;br&gt;
+\vdots
+\end{bmatrix} =
+\begin{bmatrix}
+S_{11} &amp;amp; S_{12} &amp;amp; \cdots \\&lt;br&gt;
+S_{21} &amp;amp; S_{22} &amp;amp; \cdots  \\&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp;  \ddots  \\&lt;br&gt;
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+c_1\\&lt;br&gt;
+c_2\\&lt;br&gt;
+\vdots
+\end{bmatrix}.
+$$&lt;/p&gt;
+&lt;p&gt;We can also compute $c_i$ given $d_j$ in a similar fashion. If you follow the steps similar to the mathematical derivation above, it turns out that:&lt;/p&gt;
+&lt;p&gt;$$
+c_i = \sum_j \langle u_i | v_j \rangle d_j \quad\text{where}\quad \langle u_i | v_j \rangle = \langle v_j | u_i \rangle^* = S_{ji}^*.
+$$&lt;/p&gt;
+&lt;p&gt;To close this chapter, let&amp;rsquo;s look at how we perform a change of basis with an operator $\hat{A}$. We write the elements of operator $\hat{A}$ in ${ |u_i\rangle }$  basis and ${ |v_j\rangle }$ basis as $A_{ik}^u = \langle u_i | \hat{A} | u_k \rangle$ and $A_{j\ell}^v = \langle v_j | \hat{A} | v_\ell \rangle$, respectively. Then, we can compute $A_{j\ell}^v$ in terms of $A_{ik}^u$ as follows:&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+A_{j\ell}^v &amp;amp;= \langle v_j | \hat{A} | v_\ell \rangle = \langle v_j | \mathbb{I}\hat{A}\mathbb{I} | v_\ell \rangle \\&lt;br&gt;
+&amp;amp;= \langle v_j | \left( \sum_i |u_i\rangle\langle u_i| \right) \hat{A} \left( \sum_k |u_k\rangle \langle u_k| \right) | v_\ell \rangle \\&lt;br&gt;
+&amp;amp;=\sum_{i,~k} \langle v_j | u_i \rangle \langle u_i | \hat{A} | u_k \rangle \langle u_k | v_\ell \rangle \\&lt;br&gt;
+&amp;amp;= \sum_{i,~k} S_{ji} A_{ik}^u S_{\ell k}^*.
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;Again, we can also go in the opposite direction. It turns out that to express $A_{ik}^u$ in terms of $A_{j\ell}^v$ is:&lt;/p&gt;
+&lt;p&gt;$$
+A_{ik}^u = \sum_{j,~\ell}S_{ji}^*A_{j\ell}^v S_{\ell k}.
+$$&lt;/p&gt;
+&lt;h2 id=&#34;6-eigenvalues-and-eigenstates-in-quantum-mechanics&#34;&gt;6. Eigenvalues and eigenstates in quantum mechanics&lt;/h2&gt;
+&lt;p&gt;As we saw in Chapter 2 of the &lt;a href=&#34;https://jlylekim.github.io/post/quantum-mechanics-1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;previous post&lt;/a&gt;, operators are mathematical objects that allow us to describe physical properties. Eigenvalues and eigenstates are particularly important in quantum mechanics, because when we measure the physical properties, the only possible outcome is one of the eigenvalues of the associated operator; also, the state of system, after the measurement, is in the corresponding eigenstate. We start with the third postulate of quantum mechanics that summarizes the above:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Postulate III:&lt;/strong&gt; The result of a measurement of a physical quantity is one of the eigenvalues of the associated observable.&lt;/p&gt;
+&lt;p&gt;Mathematically, we can write down the eigenvalue equation as follows:&lt;/p&gt;
+&lt;p&gt;$$
+\hat{A} |\psi\rangle = \lambda |\psi \rangle,
+$$&lt;/p&gt;
+&lt;p&gt;where $\hat{A}$ is an operator, $|\psi\rangle$ is a &amp;ldquo;special&amp;rdquo; ket called eigenstate (i.e. eigenvector) of $\hat{A}$, and $\lambda$ is the eigenvalue of $\hat{A}$.  As can be seen, the operator $\hat{A}$ takes the ket $|\psi\rangle$ as an input, and outputs the same ket $|\psi\rangle$, only scaled with $\lambda$.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Basics of quantum mechanics (part 1)</title>
       <link>https://jlylekim.github.io/blog/quantum-mechanics-1/</link>
       <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
       <guid>https://jlylekim.github.io/blog/quantum-mechanics-1/</guid>
