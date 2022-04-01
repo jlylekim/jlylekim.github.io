@@ -276,14 +276,14 @@
   
   <meta property="og:site_name" content="JUNHYUNG LYLE KIM">
   <meta property="og:url" content="https://jlylekim.github.io/blog/quantum-mechanics-1/">
-  <meta property="og:title" content="Basics of quantum mechanics (part 2) | JUNHYUNG LYLE KIM">
+  <meta property="og:title" content="Basics of quantum mechanics 1 | JUNHYUNG LYLE KIM">
   <meta property="og:description" content="Read more"><meta property="og:image" content="https://jlylekim.github.io/blog/quantum-mechanics-1/featured.png">
   <meta property="twitter:image" content="https://jlylekim.github.io/blog/quantum-mechanics-1/featured.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2021-03-15T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2021-03-13T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2021-03-15T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2021-03-13T00:00:00&#43;00:00">
   
 
   
@@ -302,7 +302,7 @@
 
 
 
-  <title>Basics of quantum mechanics (part 2) | JUNHYUNG LYLE KIM</title>
+  <title>Basics of quantum mechanics 1 | JUNHYUNG LYLE KIM</title>
 
 </head>
 
@@ -605,7 +605,7 @@
   
   
 <div class="article-container pt-3">
-  <h1>Basics of quantum mechanics (part 2)</h1>
+  <h1>Basics of quantum mechanics 1</h1>
 
   
 
@@ -617,6 +617,16 @@
 
   
   
+  
+  
+  <div>
+    
+
+  
+  <span ><a href="/author/j.-lyle-kim/">J. Lyle Kim</a></span>
+  </div>
+  
+  
 
   
   <span class="article-date">
@@ -624,7 +634,7 @@
     
       
     
-    Mar 15, 2021
+    Mar 13, 2021
   </span>
   
 
@@ -668,150 +678,143 @@
   <div class="article-container">
 
     <div class="article-style">
-      <!-- # Basics of quantum mechanics (part 2) -->
-<p>We continue our study of basics of quantum mechanics. Part 1 of this blog series can be found <a href="https://jlylekim.github.io/post/quantum-mechanics-1/" target="_blank" rel="noopener">here</a>.</p>
-<h2 id="4-matrix-formulation-of-quantum-mechanics">4. Matrix formulation of quantum mechanics</h2>
-<p>Matrix formulation of quantum mechanics was first proposed by <a href="https://en.wikipedia.org/wiki/Werner_Heisenberg" target="_blank" rel="noopener">Werner Heisenberg</a>, <a href="https://en.wikipedia.org/wiki/Max_Born" target="_blank" rel="noopener">Max Born</a>, and <a href="https://en.wikipedia.org/wiki/Pascual_Jordan" target="_blank" rel="noopener">Pascual Jordan</a>. Later, it was unified with wave mechanics formulation introduced by <a href="https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger" target="_blank" rel="noopener">Erwin Schrödinger</a>.</p>
-<p>Matrix formulation is particularly useful when we work with finite discrete bases. This is because by using matrix formulation, quantum mechanical quantities can be expressed mostly in matrix multiplication, which is something we understand quite well from linear algebra, and also has been highly optimized both in terms of software (e.g. leveraging structures like sparsity) and hardware (e.g. using GPUs).</p>
-<p>Let&rsquo;s start with the basics. Recall that a ket $| \psi \rangle = \sum_i c_i |u_i \rangle$ where $c_i = \langle u_i | \psi \rangle$, which can be thought of as the representation of the ket $|\psi\rangle$ in the ${|u_i\rangle}$ basis. To write the ket $|\psi\rangle$ in matrix form, we simply stack the representation as a column vector as follows:</p>
-<p>$$
-\begin{bmatrix}
-\langle u_1 | \psi \rangle\\<br>
-\langle u_2 | \psi \rangle\\<br>
-\vdots\\<br>
-\langle u_i | \psi \rangle\\<br>
-\vdots
-\end{bmatrix}
-= \begin{bmatrix}
-c_1\\<br>
-c_2\\<br>
-\vdots\\<br>
-c_i\\<br>
-\vdots
-\end{bmatrix}.
-$$</p>
-<p>Similarly, to express a bra $\langle \psi | = \sum_i c_i^* \langle u_i |$ where $c_i^* = \langle \psi | u_i \rangle = \langle u_i | \psi \rangle^*$, we write them as a row vector:</p>
-<p>$$[\langle \psi | u_1 \rangle~\langle \psi | u_2 \rangle \cdots \langle \psi | u_i \rangle \cdots ]
-= [c_1^* c_2^* \cdots c_i^* \cdots].
-$$</p>
-<p>Now, we look at an operator $\hat{A} = \sum_{ij} A_{ij} |u_i \rangle \langle u_j|$ where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle$, which can be expressed as a matrix:</p>
-<p>$$
-\begin{bmatrix}
-A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1j} &amp; \cdots \\<br>
-A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2j} &amp; \cdots \\<br>
-\vdots &amp; \vdots &amp;  &amp; \vdots &amp;  \\<br>
-A_{i1} &amp; A_{i2} &amp; \cdots &amp; A_{ij} &amp; \cdots \\<br>
-\vdots &amp; \vdots &amp;  &amp; \vdots &amp;
-\end{bmatrix}
-$$</p>
-<p>As an example, let&rsquo;s write the expression $|\psi'\rangle = \hat{A} |\psi\rangle$ in terms of matrix formulation. First, recall the following:</p>
+      <!--# Basics quantum mechanics: part 1-->
+<p>In this series of blog posts, I want to introduce some basics of quantum mechanics, which can be helpful to start learning about quantum computing. I myself do not have any physics background, and found <a href="https://www.youtube.com/playlist?list=PL8W2boV7eVfmMcKF-ljTvAJQ2z-vILSxb" target="_blank" rel="noopener">this series of videos</a> extremely helpful. This post is mainly based on this series of lectures, and I hope it is helpful to anyone who wants to start learning quantum computing.</p>
+<h2 id="1-dirac-notation-in-state-space">1. Dirac notation in state space</h2>
+<p>State space is the name we give to the vector space in which the quantum system lives. Just like Euclidean space, which is used to describe the &ldquo;world&rdquo; in classical mechanics, state space is another vector space that shares many similarities with Euclidean space. For instance, just like Euclidean space, state space also is equipped with an inner product, thus making it a Hilbert space.</p>
+<p>Even though we use a lot of linear algebra in quantum mechanics, we use quite different notation, called &ldquo;Dirac notation,&rdquo; invented by one of the founders quantum mechanics, Paul Dirac. We start with the first postulate of quantum mechanics:</p>
+<p><strong>Postulate I:</strong> The state of a physical system is characterized by a state vector that belongs to a complex vector space $\mathcal{V}$, called the state space of the system.</p>
+<p>It turns out that the vector space properties that Euclidean space has mostly translates to state space, with a few tweaks. Let&rsquo;s recap the properties of (3-dimensional) Euclidean space first.</p>
+<p>Euclidean space (in 3-dimension for illustration) has the following properties:</p>
 <ul>
-<li>$|\psi'\rangle = \sum_i c_i' |u_i\rangle$</li>
-<li>$|\psi\rangle = \sum_i c_i |u_i\rangle$</li>
+<li>An element $r$ is called a (3-dimensional) &ldquo;vector&rdquo;</li>
+<li>Vector addition: $r_1 + r_2 = r_3 \in \mathbb{R}^3$</li>
+<li>Commutativity of vector addition: $r_1 + r_2 = r_2 + r_1$</li>
+<li>Associativity of vector addition: $(r_1 + r_2) + r_3 = r_1 + (r_2 + r_3)$</li>
+<li>Identity for vector addition: $0 + r = r$</li>
+<li>Inverse of vector addition: $r + (-r) = 0$</li>
+<li>Scalar multiplication: $a \cdot r \in \mathbb{R}^3$</li>
+<li>Associativity of scalar multiplication: $a(br) = (ab)r$</li>
+<li>Distributivity of scalar multiplication: $(a + b )r = ar + br$, and $a(r_1 + r_2) = ar_1 + ar_2$</li>
+<li>Identity for vector multiplication: $1\cdot r = r$</li>
 </ul>
-<p>Then, we can express the coefficient $c_i'$ as follows:</p>
-<p>$$
-\begin{aligned}
-c_i' &amp;= \langle u_i | \psi' \rangle = \langle u_i | \hat{A}| \psi \rangle = \langle u_i | \hat{A} \mathbb{I} | \psi \rangle \\<br>
-&amp;= \langle u_i | \hat{A} \left( \sum_j |u_j \rangle \langle u_j | \right) |\psi \rangle = \sum_j \langle u_i | \hat{A} | u_j \rangle \langle u_j | \psi \rangle \\<br>
-&amp;= \sum_j A_{ij} c_j.
-\end{aligned}
-$$</p>
-<p>The last expression from the above can be expressed in matrix formulation as follows:</p>
-<p>$$
-\begin{aligned}
-&amp;\begin{bmatrix}
-A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1j} &amp; \cdots \\<br>
-A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2j} &amp; \cdots \\<br>
-\vdots &amp; \vdots &amp;  &amp; \vdots &amp;  \\<br>
-A_{i1} &amp; A_{i2} &amp; \cdots &amp; A_{ij} &amp; \cdots \\<br>
-\vdots &amp; \vdots &amp;  &amp; \vdots &amp;
-\end{bmatrix}
-\cdot
-\begin{bmatrix}
-c_1\\<br>
-c_2\\<br>
-\vdots\\<br>
-c_i\\<br>
-\vdots
-\end{bmatrix} =
-\begin{bmatrix}
-A_{11}c_1 + \dots + A_{1j}c_j \dots \\<br>
-A_{21}c_1 + \dots + A_{2j}c_j \dots \\<br>
-\vdots\\<br>
-A_{i1}c_1 + \dots + A_{ij}c_j \dots \\<br>
-\vdots
-\end{bmatrix} =
-\begin{bmatrix}
-c_1'\\<br>
-c_2'\\<br>
-\vdots\\<br>
-c_i'\\<br>
-\vdots
-\end{bmatrix}
-\end{aligned}.
-$$</p>
-<p>Therefore, we arrive at the matrix formulation for $c_i'$ we began with. Similarly, we can express other quantum mechanical quantities we have seen in terms of matrix formulation.</p>
-<h2 id="5-change-of-basis-in-quantum-mechanics">5. Change of basis in quantum mechanics</h2>
-<p>Recall that we can represent state space with an orthonormal basis. For example, we have been working with the basis ${ | u_i \rangle }$ where $\langle u_i | u_j \rangle = \delta_{ij}$. Then, we can express a ket $|\psi\rangle$ in the ${ |u_i\rangle }$ basis, i.e.</p>
-<p>$$
-|\psi \rangle = \sum_i c_i | u_i \rangle \quad\text{where}\quad c_i = \langle u_i | \psi \rangle.
-$$</p>
-<p>We will look at how to express the ket $|\psi\rangle$ in different basis, ${ |v_j \rangle }$, i.e.</p>
-<p>$$
-|\psi \rangle = \sum_j d_j | v_j \rangle \quad\text{where}\quad d_j = \langle v_j | \psi \rangle.
-$$</p>
-<p>The step goes as follows: first, express the coefficient $d_j$ as above. Then, insert an identity, and using the resolution of the identity matrix <em>in</em> ${ |u_i \rangle }$ basis, we find an expression that relates the coefficient $d_j$ and $c_i$. Mathematically,</p>
-<p>$$
-\begin{aligned}
-d_j &amp;= \langle v_j | \psi \rangle = \langle v_j | \mathbb{I} | \psi \rangle = \langle v_j | \left( \sum_i |u_i \rangle \langle u_i | \right) | \psi \rangle \\<br>
-&amp;= \sum_i \langle v_j | u_i \rangle \langle u_i | \psi \rangle = \sum_i S_{ji} c_i.
-\end{aligned}
-$$</p>
-<p>Thus, to compute $d_j$ given $c_i$, we simply need to compute the quantity $S_{ji} = \langle v_j | u_i \rangle$, which is called an &ldquo;overlap.&rdquo; Using the matrix formulation we studied in the previous chapter, we can also express this relationship as follows:</p>
-<p>$$
-\begin{bmatrix}
-d_1\\<br>
-d_2\\<br>
-\vdots
-\end{bmatrix} =
-\begin{bmatrix}
-S_{11} &amp; S_{12} &amp; \cdots \\<br>
-S_{21} &amp; S_{22} &amp; \cdots  \\<br>
-\vdots &amp; \vdots &amp;  \ddots  \\<br>
-\end{bmatrix}
-\cdot
-\begin{bmatrix}
-c_1\\<br>
-c_2\\<br>
-\vdots
-\end{bmatrix}.
-$$</p>
-<p>We can also compute $c_i$ given $d_j$ in a similar fashion. If you follow the steps similar to the mathematical derivation above, it turns out that:</p>
-<p>$$
-c_i = \sum_j \langle u_i | v_j \rangle d_j \quad\text{where}\quad \langle u_i | v_j \rangle = \langle v_j | u_i \rangle^* = S_{ji}^*.
-$$</p>
-<p>To close this chapter, let&rsquo;s look at how we perform a change of basis with an operator $\hat{A}$. We write the elements of operator $\hat{A}$ in ${ |u_i\rangle }$  basis and ${ |v_j\rangle }$ basis as $A_{ik}^u = \langle u_i | \hat{A} | u_k \rangle$ and $A_{j\ell}^v = \langle v_j | \hat{A} | v_\ell \rangle$, respectively. Then, we can compute $A_{j\ell}^v$ in terms of $A_{ik}^u$ as follows:</p>
-<p>$$
-\begin{aligned}
-A_{j\ell}^v &amp;= \langle v_j | \hat{A} | v_\ell \rangle = \langle v_j | \mathbb{I}\hat{A}\mathbb{I} | v_\ell \rangle \\<br>
-&amp;= \langle v_j | \left( \sum_i |u_i\rangle\langle u_i| \right) \hat{A} \left( \sum_k |u_k\rangle \langle u_k| \right) | v_\ell \rangle \\<br>
-&amp;=\sum_{i,~k} \langle v_j | u_i \rangle \langle u_i | \hat{A} | u_k \rangle \langle u_k | v_\ell \rangle \\<br>
-&amp;= \sum_{i,~k} S_{ji} A_{ik}^u S_{\ell k}^*.
-\end{aligned}
-$$</p>
-<p>Again, we can also go in the opposite direction. It turns out that to express $A_{ik}^u$ in terms of $A_{j\ell}^v$ is:</p>
-<p>$$
-A_{ik}^u = \sum_{j,~\ell}S_{ji}^*A_{j\ell}^v S_{\ell k}.
-$$</p>
-<h2 id="6-eigenvalues-and-eigenstates-in-quantum-mechanics">6. Eigenvalues and eigenstates in quantum mechanics</h2>
-<p>As we saw in Chapter 2 of the <a href="https://jlylekim.github.io/post/quantum-mechanics-1/" target="_blank" rel="noopener">previous post</a>, operators are mathematical objects that allow us to describe physical properties. Eigenvalues and eigenstates are particularly important in quantum mechanics, because when we measure the physical properties, the only possible outcome is one of the eigenvalues of the associated operator; also, the state of system, after the measurement, is in the corresponding eigenstate. We start with the third postulate of quantum mechanics that summarizes the above:</p>
-<p><strong>Postulate III:</strong> The result of a measurement of a physical quantity is one of the eigenvalues of the associated observable.</p>
-<p>Mathematically, we can write down the eigenvalue equation as follows:</p>
-<p>$$
-\hat{A} |\psi\rangle = \lambda |\psi \rangle,
-$$</p>
-<p>where $\hat{A}$ is an operator, $|\psi\rangle$ is a &ldquo;special&rdquo; ket called eigenstate (i.e. eigenvector) of $\hat{A}$, and $\lambda$ is the eigenvalue of $\hat{A}$.  As can be seen, the operator $\hat{A}$ takes the ket $|\psi\rangle$ as an input, and outputs the same ket $|\psi\rangle$, only scaled with $\lambda$.</p>
+<p>The above properties more or less translate directly to state space.</p>
+<p>State space $\mathcal{V}$ has the following properties:</p>
+<ul>
+<li>An element $| \psi \rangle$ is called a &ldquo;ket&rdquo;</li>
+<li>Vector addition: $|\psi_1 \rangle + |\psi_2\rangle = |\psi_3 \rangle \in \mathcal{V}$</li>
+<li>Commutativity of vector addition: $|\psi_1 \rangle + |\psi_2\rangle = |\psi_2 \rangle + |\psi_1 \rangle$</li>
+<li>Associativity of vector addition: $(|\psi_1 \rangle + |\psi_2\rangle) + |\psi_3\rangle = |\psi_1 \rangle + (|\psi_2\rangle +|\psi_3\rangle)$</li>
+<li>Identity for vector addition: $0 + |\psi\rangle = |\psi \rangle$</li>
+<li>Inverse of vector addition:$|\psi \rangle + (- |\psi \rangle) = 0$</li>
+<li>Sacalar multiplication: $a | \psi \rangle \in \mathcal{V}$</li>
+<li>Associativity of scalar multiplication: $a( b | \psi \rangle ) = (ab) | \psi \rangle$</li>
+<li>Distributivity of scalar multiplication: $(a+b) | \psi \rangle = a| \psi \rangle + b | \psi \rangle$, and $a ( | \psi_1 \rangle + | \psi_2 \rangle ) = a| \psi_1 \rangle + b| \psi_2 \rangle$</li>
+<li>Identity for vector multiplication: $1 | \psi \rangle = | \psi \rangle$</li>
+</ul>
+<p>Now, we move to some differences. Both Euclidean space and state space are subsets of Hilbert space, and thus are equipped with scalar (inner) product.</p>
+<p>Scalar product in Euclidean space:</p>
+<p>$SP(r_1, r_2) = r_1 \bullet r_2 = c, \quad c \in \mathbb{R}$</p>
+<ul>
+<li>Conjugation: $r_1 \bullet r_2 = r_2 \bullet r_1$</li>
+<li>Linearity: $r_1 \bullet a (r_2) = a(r_1) \bullet r_2 =  a(r_1 \bullet r_2)$  and $r_1 \bullet (r_2 + r_3) = r_1 \bullet r_2 + r_1 + r_3$</li>
+<li>Positivity: $r_1 \bullet r_1 \geq 0$, and $r_1 \bullet r_2 = 0$ if and only if $r_1 = 0$</li>
+</ul>
+<p>Scalar product in state space:</p>
+<p>$SP(|\psi_1,~|\psi_2\rangle) = c, \quad c \in \mathbb{C}$</p>
+<p>Notice that the scalar $c$ is now a complex number, which is one of the crucial differences of state space and Euclidean space. Now we look at the properties of scalar product in state space:</p>
+<ul>
+<li>Conjugation: $SP(|\psi \rangle,~|\phi \rangle) = [SP(|\phi \rangle,~|\psi \rangle)]^*$</li>
+<li>Linearity in second argument: $SP(|\psi \rangle,~a |\phi \rangle) = a SP(|\psi \rangle,~|\phi \rangle)$ and $SP(|\psi \rangle,~|\phi \rangle + |\chi\rangle) = SP(|\psi \rangle,~|\phi \rangle) + SP(|\psi \rangle,~|\chi \rangle)$</li>
+<li>Anti-linearity in first argument: $SP(a|\psi \rangle,~ |\phi \rangle) = [SP(|\psi \rangle,~a|\psi \rangle)]^* = a^*[SP(|\phi \rangle, |\psi\rangle)
+]^* = a^* SP(|\psi \rangle, |\phi \rangle)$ where $a^*$ is a complex conjugate.</li>
+<li>Positivity: $SP( |\psi \rangle, |\psi \rangle ) \geq 0$, and $SP( |\psi \rangle, |\psi \rangle ) = 0$ iff $|\psi \rangle = 0$</li>
+</ul>
+<p>So the main difference comes from the fact that state space lives in complex vector space, rather than real vector space. Through the scalar product, we can define some basic notations for quantum mechanics:</p>
+<ul>
+<li>$SP(|\psi\rangle, |\phi\rangle)  \implies \langle \psi |\phi \rangle$ is called &ldquo;braket.&rdquo; As one can guess, $\langle \psi |$ is called &ldquo;bra,&rdquo; and it corresponds to a row vector.</li>
+<li>As one can guess, $\langle \psi |$ is called &ldquo;bra,&rdquo; and it corresponds to a row vector. (And of course $|\phi \rangle$ corresponds to a column vector.)</li>
+<li>&ldquo;Ket&rdquo; $|\psi \rangle \in \mathcal{V}$ maps to &ldquo;bra&rdquo; $\langle \psi | \in \mathcal{V}^*$ in dual space</li>
+<li>Scalar product is anti-linear in the first argument: $a|\psi\rangle \longleftrightarrow a^* \langle \psi |$</li>
+</ul>
+<p>With this basic notation equipped, let&rsquo;s study a concept called &ldquo;operators&rdquo; in the next chapter.</p>
+<h2 id="2-operators-in-quantum-mechanics">2. Operators in quantum mechanics</h2>
+<p>Operators are mathematical objects that allow us to describe physical properties, such as position, momentum, and energy. Let&rsquo;s start by the second postulate of quantum mechanics:</p>
+<p><strong>Postulate II:</strong> A physical quantity $\mathcal{A}$ is described by an operator $\hat{A}$ acting on the state space space $\mathcal{V}$, and this operator is an observable.</p>
+<p>In other words, an operator acts on elements of state space $\mathcal{V}$, which are kets, and these kets are modified by the operator $\hat{A}$ in some manner. This can be written is $\hat{A} |\psi \rangle = |\psi' \rangle$, meaning that the operator $\hat{A}$ acts on the ket $| \psi \rangle$, which is modified to another ket $|\psi' \rangle$. It&rsquo;s important to remember that the operators in quantum mechanics can act on the superposition of different states:</p>
+<p>$$\hat{A} (a_1 |\psi_1 \rangle + a_2 |\psi_2 \rangle) = a_1 \hat{A} |\psi_1 \rangle + a_2 \hat{A} | \psi_2 \rangle.$$</p>
+<p>As can be guessed from the above expression, these operators are called &ldquo;linear operators.&rdquo; Fortunately, in quantum mechanics, we can always work with linear operators, which makes the study of quantum mechanics a lot easier. Similarly to the properties of addition and multiplication of kets we studied earlier, (linear) operators have basic properties:</p>
+<ul>
+<li>Associativity of addition: $\hat{A} + (\hat{B} + \hat{C}) = (\hat{A} + \hat{B}) + \hat{C}$</li>
+<li>Commutativity of addition: $\hat{A} + \hat{B} = \hat{B} + \hat{A}$</li>
+</ul>
+<p>Before stating the properties of multiplication of operators, let&rsquo;s start with its definition:</p>
+<ul>
+<li>Multiplication of operators: $(\hat{A}\hat{B}) |\psi\rangle = \hat{A} ( \hat{B} |\psi \rangle )$</li>
+</ul>
+<p>Above can also be thought of as $\hat{A}$ acting on the new state, $\hat{B} |\psi \rangle = |\psi' \rangle$, i.e. $\hat{A} |\psi' \rangle$. Now we state the properties of multiplication of operators:</p>
+<ul>
+<li>Associativity of multiplication: $\hat{A} (\hat{B}\hat{C}) = (\hat{A} \hat{B}) \hat{C}$</li>
+<li>Non-commutativity of multiplication: $\hat{A} \hat{B} \neq \hat{B} \hat{A}$</li>
+</ul>
+<p>The non-commutativity of multiplication is one of the most important properties of operators in quantum mechanics. Due to this aspect, we also define commutators:</p>
+<ul>
+<li>Commutator: $[\hat{A}, \hat{B}] = \hat{A}\hat{B} - \hat{B} \hat{A}$</li>
+</ul>
+<p>The non-commutativity of multiplication of operators, and consequently the notion of  commutators play a fundamental role in quantum mechanics. Specifically, two operators that do not commute are associated with properties that cannot be measured simultaneously in a quantum system, such as position and momentum operators.</p>
+<p>Now, we introduce the notion of the adjoint operator. Adjoint operator can be thought of as the dual of the operator introduced above, just like a ket corresponds to a bra in the dual space. We can write this as follows:</p>
+<p>$$|\psi'\rangle =\hat{A}|\psi \rangle \longleftrightarrow \langle \psi' | = \langle \psi|\hat{A}^\dagger.$$</p>
+<p>Adjoint operator is also linear, just like the operator introduced previously. With this notion, we can introduce some particularly important operators in quantum mechanics:</p>
+<ul>
+<li>Hermitian operator: $\hat{A} = \hat{A}^\dagger$</li>
+<li>Unitary operator: $\hat{A}^{-1} = \hat{A}^\dagger$</li>
+</ul>
+<p>Another important way to write an operator is through &ldquo;outer product.&rdquo; It turns out that outer product is also an operator, which can be seen below:</p>
+<p>$$(|\phi \rangle \langle \psi | ) |\chi \rangle = | \phi \rangle ( \langle \psi | \chi \rangle ) = a|\phi \rangle,$$</p>
+<p>where we denoted the scalar (inner) product $\langle \psi | \chi \rangle$ as $a \in \mathbb{C}$.</p>
+<p>We close this chapter with some basic mathematical properties of operators:</p>
+<ul>
+<li>$\langle \psi | \hat{A}^\dagger | \rho \rangle = \langle \rho |\hat{A}|\psi\rangle^*$</li>
+<li>$(\hat{A}^\dagger)^\dagger = \hat{A}$</li>
+<li>$(a \hat{A})^\dagger = a^* \hat{A}^\dagger$</li>
+<li>$(\hat{A} + \hat{B})^\dagger = \hat{A}^\dagger + \hat{B}^\dagger$</li>
+<li>$(\hat{A}\hat{B})^\dagger = \hat{B}^\dagger \hat{A}^\dagger$</li>
+</ul>
+<h2 id="3-representations-in-quantum-mechanics">3. Representations in quantum mechanics</h2>
+<p>Just like choosing convenient basis in Euclidean space leads to simpler notations, in quantum mechanics, if we choose convenient basis, it can simplify mathematical representations as well. We represent state space with an orthonormal basis. Orthonormal basis are mathematically defined as a set $\{ |u_i\rangle \}$ such that $\langle u_i | u_j \rangle = \delta_{ij}$, where $\delta_{ij} = 1$ if $i = j$, and $0$ otherwise (this is known as the &ldquo;kronecker delta&rdquo; function). Also, every ket in the state space, $|\psi \rangle \in \mathcal{V}$, can be respresented as a unique linear combination of the set $\{ |u_i\rangle \}$, i.e. $|\psi \rangle = \sum_i c_i |u_i \rangle$.</p>
+<p>Since we&rsquo;re working with orthonormal basis, it is quite easy to find a specific coefficient as follows:</p>
+<p>$$\langle u_j | \psi \rangle = \langle u_j | \left( \sum_i c_i |u_i \rangle \right) = \sum_i c_i \langle u_j | u_i \rangle = \sum_i c_i \delta_{ij} = c_j.$$</p>
+<p>In words, we can say that $\{ c_i \}$ are a representation of a ket $|\psi \rangle$ in the $\{ |u_i\rangle \}$ basis. An important concept of representation is &ldquo;closure relation&rdquo;:</p>
+<p>$$\begin{aligned}
+|\psi \rangle &amp;= \sum_i \langle u_i | \psi \rangle |u_i \rangle  = \left( \sum_i |u_i \rangle \langle u_i \right) | \psi \rangle \\<br>
+&amp;= \sum_i c_i | u_i\rangle \quad \text{where}\quad c_i = \langle u_i | \psi \rangle.
+\end{aligned}$$</p>
+<p>Recall from Chapter 2 that an operator can be written as an outer product. In that sense, from the above, we can see that $\sum_i |u_i \rangle \langle u_i |$ is an operator (notice that I emphasized this with parentheses) that, given a state $|\psi\rangle$, returns the same state $|\psi \rangle$. Thus, we can also write $\sum_i |u_i \rangle \langle u_i | = \mathbb{I}$, where $\mathbb{I}$ is an identity matrix. This result is sometimes also called the &ldquo;resultion of the identity (in the $\{|u_i\rangle \}$ basis).&rdquo; Similar result holds for a bra $\langle \psi | \in \mathcal{V}^*$ :</p>
+<p>$$\begin{aligned}
+\langle \psi | = \langle \psi | \mathbb{I} = \langle \psi | \left(  \sum_i |u_i \rangle \langle u_i | \right) &amp;= \sum_i \langle \psi | u_i \rangle \langle u_i |  \\<br>
+&amp;= \sum_i c_i^* \langle u_i |  \quad \text{where} \quad c_i^* = \langle u_i | \psi \rangle^*  = \langle \psi | u_i \rangle.
+\end{aligned}$$</p>
+<p>Now, let&rsquo;s look at how we represent operators. Recall the definition of an operator $\hat{A} |\psi\rangle = |\psi' \rangle$. Using the same $\{ |u_i \rangle \}$ basis as before, we can write down both kets as below:</p>
+<p>$$\begin{aligned}
+|\psi\rangle &amp;= \sum_i c_i | u_i \rangle \quad\text{for}\quad c_i = \langle u_i | \psi \rangle \\<br>
+|\psi'\rangle &amp;= \sum_i c_i' | u_i \rangle \quad\text{for}\quad c_i' = \langle u_i | \psi' \rangle.
+\end{aligned}$$</p>
+<p>Notice that we can write $c_i'$ in an alternative way as follows:</p>
+<p>$$\begin{aligned}
+c_i' &amp;= \langle u_i | \psi' \rangle = \langle u_i | \hat{A} | \psi \rangle = \langle u_i | \hat{A}\mathbb{I} | \psi \rangle
+\quad\text{(recall closure relation)}
+\\ &amp;= \langle u_i | \hat{A} \left( \sum_j |u_j \rangle \langle u_j | \right) |\psi\rangle = \sum_j \langle u_i |\hat{A} |u_j \rangle \langle u_j | \psi \rangle.
+\end{aligned}$$</p>
+<p>Using this alternative form of $c_i'$, we can write down the ket $|\psi'\rangle$ in a different form:</p>
+<p>$$\begin{aligned}
+|\psi'\rangle &amp;= \sum_i \left( \sum_j \langle u_i|\hat{A}|u_j \rangle \langle u_j|\psi\rangle \right) |u_i\rangle \\<br>
+&amp;= \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) |\psi\rangle \\<br>
+&amp;= \hat{A} |\psi\rangle.
+\end{aligned}$$</p>
+<p>Therefore, we see that we can write the operator $\hat{A}$ as</p>
+<p>$$\hat{A} = \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) = \sum_{ij} A_{ij} |u_i\rangle \langle u_j|,$$</p>
+<p>where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle \in \mathbb{C}$. Therefore, we arrive at a scalar value $A_{ij}$ that represents the operator $\hat{A}$ in the $\{ |u_i\rangle \}$ basis, just like how $c_i = \langle u_i | \psi \rangle$ represents the ket $|\psi \rangle$ in the same basis.</p>
+<p>With the above, we close this chapter, and thus part 1 of this blog post about basics of quantum mechanics. In the next part, we will study matrix formulation of quantum mechanics, how to change basis, and a particularly import basis called eigenbasis.</p>
 
     </div>
 
@@ -842,117 +845,12 @@ $$</p>
 
   
   
+    
+
 
 
 
   
-  
-  
-    
-  
-  
-  
-  <div class="media author-card content-widget-hr">
-    
-      
-      <a href="https://jlylekim.github.io/"><img class="avatar mr-3 avatar-square" src="/author/j.-lyle-kim/avatar_hue7ebf735c082bc6fadfb428d6ab62d40_2554560_270x270_fill_q90_lanczos_center.jpg" alt="J. Lyle Kim"></a>
-    
-
-    <div class="media-body">
-      <h5 class="card-title"><a href="https://jlylekim.github.io/">J. Lyle Kim</a></h5>
-      <h6 class="card-subtitle">Ph.D. student in Computer Science</h6>
-      <p class="card-text">Ph.D. student in Computer Science at Rice University</p>
-      <ul class="network-icon" aria-hidden="true">
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-    <li>
-      <a href="mailto:jlylekim@rice.edu" >
-        <i class="fas fa-envelope"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://twitter.com/jlylekim" target="_blank" rel="noopener">
-        <i class="fab fa-twitter"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://scholar.google.com/citations?user=Ku197mP8hmUC&amp;hl=en&amp;authuser=1" target="_blank" rel="noopener">
-        <i class="fas fa-graduation-cap"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://github.com/jlylekim" target="_blank" rel="noopener">
-        <i class="fab fa-github"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://www.linkedin.com/in/jlylekim/" target="_blank" rel="noopener">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </li>
-  
-</ul>
-
-    </div>
-  </div>
-
-
 
 
 
