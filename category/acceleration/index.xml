@@ -199,14 +199,14 @@ gradient descent (GD), gradient descent with momentum (GDM), the PPA, and PPA wi
 &lt;!-- Propositions 1 and 3 for GD and GDM are from {{\cite{goh2017why}}}, and included for completeness.
 Proofs for PPA and PPAM in Propositions 2 and 4 can be found in the extended version of this work \citep{kim2021convergence}. --&gt;
 &lt;p&gt;&lt;strong&gt;Proposition 1 (GD)&lt;/strong&gt;&lt;sup id=&#34;fnref:14&#34;&gt;&lt;a href=&#34;#fn:14&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;14&lt;/a&gt;&lt;/sup&gt;
-To minimize \eqref{eq:obj-quad} with gradient descent, the step size $\eta$ needs to satisfy $0 &amp;lt; \eta &amp;lt; \frac{2}{\lambda_i}~~\forall i$, where $\lambda_i$ is the $i$-th eigenvalue of $A$.&lt;/p&gt;
+&lt;em&gt;To minimize \eqref{eq:obj-quad} with gradient descent, the step size $\eta$ needs to satisfy $0 &amp;lt; \eta &amp;lt; \frac{2}{\lambda_i}~~\forall i$, where $\lambda_i$ is the $i$-th eigenvalue of $A$&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Proposition 2 (PPA)&lt;/strong&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;
-To minimize \eqref{eq:obj-quad} with PPA, the step size $\eta$ needs to satisfy $\left| \frac{1}{1+\eta \lambda_i} \right| &amp;lt; 1~~\forall i$.&lt;/p&gt;
+&lt;em&gt;To minimize \eqref{eq:obj-quad} with PPA, the step size $\eta$ needs to satisfy&lt;/em&gt; $\left| \frac{1}{1+\eta \lambda_i} \right| &amp;lt; 1~~\forall i$.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Proposition 3 (GDM)&lt;/strong&gt;&lt;sup id=&#34;fnref:14&#34;&gt;&lt;a href=&#34;#fn:14&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;14&lt;/a&gt;&lt;/sup&gt;
-To minimize \eqref{eq:obj-quad} with gradient descent with momentum, the step size $\eta$ needs to satisfy $0 &amp;lt; \eta \lambda_i &amp;lt; 2 + 2\beta$ ~ $\forall i$, where $0 \leq \beta &amp;lt; 1.$&lt;/p&gt;
+&lt;em&gt;To minimize \eqref{eq:obj-quad} with gradient descent with momentum, the step size $\eta$ needs to satisfy $0 &amp;lt; \eta \lambda_i &amp;lt; 2 + 2\beta$ ~ $\forall i$, where $0 \leq \beta &amp;lt; 1.$&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Proposition 4 (PPAM)&lt;/strong&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;
-Let $\delta_i = \left( \frac{\beta+1}{1+\eta \lambda_i} \right)^2 - \frac{4\beta}{1+\eta \lambda_i}.$
-To minimize \eqref{eq:obj-quad} with PPAM, the step size $\eta$ and momentum $\beta$ need to satisfy $~\forall i$:&lt;/p&gt;
+&lt;em&gt;Let $\delta_i = \left( \frac{\beta+1}{1+\eta \lambda_i} \right)^2 - \frac{4\beta}{1+\eta \lambda_i}.$
+To minimize \eqref{eq:obj-quad} with PPAM, the step size $\eta$ and momentum $\beta$ need to satisfy $~\forall i$:&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$\eta &amp;gt; \frac{\beta-1}{\lambda_i},\quad$ if $\delta_i \leq 0$;&lt;/li&gt;
 &lt;li&gt;$\frac{\beta+1}{1+\eta \lambda_i} + \sqrt{\delta_i} &amp;lt; 2,\quad$ if $\delta_i &amp;gt; 0$ and $\frac{\beta+1}{1+\eta \lambda_i} \geq 0$;&lt;/li&gt;
@@ -273,11 +273,11 @@ x_{t+1} &amp;amp;= x_{t+1}^+ - \eta  \varepsilon_{t+1}.
 \end{align*}&lt;/p&gt;
 &lt;p&gt;Note that $x_{t+1}^+$ is an auxiliary intermediate variable that is used for the analysis only.&lt;/p&gt;
 &lt;p&gt;We further assume the following:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Assumption 1&lt;/strong&gt; $f$ is a $\mu$-strongly convex function: for some fixed $\mu &amp;gt; 0$ and for all $x$ and $y$,
+&lt;p&gt;&lt;strong&gt;Assumption 1&lt;/strong&gt; &lt;em&gt;$f$ is a $\mu$-strongly convex function: for some fixed $\mu &amp;gt; 0$ and for all $x$ and $y$,&lt;/em&gt;
 \begin{align*}
 \langle \nabla f(x)-\nabla f(y), x - y \rangle \geq \mu ||x-y ||_2^2.
 \end{align*}&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Assumption 2&lt;/strong&gt; There exists fixed $\sigma^2 &amp;gt; 0$ such that, given the natural filtration $\mathcal{F}_{t-1},$
+&lt;p&gt;&lt;strong&gt;Assumption 2&lt;/strong&gt; &lt;em&gt;There exists fixed $\sigma^2 &amp;gt; 0$ such that, given the natural filtration $\mathcal{F}_{t-1},$&lt;/em&gt;
 \begin{align*}
 \mathbb{E}\left[ \varepsilon_t \mid \mathcal{F}_{t-1} \right] = 0 \quad\text{and}\quad
 \mathbb{E}\left[ | \varepsilon_t \mid \mathcal{F}_{t-1} |^2 \right] \leq \sigma^2
@@ -286,7 +286,7 @@ x_{t+1} &amp;amp;= x_{t+1}^+ - \eta  \varepsilon_{t+1}.
 &lt;h3 id=&#34;is-sppam-faster-than-sppa&#34;&gt;Is SPPAM faster than SPPA?&lt;/h3&gt;
 &lt;p&gt;We first study whether SPPAM enjoys faster convergence than SPPA. We start with the iteration invariant bound, which expresses the expected error at $x_{t+1}$ in terms of its previous iterates:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Theorem 5&lt;/strong&gt;
-For $\mu$-strongly convex $f(\cdot)$, SPPAM satisfies the following iteration invariant bound:
+&lt;em&gt;For $\mu$-strongly convex $f(\cdot)$, SPPAM satisfies the following iteration invariant bound&lt;/em&gt;:
 \begin{align} \label{eq:onestep-acc-stoc-prox} \tag{11}
 \mathbb{E} \big[ || x_{t+1 }- x^\star ||_2^2 \big] &amp;amp;\leq \tfrac{4}{(1+\eta \mu)^2} \mathbb{E} \big[ ||x_t - x^\star ||_2^2 \big] \\&lt;br&gt;
 &amp;amp;\quad+ \tfrac{4\beta^2}{(1+\eta \mu)^2\left( 4-(1+\beta)^2 \right)} \mathbb{E} \big[ ||x_{t-1} - x^\star ||_2^2 \big] + \eta^2 \sigma^2.
@@ -321,14 +321,14 @@ A
 It is clear that the spectrum of the contraction matrix $A$ determines the convergence rate to a neighborhood.
 This is summarized in the following lemma:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Lemma 6&lt;/strong&gt;
-The maximum eigenvalue of $A$, which determines the convergence rate of SPPAM, is:
+&lt;em&gt;The maximum eigenvalue of $A$, which determines the convergence rate of SPPAM, is&lt;/em&gt;:
 \begin{align} \label{eq:acc-stoc-ppa-conv-rate} \tag{13}
 \tfrac{2}{(1+\eta \mu)^2} + \sqrt{ \tfrac{4}{(1+\eta \mu)^4} + \tfrac{4\beta^2}{(1+\eta \mu)^2(4 - (1+\beta)^2)}}.
 \end{align}&lt;/p&gt;
-&lt;p&gt;Notice the one-step contraction factor in \eqref{eq:acc-stoc-ppa-conv-rate} is of order $O(1/\eta^2),$ exhibiting acceleration compared to that of SPPA for strongly convex objectives: $1/(1+2\eta \mu) \approx O(1/\eta).$.&lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Notice the one-step contraction factor in \eqref{eq:acc-stoc-ppa-conv-rate} is of order $O(1/\eta^2),$ exhibiting acceleration compared to that of SPPA for strongly convex objectives: $1/(1+2\eta \mu) \approx O(1/\eta).$&lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;However, due to the additional terms, it is not immediately obvious when SPPAM enjoys faster convergence than SPPA. We thus characterize this condition more precisely in the following corollary:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Corollary 7&lt;/strong&gt;
-For $\mu$-strongly convex $f(\cdot)$, SPPAM enjoys better contraction factor than SPPA if:
+&lt;em&gt;For $\mu$-strongly convex $f$, SPPAM enjoys better contraction factor than SPPA if&lt;/em&gt;:
 \begin{align*}
 \frac{4\beta^2}{4 - (1+\beta)^2} &amp;lt;  \frac{\eta^2 \mu^2 - 6\eta\mu - 3}{(1+\eta \mu)^2}.
 \end{align*}&lt;/p&gt;
@@ -345,8 +345,7 @@ In particular, we characterize the condition that leads to an exponential discou
 By unrolling the recursion of SPPAM in \eqref{eq:two-by-two-onestep} for $T$ iterations, we obtain:  --&gt;
 &lt;h3 id=&#34;is-sppam-more-stable-than-sgdm&#34;&gt;Is SPPAM more stable than SGDM?&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Theorem 9&lt;/strong&gt;
-For $\mu$-strongly convex $f$, assume SPPAM
-is initialized with $x_0 = x_{-1}$. Then, after $T$ iterations, we have:
+&lt;em&gt;For $\mu$-strongly convex $f$, assume SPPAM is initialized with&lt;/em&gt; $x_0 = x_{-1}$. Then, after $T$ iterations, we have:
 \begin{align}  \label{eq:Tstep-acc-stoc-prox} \tag{15}
 &amp;amp;\mathbb{E} \big[ ||x_T - x^\star ||_2^2 \big]
 \leq  \frac{2 \sigma_1^T}{\sigma_1 - \sigma_2}
@@ -370,12 +369,12 @@ In particular, the condition that leads to an exponential discount
 of the initial conditions
 is characterized by the following theorem:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Theorem 10&lt;/strong&gt;
-Let the following condition hold:
+&lt;em&gt;Let the following condition hold&lt;/em&gt;:
 \begin{align} \label{eq:init-discount-condition} \tag{17}
 % \left( \frac{1-\beta}{1+2 \eta \mu} \right)^2 + \frac{\beta^2}{1+2\eta \mu} \left( \frac{2-\beta}{2-\beta(1+\beta)} \right) &amp;lt; \frac{1}{4}.
 \tau = \sqrt{ \tfrac{4}{(1+\eta \mu)^4} + \tfrac{4\beta^2}{(1+\eta \mu)^2(4 - (1+\beta)^2)}} &amp;lt; \tfrac{1}{2}.
 \end{align}
-Then, for $\mu$-strongly convex $f$, initial conditions of SPPAM exponentially discount: i.e., in \eqref{eq:Tstep-acc-stoc-prox},&lt;br&gt;
+&lt;em&gt;Then, for $\mu$-strongly convex $f$, initial conditions of SPPAM exponentially discount: i.e., in \eqref{eq:Tstep-acc-stoc-prox}&lt;/em&gt;,&lt;br&gt;
 \begin{align*}
 \tfrac{2 \sigma_1^T}{\sigma_1 - \sigma_2}  =
 \tau^{-1} \cdot   \left( \tfrac{2}{(1+\eta\mu)^2} + \tau \right)^T

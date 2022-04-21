@@ -650,7 +650,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/category/convex-optimization/">convex optimization</a>, <a href="/category/acceleration/">acceleration</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/category/convex-optimization/">convex optimization</a>, <a href="/category/acceleration/">acceleration</a>, <a href="/category/proximal-point-algorithm/">proximal point algorithm</a></span>
   
 
 </div>
@@ -860,14 +860,14 @@ gradient descent (GD), gradient descent with momentum (GDM), the PPA, and PPA wi
 <!-- Propositions 1 and 3 for GD and GDM are from {{\cite{goh2017why}}}, and included for completeness.
 Proofs for PPA and PPAM in Propositions 2 and 4 can be found in the extended version of this work \citep{kim2021convergence}. -->
 <p><strong>Proposition 1 (GD)</strong><sup id="fnref:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup>
-To minimize \eqref{eq:obj-quad} with gradient descent, the step size $\eta$ needs to satisfy $0 &lt; \eta &lt; \frac{2}{\lambda_i}~~\forall i$, where $\lambda_i$ is the $i$-th eigenvalue of $A$.</p>
+<em>To minimize \eqref{eq:obj-quad} with gradient descent, the step size $\eta$ needs to satisfy $0 &lt; \eta &lt; \frac{2}{\lambda_i}~~\forall i$, where $\lambda_i$ is the $i$-th eigenvalue of $A$</em>.</p>
 <p><strong>Proposition 2 (PPA)</strong><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>
-To minimize \eqref{eq:obj-quad} with PPA, the step size $\eta$ needs to satisfy $\left| \frac{1}{1+\eta \lambda_i} \right| &lt; 1~~\forall i$.</p>
+<em>To minimize \eqref{eq:obj-quad} with PPA, the step size $\eta$ needs to satisfy</em> $\left| \frac{1}{1+\eta \lambda_i} \right| &lt; 1~~\forall i$.</p>
 <p><strong>Proposition 3 (GDM)</strong><sup id="fnref:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup>
-To minimize \eqref{eq:obj-quad} with gradient descent with momentum, the step size $\eta$ needs to satisfy $0 &lt; \eta \lambda_i &lt; 2 + 2\beta$ ~ $\forall i$, where $0 \leq \beta &lt; 1.$</p>
+<em>To minimize \eqref{eq:obj-quad} with gradient descent with momentum, the step size $\eta$ needs to satisfy $0 &lt; \eta \lambda_i &lt; 2 + 2\beta$ ~ $\forall i$, where $0 \leq \beta &lt; 1.$</em></p>
 <p><strong>Proposition 4 (PPAM)</strong><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>
-Let $\delta_i = \left( \frac{\beta+1}{1+\eta \lambda_i} \right)^2 - \frac{4\beta}{1+\eta \lambda_i}.$
-To minimize \eqref{eq:obj-quad} with PPAM, the step size $\eta$ and momentum $\beta$ need to satisfy $~\forall i$:</p>
+<em>Let $\delta_i = \left( \frac{\beta+1}{1+\eta \lambda_i} \right)^2 - \frac{4\beta}{1+\eta \lambda_i}.$
+To minimize \eqref{eq:obj-quad} with PPAM, the step size $\eta$ and momentum $\beta$ need to satisfy $~\forall i$:</em></p>
 <ul>
 <li>$\eta &gt; \frac{\beta-1}{\lambda_i},\quad$ if $\delta_i \leq 0$;</li>
 <li>$\frac{\beta+1}{1+\eta \lambda_i} + \sqrt{\delta_i} &lt; 2,\quad$ if $\delta_i &gt; 0$ and $\frac{\beta+1}{1+\eta \lambda_i} \geq 0$;</li>
@@ -934,11 +934,11 @@ x_{t+1} &amp;= x_{t+1}^+ - \eta  \varepsilon_{t+1}.
 \end{align*}</p>
 <p>Note that $x_{t+1}^+$ is an auxiliary intermediate variable that is used for the analysis only.</p>
 <p>We further assume the following:</p>
-<p><strong>Assumption 1</strong> $f$ is a $\mu$-strongly convex function: for some fixed $\mu &gt; 0$ and for all $x$ and $y$,
+<p><strong>Assumption 1</strong> <em>$f$ is a $\mu$-strongly convex function: for some fixed $\mu &gt; 0$ and for all $x$ and $y$,</em>
 \begin{align*}
 \langle \nabla f(x)-\nabla f(y), x - y \rangle \geq \mu ||x-y ||_2^2.
 \end{align*}</p>
-<p><strong>Assumption 2</strong> There exists fixed $\sigma^2 &gt; 0$ such that, given the natural filtration $\mathcal{F}_{t-1},$
+<p><strong>Assumption 2</strong> <em>There exists fixed $\sigma^2 &gt; 0$ such that, given the natural filtration $\mathcal{F}_{t-1},$</em>
 \begin{align*}
 \mathbb{E}\left[ \varepsilon_t \mid \mathcal{F}_{t-1} \right] = 0 \quad\text{and}\quad
 \mathbb{E}\left[ | \varepsilon_t \mid \mathcal{F}_{t-1} |^2 \right] \leq \sigma^2
@@ -947,7 +947,7 @@ x_{t+1} &amp;= x_{t+1}^+ - \eta  \varepsilon_{t+1}.
 <h3 id="is-sppam-faster-than-sppa">Is SPPAM faster than SPPA?</h3>
 <p>We first study whether SPPAM enjoys faster convergence than SPPA. We start with the iteration invariant bound, which expresses the expected error at $x_{t+1}$ in terms of its previous iterates:</p>
 <p><strong>Theorem 5</strong>
-For $\mu$-strongly convex $f(\cdot)$, SPPAM satisfies the following iteration invariant bound:
+<em>For $\mu$-strongly convex $f(\cdot)$, SPPAM satisfies the following iteration invariant bound</em>:
 \begin{align} \label{eq:onestep-acc-stoc-prox} \tag{11}
 \mathbb{E} \big[ || x_{t+1 }- x^\star ||_2^2 \big] &amp;\leq \tfrac{4}{(1+\eta \mu)^2} \mathbb{E} \big[ ||x_t - x^\star ||_2^2 \big] \\<br>
 &amp;\quad+ \tfrac{4\beta^2}{(1+\eta \mu)^2\left( 4-(1+\beta)^2 \right)} \mathbb{E} \big[ ||x_{t-1} - x^\star ||_2^2 \big] + \eta^2 \sigma^2.
@@ -982,14 +982,14 @@ A
 It is clear that the spectrum of the contraction matrix $A$ determines the convergence rate to a neighborhood.
 This is summarized in the following lemma:</p>
 <p><strong>Lemma 6</strong>
-The maximum eigenvalue of $A$, which determines the convergence rate of SPPAM, is:
+<em>The maximum eigenvalue of $A$, which determines the convergence rate of SPPAM, is</em>:
 \begin{align} \label{eq:acc-stoc-ppa-conv-rate} \tag{13}
 \tfrac{2}{(1+\eta \mu)^2} + \sqrt{ \tfrac{4}{(1+\eta \mu)^4} + \tfrac{4\beta^2}{(1+\eta \mu)^2(4 - (1+\beta)^2)}}.
 \end{align}</p>
-<p>Notice the one-step contraction factor in \eqref{eq:acc-stoc-ppa-conv-rate} is of order $O(1/\eta^2),$ exhibiting acceleration compared to that of SPPA for strongly convex objectives: $1/(1+2\eta \mu) \approx O(1/\eta).$.<sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup></p>
+<p>Notice the one-step contraction factor in \eqref{eq:acc-stoc-ppa-conv-rate} is of order $O(1/\eta^2),$ exhibiting acceleration compared to that of SPPA for strongly convex objectives: $1/(1+2\eta \mu) \approx O(1/\eta).$<sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup></p>
 <p>However, due to the additional terms, it is not immediately obvious when SPPAM enjoys faster convergence than SPPA. We thus characterize this condition more precisely in the following corollary:</p>
 <p><strong>Corollary 7</strong>
-For $\mu$-strongly convex $f(\cdot)$, SPPAM enjoys better contraction factor than SPPA if:
+<em>For $\mu$-strongly convex $f$, SPPAM enjoys better contraction factor than SPPA if</em>:
 \begin{align*}
 \frac{4\beta^2}{4 - (1+\beta)^2} &lt;  \frac{\eta^2 \mu^2 - 6\eta\mu - 3}{(1+\eta \mu)^2}.
 \end{align*}</p>
@@ -1006,8 +1006,7 @@ In particular, we characterize the condition that leads to an exponential discou
 By unrolling the recursion of SPPAM in \eqref{eq:two-by-two-onestep} for $T$ iterations, we obtain:  -->
 <h3 id="is-sppam-more-stable-than-sgdm">Is SPPAM more stable than SGDM?</h3>
 <p><strong>Theorem 9</strong>
-For $\mu$-strongly convex $f$, assume SPPAM
-is initialized with $x_0 = x_{-1}$. Then, after $T$ iterations, we have:
+<em>For $\mu$-strongly convex $f$, assume SPPAM is initialized with</em> $x_0 = x_{-1}$. Then, after $T$ iterations, we have:
 \begin{align}  \label{eq:Tstep-acc-stoc-prox} \tag{15}
 &amp;\mathbb{E} \big[ ||x_T - x^\star ||_2^2 \big]
 \leq  \frac{2 \sigma_1^T}{\sigma_1 - \sigma_2}
@@ -1031,12 +1030,12 @@ In particular, the condition that leads to an exponential discount
 of the initial conditions
 is characterized by the following theorem:</p>
 <p><strong>Theorem 10</strong>
-Let the following condition hold:
+<em>Let the following condition hold</em>:
 \begin{align} \label{eq:init-discount-condition} \tag{17}
 % \left( \frac{1-\beta}{1+2 \eta \mu} \right)^2 + \frac{\beta^2}{1+2\eta \mu} \left( \frac{2-\beta}{2-\beta(1+\beta)} \right) &lt; \frac{1}{4}.
 \tau = \sqrt{ \tfrac{4}{(1+\eta \mu)^4} + \tfrac{4\beta^2}{(1+\eta \mu)^2(4 - (1+\beta)^2)}} &lt; \tfrac{1}{2}.
 \end{align}
-Then, for $\mu$-strongly convex $f$, initial conditions of SPPAM exponentially discount: i.e., in \eqref{eq:Tstep-acc-stoc-prox},<br>
+<em>Then, for $\mu$-strongly convex $f$, initial conditions of SPPAM exponentially discount: i.e., in \eqref{eq:Tstep-acc-stoc-prox}</em>,<br>
 \begin{align*}
 \tfrac{2 \sigma_1^T}{\sigma_1 - \sigma_2}  =
 \tau^{-1} \cdot   \left( \tfrac{2}{(1+\eta\mu)^2} + \tau \right)^T
@@ -1218,6 +1217,8 @@ of the Royal Statistical Society: Series B (Statistical Methodology), 83(1):188â
   <a class="badge badge-light" href="/tag/convex-optimization/">convex optimization</a>
   
   <a class="badge badge-light" href="/tag/acceleration/">acceleration</a>
+  
+  <a class="badge badge-light" href="/tag/proximal-point-algorithm/">proximal point algorithm</a>
   
 </div>
 
