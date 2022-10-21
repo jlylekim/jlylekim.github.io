@@ -75,6 +75,14 @@
     </item>
     
     <item>
+      <title>Momentum Extragradient is Optimal for Games with Cross-Shaped Spectrum</title>
+      <link>https://jlylekim.github.io/publication/conference-paper/respoly-exstragradient-opt2022/</link>
+      <pubDate>Tue, 01 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/conference-paper/respoly-exstragradient-opt2022/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Convergence and stability of the stochastic proximal point algorithm with momentum</title>
       <link>https://jlylekim.github.io/blog/sppam/</link>
       <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
@@ -636,6 +644,7 @@ of the Royal Statistical Society: Series B (Statistical Methodology), 83(1):188â
 
 
 
+&lt;p&gt;&lt;strong&gt;[20 Oct 2022]&lt;/strong&gt; Our paper &amp;ldquo;&lt;a href=&#34;https://jlylekim.github.io/publication/conference-paper/sppam-opt2021/&#34;&gt;Momentum Extragradient is Optimal for Games with Cross-Shaped Jacobian Spectrum&lt;/a&gt;&amp;rdquo; has been accepted at &lt;a href=&#34;https://opt-ml.org/&#34;&gt;NeurIPS 2022 Workshop on Optimization for Machine Learning&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[28 Jul 2022]&lt;/strong&gt; I presented &amp;ldquo;&lt;a href=&#34;https://jlylekim.github.io/publication/conference-paper/sppam-l4dc2022/&#34;&gt;Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum&lt;/a&gt;&amp;rdquo; at &lt;a href=&#34;https://iccopt2022.lehigh.edu/&#34;&gt;ICCOPT 2022&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[09 Jun 2022]&lt;/strong&gt; Our paper &amp;ldquo;&lt;a href=&#34;https://jlylekim.github.io/publication/preprint/local-sfgd-2022/&#34;&gt;Local Stochastic Factored Gradient Descent for Distributed Quantum State Tomography&lt;/a&gt;&amp;rdquo; has been accepted at the IEEE Control Systems Letters (L-CSS), 2022. This is joint work with &lt;a href=&#34;https://sites.google.com/view/mttoghani&#34;&gt;M. Taha Toghani&lt;/a&gt;, &lt;a href=&#34;https://cauribe.rice.edu/&#34;&gt;Prof. CÃ©sar A. Uribe&lt;/a&gt;, and &lt;a href=&#34;https://akyrillidis.github.io/&#34;&gt;Prof. Tasos Kyrillidis&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[09 May 2022]&lt;/strong&gt; I started my research intenship at &lt;a href=&#34;https://ai.facebook.com/&#34;&gt;Meta (FAIR)&lt;/a&gt; under the supervision of &lt;a href=&#34;https://www.aarondefazio.com/&#34;&gt;Dr. Aaron Defazio&lt;/a&gt;.&lt;/p&gt;
