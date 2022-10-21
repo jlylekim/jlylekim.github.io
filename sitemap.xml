@@ -68,7 +68,7 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/category/convex-optimization/</loc>
+    <loc>https://jlylekim.github.io/category/chebyshev-polynomials/</loc>
     <lastmod>2022-11-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -78,7 +78,17 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/category/differentiable-game/</loc>
+    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/tag/extragradient/</loc>
+    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/extragradient/</loc>
     <lastmod>2022-11-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -93,22 +103,12 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/category/implicit-methods/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/author/junhyung-lyle-kim/</loc>
     <lastmod>2022-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jlylekim.github.io/publication/conference-paper/respoly-exstragradient-opt2022/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/proximal-point-algorithm/</loc>
     <lastmod>2022-11-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -138,6 +138,11 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/category/convex-optimization/</loc>
+    <lastmod>2022-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/author/j.-lyle-kim/</loc>
     <lastmod>2022-04-01T00:00:00+00:00</lastmod>
   </url>
@@ -149,6 +154,11 @@
   
   <url>
     <loc>https://jlylekim.github.io/tag/proximal-point-algorithm/</loc>
+    <lastmod>2022-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/proximal-point-algorithm/</loc>
     <lastmod>2022-04-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -209,6 +219,11 @@
   
   <url>
     <loc>https://jlylekim.github.io/tag/implicit-methods/</loc>
+    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/implicit-methods/</loc>
     <lastmod>2022-02-01T00:00:00+00:00</lastmod>
   </url>
   
