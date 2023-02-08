@@ -5,7 +5,7 @@
     <link>https://jlylekim.github.io/news/</link>
       <atom:link href="https://jlylekim.github.io/news/index.xml" rel="self" type="application/rss+xml" />
     <description>News</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2023 Junhyung Lyle Kim</copyright><lastBuildDate>Wed, 01 Dec 2021 00:00:00 -0600</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2023 Junhyung Lyle Kim</copyright><lastBuildDate>Wed, 01 Dec 2021 00:00:00 +0100</lastBuildDate>
     <image>
       <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
       <title>News</title>
@@ -15,7 +15,7 @@
     <item>
       <title>News</title>
       <link>https://jlylekim.github.io/news/news/</link>
-      <pubDate>Wed, 01 Dec 2021 00:00:00 -0600</pubDate>
+      <pubDate>Wed, 01 Dec 2021 00:00:00 +0100</pubDate>
       <guid>https://jlylekim.github.io/news/news/</guid>
       <description>
 
@@ -27,6 +27,7 @@
 
 
 &lt;p&gt;&lt;strong&gt;[07 Feb 2023]&lt;/strong&gt; I presented &lt;a href=&#34;https://jlylekim.github.io/publication/journal-article/mifgd-2021/&#34;&gt;Fast Quantum State Tomography via Accelerated Non-convex Programming&lt;/a&gt; and &lt;a href=&#34;https://jlylekim.github.io/publication/journal-article/local-sfgd-2022/&#34;&gt;Local Stochastic Factored Gradient Descent for Distributed Quantum State Tomography&lt;/a&gt; at &lt;a href=&#34;https://indico.cern.ch/event/1175020/&#34;&gt;Quantum Information Processing 2023&lt;/a&gt; as poster presentations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;[06 Feb 2023]&lt;/strong&gt; I was selected as a &lt;a href=&#34;https://aistats.org/aistats2023/reviewers.html&#34;&gt;top reviewer&lt;/a&gt; (top-10%) for &lt;a href=&#34;http://aistats.org/aistats2023/&#34;&gt;AISTATS 2023&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[19 Jan 2023]&lt;/strong&gt; Our paper &lt;a href=&#34;https://jlylekim.github.io/publication/journal-article/journal-article/mifgd-2021/&#34;&gt;Fast Quantum State Tomography via Accelerated Non-convex Programming&lt;/a&gt; has been accepted at Photonics 2023. A relevant blog post can be found &lt;a href=&#34;https://jlylekim.github.io/post/acc-qst/&#34;&gt;here&lt;/a&gt;. This work was also featured in &lt;a href=&#34;https://syncedreview.com/2021/04/20/rice-university-ibm-usc-study-pushes-quantum-state-tomography-beyond-current-computation-capabilities/&#34;&gt;this article&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[08 Dec 2022]&lt;/strong&gt; I presented &lt;a href=&#34;https://jlylekim.github.io/publication/journal-article/local-sfgd-2022/&#34;&gt;Local Stochastic Factored Gradient Descent for Distributed Quantum State Tomography&lt;/a&gt; at &lt;a href=&#34;https://cdc2022.ieeecss.org/&#34;&gt;CDC 2022&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[03 Dec 2022]&lt;/strong&gt; I presented &lt;a href=&#34;https://jlylekim.github.io/publication/conference-paper/respoly-exstragradient-opt2022/&#34;&gt;Momentum Extragradient is Optimal for Games with Cross-Shaped Jacobian Spectrum&lt;/a&gt; at &lt;a href=&#34;https://opt-ml.org/&#34;&gt;NeurIPS 2022 Workshop on Optimization for Machine Learning&lt;/a&gt;.&lt;/p&gt;
