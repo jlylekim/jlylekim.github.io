@@ -33,6 +33,76 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/authors/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/categories/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/distributed-optimization/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/distributed-optimization/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/j.-lyle-kim/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/blog/local-sfgd/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/local-updates/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/local-updates/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/low-rank-factorization/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/low-rank-factorization/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/blog/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/quantum-computing/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/quantum-computing/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tags/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/publication-type/1/</loc>
     <lastmod>2022-11-01T00:00:00+00:00</lastmod>
   </url>
@@ -49,16 +119,6 @@
   
   <url>
     <loc>https://jlylekim.github.io/author/anastasios-kyrillidis/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/authors/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/categories/</loc>
     <lastmod>2022-11-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -123,11 +183,6 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/tags/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/blog/sppam/</loc>
     <lastmod>2022-04-01T00:00:00+00:00</lastmod>
   </url>
@@ -139,16 +194,6 @@
   
   <url>
     <loc>https://jlylekim.github.io/category/convex-optimization/</loc>
-    <lastmod>2022-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/j.-lyle-kim/</loc>
-    <lastmod>2022-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/blog/</loc>
     <lastmod>2022-04-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -173,42 +218,12 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/tag/distributed-optimization/</loc>
-    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/distributed-optimization/</loc>
-    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/publication/journal-article/local-sfgd-2022/</loc>
     <lastmod>2022-03-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/tag/low-rank-factorization/</loc>
-    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/low-rank-factorization/</loc>
-    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/author/mohammad-taha-toghani/</loc>
-    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/quantum-computing/</loc>
-    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/quantum-computing/</loc>
     <lastmod>2022-03-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -234,12 +249,12 @@
   
   <url>
     <loc>https://jlylekim.github.io/news/</loc>
-    <lastmod>2021-10-27T00:00:00+02:00</lastmod>
+    <lastmod>2021-10-27T00:00:00-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://jlylekim.github.io/news/news/</loc>
-    <lastmod>2021-10-27T00:00:00+02:00</lastmod>
+    <lastmod>2021-10-27T00:00:00-05:00</lastmod>
   </url>
   
   <url>

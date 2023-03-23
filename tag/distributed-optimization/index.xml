@@ -5,12 +5,367 @@
     <link>https://jlylekim.github.io/tag/distributed-optimization/</link>
       <atom:link href="https://jlylekim.github.io/tag/distributed-optimization/index.xml" rel="self" type="application/rss+xml" />
     <description>distributed optimization</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2023 Junhyung Lyle Kim</copyright><lastBuildDate>Wed, 23 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2023 Junhyung Lyle Kim</copyright><lastBuildDate>Wed, 22 Feb 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
       <title>distributed optimization</title>
       <link>https://jlylekim.github.io/tag/distributed-optimization/</link>
     </image>
+    
+    <item>
+      <title>Local Stochastic Factored Gradient Descent for Distributed Quantum State Tomography</title>
+      <link>https://jlylekim.github.io/blog/local-sfgd/</link>
+      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/blog/local-sfgd/</guid>
+      <description>&lt;p&gt;This blog post is about my recent work on distributed quantum state tomography using local stochastic factored gradient descent,&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; published in &lt;a href=&#34;https://ieeexplore.ieee.org/document/9810003&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Control System Letters, IEEE 2023&lt;/a&gt;. This is a joint work with my advisors &lt;a href=&#34;https://akyrillidis.github.io/about/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prof. Tasos Kyrillidis&lt;/a&gt; and &lt;a href=&#34;https://cauribe.rice.edu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prof. Cesar A. Uribe&lt;/a&gt;, and my good friend &lt;a href=&#34;https://sites.google.com/view/mttoghani&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Taha Toghani&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Quantum state tomography (QST) is one of the main procedures to identify the nature of imperfections in quantum processing unit (QPU) implementation. For more detailed background on QST, please refer to my &lt;a href=&#34;https://jlylekim.github.io/blog/acc-qst/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;previous blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Given the previous blogpost, we will jump directly to the objective function. We again use low-rankness as our prior.
+That is, we consider the reconstruction of a low-rank density matrix $\rho^\star \in \mathbb{C}^{d \times d}$ on a $n$-qubit Hilbert space, where $d=2^n$, through the following $\ell_2$-norm reconstruction objective:
+\begin{align}
+\label{eq:objective} \tag{1}
+\min_{\rho \in \mathbb{C}^{d \times d}}
+\quad &amp;amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\&lt;br&gt;
+\text{subject to}
+\quad&amp;amp; \rho \succeq 0, ~\texttt{rank}(\rho) \leq r.
+\end{align}&lt;/p&gt;
+&lt;p&gt;Here, $y \in \mathbb{R}^m$ is the measured data through quantum computer or simulation, and $\mathcal{A}(\cdot): \mathbb{C}^{d \times d} \rightarrow \mathbb{R}^m$ is the linear sensing map. The sensing map relates the density matrix $\rho$ to the measurements through &lt;a href=&#34;https://en.wikipedia.org/wiki/Born_rule&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Born rule&lt;/a&gt;: $\left( \mathcal{A}(\rho) \right)_i = \text{Tr}(A_i \rho),$ where $A_i \in \mathbb{C}^{d \times d},~i=1, \dots, m$ are the sensing matrices.&lt;/p&gt;
+&lt;p&gt;One of the motivation for using the low-rank prior is that the sample complexity can be reduced to $O(r \cdot d \cdot \text{poly} \log d)$ from $O(d^2)$.&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; However, low-rank constraint is a non-convex constraint, which is tricky to handle. To solve \eqref{eq:objective} as is using iterative methods like gradient descent, one needs to perform &lt;a href=&#34;https://en.wikipedia.org/wiki/Singular_value_decomposition&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;singular value decomposition&lt;/a&gt; on every iteration (in order to project onto the low-rank and PSD subspace), which is prohibitively expensive when $d$ is large, which is almost always the case as $d = 2^n$.&lt;/p&gt;
+&lt;p&gt;To address that, instead of solving \eqref{eq:objective}, we proposed to solve a factorized version of it, following recent work &lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;:
+\begin{align}
+\label{eq:factored-obj} \tag{2}
+\min_{U \in \mathbb{C}^{d \times r}} f(UU^\dagger) := \tfrac{1}{2} || \mathcal{A} (UU^\dagger) - y ||_2^2,
+\end{align}
+where $U^\dagger$ denotes the &lt;a href=&#34;https://en.wikipedia.org/wiki/Conjugate_transpose&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;adjoint&lt;/a&gt; of $U$. Now, \eqref{eq:factored-obj} is an unconstrained problem, and we can use gradient descent on $U$, which iterates as follows:&lt;/p&gt;
+&lt;!-- \begin{align}
+\label{eq:fgd} \tag{4}
+U_{k+1} &amp;= U_{k} - \eta \nabla f(U_k U_k^\dagger) \cdot U_k \\\\
+&amp;= U_{k} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(U_k U_k^\dagger) - y\right) \cdot U_k.
+\end{align} --&gt;
+&lt;p&gt;\begin{align*} \label{eq:fgd} \tag{3}
+U_{i+1} &amp;amp;= U_{i} - \eta \nabla F(U_k U_k^\dagger) \cdot U_k \\&lt;br&gt;
+&amp;amp;= U_k - \eta \left( \frac{1}{m} \sum_{i=1}^m ( \text{Tr}(A_k U_k U_t^\dagger) - y_k ) A_k \right) \cdot U_k
+\end{align*}&lt;/p&gt;
+&lt;!-- Here, $\mathcal{A}^\dagger: \mathbb{R}^m \rightarrow \mathbb{C}^{d \times d}$ is the adjoint of $\mathcal{A}$, defined as $\mathcal{A}^\dagger = \sum_{i=1}^m x_k A_k.$ $\eta$ is a hyperparameter called step size or learning rate. This method is called &#34;$\texttt{F}$actored $\texttt{G}$radient $\texttt{D}$escent&#34; ($\texttt{FGD}$), and was utilized to solve the non-convex objective function in Eq. \eqref{eq:factored-obj}, (surprisingly) with provable gaurantees.[^kyrillidis2018provable] --&gt;
+&lt;p&gt;Even though \eqref{eq:factored-obj} is unconstrained and thus we can avoid performing the expensive singular value decomposition on every iteration, $m$ in \eqref{eq:fgd} is still extremely large. In particular, with $r=100$ and $n=30$, the reduced sample complexity still reaches $O\left(r \cdot d \cdot \text{poly}(\log d)\right) \approx 9.65 \times 10^{14}$.&lt;/p&gt;
+&lt;h2 id=&#34;distributed-objective&#34;&gt;Distributed objective&lt;/h2&gt;
+&lt;p&gt;To handle such explosion of data, We consider the setting where the measurements $y \in \mathbb{R}^m$ and the sensing matrices $\mathcal{A}: \mathbb{C}^{d\times d} \rightarrow \mathbb{R}^m$ from a central quantum computer are locally stored across $M$ different classical machines. These classical machines perform some local operations based on their local data, and communicate back and forth with the central quantum server. Mathematically, we can write the distributed objective as:
+\begin{align} \label{eq:dist-obj} \tag{4}
+\min_{U \in \mathbb{C}^{d \times r}}  g(U) &amp;amp;= \frac{1}{M} \sum_{i=1}^M g_i(U),    \\&lt;br&gt;
+\text{where} \quad g_i(U) &amp;amp;:= \mathbb{E}_{j \sim \mathcal{D}_i} ||\mathcal{A}_i^j (UU^\dagger) - y_i^j ||_2^2.
+\end{align}&lt;/p&gt;
+&lt;p&gt;We illustrate the above objective with the figure bellow:
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-illustration-of-distributed-quantum-state-tomography&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/featured_hu13f4fe2809d1952c4d0168f1c8b27fcc_43292_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Illustration of distributed quantum state tomography.&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/featured_hu13f4fe2809d1952c4d0168f1c8b27fcc_43292_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;40%&#34; height=&#34;783&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Illustration of distributed quantum state tomography.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;That is, $i$-th machine has sensing matrices $\mathcal{A}_i: \mathbb{C}^{d\times d} \rightarrow \mathbb{R}^{m_i}$ and measurement data $y_i \in \mathbb{R}^{m_i}$, such that the collection of $\mathcal{A}_i$ and $y_i$ for $i \in [M]$ recover the original $\mathcal{A}$ and $y$.&lt;/p&gt;
+&lt;!-- $\cup_{i=1}^M \mathcal{A}_i = \mathcal{A}$  --&gt;
+&lt;!-- and $\sum_{i=1}^M m_i = m$. --&gt;
+&lt;h2 id=&#34;distributed-algorithm&#34;&gt;Distributed algorithm&lt;/h2&gt;
+&lt;p&gt;A naive way to implement a distributed algorithm to solve \eqref{eq:dist-obj} is as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Each machine can take a (stochastic) gradient step:
+\begin{align}
+U_k^i = U_{k-1}^i - \eta_{t-1} \nabla g_i^{j_{t-1}} (U_{t-1}^i)
+\end{align}&lt;/li&gt;
+&lt;li&gt;Central quantum server receives next iterate for all $i$ and take average:
+\begin{align}
+U_k^i = U_{k-1}^i - \eta_{t-1} \nabla g_i^{j_{t-1}} (U_{t-1}^i)
+\end{align}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However, such intra-node communication is much more &amp;mdash;typically 3-4 order of magnitude more&amp;mdash; expensive than inter-node computation.&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; Therefore, it&amp;rsquo;s desirable to communicate as little as possible. One way to do so is by performing &lt;em&gt;local iterations&lt;/em&gt; on each machine, and communicate only once in a while. We propose the &lt;em&gt;Local Stochastic Factored Gradient Descent (Local SFGD)&lt;/em&gt; in the below pseudocode:&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-pseudocode-for-local-stochastic-factored-gradient-descent-local-sfgd&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/local-sfgd-algo_huf8b139424932042b8d09ec38c7b11bf5_121569_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Pseudocode for Local Stochastic Factored Gradient Descent (Local SFGD).&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/local-sfgd-algo_huf8b139424932042b8d09ec38c7b11bf5_121569_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;721&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Pseudocode for Local Stochastic Factored Gradient Descent (Local SFGD).
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;The initialization scheme in line 1 (or Eq. (7)) is an adaptation of &lt;a href=&#34;http://proceedings.mlr.press/v49/bhojanapalli16.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Theorem 11&lt;/a&gt;&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; to the distributed setting, and is crucial in theory to prove global convergence (however, in practice, we observe thant random intialization also works well).
+Also notice that there are some pre-defined synchronization (or communication) steps $t_p$, for some $p \in \mathbb{N}$. The algorithm proceeds by, at each time step $t$, a stochastic FGD step is taken in parallel for each machine. Only if the time step equals a pre-defined synchronization step, the local iterates are sent to the server and their average is computed. The average is fed back to each machine, and the process repeats until the time step reaches user-input $T$.&lt;/p&gt;
+&lt;h2 id=&#34;theoretical-guarantees&#34;&gt;Theoretical guarantees&lt;/h2&gt;
+&lt;p&gt;We will not get into the details of the theoretical guarantees of Local SFGD in this post. Please refer to the &lt;a href=&#34;https://ieeexplore.ieee.org/document/9810003&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;paper&lt;/a&gt; for more detailed discussion.&lt;/p&gt;
+&lt;p&gt;That being said, we first introduce the assumptions on the function class and on the stochastic gradients:
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-assumptions-1-and-2&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/assumptions_huc479e5c8281c624f0ee0e7f6477675cc_122304_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Assumptions 1 and 2&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/assumptions_huc479e5c8281c624f0ee0e7f6477675cc_122304_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;660&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Assumptions 1 and 2
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+Assumption 1 is the standard strong-convexity and $L$-smoothness assumptions, &lt;em&gt;but are restricted (i.e., weaker) in the sense that they only need to hold for PSD matrices&lt;/em&gt;. Assumption 2 is quite standard on stochastic-optimization literature.&lt;/p&gt;
+&lt;p&gt;Based on the above assumptions, we prove two results: local linear convergence with a constant step-size (Theorem 2), and local sub-linear conveergence with diminishing step-sizes (Theorem 4). Here, &amp;ldquo;local convergence&amp;rdquo; means that the convergence depends on the initialization.&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-local-linear-convergence-with-a-constant-step-size&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem2_hu1a553baa570e41a187df39ec77da9c45_114691_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Local linear convergence with a constant step size&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem2_hu1a553baa570e41a187df39ec77da9c45_114691_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;552&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Local linear convergence with a constant step size
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Some remarks to make:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the last variance term, $\frac{\sigma^2}{M \alpha}$, also shows up in the convergence analysis of SFGD is reduced by the number
+of machines $M$;&lt;/li&gt;
+&lt;li&gt;we assume a single-batch is used in the proof; by using batch size $b &amp;gt; 1$, this term can be further divided by $b$;&lt;/li&gt;
+&lt;li&gt;by plugging in $h = 1$ (i.e., synchronization happens on every iteration), the first variance term disappears, exhibiting similar local linear convergence to SFGD.&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-local-sublinear-convergence-with-diminishing-step-sizes&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem4_hu922ae10404d6c5eb49ce5f3736872bf2_109670_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Local sublinear convergence with diminishing step sizes&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem4_hu922ae10404d6c5eb49ce5f3736872bf2_109670_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;485&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Local sublinear convergence with diminishing step sizes
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;The main message of Theorem 4 is that, by using appropriately diminishing step-sizes, we can achieve local convergence (without any variance term), at the cost of slowing down the convergence rate to a sub-linear one.&lt;/p&gt;
+&lt;h2 id=&#34;numerical-simulations&#34;&gt;Numerical simulations&lt;/h2&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-local-sublinear-convergence-with-diminishing-step-sizes&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/fig-crop_hu5d50ed01706b8c68eeead270a385b151_215634_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Local sublinear convergence with diminishing step sizes&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/fig-crop_hu5d50ed01706b8c68eeead270a385b151_215634_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;1336&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Local sublinear convergence with diminishing step sizes
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;J. L. Kim, M. T. Toghani, C. A. Uribe and A. Kyrillidis. Local Stochastic Factored Gradient Descent for Distributed Quantum State Tomography. IEEE Control Systems Letters, vol. 7, pp. 199-204, 2023. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;D. Gross, Y.-K. Liu, S. Flammia, S. Becker, and J. Eisert. Quantum state tomography via compressed
+sensing. Physical review letters, 105(15):150401, 2010. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;A. Kyrillidis, A. Kalev, D. Park, S. Bhojanapalli, C. Caramanis, and S. Sanghavi. Provable quantum state tomography via non-convex methods. npj Quantum Information, 4(36), 2018. &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Guanghui Lan, Soomin Lee, and Yi Zhou. Communication-efficient algorithms for decentralized and stochastic optimization. Mathematical Programming 180.1-2. 237-284. 2020. &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;S. Bhojanapalli, A. Kyrillidis, S. Sanghavi. Dropping Convexity for Faster Semi-definite Optimization. 29th Annual Conference on Learning Theory, in Proceedings of Machine Learning Research. 49:530-582. 2016. &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:6&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;J. Zeng, K. Ma, and Y. Yao. &amp;ldquo;On global linear convergence in stochastic nonconvex optimization for semidefinite programming.&amp;rdquo; IEEE Transactions on Signal Processing 67.16. 4261-4275. 2019, &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
     
     <item>
       <title>Local Stochastic Factored Gradient Descent for Distributed Quantum State Tomography</title>

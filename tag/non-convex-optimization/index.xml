@@ -25,12 +25,92 @@
       <link>https://jlylekim.github.io/blog/acc-qst/</link>
       <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
       <guid>https://jlylekim.github.io/blog/acc-qst/</guid>
-      <description>&lt;p&gt;This blog post is about my recent work on quantum state tomography using (accelerated) non-convex programming.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; Our manuscript is on &lt;a href=&#34;https://arxiv.org/abs/2104.07006&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;arXiv&lt;/a&gt;. This is a joint work with my advisor &lt;a href=&#34;https://akyrillidis.github.io/about/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prof. Tasos Kyrillidis&lt;/a&gt; at Rice University, &lt;a href=&#34;https://scholar.google.com/citations?user=te_1dnAAAAAJ&amp;amp;hl=en&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Amir Kalev&lt;/a&gt; at USC, and &lt;a href=&#34;https://researcher.watson.ibm.com/researcher/view.php?person=us-gkollias&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Georgios Kollias&lt;/a&gt; and &lt;a href=&#34;https://scholar.google.com/citations?user=9uuZX3IAAAAJ&amp;amp;hl=en&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Ken Wei&lt;/a&gt; at IBM Quantum.&lt;/p&gt;
+      <description>&lt;p&gt;This blog post is about my recent work on quantum state tomography using (accelerated) non-convex programming,&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; published in &lt;a href=&#34;https://www.mdpi.com/2304-6732/10/2/116&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Photonics 2023&lt;/a&gt;. This is a joint work with my advisor &lt;a href=&#34;https://akyrillidis.github.io/about/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prof. Tasos Kyrillidis&lt;/a&gt; at Rice University, &lt;a href=&#34;https://scholar.google.com/citations?user=te_1dnAAAAAJ&amp;amp;hl=en&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Amir Kalev&lt;/a&gt; at USC, and &lt;a href=&#34;https://researcher.watson.ibm.com/researcher/view.php?person=us-gkollias&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Georgios Kollias&lt;/a&gt; and &lt;a href=&#34;https://scholar.google.com/citations?user=9uuZX3IAAAAJ&amp;amp;hl=en&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Ken Wei&lt;/a&gt; at IBM Quantum.&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Quantum state tomography (QST) is one of the main procedures to identify the nature of imperfections in quantum processing unit (QPU) implementation. High-level procedure is to measure the quantum system, estimate the density matrix using the measured data, and analyze the &amp;ldquo;fit&amp;rdquo; between the estimated density matrix and the true density matrix.&lt;/p&gt;
-&lt;p&gt;QST is generally not scalable due to two bottlenecks: $i)$ large data has to be collected to perform tomography; and $ii)$ the space of density matrices grows exponentially, from which the one that is consistent with the data has to be found.&lt;/p&gt;
-&lt;p&gt;To address the first bottleneck, prior information is often assumed and leveraged to reduce the number of data required. For example, in compressed sensing QST, &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;  it assumes that the density matrix is of low-rank. Similarly, in neural network QST, the wavefunctions are assumed to be real and positive. &lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;To give a concrete example, in the figure below, real (top) and imaginary (bottom) parts of four different states are shown: $i)$ $\texttt{GHZ}$ state, $ii)$ $\texttt{GHZminus}$ state, $iii)$ $\texttt{Hadamard}$ state, and $iv)$ $\texttt{Random}$ state; for the mathematical description of the above states, refer to our paper. &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; As can be seen, for $\texttt{GHZ}$ and $\texttt{GHZminus}$ states, only four corners of the real parts have non-zero entries. Therefore, the density matrices of these states are both of low-rank and sparse. If these kinds of &amp;ldquo;structures&amp;rdquo; are smartly leveraged, one can sometimes confine the search space of density matrices greatly, leading to less number of measurements required for successful tomography results.&lt;/p&gt;
+&lt;p&gt;Quantum state tomography (QST) is one of the main procedures to identify the nature of imperfections in quantum processing unit (QPU) implementation. Just like electrical engineers used multimeters and ascilloscopes to verify that circuits work as expected in building classical computers, we need similar verification tools in building quantum computers. QST is one such tool.
+High-level procedure of QST is to measure the quantum system represented by a density matrix (a PSD matrix with unit trace), estimate the density matrix using the measured data, and then analyze the &amp;ldquo;fit&amp;rdquo; between the estimated density matrix and the true.&lt;/p&gt;
+&lt;p&gt;Before studying how QST is performed, let&amp;rsquo;s start by defining the basic notions. In classical computing, the most fundamental unit of computation are bits, which can be either $0$. or $1$. Analoguous notion in quantum computing is called &lt;em&gt;qubits&lt;/em&gt;, short for &amp;ldquo;quantum bits.&amp;rdquo; However, qubits are represented by 2-dimensional unit vectors:
+\begin{align*}
+|0 \rangle = [1 ~~ 0 ]^\top, ~~~\text{and}~~~ |1 \rangle = [0 ~~ 1 ]^\top.
+\end{align*}
+One of the main difference between classical computing and quantum computing is that, unlike a classical bit which can either be 0 or 1, a single qubit state $|\Psi\rangle$ can be in the &amp;ldquo;superposition&amp;rdquo; of $|0\rangle$ and $|1\rangle$, i.e., $| \Psi \rangle = \alpha |0 \rangle + \beta |1 \rangle$, where $\alpha$ and $\beta$ are called the &amp;ldquo;probability amplitudes,&amp;rdquo; and are complex numbers. Geometrically, it can be reprensented as a point in the unit sphere, known as the &amp;ldquo;bloch sphere&amp;rdquo; in quantum computing, illustrated below:&lt;/p&gt;
+
+
+
+
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-bloch-sphere-figure-source-httpsenwikipediaorgwikibloch_spheremediafilebloch_spheresvg&#34;&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/bloch_hu1fdbbe82f8d04bc229a0ea2e51146515_69402_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Bloch sphere. Figure source: &amp;lt;a href=&amp;#34;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&amp;#34;&amp;gt;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&amp;lt;/a&amp;gt;&#34;&gt;
+
+
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/bloch_hu1fdbbe82f8d04bc229a0ea2e51146515_69402_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;35%&#34; height=&#34;877&#34;&gt;
+&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Bloch sphere. Figure source: &lt;a href=&#34;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&#34;&gt;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Once we &amp;ldquo;measure&amp;rdquo; the state $|\Psi\rangle$, it collapses to the $| 0\rangle$ state with probability $|\alpha|^2$, and to the $1 \rangle$ state with probability $|\beta|^2$.&lt;/p&gt;
+&lt;h3 id=&#34;qst-for-a-single-qubit-state&#34;&gt;QST for a single qubit state&lt;/h3&gt;
+&lt;p&gt;Let&amp;rsquo;s now look at how QST is performed for a single qubit state. Any single qubit state can be written as
+\begin{align*}
+\rho = \frac{1}{2} \left( I + r_x \sigma_x + r_y \sigma_y + r_z \sigma_z \right),
+\end{align*}
+where $\sigma_x$, $\sigma_y$, and $\sigma_z$ are &lt;a href=&#34;https://en.wikipedia.org/wiki/Pauli_matrices&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pauli matrices&lt;/a&gt;. the quantity $r_\alpha = \text{Tr}(\rho \sigma_\alpha)$ for $\alpha=x, y, z$ is called the expectation value of $\sigma_\alpha$ with respect to $\rho$. From the above form, we can see that as long as we can estimate the expectation values, we can reconstruct $\rho$. So how do we measure or estimate the expectation values?&lt;/p&gt;
+&lt;p&gt;It turns out that we cannot measure it right away, but needs to go through a sequence of steps, as below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prepare $M$ number of copies of the state $\rho$&lt;/li&gt;
+&lt;li&gt;Measure the projection of $\rho$ onto eigenvectors of $\sigma_\alpha$, resulting in $\alpha_1, \dots, \alpha_M$.&lt;/li&gt;
+&lt;li&gt;Approximation of $\text{Tr} (\rho \sigma_\alpha)$ is given by $\frac{1}{M} \sum_{i=1}^M \alpha_i$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To understand better, let&amp;rsquo;s consider an example, with the visual aid of the block sphere in the above figure.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For simplicity, let&amp;rsquo;s consider estimating $r_z$ ($r_x$ and $r_y$ can be estimated similarly).&lt;/li&gt;
+&lt;li&gt;Assume we prepared $M=1000$ copies of the state $|\Psi\rangle$, which collapsed to $|0_z\rangle$ 400 times, and $|1_z\rangle$ 600 times.&lt;/li&gt;
+&lt;li&gt;Then, we can compute the empirical frequencies
+$\texttt{Tr}\left(\rho |0_z \rangle \langle 0_z | \right) \approx \tfrac{400}{1000} := y_0^z$ and $\texttt{Tr}\left(\rho |1_z \rangle \langle 1_z | \right) \approx \tfrac{600}{1000} := y_1^z$&lt;/li&gt;
+&lt;li&gt;Finally, we can estimate $\hat{r}_z = y_0^z - y_1^z$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By repeating the above procedure for $r_x$ and $r_y$, we have performed a single qubit QST. Mathematically, we can solve the following optimization problem:
+\begin{align}
+&amp;amp; \underset{\rho \in \mathbb{C}^{d \times d}}{\text{minimize}}
+&amp;amp; &amp;amp; f(\rho) := \sum_{\alpha=x, y, z} \sum_{i=0,1} \left( \texttt{Tr}(\rho A_i^\alpha) - y_i^\alpha \right)^2 \\&lt;br&gt;
+&amp;amp; \text{subject to}
+&amp;amp; &amp;amp; \rho \succeq 0,~\texttt{Tr}(\rho) = 1,
+\end{align}
+where the PSD constraint ($\rho \succeq 0$) and the unit trace constraint ($\texttt{Tr}(\rho) = 1$) arise from the definition of a density matrix $\rho$.&lt;/p&gt;
+&lt;h3 id=&#34;computational-bottlenecks-and-low-rank-prior&#34;&gt;Computational bottlenecks and low-rank prior&lt;/h3&gt;
+&lt;p&gt;QST is generally not scalable due to two bottlenecks: $i)$ large data has to be collected to perform tomography; and $ii)$ the space of density matrices grows exponentially (a density matrix $\rho$ of $n$-qubit is of $2^n \times 2^n$ dimensional), from which the one that is consistent with the data has to be found.&lt;/p&gt;
+&lt;p&gt;To address the first bottleneck, prior information is often assumed and leveraged to reduce the number of data required. For example, in compressed sensing QST, &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; it assumes that the density matrix is of low-rank, which physically means the state is close to a &lt;a href=&#34;https://en.wikipedia.org/wiki/Quantum_state&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pure state&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- Similarly, in neural network QST, the wavefunctions are assumed to be real and positive. [^torlai2018neural] [^torlai2019machine] [^beach2019qucumber] --&gt;
+&lt;p&gt;To give a concrete example, in the figure below, real (top) and imaginary (bottom) parts of four different states are shown: $i)$ $\texttt{GHZ}$ state, $ii)$ $\texttt{GHZminus}$ state, $iii)$ $\texttt{Hadamard}$ state, and $iv)$ $\texttt{Random}$ state; for the mathematical description of the above states, refer to our paper. &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; As can be seen, for $\texttt{GHZ}$ and $\texttt{GHZminus}$ states, only four corners of the real parts have non-zero entries. Therefore, the density matrices are not only of low-rank, but also sparse. Similarly, $\texttt{Hadamard}$ has uniform entries in the real part, which can be written as a $\text{rank-}1$ matrix.
+If these structures are smartly leveraged, one can sometimes confine the search space of density matrices greatly, leading to less number of measurements required for successful tomography results. In particular, it was proven that one can reconstruct a rank-$r$ density matrix using $O(r \cdot d \cdot \text{poly} \log d)$ measurements.&lt;/p&gt;
 
 
 
@@ -73,8 +153,8 @@
 
 &lt;/figure&gt;
 
-&lt;p&gt;With regards to the second bottleneck, variants of gradient descent convex solvers were proposed under synthetic scenarios. &lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt; However, due to the exponentially increasing space of density matrices, these methods often can be only applied to relatively small system, on top of relying on special-purpose hardwares and proper distributed system designs.&lt;sup id=&#34;fnref:11&#34;&gt;&lt;a href=&#34;#fn:11&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;11&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;On the contrary, non-convex optimization methods can perform much faster. It was recently shown that one can formulate compressed sensing QST as a non-convex problem,&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt; which can be solved with rigorous convergence guarantees, allowing density matrix estimation in a large system. A relevant result can be seen in the &lt;strong&gt;Results&lt;/strong&gt; section below, where we compare our proposed (accelerated) non-convex method with &lt;a href=&#34;https://qiskit.org/documentation/stubs/qiskit.ignis.verification.TomographyFitter.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;convex methods from $\texttt{Qiskit}$&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;With regards to the second bottleneck, variants of gradient descent convex solvers were proposed under synthetic scenarios. &lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:7&#34;&gt;&lt;a href=&#34;#fn:7&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;7&lt;/a&gt;&lt;/sup&gt; However, due to the exponentially increasing space of density matrices, these methods often can be only applied to relatively small system, on top of relying on special-purpose hardwares and proper distributed system designs.&lt;sup id=&#34;fnref:8&#34;&gt;&lt;a href=&#34;#fn:8&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;On the contrary, non-convex optimization methods can perform much faster. It was recently shown that one can formulate compressed sensing QST as a non-convex problem,&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt; which can be solved with rigorous convergence guarantees, allowing density matrix estimation in a large system. A relevant result can be seen in the &lt;strong&gt;Results&lt;/strong&gt; section below, where we compare our proposed (accelerated) non-convex method with &lt;a href=&#34;https://qiskit.org/documentation/stubs/qiskit.ignis.verification.TomographyFitter.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;convex methods from $\texttt{Qiskit}$&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In this work, we consider the setup where $n$-qubit state is close to a pure state, thus its density matrix is of low-rank. We introduce an accelerated non-convex algorithm with provable gaurantees, which we call $\texttt{MiFGD}$, short for &amp;ldquo;$\texttt{M}$omentum $\texttt{i}$nspired $\texttt{F}$actored $\texttt{G}$radient $\texttt{D}$escent.&amp;rdquo;&lt;/p&gt;
 &lt;h2 id=&#34;problem-setup&#34;&gt;Problem setup&lt;/h2&gt;
 &lt;p&gt;We consider the reconstruction of a low-rank density matrix $\rho^\star \in \mathbb{C}^{d \times d}$ on a $n$-qubit Hilbert space, where $d=2^n$, through the following $\ell_2$-norm reconstruction objective:&lt;/p&gt;
@@ -86,13 +166,13 @@
 \quad&amp;amp; \rho \succeq 0, ~\texttt{rank}(\rho) \leq r.
 \end{align}&lt;/p&gt;
 &lt;p&gt;Here, $y \in \mathbb{R}^m$ is the measured data through quantum computer or simulation, and $\mathcal{A}(\cdot): \mathbb{C}^{d \times d} \rightarrow \mathbb{R}^m$ is the linear sensing map. The sensing map relates the density matrix $\rho$ to the measurements through &lt;a href=&#34;https://en.wikipedia.org/wiki/Born_rule&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Born rule&lt;/a&gt;: $\left( \mathcal{A}(\rho) \right)_i = \text{Tr}(A_i \rho),$ where $A_i \in \mathbb{C}^{d \times d},~i=1, \dots, m$ are the sensing matrices. &lt;!--Type of sensing matrices used in quantum state tomography will be discussed later.--&gt; From the objective function above, we see two constraints: $i)$ the density matrix $\rho$ is a positive semidefinite matrix (which is a convex constraint), and $ii)$ the rank of the density matrix is less than $r$ (which is a non-convex constraint).&lt;/p&gt;
-&lt;p&gt;As mentioned earlier, we focus on &lt;em&gt;compressed sensing quantum state tomography&lt;/em&gt; setting, where the number of measured data $m$ is much smaller than the problem dimension $O(d^2)$. Compressed sensing is a powerful optimization framework developed mainly by &lt;a href=&#34;https://statweb.stanford.edu/~candes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Emmanuel Candès&lt;/a&gt;, &lt;a href=&#34;https://jrom.ece.gatech.edu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Justin Romberg&lt;/a&gt;, &lt;a href=&#34;https://www.math.ucla.edu/~tao/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Terence Tao&lt;/a&gt; and &lt;a href=&#34;https://web.stanford.edu/dept/statistics/cgi-bin/donoho/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;David Donoho&lt;/a&gt;, and requires the following pivotal assumption on the sensing matrix $\mathcal{A}(\cdot)$, namely the &lt;strong&gt;Restricted Isometry Property (RIP)&lt;/strong&gt; (on $\texttt{rank}$-$r$ matrices): &lt;sup id=&#34;fnref:13&#34;&gt;&lt;a href=&#34;#fn:13&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;13&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;As mentioned earlier, we focus on &lt;em&gt;compressed sensing quantum state tomography&lt;/em&gt; setting, where the number of measured data $m$ is much smaller than the problem dimension $O(d^2)$. Compressed sensing is a powerful optimization framework developed mainly by &lt;a href=&#34;https://statweb.stanford.edu/~candes/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Emmanuel Candès&lt;/a&gt;, &lt;a href=&#34;https://jrom.ece.gatech.edu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Justin Romberg&lt;/a&gt;, &lt;a href=&#34;https://www.math.ucla.edu/~tao/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Terence Tao&lt;/a&gt; and &lt;a href=&#34;https://web.stanford.edu/dept/statistics/cgi-bin/donoho/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;David Donoho&lt;/a&gt;, and requires the following pivotal assumption on the sensing matrix $\mathcal{A}(\cdot)$, namely the &lt;strong&gt;Restricted Isometry Property (RIP)&lt;/strong&gt; (on $\texttt{rank}$-$r$ matrices): &lt;sup id=&#34;fnref:10&#34;&gt;&lt;a href=&#34;#fn:10&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;10&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;\begin{align}
 \label{eq:rip} \tag{2}
 (1 - \delta_r) \cdot  || X ||_F^2 \leq || \mathcal{A}(X) ||_2^2 \leq (1 + \delta_r) \cdot ||X||_F^2.
 \end{align}&lt;/p&gt;
 &lt;p&gt;Intuitively, the above RIP assumption states that the sensing matrices $\mathcal{A}(\cdot)$ only &amp;ldquo;marginally&amp;rdquo; changes the norm of the matrix $X$.&lt;/p&gt;
-&lt;p&gt;Going back to the main optimization problem in Eq. \eqref{eq:objective}, instead of solving it as is, we propose to solve a factorized version of it, following recent work &lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;:
+&lt;p&gt;Going back to the main optimization problem in Eq. \eqref{eq:objective}, instead of solving it as is, we propose to solve a factorized version of it, following recent work &lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;:
 \begin{align}
 \label{eq:factored-obj} \tag{3}
 \min_{U \in \mathbb{C}^{d \times r}} f(UU^\dagger) := \tfrac{1}{2} || \mathcal{A} (UU^\dagger) - y ||_2^2,
@@ -105,7 +185,7 @@ U_{i+1} &amp;amp;= U_{i} - \eta \nabla f(U_i U_i^\dagger) \cdot U_i \\&lt;br&gt;
 &amp;amp;= U_{i} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(U_i U_i^\dagger) - y\right) \cdot U_i.
 \end{align}&lt;/p&gt;
 &lt;!--HERE IT IS NOT CLEAR WHAT IS f - DEFINE IT IN EQ.(3).--&gt;
-&lt;p&gt;Here, $\mathcal{A}^\dagger: \mathbb{R}^m \rightarrow \mathbb{C}^{d \times d}$ is the adjoint of $\mathcal{A}$, defined as $\mathcal{A}^\dagger = \sum_{i=1}^m x_i A_i.$ $\eta$ is a hyperparameter called step size or learning rate. This method is called &amp;ldquo;$\texttt{F}$actored $\texttt{G}$radient $\texttt{D}$escent&amp;rdquo; ($\texttt{FGD}$), and was utilized to solve the non-convex objective function in Eq. \eqref{eq:factored-obj}, (surprisingly) with provable gaurantees.&lt;sup id=&#34;fnref:12&#34;&gt;&lt;a href=&#34;#fn:12&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;12&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Here, $\mathcal{A}^\dagger: \mathbb{R}^m \rightarrow \mathbb{C}^{d \times d}$ is the adjoint of $\mathcal{A}$, defined as $\mathcal{A}^\dagger = \sum_{i=1}^m x_i A_i.$ $\eta$ is a hyperparameter called step size or learning rate. This method is called &amp;ldquo;$\texttt{F}$actored $\texttt{G}$radient $\texttt{D}$escent&amp;rdquo; ($\texttt{FGD}$), and was utilized to solve the non-convex objective function in Eq. \eqref{eq:factored-obj}, (surprisingly) with provable gaurantees.&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;h2 id=&#34;momentum-inspired-factored-gradient-descent&#34;&gt;Momentum-inspired Factored Gradient Descent&lt;/h2&gt;
 &lt;p&gt;Momentum is one of the de facto techniques to achieve acceleration in gradient descent type of algorithms. Acceleration methods exist in various forms, including Polyak&amp;rsquo;s momentum, Nesterov&amp;rsquo;s acceleration, classical momentum, etc. They end up behaving pretty similarly, and we will not get into the detail of different acceleration methods in this post. For interested readers, I recommend this &lt;a href=&#34;https://jlmelville.github.io/mize/nesterov.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;blog post&lt;/a&gt; by James Melville.&lt;/p&gt;
 &lt;p&gt;A common feature accross acceleration methods is that, with proper hyper-parameter tuning, they can provide accelerated convergence rate with virtually no additional computation. This is exactly the motivation of the $\texttt{MiFGD}$ algorithm we propose for solving the non-convex objective in Eq. \eqref{eq:factored-obj}, and the algorithm proceeds as follows:
@@ -454,7 +534,7 @@ Finally, we provide a publicly available implementation of our approach, compati
 &lt;hr&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Junhyung Lyle Kim, George Kollias, Amir Kalev, Ken X. Wei, Anastasios Kyrillidis. Fast quantum state reconstruction via accelerated non-convex programming. arXiv preprint arXiv:2104.07006, 2021. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Junhyung Lyle Kim, George Kollias, Amir Kalev, Ken X. Wei, Anastasios Kyrillidis. Fast quantum state reconstruction via accelerated non-convex programming. Photonics, 10(2), 2023. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
 &lt;p&gt;D. Gross, Y.-K. Liu, S. Flammia, S. Becker, and J. Eisert. Quantum state tomography via compressed
@@ -465,40 +545,28 @@ sensing. Physical review letters, 105(15):150401, 2010. &lt;a href=&#34;#fnref:2
 sensing protocols. NPJ Quantum Information, 1:15018, 2015. &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Giacomo Torlai, Guglielmo Mazzola, Juan Carrasquilla, Matthias Troyer, Roger Melko, and Giuseppe
-Carleo. Neural-network quantum state tomography. Nat. Phys., 14:447–450, May 2018. &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;D. Gonçalve, M. Gomes-Ruggiero, and C. Lavor. A projected gradient method for optimization over
+density matrices. Optimization Methods and Software, 31(2):328–341, 2016. &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Giacomo Torlai and Roger Melko. Machine-learning quantum states in the NISQ era. Annual Review
-of Condensed Matter Physics, 11, 2019. &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;E. Bolduc, G. Knee, E. Gauger, and J. Leach. Projected gradient descent algorithms for quantum state tomography. npj Quantum Information, 3(1):44, 2017. &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:6&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Matthew JS Beach, Isaac De Vlugt, Anna Golubeva, Patrick Huembeli, Bohdan Kulchytskyy, Xiuzhe
-Luo, Roger G Melko, Ejaaz Merali, and Giacomo Torlai. Qucumber: wavefunction reconstruction with neural networks. SciPost Physics, 7(1):009, 2019. &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Jiangwei Shang, Zhengyun Zhang, and Hui Khoon Ng. Superfast maximum-likelihood reconstruction
+for quantum tomography. Phys. Rev. A, 95:062336, Jun 2017. &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:7&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;D. Gonçalve, M. Gomes-Ruggiero, and C. Lavor. A projected gradient method for optimization over
-density matrices. Optimization Methods and Software, 31(2):328–341, 2016. &lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Zhilin Hu, Kezhi Li, Shuang Cong, and Yaru Tang. Reconstructing pure 14-qubit quantum states in
+three hours using compressive sensing. IFAC-PapersOnLine, 52(11):188 – 193, 2019. 5th IFAC Conference on Intelligent Control and Automation Sciences ICONS 2019. &lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:8&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;E. Bolduc, G. Knee, E. Gauger, and J. Leach. Projected gradient descent algorithms for quantum state tomography. npj Quantum Information, 3(1):44, 2017. &lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Zhibo Hou, Han-Sen Zhong, Ye Tian, Daoyi Dong, Bo Qi, Li Li, Yuanlong Wang, Franco Nori, Guo-Yong Xiang, Chuan-Feng Li, et al. Full reconstruction of a 14-qubit state within four hours. New Journal of Physics, 18(8):083036, 2016. &lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:9&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Jiangwei Shang, Zhengyun Zhang, and Hui Khoon Ng. Superfast maximum-likelihood reconstruction
-for quantum tomography. Phys. Rev. A, 95:062336, Jun 2017. &lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A. Kyrillidis, A. Kalev, D. Park, S. Bhojanapalli, C. Caramanis, and S. Sanghavi. Provable quantum state tomography via non-convex methods. npj Quantum Information, 4(36), 2018. &lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:10&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Zhilin Hu, Kezhi Li, Shuang Cong, and Yaru Tang. Reconstructing pure 14-qubit quantum states in
-three hours using compressive sensing. IFAC-PapersOnLine, 52(11):188 – 193, 2019. 5th IFAC Conference on Intelligent Control and Automation Sciences ICONS 2019. &lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:11&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Zhibo Hou, Han-Sen Zhong, Ye Tian, Daoyi Dong, Bo Qi, Li Li, Yuanlong Wang, Franco Nori, Guo-Yong Xiang, Chuan-Feng Li, et al. Full reconstruction of a 14-qubit state within four hours. New Journal of Physics, 18(8):083036, 2016. &lt;a href=&#34;#fnref:11&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:12&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;A. Kyrillidis, A. Kalev, D. Park, S. Bhojanapalli, C. Caramanis, and S. Sanghavi. Provable quantum state tomography via non-convex methods. npj Quantum Information, 4(36), 2018. &lt;a href=&#34;#fnref:12&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:13&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Benjamin Recht, Maryam Fazel, and Pablo A Parrilo. Guaranteed minimum-rank solutions of linear matrix equations via nuclear norm minimization. SIAM review, 52(3):471–501, 2010. &lt;a href=&#34;#fnref:13&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Benjamin Recht, Maryam Fazel, and Pablo A Parrilo. Guaranteed minimum-rank solutions of linear matrix equations via nuclear norm minimization. SIAM review, 52(3):471–501, 2010. &lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
