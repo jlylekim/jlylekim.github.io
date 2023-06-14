@@ -103,22 +103,72 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/publication-type/1/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+    <loc>https://jlylekim.github.io/author/junhyung-lyle-kim/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication-type/2/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jlylekim.github.io/tag/acceleration/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jlylekim.github.io/category/acceleration/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/amir-kalev/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jlylekim.github.io/author/anastasios-kyrillidis/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication/journal-article/mifgd-2021/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/george-kollias/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/ken-x.-wei/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/non-convex-optimization/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/non-convex-optimization/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication_types/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication-type/1/</loc>
     <lastmod>2022-11-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -163,22 +213,7 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/author/junhyung-lyle-kim/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/publication/conference-paper/respoly-exstragradient-opt2022/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication_types/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication/</loc>
     <lastmod>2022-11-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -205,11 +240,6 @@
   <url>
     <loc>https://jlylekim.github.io/category/proximal-point-algorithm/</loc>
     <lastmod>2022-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication-type/2/</loc>
-    <lastmod>2022-03-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -335,36 +365,6 @@
   <url>
     <loc>https://jlylekim.github.io/author/zhiwei-zhang/</loc>
     <lastmod>2021-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/amir-kalev/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication/journal-article/mifgd-2021/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/george-kollias/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/ken-x.-wei/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/non-convex-optimization/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/non-convex-optimization/</loc>
-    <lastmod>2021-04-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
