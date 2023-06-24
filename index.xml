@@ -75,6 +75,22 @@
     </item>
     
     <item>
+      <title>Adaptive Federated Learning with Auto-Tuned Clients</title>
+      <link>https://jlylekim.github.io/publication/preprint/adaptive-fl-2023/</link>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/preprint/adaptive-fl-2023/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>When is Momentum Extragradient Optimal? A Polynomial-Based Analysis</title>
+      <link>https://jlylekim.github.io/publication/preprint/extragradient-optimal-2023/</link>
+      <pubDate>Wed, 01 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/preprint/extragradient-optimal-2023/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Local Stochastic Factored Gradient Descent for Distributed Quantum State Tomography</title>
       <link>https://jlylekim.github.io/blog/local-sfgd/</link>
       <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
