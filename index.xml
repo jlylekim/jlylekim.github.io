@@ -1067,22 +1067,6 @@ of the Royal Statistical Society: Series B (Statistical Methodology), 83(1):188â
     </item>
     
     <item>
-      <title>Provably Efficient Lottery Ticket Discovery</title>
-      <link>https://jlylekim.github.io/publication/preprint/provable-lottery-ticket/</link>
-      <pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>https://jlylekim.github.io/publication/preprint/provable-lottery-ticket/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Momentum-inspired low-rank coordinate descent for diagonally constrained SDPs</title>
-      <link>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</link>
-      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Fast quantum state tomography via accelerated non-convex programming</title>
       <link>https://jlylekim.github.io/blog/acc-qst/</link>
       <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
@@ -1933,10 +1917,18 @@ c_i&#39; &amp;amp;= \langle u_i | \psi&#39; \rangle = \langle u_i | \hat{A} | \p
     </item>
     
     <item>
-      <title>Undersmoothed Uncertainty Quantification for Unfolding</title>
-      <link>https://jlylekim.github.io/publication/preprint/undersmoothed-unfolding-2019/</link>
-      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://jlylekim.github.io/publication/preprint/undersmoothed-unfolding-2019/</guid>
+      <title>Provably Efficient Lottery Ticket Discovery</title>
+      <link>https://jlylekim.github.io/publication/preprint/provable-lottery-ticket/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/preprint/provable-lottery-ticket/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Momentum-inspired low-rank coordinate descent for diagonally constrained SDPs</title>
+      <link>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</guid>
       <description></description>
     </item>
     
@@ -2067,6 +2059,14 @@ Three
 &lt;p&gt;&lt;a href=&#34;https://spectrum.chat/academic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Undersmoothed Uncertainty Quantification for Unfolding</title>
+      <link>https://jlylekim.github.io/publication/preprint/undersmoothed-unfolding-2019/</link>
+      <pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/preprint/undersmoothed-unfolding-2019/</guid>
+      <description></description>
     </item>
     
     <item>

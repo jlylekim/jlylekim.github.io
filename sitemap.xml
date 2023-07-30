@@ -348,76 +348,6 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/author/cameron-wolfe/</loc>
-    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/frank-wolfe-algorithm/</loc>
-    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/frank-wolfe-algorithm/</loc>
-    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/lotterty-ticket-hypothesis/</loc>
-    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/lotterty-ticket-hypothesis/</loc>
-    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/machine-learning/</loc>
-    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/machine-learning/</loc>
-    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication/preprint/provable-lottery-ticket/</loc>
-    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/qihan-wang/</loc>
-    <lastmod>2021-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/jose-antonio-lara-benitez/</loc>
-    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</loc>
-    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/semi-definite-programming/</loc>
-    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/semi-definite-programming/</loc>
-    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/zhiwei-zhang-alphabetical-order/</loc>
-    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/blog/acc-qst/</loc>
     <lastmod>2021-03-17T00:00:00+00:00</lastmod>
   </url>
@@ -433,43 +363,78 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/author/cameron-wolfe/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/frank-wolfe-algorithm/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/frank-wolfe-algorithm/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/lotterty-ticket-hypothesis/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/lotterty-ticket-hypothesis/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/machine-learning/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/machine-learning/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication/preprint/provable-lottery-ticket/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/qihan-wang/</loc>
+    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/jose-antonio-lara-benitez/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/semi-definite-programming/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/semi-definite-programming/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/zhiwei-zhang-alphabetical-order/</loc>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/courses/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication-type/4/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/high-energy-physics/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/high-energy-physics/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/mikael-kuusela/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/uncertainty-quantification/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/uncertainty-quantification/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication/preprint/undersmoothed-unfolding-2019/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -480,6 +445,41 @@
   <url>
     <loc>https://jlylekim.github.io/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication-type/4/</loc>
+    <lastmod>2019-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/high-energy-physics/</loc>
+    <lastmod>2019-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/high-energy-physics/</loc>
+    <lastmod>2019-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/mikael-kuusela/</loc>
+    <lastmod>2019-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/uncertainty-quantification/</loc>
+    <lastmod>2019-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/uncertainty-quantification/</loc>
+    <lastmod>2019-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication/preprint/undersmoothed-unfolding-2019/</loc>
+    <lastmod>2019-01-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>

@@ -585,14 +585,6 @@ of the Royal Statistical Society: Series B (Statistical Methodology), 83(1):188â
     </item>
     
     <item>
-      <title>Momentum-inspired low-rank coordinate descent for diagonally constrained SDPs</title>
-      <link>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</link>
-      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Fast quantum state tomography via accelerated non-convex programming</title>
       <link>https://jlylekim.github.io/blog/acc-qst/</link>
       <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
@@ -1143,6 +1135,14 @@ three hours using compressive sensing. IFAC-PapersOnLine, 52(11):188 â€“ 193, 20
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Momentum-inspired low-rank coordinate descent for diagonally constrained SDPs</title>
+      <link>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</guid>
+      <description></description>
     </item>
     
   </channel>
