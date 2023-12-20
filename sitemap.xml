@@ -168,61 +168,6 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/tag/acceleration/</loc>
-    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/acceleration/</loc>
-    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/chebyshev-polynomials/</loc>
-    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/chebyshev-polynomials/</loc>
-    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/differentiable-game/</loc>
-    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/differentiable-game/</loc>
-    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/extragradient/</loc>
-    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/extragradient/</loc>
-    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/fabian-pedregosa/</loc>
-    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/gauthier-gidel/</loc>
-    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication/preprint/extragradient-optimal-2023/</loc>
-    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/author/j.-lyle-kim/</loc>
     <lastmod>2023-02-22T00:00:00+00:00</lastmod>
   </url>
@@ -249,6 +194,16 @@
   
   <url>
     <loc>https://jlylekim.github.io/publication-type/2/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/acceleration/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/acceleration/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -280,6 +235,46 @@
   <url>
     <loc>https://jlylekim.github.io/category/non-convex-optimization/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/chebyshev-polynomials/</loc>
+    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/chebyshev-polynomials/</loc>
+    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/differentiable-game/</loc>
+    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/differentiable-game/</loc>
+    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/extragradient/</loc>
+    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/extragradient/</loc>
+    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/fabian-pedregosa/</loc>
+    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/gauthier-gidel/</loc>
+    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
