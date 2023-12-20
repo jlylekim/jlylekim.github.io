@@ -951,6 +951,10 @@ of machines $M$;</li>
 
 <p>The main message of Theorem 4 is that, by using appropriately diminishing step-sizes, we can achieve local convergence (without any variance term), at the cost of slowing down the convergence rate to a sub-linear one.</p>
 <h2 id="numerical-simulations">Numerical simulations</h2>
+<p>We use the Local SFGD to reconstruct the Greenberger-Horne-Zeilinger (GHZ) state, using simulated measurement data from Qiskit.
+GHZ state is known as maximally entangled quantum state, meaning that it exhibits the maximal inter-particle correlation, which does not exist in the classical mechanics. We are interested in: $(i)$ how the number of local steps affect the accuracy defined as
+$ \varepsilon = || \hat{U}_t \hat{U}_t^\top - \rho^\star ||_F^2,$ where $\rho^\star = U^\star U^{\star \dagger}$ is the true density matrix for the GHZ state; and $(ii)$ the scalability of the distributed setup for various number of classical machines $M$.</p>
+<!-- $\varepsilon = || \hat{U}_t \hat{U}_t^\top - \rho^\star_{\text{ghz}} ||_F^2$,  -->
 
 
 
@@ -993,7 +997,11 @@ of machines $M$;</li>
 
 </figure>
 
-<h2 id="conclusion">Conclusion</h2>
+<p>In the top panel of the above plot, we first fix the number of machines $M = 10$ and the number of total synchronization steps to be $100$, and vary the number of local iterations between two synchronization steps, i.e., $h \in {1, 10, 25, 50, 100, 200}.$ We use constant step size $\eta=1$ for all $h$.</p>
+<p>Increasing $h$, i.e., each distributed machine performing more local iterations, leads to faster convergence in terms of the synchronization steps.
+Notably, the speed up gets marginal: e.g., there is not much difference between $h=100$ and $h=200$, indicating there is an ``optimal'' $h$ that leads to the biggest reduction in the number of synchronization steps. Finally, note that $\varepsilon$ does not decrease below certain level due to the inherent finite sampling error of quantum measurements.</p>
+<p>In the bottom panel, we plot the number of synchronization steps to reach $\varepsilon \leq 0.05,$ while fixing
+% the number of local iterations, i.e., $h=20$. We vary the number of workers $M \in {5, 10, 15, 20}$, where each machine gets $200$ measurements. There is a significant speed up from $M=5$ to $M=15$, while for $M=20,$ it took one more syncrhonization step compared to $M=15,$ which is likely due to the stochasticity of SFGD within each machine.</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
