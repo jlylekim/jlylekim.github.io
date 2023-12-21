@@ -356,6 +356,8 @@ $ \varepsilon = || \hat{U}_t \hat{U}_t^\top - \rho^\star ||_F^2,$ where $\rho^\s
 Notably, the speed up gets marginal: e.g., there is not much difference between $h=100$ and $h=200$, indicating there is an ``optimal&#39;&#39; $h$ that leads to the biggest reduction in the number of synchronization steps. Finally, note that $\varepsilon$ does not decrease below certain level due to the inherent finite sampling error of quantum measurements.&lt;/p&gt;
 &lt;p&gt;In the bottom panel, we plot the number of synchronization steps to reach $\varepsilon \leq 0.05,$ while fixing
 % the number of local iterations, i.e., $h=20$. We vary the number of workers $M \in {5, 10, 15, 20}$, where each machine gets $200$ measurements. There is a significant speed up from $M=5$ to $M=15$, while for $M=20,$ it took one more syncrhonization step compared to $M=15,$ which is likely due to the stochasticity of SFGD within each machine.&lt;/p&gt;
+&lt;p&gt;{{ template &amp;ldquo;_internal/disqus.html&amp;rdquo; . }}&lt;/p&gt;
+&lt;p&gt;{{ partial &amp;ldquo;disqus.html&amp;rdquo; . }}&lt;/p&gt;
 &lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
@@ -400,7 +402,7 @@ sensing. Physical review letters, 105(15):150401, 2010. &lt;a href=&#34;#fnref:2
     </item>
     
     <item>
-      <title>Fast quantum state tomography via accelerated non-convex programming</title>
+      <title>Fast Quantum State Tomography via Accelerated Non-convex Programming</title>
       <link>https://jlylekim.github.io/blog/acc-qst/</link>
       <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
       <guid>https://jlylekim.github.io/blog/acc-qst/</guid>
