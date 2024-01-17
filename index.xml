@@ -5,7 +5,7 @@
     <link>https://jlylekim.github.io/</link>
       <atom:link href="https://jlylekim.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>JUNHYUNG LYLE KIM</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2023 Junhyung Lyle Kim</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2024 Junhyung Lyle Kim</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
       <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
       <title>JUNHYUNG LYLE KIM</title>
@@ -75,6 +75,14 @@
     </item>
     
     <item>
+      <title>Adaptive Federated Learning with Auto-Tuned Clients</title>
+      <link>https://jlylekim.github.io/publication/conference-paper/adaptive-fl-iclr2024/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/conference-paper/adaptive-fl-iclr2024/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>News</title>
       <link>https://jlylekim.github.io/news/news/</link>
       <pubDate>Fri, 01 Dec 2023 00:00:00 +0000</pubDate>
@@ -88,6 +96,7 @@
 
 
 
+&lt;p&gt;&lt;strong&gt;[16 Jan 2024]&lt;/strong&gt; Our paper &lt;a href=&#34;https://jlylekim.github.io/publication/conference-paper/adaptive-FL-iclr2024/&#34;&gt;Adaptive Federated Learning with Auto-Tuned Clients&lt;/a&gt; has been accepted at the International Conference on Learning Representations (ICLR), 2024. This is joint work with &lt;a href=&#34;https://sites.google.com/view/mttoghani&#34;&gt;M. Taha Toghani&lt;/a&gt;, &lt;a href=&#34;https://cauribe.rice.edu/&#34;&gt;Prof. César A. Uribe&lt;/a&gt;, and &lt;a href=&#34;https://akyrillidis.github.io/&#34;&gt;Prof. Tasos Kyrillidis&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[12 Dec 2023]&lt;/strong&gt; Our paper &lt;a href=&#34;https://jlylekim.github.io/publication/journal-article/momentum-extragradient-2024/&#34;&gt;When is Momentum Extragradient Optimal? A Polynomial-Based Analysis&lt;/a&gt; has been accepted at &lt;a href=&#34;https://jmlr.org/tmlr/&#34;&gt;Transactions on Machine Learning Research (TMLR)&lt;/a&gt;. This is joint work with &lt;a href=&#34;https://gauthiergidel.github.io/&#34;&gt;Prof. Gauthier Gidel&lt;/a&gt;, &lt;a href=&#34;https://akyrillidis.github.io/&#34;&gt;Prof. Tasos Kyrillidis&lt;/a&gt;, and &lt;a href=&#34;https://fa.bianp.net/pages/about.html&#34;&gt;Dr. Fabian Pedregosa&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[27 Oct 2023]&lt;/strong&gt; I co-organized &lt;a href=&#34;https://sites.google.com/view/quantips2023/&#34;&gt;Quantum Information Processing Systems (QuantIPS 2023)&lt;/a&gt;. Thank you to all the speakers and participants!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;[29 Sep 2023]&lt;/strong&gt; I co-organized &lt;a href=&#34;https://sites.google.com/view/tldr2023/&#34;&gt;Texas Colloquium on Distributed Learning (TL;DR 2023)&lt;/a&gt;. Thank you to all the speakers and participants!&lt;/p&gt;
@@ -131,14 +140,6 @@
       <link>https://jlylekim.github.io/publication/conference-paper/adaptive-fl-icml2023-workshop/</link>
       <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
       <guid>https://jlylekim.github.io/publication/conference-paper/adaptive-fl-icml2023-workshop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Adaptive Federated Learning with Auto-Tuned Clients</title>
-      <link>https://jlylekim.github.io/publication/preprint/adaptive-fl-2023/</link>
-      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://jlylekim.github.io/publication/preprint/adaptive-fl-2023/</guid>
       <description></description>
     </item>
     
@@ -478,8 +479,6 @@ $ \varepsilon = || \hat{U}_t \hat{U}_t^\top - \rho^\star ||_F^2,$ where $\rho^\s
 Notably, the speed up gets marginal: e.g., there is not much difference between $h=100$ and $h=200$, indicating there is an ``optimal&#39;&#39; $h$ that leads to the biggest reduction in the number of synchronization steps. Finally, note that $\varepsilon$ does not decrease below certain level due to the inherent finite sampling error of quantum measurements.&lt;/p&gt;
 &lt;p&gt;In the bottom panel, we plot the number of synchronization steps to reach $\varepsilon \leq 0.05,$ while fixing
 % the number of local iterations, i.e., $h=20$. We vary the number of workers $M \in {5, 10, 15, 20}$, where each machine gets $200$ measurements. There is a significant speed up from $M=5$ to $M=15$, while for $M=20,$ it took one more syncrhonization step compared to $M=15,$ which is likely due to the stochasticity of SFGD within each machine.&lt;/p&gt;
-&lt;p&gt;{{ template &amp;ldquo;_internal/disqus.html&amp;rdquo; . }}&lt;/p&gt;
-&lt;p&gt;{{ partial &amp;ldquo;disqus.html&amp;rdquo; . }}&lt;/p&gt;
 &lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;

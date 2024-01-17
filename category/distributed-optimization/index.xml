@@ -5,7 +5,7 @@
     <link>https://jlylekim.github.io/category/distributed-optimization/</link>
       <atom:link href="https://jlylekim.github.io/category/distributed-optimization/index.xml" rel="self" type="application/rss+xml" />
     <description>distributed optimization</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2023 Junhyung Lyle Kim</copyright><lastBuildDate>Thu, 23 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2024 Junhyung Lyle Kim</copyright><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
       <title>distributed optimization</title>
@@ -14,9 +14,9 @@
     
     <item>
       <title>Adaptive Federated Learning with Auto-Tuned Clients</title>
-      <link>https://jlylekim.github.io/publication/preprint/adaptive-fl-2023/</link>
-      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://jlylekim.github.io/publication/preprint/adaptive-fl-2023/</guid>
+      <link>https://jlylekim.github.io/publication/conference-paper/adaptive-fl-iclr2024/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/conference-paper/adaptive-fl-iclr2024/</guid>
       <description></description>
     </item>
     
@@ -356,8 +356,6 @@ $ \varepsilon = || \hat{U}_t \hat{U}_t^\top - \rho^\star ||_F^2,$ where $\rho^\s
 Notably, the speed up gets marginal: e.g., there is not much difference between $h=100$ and $h=200$, indicating there is an ``optimal&#39;&#39; $h$ that leads to the biggest reduction in the number of synchronization steps. Finally, note that $\varepsilon$ does not decrease below certain level due to the inherent finite sampling error of quantum measurements.&lt;/p&gt;
 &lt;p&gt;In the bottom panel, we plot the number of synchronization steps to reach $\varepsilon \leq 0.05,$ while fixing
 % the number of local iterations, i.e., $h=20$. We vary the number of workers $M \in {5, 10, 15, 20}$, where each machine gets $200$ measurements. There is a significant speed up from $M=5$ to $M=15$, while for $M=20,$ it took one more syncrhonization step compared to $M=15,$ which is likely due to the stochasticity of SFGD within each machine.&lt;/p&gt;
-&lt;p&gt;{{ template &amp;ldquo;_internal/disqus.html&amp;rdquo; . }}&lt;/p&gt;
-&lt;p&gt;{{ partial &amp;ldquo;disqus.html&amp;rdquo; . }}&lt;/p&gt;
 &lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;

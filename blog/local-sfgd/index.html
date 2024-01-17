@@ -312,6 +312,8 @@
   
   
   
+    <script>window.wcDarkLightEnabled = true;</script>
+  
   
     <script>const isSiteThemeDark = false;</script>
   
@@ -567,6 +569,23 @@
 
       
       
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
 
       
 
@@ -637,9 +656,6 @@
 
   
   
-  
-  <span class="middot-divider"></span>
-  <a href="/blog/local-sfgd/#disqus_thread"></a>
   
 
   
@@ -1005,8 +1021,6 @@ $ \varepsilon = || \hat{U}_t \hat{U}_t^\top - \rho^\star ||_F^2,$ where $\rho^\s
 Notably, the speed up gets marginal: e.g., there is not much difference between $h=100$ and $h=200$, indicating there is an ``optimal'' $h$ that leads to the biggest reduction in the number of synchronization steps. Finally, note that $\varepsilon$ does not decrease below certain level due to the inherent finite sampling error of quantum measurements.</p>
 <p>In the bottom panel, we plot the number of synchronization steps to reach $\varepsilon \leq 0.05,$ while fixing
 % the number of local iterations, i.e., $h=20$. We vary the number of workers $M \in {5, 10, 15, 20}$, where each machine gets $200$ measurements. There is a significant speed up from $M=5$ to $M=15$, while for $M=20,$ it took one more syncrhonization step compared to $M=15,$ which is likely due to the stochasticity of SFGD within each machine.</p>
-<p>{{ template &ldquo;_internal/disqus.html&rdquo; . }}</p>
-<p>{{ partial &ldquo;disqus.html&rdquo; . }}</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -1077,34 +1091,6 @@ sensing. Physical review letters, 105(15):150401, 2010. <a href="#fnref:2" class
 
 
 
-
-<section id="comments">
-  
-    
-<div id="disqus_thread"></div>
-<script>
-  let disqus_config = function () {
-    
-    
-    
-  };
-  (function() {
-    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-      return;
-    }
-    var d = document, s = d.createElement('script'); s.async = true;
-    s.src = 'https://' + "jlylekim-personal" + '.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-  
-</section>
 
 
 
@@ -1209,7 +1195,7 @@ sensing. Physical review letters, 105(15):150401, 2010. <a href="#fnref:2" class
 
     
     
-    <script id="dsq-count-scr" src="https://jlylekim-personal.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="https://jlylekim.disqus.com/count.js" async></script>
     
 
     
@@ -1242,7 +1228,7 @@ sensing. Physical review letters, 105(15):150401, 2010. <a href="#fnref:2" class
   
 
   <p class="powered-by">
-    © Copyright 2023 Junhyung Lyle Kim
+    © Copyright 2024 Junhyung Lyle Kim
   </p>
 
   
