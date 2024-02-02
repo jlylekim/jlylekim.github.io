@@ -5,7 +5,7 @@
     <link>https://jlylekim.github.io/tag/frank-wolfe-algorithm/</link>
       <atom:link href="https://jlylekim.github.io/tag/frank-wolfe-algorithm/index.xml" rel="self" type="application/rss+xml" />
     <description>frank-wolfe algorithm</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2024 Junhyung Lyle Kim</copyright><lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2024 Junhyung Lyle Kim</copyright><lastBuildDate>Fri, 26 Jan 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
       <title>frank-wolfe algorithm</title>
@@ -13,10 +13,10 @@
     </image>
     
     <item>
-      <title>Provably Efficient Lottery Ticket Discovery</title>
-      <link>https://jlylekim.github.io/publication/preprint/provable-lottery-ticket/</link>
-      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://jlylekim.github.io/publication/preprint/provable-lottery-ticket/</guid>
+      <title>How Much Pre-training Is Enough to Discover a Good Subnetwork?</title>
+      <link>https://jlylekim.github.io/publication/journal-article/provable-lottery-ticket-2024/</link>
+      <pubDate>Fri, 26 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/journal-article/provable-lottery-ticket-2024/</guid>
       <description></description>
     </item>
     

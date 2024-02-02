@@ -34,11 +34,106 @@
   
   <url>
     <loc>https://jlylekim.github.io/author/junhyung-lyle-kim/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication-type/2/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/anastasios-kyrillidis/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/authors/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/cameron-wolfe/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/categories/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/fangshuo-liao/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/frank-wolfe-algorithm/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/frank-wolfe-algorithm/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication/journal-article/provable-lottery-ticket-2024/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/lotterty-ticket-hypothesis/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/lotterty-ticket-hypothesis/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/machine-learning/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/machine-learning/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication_types/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/qihan-wang/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tags/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jlylekim.github.io/publication-type/1/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/acceleration/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/acceleration/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -58,22 +153,27 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/author/anastasios-kyrillidis/</loc>
+    <loc>https://jlylekim.github.io/tag/chebyshev-polynomials/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/authors/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/categories/</loc>
+    <loc>https://jlylekim.github.io/category/chebyshev-polynomials/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jlylekim.github.io/author/cesar-a.-uribe/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/differentiable-game/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/differentiable-game/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -88,6 +188,21 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/tag/extragradient/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/extragradient/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/fabian-pedregosa/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/tag/federated-learning/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url>
@@ -98,78 +213,18 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/author/gauthier-gidel/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/author/mohammad-taha-toghani/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/publication_types/</loc>
+    <loc>https://jlylekim.github.io/publication/journal-article/momentum-extragradient-2024/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tags/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication-type/2/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/acceleration/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/acceleration/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/chebyshev-polynomials/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/chebyshev-polynomials/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/differentiable-game/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/differentiable-game/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/extragradient/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/extragradient/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/fabian-pedregosa/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/gauthier-gidel/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -179,11 +234,6 @@
   
   <url>
     <loc>https://jlylekim.github.io/news/news/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication/journal-article/momentum-extragradient-2024/</loc>
     <lastmod>2023-12-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -369,52 +419,7 @@
   
   <url>
     <loc>https://jlylekim.github.io/publication-type/3/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/cameron-wolfe/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/frank-wolfe-algorithm/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/frank-wolfe-algorithm/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/lotterty-ticket-hypothesis/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/lotterty-ticket-hypothesis/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/machine-learning/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/machine-learning/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/publication/preprint/provable-lottery-ticket/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/qihan-wang/</loc>
-    <lastmod>2020-07-01T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
