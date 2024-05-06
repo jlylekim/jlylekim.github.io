@@ -118,6 +118,61 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/publication-type/8/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/adaptive-optimization/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/adaptive-optimization/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/federated-learning/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/hiroki-naganuma/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/ioannis-mitliagkas/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/local-smoothness/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/local-smoothness/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/out-of-distribution-generalization/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/sharpness-aware-minimization/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/publication/conference-paper/autotune-sam-iclr2024-workshop/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/publication-type/2/</loc>
     <lastmod>2024-01-26T00:00:00+00:00</lastmod>
   </url>
@@ -248,11 +303,6 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/category/federated-learning/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/author/gauthier-gidel/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url>
@@ -278,32 +328,7 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/publication-type/8/</loc>
-    <lastmod>2023-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/publication/conference-paper/adaptive-fl-icml2023-workshop/</loc>
-    <lastmod>2023-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/adaptive-optimization/</loc>
-    <lastmod>2023-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/adaptive-optimization/</loc>
-    <lastmod>2023-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/local-smoothness/</loc>
-    <lastmod>2023-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/local-smoothness/</loc>
     <lastmod>2023-07-01T00:00:00+00:00</lastmod>
   </url>
   

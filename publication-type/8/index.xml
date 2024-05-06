@@ -5,12 +5,20 @@
     <link>https://jlylekim.github.io/publication-type/8/</link>
       <atom:link href="https://jlylekim.github.io/publication-type/8/index.xml" rel="self" type="application/rss+xml" />
     <description>8</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2024 Junhyung Lyle Kim</copyright><lastBuildDate>Sat, 01 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2024 Junhyung Lyle Kim</copyright><lastBuildDate>Tue, 05 Mar 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
       <title>8</title>
       <link>https://jlylekim.github.io/publication-type/8/</link>
     </image>
+    
+    <item>
+      <title>Smoothness-Adaptive Sharpness-Aware Minimization for Finding Flatter Minima</title>
+      <link>https://jlylekim.github.io/publication/conference-paper/autotune-sam-iclr2024-workshop/</link>
+      <pubDate>Tue, 05 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/conference-paper/autotune-sam-iclr2024-workshop/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Adaptive Federated Learning with Auto-Tuned Clients via Local Smoothness</title>
