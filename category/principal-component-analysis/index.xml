@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>principal component analysis | JUNHYUNG LYLE KIM</title>
+    <link>https://jlylekim.github.io/category/principal-component-analysis/</link>
+      <atom:link href="https://jlylekim.github.io/category/principal-component-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <description>principal component analysis</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2024 Junhyung Lyle Kim</copyright><lastBuildDate>Wed, 01 May 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
+      <title>principal component analysis</title>
+      <link>https://jlylekim.github.io/category/principal-component-analysis/</link>
+    </image>
+    
+    <item>
+      <title>On the Error-Propagation of Inexact Deflation for Principal Component Analysis</title>
+      <link>https://jlylekim.github.io/publication/conference-paper/pca-deflation-icml2024/</link>
+      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://jlylekim.github.io/publication/conference-paper/pca-deflation-icml2024/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
