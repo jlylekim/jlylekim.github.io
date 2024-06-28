@@ -133,11 +133,6 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/category/federated-learning/</loc>
-    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/author/hiroki-naganuma/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
   </url>
@@ -163,7 +158,17 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/category/out-of-distribution-generalization/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/tag/sharpness-aware-minimization/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/sharpness-aware-minimization/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -299,6 +304,11 @@
   
   <url>
     <loc>https://jlylekim.github.io/tag/federated-learning/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/federated-learning/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
   </url>
   
