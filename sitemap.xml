@@ -33,27 +33,77 @@
   </url>
   
   <url>
+    <loc>https://jlylekim.github.io/blog/qlsp-ppa/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/anastasios-kyrillidis/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/authors/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/categories/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/author/j.-lyle-kim/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/blog/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/proximal-point-algorithm/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/proximal-point-algorithm/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/quantum-algorithm/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/quantum-algorithm/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tag/quantum-linear-system-problem/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/category/quantum-linear-system-problem/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jlylekim.github.io/tags/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jlylekim.github.io/author/junhyung-lyle-kim/</loc>
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://jlylekim.github.io/publication-type/1/</loc>
-    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/anastasios-kyrillidis/</loc>
-    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/authors/</loc>
-    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/categories/</loc>
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -109,11 +159,6 @@
   
   <url>
     <loc>https://jlylekim.github.io/publication/</loc>
-    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tags/</loc>
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -343,11 +388,6 @@
   </url>
   
   <url>
-    <loc>https://jlylekim.github.io/author/j.-lyle-kim/</loc>
-    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jlylekim.github.io/blog/local-sfgd/</loc>
     <lastmod>2023-02-22T00:00:00+00:00</lastmod>
   </url>
@@ -369,11 +409,6 @@
   
   <url>
     <loc>https://jlylekim.github.io/category/low-rank-factorization/</loc>
-    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/blog/</loc>
     <lastmod>2023-02-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -434,16 +469,6 @@
   
   <url>
     <loc>https://jlylekim.github.io/category/convex-optimization/</loc>
-    <lastmod>2022-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/proximal-point-algorithm/</loc>
-    <lastmod>2022-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/category/proximal-point-algorithm/</loc>
     <lastmod>2022-04-01T00:00:00+00:00</lastmod>
   </url>
   
