@@ -248,6 +248,7 @@
 
 
 
+
   
 
 
@@ -257,8 +258,8 @@
   
 
   <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_192x192_fill_lanczos_center_2.png">
+  <link rel="icon" type="image/png" href="/images/icon_hu_8b7e7e07fcb70aa5.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu_b2bb3ede0600b2ee.png">
 
   <link rel="canonical" href="https://jlylekim.github.io/blog/quantum-mechanics-1/">
 
@@ -609,7 +610,7 @@
     
 
   
-  <span >J. Lyle Kim</span>
+  
   </div>
   
   
@@ -636,7 +637,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/category/quantum-computing/">quantum computing</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/category/quantum-computing/">Quantum Computing</a></span>
   
 
 </div>
@@ -710,10 +711,10 @@
 <p>$SP(|\psi_1,~|\psi_2\rangle) = c, \quad c \in \mathbb{C}$</p>
 <p>Notice that the scalar $c$ is now a complex number, which is one of the crucial differences of state space and Euclidean space. Now we look at the properties of scalar product in state space:</p>
 <ul>
-<li>Conjugation: $SP(|\psi \rangle,~|\phi \rangle) = [SP(|\phi \rangle,~|\psi \rangle)]^*$</li>
-<li>Linearity in second argument: $SP(|\psi \rangle,~a |\phi \rangle) = a SP(|\psi \rangle,~|\phi \rangle)$ and $SP(|\psi \rangle,~|\phi \rangle + |\chi\rangle) = SP(|\psi \rangle,~|\phi \rangle) + SP(|\psi \rangle,~|\chi \rangle)$</li>
-<li>Anti-linearity in first argument: $SP(a|\psi \rangle,~ |\phi \rangle) = [SP(|\psi \rangle,~a|\psi \rangle)]^* = a^*[SP(|\phi \rangle, |\psi\rangle)
-]^* = a^* SP(|\psi \rangle, |\phi \rangle)$ where $a^*$ is a complex conjugate.</li>
+<li>Conjugation: $SP(|\psi \rangle,<del>|\phi \rangle) = [SP(|\phi \rangle,</del>|\psi \rangle)]^*$</li>
+<li>Linearity in second argument: $SP(|\psi \rangle,<del>a |\phi \rangle) = a SP(|\psi \rangle,</del>|\phi \rangle)$ and $SP(|\psi \rangle,<del>|\phi \rangle + |\chi\rangle) = SP(|\psi \rangle,</del>|\phi \rangle) + SP(|\psi \rangle,~|\chi \rangle)$</li>
+<li>Anti-linearity in first argument: $SP(a|\psi \rangle,~ |\phi \rangle) = [SP(|\psi \rangle,~a|\psi \rangle)]^* = a^<em>[SP(|\phi \rangle, |\psi\rangle)
+]^</em> = a^* SP(|\psi \rangle, |\phi \rangle)$ where $a^*$ is a complex conjugate.</li>
 <li>Positivity: $SP( |\psi \rangle, |\psi \rangle ) \geq 0$, and $SP( |\psi \rangle, |\psi \rangle ) = 0$ iff $|\psi \rangle = 0$</li>
 </ul>
 <p>So the main difference comes from the fact that state space lives in complex vector space, rather than real vector space. Through the scalar product, we can define some basic notations for quantum mechanics:</p>
@@ -727,7 +728,7 @@
 <h2 id="2-operators-in-quantum-mechanics">2. Operators in quantum mechanics</h2>
 <p>Operators are mathematical objects that allow us to describe physical properties, such as position, momentum, and energy. Let&rsquo;s start by the second postulate of quantum mechanics:</p>
 <p><strong>Postulate II:</strong> A physical quantity $\mathcal{A}$ is described by an operator $\hat{A}$ acting on the state space space $\mathcal{V}$, and this operator is an observable.</p>
-<p>In other words, an operator acts on elements of state space $\mathcal{V}$, which are kets, and these kets are modified by the operator $\hat{A}$ in some manner. This can be written is $\hat{A} |\psi \rangle = |\psi' \rangle$, meaning that the operator $\hat{A}$ acts on the ket $| \psi \rangle$, which is modified to another ket $|\psi' \rangle$. It&rsquo;s important to remember that the operators in quantum mechanics can act on the superposition of different states:</p>
+<p>In other words, an operator acts on elements of state space $\mathcal{V}$, which are kets, and these kets are modified by the operator $\hat{A}$ in some manner. This can be written is $\hat{A} |\psi \rangle = |\psi&rsquo; \rangle$, meaning that the operator $\hat{A}$ acts on the ket $| \psi \rangle$, which is modified to another ket $|\psi&rsquo; \rangle$. It&rsquo;s important to remember that the operators in quantum mechanics can act on the superposition of different states:</p>
 <p>$$\hat{A} (a_1 |\psi_1 \rangle + a_2 |\psi_2 \rangle) = a_1 \hat{A} |\psi_1 \rangle + a_2 \hat{A} | \psi_2 \rangle.$$</p>
 <p>As can be guessed from the above expression, these operators are called &ldquo;linear operators.&rdquo; Fortunately, in quantum mechanics, we can always work with linear operators, which makes the study of quantum mechanics a lot easier. Similarly to the properties of addition and multiplication of kets we studied earlier, (linear) operators have basic properties:</p>
 <ul>
@@ -738,7 +739,7 @@
 <ul>
 <li>Multiplication of operators: $(\hat{A}\hat{B}) |\psi\rangle = \hat{A} ( \hat{B} |\psi \rangle )$</li>
 </ul>
-<p>Above can also be thought of as $\hat{A}$ acting on the new state, $\hat{B} |\psi \rangle = |\psi' \rangle$, i.e. $\hat{A} |\psi' \rangle$. Now we state the properties of multiplication of operators:</p>
+<p>Above can also be thought of as $\hat{A}$ acting on the new state, $\hat{B} |\psi \rangle = |\psi&rsquo; \rangle$, i.e. $\hat{A} |\psi&rsquo; \rangle$. Now we state the properties of multiplication of operators:</p>
 <ul>
 <li>Associativity of multiplication: $\hat{A} (\hat{B}\hat{C}) = (\hat{A} \hat{B}) \hat{C}$</li>
 <li>Non-commutativity of multiplication: $\hat{A} \hat{B} \neq \hat{B} \hat{A}$</li>
@@ -749,7 +750,7 @@
 </ul>
 <p>The non-commutativity of multiplication of operators, and consequently the notion of  commutators play a fundamental role in quantum mechanics. Specifically, two operators that do not commute are associated with properties that cannot be measured simultaneously in a quantum system, such as position and momentum operators.</p>
 <p>Now, we introduce the notion of the adjoint operator. Adjoint operator can be thought of as the dual of the operator introduced above, just like a ket corresponds to a bra in the dual space. We can write this as follows:</p>
-<p>$$|\psi'\rangle =\hat{A}|\psi \rangle \longleftrightarrow \langle \psi' | = \langle \psi|\hat{A}^\dagger.$$</p>
+<p>$$|\psi&rsquo;\rangle =\hat{A}|\psi \rangle \longleftrightarrow \langle \psi&rsquo; | = \langle \psi|\hat{A}^\dagger.$$</p>
 <p>Adjoint operator is also linear, just like the operator introduced previously. With this notion, we can introduce some particularly important operators in quantum mechanics:</p>
 <ul>
 <li>Hermitian operator: $\hat{A} = \hat{A}^\dagger$</li>
@@ -772,29 +773,29 @@
 <p>$$\langle u_j | \psi \rangle = \langle u_j | \left( \sum_i c_i |u_i \rangle \right) = \sum_i c_i \langle u_j | u_i \rangle = \sum_i c_i \delta_{ij} = c_j.$$</p>
 <p>In words, we can say that $\{ c_i \}$ are a representation of a ket $|\psi \rangle$ in the $\{ |u_i\rangle \}$ basis. An important concept of representation is &ldquo;closure relation&rdquo;:</p>
 <p>$$\begin{aligned}
-|\psi \rangle &amp;= \sum_i \langle u_i | \psi \rangle |u_i \rangle  = \left( \sum_i |u_i \rangle \langle u_i \right) | \psi \rangle \\<br>
+|\psi \rangle &amp;= \sum_i \langle u_i | \psi \rangle |u_i \rangle  = \left( \sum_i |u_i \rangle \langle u_i \right) | \psi \rangle \\
 &amp;= \sum_i c_i | u_i\rangle \quad \text{where}\quad c_i = \langle u_i | \psi \rangle.
 \end{aligned}$$</p>
 <p>Recall from Chapter 2 that an operator can be written as an outer product. In that sense, from the above, we can see that $\sum_i |u_i \rangle \langle u_i |$ is an operator (notice that I emphasized this with parentheses) that, given a state $|\psi\rangle$, returns the same state $|\psi \rangle$. Thus, we can also write $\sum_i |u_i \rangle \langle u_i | = \mathbb{I}$, where $\mathbb{I}$ is an identity matrix. This result is sometimes also called the &ldquo;resultion of the identity (in the $\{|u_i\rangle \}$ basis).&rdquo; Similar result holds for a bra $\langle \psi | \in \mathcal{V}^*$ :</p>
 <p>$$\begin{aligned}
-\langle \psi | = \langle \psi | \mathbb{I} = \langle \psi | \left(  \sum_i |u_i \rangle \langle u_i | \right) &amp;= \sum_i \langle \psi | u_i \rangle \langle u_i |  \\<br>
+\langle \psi | = \langle \psi | \mathbb{I} = \langle \psi | \left(  \sum_i |u_i \rangle \langle u_i | \right) &amp;= \sum_i \langle \psi | u_i \rangle \langle u_i |  \\
 &amp;= \sum_i c_i^* \langle u_i |  \quad \text{where} \quad c_i^* = \langle u_i | \psi \rangle^*  = \langle \psi | u_i \rangle.
 \end{aligned}$$</p>
-<p>Now, let&rsquo;s look at how we represent operators. Recall the definition of an operator $\hat{A} |\psi\rangle = |\psi' \rangle$. Using the same $\{ |u_i \rangle \}$ basis as before, we can write down both kets as below:</p>
+<p>Now, let&rsquo;s look at how we represent operators. Recall the definition of an operator $\hat{A} |\psi\rangle = |\psi&rsquo; \rangle$. Using the same $\{ |u_i \rangle \}$ basis as before, we can write down both kets as below:</p>
 <p>$$\begin{aligned}
-|\psi\rangle &amp;= \sum_i c_i | u_i \rangle \quad\text{for}\quad c_i = \langle u_i | \psi \rangle \\<br>
-|\psi'\rangle &amp;= \sum_i c_i' | u_i \rangle \quad\text{for}\quad c_i' = \langle u_i | \psi' \rangle.
+|\psi\rangle &amp;= \sum_i c_i | u_i \rangle \quad\text{for}\quad c_i = \langle u_i | \psi \rangle \\
+|\psi&rsquo;\rangle &amp;= \sum_i c_i&rsquo; | u_i \rangle \quad\text{for}\quad c_i&rsquo; = \langle u_i | \psi&rsquo; \rangle.
 \end{aligned}$$</p>
-<p>Notice that we can write $c_i'$ in an alternative way as follows:</p>
+<p>Notice that we can write $c_i&rsquo;$ in an alternative way as follows:</p>
 <p>$$\begin{aligned}
-c_i' &amp;= \langle u_i | \psi' \rangle = \langle u_i | \hat{A} | \psi \rangle = \langle u_i | \hat{A}\mathbb{I} | \psi \rangle
+c_i&rsquo; &amp;= \langle u_i | \psi&rsquo; \rangle = \langle u_i | \hat{A} | \psi \rangle = \langle u_i | \hat{A}\mathbb{I} | \psi \rangle
 \quad\text{(recall closure relation)}
 \\ &amp;= \langle u_i | \hat{A} \left( \sum_j |u_j \rangle \langle u_j | \right) |\psi\rangle = \sum_j \langle u_i |\hat{A} |u_j \rangle \langle u_j | \psi \rangle.
 \end{aligned}$$</p>
-<p>Using this alternative form of $c_i'$, we can write down the ket $|\psi'\rangle$ in a different form:</p>
+<p>Using this alternative form of $c_i&rsquo;$, we can write down the ket $|\psi&rsquo;\rangle$ in a different form:</p>
 <p>$$\begin{aligned}
-|\psi'\rangle &amp;= \sum_i \left( \sum_j \langle u_i|\hat{A}|u_j \rangle \langle u_j|\psi\rangle \right) |u_i\rangle \\<br>
-&amp;= \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) |\psi\rangle \\<br>
+|\psi&rsquo;\rangle &amp;= \sum_i \left( \sum_j \langle u_i|\hat{A}|u_j \rangle \langle u_j|\psi\rangle \right) |u_i\rangle \\
+&amp;= \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) |\psi\rangle \\
 &amp;= \hat{A} |\psi\rangle.
 \end{aligned}$$</p>
 <p>Therefore, we see that we can write the operator $\hat{A}$ as</p>
@@ -813,7 +814,7 @@ c_i' &amp;= \langle u_i | \psi' \rangle = \langle u_i | \hat{A} | \psi \rangle =
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tag/quantum-computing/">quantum computing</a>
+  <a class="badge badge-light" href="/tag/quantum-computing/">Quantum Computing</a>
   
 </div>
 
@@ -830,12 +831,6 @@ c_i' &amp;= \langle u_i | \psi' \rangle = \langle u_i | \hat{A} | \psi \rangle =
 
 
   
-  
-    
-
-
-
-
   
 
 
@@ -962,7 +957,7 @@ c_i' &amp;= \langle u_i | \psi' \rangle = \langle u_i | \hat{A} | \psi \rangle =
     
     
     
-    <script src="/js/wowchemy.min.4c2bca31150ce93c5a5e43b8a50f22fd.js"></script>
+    <script src="/js/wowchemy.min.608ee75d447a103dc7bf2dfeb2f6f8be.js"></script>
 
     
 

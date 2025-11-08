@@ -248,6 +248,7 @@
 
 
 
+
   
 
 
@@ -257,8 +258,8 @@
   
 
   <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_192x192_fill_lanczos_center_2.png">
+  <link rel="icon" type="image/png" href="/images/icon_hu_8b7e7e07fcb70aa5.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu_b2bb3ede0600b2ee.png">
 
   <link rel="canonical" href="https://jlylekim.github.io/blog/sppam/">
 
@@ -609,7 +610,7 @@
     
 
   
-  <span >J. Lyle Kim</span>
+  
   </div>
   
   
@@ -636,7 +637,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/category/convex-optimization/">convex optimization</a>, <a href="/category/acceleration/">acceleration</a>, <a href="/category/proximal-point-algorithm/">proximal point algorithm</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/category/convex-optimization/">Convex Optimization</a>, <a href="/category/acceleration/">Acceleration</a>, <a href="/category/proximal-point-algorithm/">Proximal Point Algorithm</a></span>
   
 
 </div>
@@ -703,12 +704,12 @@ As such, various works have found that such motions could aggravate the instabil
 The proximal point algorithm (PPA) obtains the next iterate for minimizing $f$ by solving the following optimization problem:
 \begin{align}
 \label{eq:ppa} \tag{6}
-x_{t+1} = \arg \min_{x\in \mathbb{R}^p} \left\{ f(x) + \tfrac{1}{2\eta} || x - x_t ||_2^2 \right\},
+x_{t+1} = \arg \min_{x\in \mathbb{R}^p} \left\{ f(x) + \tfrac{1}{2\eta} || x - x_t ||<em>2^2 \right\},
 \end{align}
 which is equivalent to implicit gradient descent (IGD) by the first-order optimality condition:
 \begin{align}
 \label{eq:igd} \tag{7}
-x_{t+1} = x_t - \eta \nabla f(x_{t+1}).
+x</em>{t+1} = x_t - \eta \nabla f(x_{t+1}).
 \end{align}
 In words, instead of minimizing $f$ directly, PPA minimizes $f$ with an additional quadratic term.
 This small change brings a major advantage to PPA: if $f$ is convex, the added quadratic term can make the problem strongly convex; if $f$ is non-convex, PPA can make it convex.</p>
@@ -720,7 +721,7 @@ For a convex function $f$, PPA satisfies: <sup id="fnref:9"><a href="#fn:9" clas
 f(x_T) - f(x^\star) \leq O \left( \tfrac{1}{\sum_{t=1}^T \eta_t} \right),<br>
 \end{align}
 after $T$ iterations.
-By setting the step size $\eta_t$ to be large, PPA can converge ``arbitrarily'' fast.</p>
+By setting the step size $\eta_t$ to be large, PPA can converge ``arbitrarily&rsquo;&rsquo; fast.</p>
 <p>Due to this remarkable property, PPA was soon considered in the stochastic setting, dubbed as stochastic proximal iterations (SPI) <sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup> <sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup> or implicit SGD <sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup> <sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup>.
 These works generally indicate that, in the asymptotic regime, SGD and SPI/ISGD have the same convergence behavior; but in the non-asymptotic regime, SPI/ISGD outperforms SGD due to numerical stability provided by utilizing proximal updates.</p>
 <!-- In the stochastic setting, \cite{toulis_proximal_2021} show that
@@ -802,10 +803,10 @@ A summary of these algorithms is provided in the table below.
 <figure id="figure-summary-of-related-works">
 
 
-  <a data-fancybox="" href="/blog/sppam/related-work_hu8fc69290f50e18d7a3ab267652c95375_201924_2000x2000_fit_lanczos_2.png" data-caption="Summary of related works">
+  <a data-fancybox="" href="/blog/sppam/related-work_hu_814cc938c9750207.png" data-caption="Summary of related works">
 
 
-  <img data-src="/blog/sppam/related-work_hu8fc69290f50e18d7a3ab267652c95375_201924_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="100%" height="873">
+  <img data-src="/blog/sppam/related-work_hu_814cc938c9750207.png" class="lazyload" alt="" width="100%" height="873">
 </a>
 
 
@@ -823,7 +824,7 @@ A summary of these algorithms is provided in the table below.
 <p>Apart from the similarity between SPPAM in \eqref{eq:acc-stoc-ppa} and SGDM in \eqref{eq:sgdm}, SPPAM shares the same geometric intuition as Polyak&rsquo;s momentum for SGDM.
 Disregarding the stochastic errors, the update in \eqref{eq:acc-stoc-ppa} follows from the solution of:
 \begin{align*}
-\arg \min_{x \in \mathbb{R}^p} \left\{ f(x) + \tfrac{1}{2\eta} ||x-x_t||_2^2 - \tfrac{\beta}{\eta} \langle x_t - x_{t-1}, x \rangle \right\}.
+\arg \min_{x \in \mathbb{R}^p} \left\{ f(x) + \tfrac{1}{2\eta} ||x-x_t||<em>2^2 - \tfrac{\beta}{\eta} \langle x_t - x</em>{t-1}, x \rangle \right\}.
 \end{align*}</p>
 <p>We can get a sense of the behavior of SPPAM from this expression.
 First, for large $\eta$, the algorithm is minimizing the original $f.$
@@ -847,11 +848,11 @@ gradient descent (GD), gradient descent with momentum (GDM), the PPA, and PPA wi
 Proofs for PPA and PPAM in Propositions 2 and 4 can be found in the extended version of this work \citep{kim2021convergence}. -->
 <p><strong>Proposition 1 (GD)</strong><sup id="fnref:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup>
 <em>To minimize \eqref{eq:obj-quad} with gradient descent, the step size $\eta$ needs to satisfy $0 &lt; \eta &lt; \frac{2}{\lambda_i}~~\forall i$, where $\lambda_i$ is the $i$-th eigenvalue of $A$</em>.</p>
-<p><strong>Proposition 2 (PPA)</strong><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>
+<p><strong>Proposition 2 (PPA)</strong><sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>
 <em>To minimize \eqref{eq:obj-quad} with PPA, the step size $\eta$ needs to satisfy</em> $\left| \frac{1}{1+\eta \lambda_i} \right| &lt; 1~~\forall i$.</p>
-<p><strong>Proposition 3 (GDM)</strong><sup id="fnref:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup>
+<p><strong>Proposition 3 (GDM)</strong><sup id="fnref1:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup>
 <em>To minimize \eqref{eq:obj-quad} with gradient descent with momentum, the step size $\eta$ needs to satisfy $0 &lt; \eta \lambda_i &lt; 2 + 2\beta$ ~ $\forall i$, where $0 \leq \beta &lt; 1.$</em></p>
-<p><strong>Proposition 4 (PPAM)</strong><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>
+<p><strong>Proposition 4 (PPAM)</strong><sup id="fnref2:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>
 <em>Let $\delta_i = \left( \frac{\beta+1}{1+\eta \lambda_i} \right)^2 - \frac{4\beta}{1+\eta \lambda_i}.$
 To minimize \eqref{eq:obj-quad} with PPAM, the step size $\eta$ and momentum $\beta$ need to satisfy $~\forall i$:</em></p>
 <ul>
@@ -885,10 +886,10 @@ To minimize \eqref{eq:obj-quad} with PPAM, the step size $\eta$ and momentum $\b
 <figure id="figure-we-generate-a-in-mathbbrptimes-p-and-b-xstar-inmathbbrp-from-mathcaln0-i-where-p100-and-the-condition-number-of-a-is-10-we-sweep-eta-and-beta-from--5-to-5-with-02-interval-we-plot-the-accuracy-x_t---xstar_22-after-100-iterations-with-the-maximum-replaced-by-10">
 
 
-  <a data-fancybox="" href="/blog/sppam/quadratic-model_hu7ea8cb333b3b20abe999ce52ffba51b9_61870_2000x2000_fit_lanczos_2.png" data-caption="We generate $A \in \mathbb{R}^{p\times p}$ and $b, x^\star \in\mathbb{R}^p$ from $\mathcal{N}(0, I)$, where $p=100$ and the condition number of $A$ is 10. We sweep $\eta$ and $\beta$ from $-5$ to $5$, with $0.2$ interval. We plot the accuracy $||x_t - x^\star||_2^2$ after 100 iterations, with the maximum replaced by 10.">
+  <a data-fancybox="" href="/blog/sppam/quadratic-model_hu_b647eba933e492f1.png" data-caption="We generate $A \in \mathbb{R}^{p\times p}$ and $b, x^\star \in\mathbb{R}^p$ from $\mathcal{N}(0, I)$, where $p=100$ and the condition number of $A$ is 10. We sweep $\eta$ and $\beta$ from $-5$ to $5$, with $0.2$ interval. We plot the accuracy $||x_t - x^\star||_2^2$ after 100 iterations, with the maximum replaced by 10.">
 
 
-  <img data-src="/blog/sppam/quadratic-model_hu7ea8cb333b3b20abe999ce52ffba51b9_61870_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="100%" height="239">
+  <img data-src="/blog/sppam/quadratic-model_hu_b647eba933e492f1.png" class="lazyload" alt="" width="100%" height="239">
 </a>
 
 
@@ -912,10 +913,10 @@ Note that the empirical convergence region of PPAM almost exactly matches the th
 <!-- In the remainder of the paper, we study how such pattern translates to a general strongly convex function $f,$ with stochasticity. -->
 <h2 id="main-results">Main Results</h2>
 <p>In this section, we theoretically characterize the convergence and stability behavior of SPPAM.</p>
-<p>We follow the stochastic errors of PPA, as set up in <a href="https://rss.onlinelibrary.wiley.com/doi/full/10.1111/rssb.12405" target="_blank" rel="noopener">this paper</a>.<sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup>
+<p>We follow the stochastic errors of PPA, as set up in <a href="https://rss.onlinelibrary.wiley.com/doi/full/10.1111/rssb.12405" target="_blank" rel="noopener">this paper</a>.<sup id="fnref1:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup>
 We can then express \eqref{eq:acc-stoc-ppa} as:
 \begin{align*}
-x_{t+1}^+ &amp;= x_t - \eta \nabla f(x_{t+1}^+) + \beta (x_t - x_{t-1})  \\<br>
+x_{t+1}^+ &amp;= x_t - \eta \nabla f(x_{t+1}^+) + \beta (x_t - x_{t-1})  \\
 x_{t+1} &amp;= x_{t+1}^+ - \eta  \varepsilon_{t+1}.
 \end{align*}</p>
 <p>Note that $x_{t+1}^+$ is an auxiliary intermediate variable that is used for the analysis only.</p>
@@ -926,8 +927,8 @@ x_{t+1} &amp;= x_{t+1}^+ - \eta  \varepsilon_{t+1}.
 \end{align*}</p>
 <p><strong>Assumption 2</strong> <em>There exists fixed $\sigma^2 &gt; 0$ such that, given the natural filtration $\mathcal{F}_{t-1},$</em>
 \begin{align*}
-\mathbb{E}\left[ \varepsilon_t \mid \mathcal{F}_{t-1} \right] = 0 \quad\text{and}\quad
-\mathbb{E}\left[ | \varepsilon_t \mid \mathcal{F}_{t-1} |^2 \right] \leq \sigma^2
+\mathbb{E}\left[ \varepsilon_t \mid \mathcal{F}<em>{t-1} \right] = 0 \quad\text{and}\quad
+\mathbb{E}\left[ | \varepsilon_t \mid \mathcal{F}</em>{t-1} |^2 \right] \leq \sigma^2
 \quad\text{for all}\quad t.
 \end{align*}</p>
 <h3 id="is-sppam-faster-than-sppa">Is SPPAM faster than SPPA?</h3>
@@ -935,8 +936,8 @@ x_{t+1} &amp;= x_{t+1}^+ - \eta  \varepsilon_{t+1}.
 <p><strong>Theorem 5</strong>
 <em>For $\mu$-strongly convex $f(\cdot)$, SPPAM satisfies the following iteration invariant bound</em>:
 \begin{align} \label{eq:onestep-acc-stoc-prox} \tag{11}
-\mathbb{E} \big[ || x_{t+1 }- x^\star ||_2^2 \big] &amp;\leq \tfrac{4}{(1+\eta \mu)^2} \mathbb{E} \big[ ||x_t - x^\star ||_2^2 \big] \\<br>
-&amp;\quad+ \tfrac{4\beta^2}{(1+\eta \mu)^2\left( 4-(1+\beta)^2 \right)} \mathbb{E} \big[ ||x_{t-1} - x^\star ||_2^2 \big] + \eta^2 \sigma^2.
+\mathbb{E} \big[ || x_{t+1 }- x^\star ||_2^2 \big] &amp;\leq \tfrac{4}{(1+\eta \mu)^2} \mathbb{E} \big[ ||x_t - x^\star ||<em>2^2 \big] \\
+&amp;\quad+ \tfrac{4\beta^2}{(1+\eta \mu)^2\left( 4-(1+\beta)^2 \right)} \mathbb{E} \big[ ||x</em>{t-1} - x^\star ||_2^2 \big] + \eta^2 \sigma^2.
 \end{align}</p>
 <p>Notice that all terms &ndash;except the last one&ndash; are divided by $(1+\eta \mu)^2.$
 Thus, large step sizes $\eta$ help convergence (to a neighborhood), reminiscent of the convergence behavior of PPA in \eqref{eq:ppm-conv-rate-guller}.</p>
@@ -945,24 +946,24 @@ we can write the following $2\times 2$ system that characterizes the progress of
 \begin{align}
 \label{eq:two-by-two-onestep} \tag{12}
 \begin{bmatrix}
-\mathbb{E} \big[ ||x_{t+1} - x^\star ||_2^2 \big] \\<br>
+\mathbb{E} \big[ ||x_{t+1} - x^\star ||_2^2 \big] \\
 \mathbb{E} \big[ ||x_t - x^\star ||_2^2 \big]
 \end{bmatrix} &amp;\leq
 A
 \cdot
 \begin{bmatrix}
-\mathbb{E} \big[ ||x_t - x^\star ||_2^2 \big] \\<br>
-\mathbb{E} \big[ ||x_{t-1} - x^\star ||_2^2 \big]
+\mathbb{E} \big[ ||x_t - x^\star ||<em>2^2 \big] \\
+\mathbb{E} \big[ ||x</em>{t-1} - x^\star ||_2^2 \big]
 \end{bmatrix}
 +
 \begin{bmatrix}
-\eta^2 \sigma^2 \\<br>
+\eta^2 \sigma^2 \\
 0
 \end{bmatrix},
 \end{align}</p>
 <p>where $A =
 \begin{bmatrix}
-\frac{4}{(1+\eta \mu)^2} &amp; \frac{4\beta^2}{(1+\eta \mu)^2\left( 4-(1+\beta)^2 \right)} \\<br>
+\frac{4}{(1+\eta \mu)^2} &amp; \frac{4\beta^2}{(1+\eta \mu)^2\left( 4-(1+\beta)^2 \right)} \\
 1 &amp; 0
 \end{bmatrix}$.
 It is clear that the spectrum of the contraction matrix $A$ determines the convergence rate to a neighborhood.
@@ -972,7 +973,7 @@ This is summarized in the following lemma:</p>
 \begin{align} \label{eq:acc-stoc-ppa-conv-rate} \tag{13}
 \tfrac{2}{(1+\eta \mu)^2} + \sqrt{ \tfrac{4}{(1+\eta \mu)^4} + \tfrac{4\beta^2}{(1+\eta \mu)^2(4 - (1+\beta)^2)}}.
 \end{align}</p>
-<p>Notice the one-step contraction factor in \eqref{eq:acc-stoc-ppa-conv-rate} is of order $O(1/\eta^2),$ exhibiting acceleration compared to that of SPPA for strongly convex objectives: $1/(1+2\eta \mu) \approx O(1/\eta).$<sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup></p>
+<p>Notice the one-step contraction factor in \eqref{eq:acc-stoc-ppa-conv-rate} is of order $O(1/\eta^2),$ exhibiting acceleration compared to that of SPPA for strongly convex objectives: $1/(1+2\eta \mu) \approx O(1/\eta).$<sup id="fnref2:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup></p>
 <p>However, due to the additional terms, it is not immediately obvious when SPPAM enjoys faster convergence than SPPA. We thus characterize this condition more precisely in the following corollary:</p>
 <p><strong>Corollary 7</strong>
 <em>For $\mu$-strongly convex $f$, SPPAM enjoys better contraction factor than SPPA if</em>:
@@ -1030,12 +1031,12 @@ is characterized by the following theorem:</p>
 <p>To provide more context of the condition in <strong>Theorem 10</strong>, we make an ``unfair&quot; comparison of  \eqref{eq:init-discount-condition}, which holds for general strongly convex $f,$ to the condition that accelerated SGD requires for strongly convex <em>quadratic objective</em> in \eqref{eq:obj-quad}.</p>
 <p><a href="https://proceedings.mlr.press/v119/assran20a.html" target="_blank" rel="noopener">This paper</a>
 shows that Nesterov&rsquo;s accelerated SGD converges to a neighborhood at a linear rate for strongly convex quadratic objective if
-$\max{ \rho_\mu(\eta, \beta),~\rho_L(\eta, \beta) } &lt; 1$,
+$\max{ \rho_\mu(\eta, \beta),<del>\rho_L(\eta, \beta) } &lt; 1$,
 where $\rho_\lambda(\eta, \beta)$ for $\lambda \in {\mu, L}$ is defined as:
 \begin{align} \label{eq:sgdm-spectral-rad}
 \rho_\lambda(\eta, \beta) =
 \begin{cases}
-\frac{|(1+\beta)(1-\eta \lambda)|}{2} + \frac{\sqrt{\Delta_\lambda}}{2} &amp; \text{if}~\Delta_\lambda \geq 0, \<br>
+\frac{|(1+\beta)(1-\eta \lambda)|}{2} + \frac{\sqrt{\Delta_\lambda}}{2} &amp; \text{if}</del>\Delta_\lambda \geq 0, \
 \sqrt{\beta (1-\eta \lambda)} &amp; \text{otherwise},
 \end{cases}
 \end{align}
@@ -1046,7 +1047,7 @@ Define $\psi_{\beta, \eta, \lambda} = (1 + \beta)(1 - \eta \lambda)$. Then:
 \begin{cases}
 \eta \lambda \geq 1, &amp;  \text{Converges if }-\psi_{\beta, \eta, \lambda} + \sqrt{\Delta_\lambda} &lt; 2, \\
 \frac{(1-\beta)^2}{(1+\beta)^2} \leq \eta \lambda &lt; 1,
-&amp; \text{Always converges}, \\<br>
+&amp; \text{Always converges}, \\
 \eta \lambda &lt; \frac{(1-\beta)^2}{(1+\beta)^2}, &amp;\text{Converges if }\psi_{\beta, \eta, \lambda} + \sqrt{\Delta_\lambda}&lt; 2 .
 \end{cases}
 \end{align*}</p>
@@ -1093,10 +1094,10 @@ The former is an &ldquo;easy&rdquo; case, where objective is strongly convex, sa
 <figure id="figure-top-linear-regression-with-condition-number-kappa-in-1-5-10-with-gaussian-noise-level-texttt1e-3-bottom-poisson-regression-with-condition-number-kappa-in-1-3-5-we-set-p--n--100-in-both-cases-batch-size-is-10-for-all-algorithms-the-median-number-of-iterations-to-reach-varepsilon--001-is-plotted-shaded-area-are-the-standard-deviations-across-5-experiments">
 
 
-  <a data-fancybox="" href="/blog/sppam/normal-poisson_hubb8b80653c08a11bdd0af6bf6f9df321_313409_2000x2000_fit_lanczos_2.png" data-caption="TOP: Linear regression with condition number $\kappa \in {1, 5, 10}$ with gaussian noise level $\texttt{1e-3}.$ BOTTOM: Poisson regression with condition number $\kappa \in {1, 3, 5}$. We set $p = n = 100$ in both cases. Batch size is 10 for all algorithms. The median number of iterations to reach $\varepsilon = 0.01$ is plotted. Shaded area are the standard deviations across 5 experiments.">
+  <a data-fancybox="" href="/blog/sppam/normal-poisson_hu_1093ab0eb9b10bf2.png" data-caption="TOP: Linear regression with condition number $\kappa \in {1, 5, 10}$ with gaussian noise level $\texttt{1e-3}.$ BOTTOM: Poisson regression with condition number $\kappa \in {1, 3, 5}$. We set $p = n = 100$ in both cases. Batch size is 10 for all algorithms. The median number of iterations to reach $\varepsilon = 0.01$ is plotted. Shaded area are the standard deviations across 5 experiments.">
 
 
-  <img data-src="/blog/sppam/normal-poisson_hubb8b80653c08a11bdd0af6bf6f9df321_313409_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="100%" height="698">
+  <img data-src="/blog/sppam/normal-poisson_hu_1093ab0eb9b10bf2.png" class="lazyload" alt="" width="100%" height="698">
 </a>
 
 
@@ -1127,67 +1128,67 @@ Similar trend is shown when $\kappa=3$ (2nd) where SPPA starts slowing down.
 For $\kappa = 5$ (3rd), all methods except for SPPAM did not make much progress in $10^4$ iterations, for the entire range of $\eta$ and $\beta$ considered. Quite remarkably, SPPAM still converges in the same manner without sacrificing both the convergence rate and the range of hyperparameters that lead to convergence.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>We propose the stochastic proximal point algorithm with momentum (SPPAM), which directly incorporates Polyak&rsquo;s momentum inside the proximal step. We show that SPPAM converges to a neighborhood at a faster rate than stochastic proximal point algorithm (SPPA), and characterize the conditions that result in acceleration. Further, we prove linear convergence of SPPAM to a neighborhood, and provide conditions that lead to an exponential discount of the initial conditions, akin to SPPA. We confirm our theory with numerical simulations on linear and Poisson regression models; SPPAM converges for all the step sizes that SPPA converges, with a faster rate that matches or improves SGDM.</p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
+<li id="fn:1">
 <p>Junhyung Lyle Kim, Panos Toulis, and Anastasios Kyrillidis. Convergence and stability of the
-stochastic proximal point algorithm with momentum. arXiv preprint arXiv:2111.06171, 2021. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+stochastic proximal point algorithm with momentum. arXiv preprint arXiv:2111.06171, 2021.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref2:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:2" role="doc-endnote">
+<li id="fn:2">
 <p>Eric Moulines and Francis R. Bach. Non-Asymptotic Analysis of Stochastic Approximation Algorithms for Machine Learning. In J. Shawe-Taylor, R. S. Zemel, P. L. Bartlett, F. Pereira, and
-K. Q. Weinberger, editors, Advances in Neural Information Processing Systems 24, pages 451–459. Curran Associates, Inc., 2011. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+K. Q. Weinberger, editors, Advances in Neural Information Processing Systems 24, pages 451–459. Curran Associates, Inc., 2011.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:3" role="doc-endnote">
+<li id="fn:3">
 <p>Robert M Gower, Nicolas Loizou, Xun Qian, Alibek Sailanbayev, Egor Shulgin, and Peter
 Richtarik. SGD: General Analysis and Improved Rates. Proceedings of the 36 th International
-Conference on Machine Learning, page 10, 2019. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+Conference on Machine Learning, page 10, 2019.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:4" role="doc-endnote">
-<p>Boris T Polyak. Some methods of speeding up the convergence of iteration methods. Ussr computational mathematics and mathematical physics, 4(5):1–17, 1964. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:4">
+<p>Boris T Polyak. Some methods of speeding up the convergence of iteration methods. Ussr computational mathematics and mathematical physics, 4(5):1–17, 1964.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:5" role="doc-endnote">
-<p>Yurii Nesterov et al. Lectures on convex optimization, volume 137. Springer, 2018. <a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:5">
+<p>Yurii Nesterov et al. Lectures on convex optimization, volume 137. Springer, 2018.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:6" role="doc-endnote">
-<p>Chaoyue Liu and Mikhail Belkin. Accelerating sgd with momentum for over-parameterized learning. arXiv preprint arXiv:1810.13395, 2018. <a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:6">
+<p>Chaoyue Liu and Mikhail Belkin. Accelerating sgd with momentum for over-parameterized learning. arXiv preprint arXiv:1810.13395, 2018.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:7" role="doc-endnote">
-<p>Rahul Kidambi, Praneeth Netrapalli, Prateek Jain, and Sham Kakade. On the insufficiency of existing momentum schemes for stochastic optimization. In 2018 Information Theory and Applications Workshop (ITA), pages 1–9. IEEE, 2018. <a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:7">
+<p>Rahul Kidambi, Praneeth Netrapalli, Prateek Jain, and Sham Kakade. On the insufficiency of existing momentum schemes for stochastic optimization. In 2018 Information Theory and Applications Workshop (ITA), pages 1–9. IEEE, 2018.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:8" role="doc-endnote">
+<li id="fn:8">
 <p>Mahmoud Assran and Michael Rabbat. On the Convergence of Nesterov’s Accelerated Gradient
 Method in Stochastic Settings. Proceedings of the 37 th International Conference on Machine
-Learning, 2020. <a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+Learning, 2020.&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:9" role="doc-endnote">
+<li id="fn:9">
 <p>Osman Guler. On the convergence of the proximal point algorithm for convex minimization. ¨ SIAM
-journal on control and optimization, 29(2):403–419, 1991. <a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+journal on control and optimization, 29(2):403–419, 1991.&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:10" role="doc-endnote">
+<li id="fn:10">
 <p>Ernest K Ryu and Stephen Boyd. Stochastic Proximal Iteration: A Non-Asymptotic Improvement
-Upon Stochastic Gradient Descent. Author website, page 42, 2017. <a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+Upon Stochastic Gradient Descent. Author website, page 42, 2017.&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:11" role="doc-endnote">
+<li id="fn:11">
 <p>Hilal Asi and John C Duchi. Stochastic (approximate) proximal point methods: Convergence,
-optimality, and adaptivity. SIAM Journal on Optimization, 29(3):2257–2290, 2019. <a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+optimality, and adaptivity. SIAM Journal on Optimization, 29(3):2257–2290, 2019.&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:12" role="doc-endnote">
+<li id="fn:12">
 <p>Panos Toulis and Edoardo M Airoldi. Asymptotic and finite-sample properties of estimators based
-on stochastic gradients. The Annals of Statistics, 45(4):1694–1727, 2017. <a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+on stochastic gradients. The Annals of Statistics, 45(4):1694–1727, 2017.&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:13" role="doc-endnote">
+<li id="fn:13">
 <p>Panos Toulis, Thibaut Horel, and Edoardo M Airoldi. The proximal robbins–monro method. Journal
-of the Royal Statistical Society: Series B (Statistical Methodology), 83(1):188–212, 2021. <a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+of the Royal Statistical Society: Series B (Statistical Methodology), 83(1):188–212, 2021.&#160;<a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref2:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:14" role="doc-endnote">
-<p>Gabriel Goh. Why momentum really works. Distill, 2(4):e6, 2017. <a href="#fnref:14" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:14">
+<p>Gabriel Goh. Why momentum really works. Distill, 2(4):e6, 2017.&#160;<a href="#fnref:14" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:14" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:15" role="doc-endnote">
-<p>Osman Guler. New proximal point algorithms for convex minimization. ¨ SIAM Journal on Optimization, 2(4):649–664, 1992. <a href="#fnref:15" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:15">
+<p>Osman Guler. New proximal point algorithms for convex minimization. ¨ SIAM Journal on Optimization, 2(4):649–664, 1992.&#160;<a href="#fnref:15" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 
     </div>
 
@@ -1200,11 +1201,11 @@ of the Royal Statistical Society: Series B (Statistical Methodology), 83(1):188�
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tag/convex-optimization/">convex optimization</a>
+  <a class="badge badge-light" href="/tag/convex-optimization/">Convex Optimization</a>
   
-  <a class="badge badge-light" href="/tag/acceleration/">acceleration</a>
+  <a class="badge badge-light" href="/tag/acceleration/">Acceleration</a>
   
-  <a class="badge badge-light" href="/tag/proximal-point-algorithm/">proximal point algorithm</a>
+  <a class="badge badge-light" href="/tag/proximal-point-algorithm/">Proximal Point Algorithm</a>
   
 </div>
 
@@ -1221,12 +1222,6 @@ of the Royal Statistical Society: Series B (Statistical Methodology), 83(1):188�
 
 
   
-  
-    
-
-
-
-
   
 
 
@@ -1353,7 +1348,7 @@ of the Royal Statistical Society: Series B (Statistical Methodology), 83(1):188�
     
     
     
-    <script src="/js/wowchemy.min.4c2bca31150ce93c5a5e43b8a50f22fd.js"></script>
+    <script src="/js/wowchemy.min.608ee75d447a103dc7bf2dfeb2f6f8be.js"></script>
 
     
 

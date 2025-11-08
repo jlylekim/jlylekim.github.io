@@ -248,6 +248,7 @@
 
 
 
+
   
 
 
@@ -257,8 +258,8 @@
   
 
   <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_192x192_fill_lanczos_center_2.png">
+  <link rel="icon" type="image/png" href="/images/icon_hu_8b7e7e07fcb70aa5.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu_b2bb3ede0600b2ee.png">
 
   <link rel="canonical" href="https://jlylekim.github.io/blog/local-sfgd/">
 
@@ -609,7 +610,7 @@
     
 
   
-  <span >J. Lyle Kim</span>
+  
   </div>
   
   
@@ -636,7 +637,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/category/distributed-optimization/">distributed optimization</a>, <a href="/category/low-rank-factorization/">low-rank factorization</a>, <a href="/category/local-updates/">local updates</a>, <a href="/category/quantum-computing/">quantum computing</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/category/distributed-optimization/">Distributed Optimization</a>, <a href="/category/low-rank-factorization/">Low-Rank Factorization</a>, <a href="/category/local-updates/">Local Updates</a>, <a href="/category/quantum-computing/">Quantum Computing</a></span>
   
 
 </div>
@@ -672,7 +673,7 @@ That is, we consider the reconstruction of a low-rank density matrix $\rho^\star
 \begin{align}
 \label{eq:objective} \tag{1}
 \min_{\rho \in \mathbb{C}^{d \times d}}
-\quad &amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\<br>
+\quad &amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\
 \text{subject to}
 \quad&amp; \rho \succeq 0, ~\texttt{rank}(\rho) \leq r.
 \end{align}</p>
@@ -690,7 +691,7 @@ U_{k+1} &= U_{k} - \eta \nabla f(U_k U_k^\dagger) \cdot U_k \\\\
 &= U_{k} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(U_k U_k^\dagger) - y\right) \cdot U_k.
 \end{align} -->
 <p>\begin{align*} \label{eq:fgd} \tag{3}
-U_{i+1} &amp;= U_{i} - \eta \nabla F(U_k U_k^\dagger) \cdot U_k \\<br>
+U_{i+1} &amp;= U_{i} - \eta \nabla F(U_k U_k^\dagger) \cdot U_k \\
 &amp;= U_k - \eta \left( \frac{1}{m} \sum_{i=1}^m ( \text{Tr}(A_k U_k U_t^\dagger) - y_k ) A_k \right) \cdot U_k
 \end{align*}</p>
 <!-- Here, $\mathcal{A}^\dagger: \mathbb{R}^m \rightarrow \mathbb{C}^{d \times d}$ is the adjoint of $\mathcal{A}$, defined as $\mathcal{A}^\dagger = \sum_{i=1}^m x_k A_k.$ $\eta$ is a hyperparameter called step size or learning rate. This method is called "$\texttt{F}$actored $\texttt{G}$radient $\texttt{D}$escent" ($\texttt{FGD}$), and was utilized to solve the non-convex objective function in Eq. \eqref{eq:factored-obj}, (surprisingly) with provable gaurantees.[^kyrillidis2018provable] -->
@@ -698,7 +699,7 @@ U_{i+1} &amp;= U_{i} - \eta \nabla F(U_k U_k^\dagger) \cdot U_k \\<br>
 <h2 id="distributed-objective">Distributed objective</h2>
 <p>To handle such explosion of data, We consider the setting where the measurements $y \in \mathbb{R}^m$ and the sensing matrices $\mathcal{A}: \mathbb{C}^{d\times d} \rightarrow \mathbb{R}^m$ from a central quantum computer are locally stored across $M$ different classical machines. These classical machines perform some local operations based on their local data, and communicate back and forth with the central quantum server. Mathematically, we can write the distributed objective as:
 \begin{align} \label{eq:dist-obj} \tag{4}
-\min_{U \in \mathbb{C}^{d \times r}}  g(U) &amp;= \frac{1}{M} \sum_{i=1}^M g_i(U),    \\<br>
+\min_{U \in \mathbb{C}^{d \times r}}  g(U) &amp;= \frac{1}{M} \sum_{i=1}^M g_i(U),    \\
 \text{where} \quad g_i(U) &amp;:= \mathbb{E}_{j \sim \mathcal{D}_i} ||\mathcal{A}_i^j (UU^\dagger) - y_i^j ||_2^2.
 \end{align}</p>
 <p>We illustrate the above objective with the figure bellow:
@@ -728,10 +729,10 @@ U_{i+1} &amp;= U_{i} - \eta \nabla F(U_k U_k^\dagger) \cdot U_k \\<br>
 <figure id="figure-illustration-of-distributed-quantum-state-tomography">
 
 
-  <a data-fancybox="" href="/blog/local-sfgd/featured_hu13f4fe2809d1952c4d0168f1c8b27fcc_43292_2000x2000_fit_lanczos_2.png" data-caption="Illustration of distributed quantum state tomography.">
+  <a data-fancybox="" href="/blog/local-sfgd/featured_hu_79f2f563dfb3ed55.png" data-caption="Illustration of distributed quantum state tomography.">
 
 
-  <img data-src="/blog/local-sfgd/featured_hu13f4fe2809d1952c4d0168f1c8b27fcc_43292_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="40%" height="783">
+  <img data-src="/blog/local-sfgd/featured_hu_79f2f563dfb3ed55.png" class="lazyload" alt="" width="40%" height="783">
 </a>
 
 
@@ -786,10 +787,10 @@ U_k^i = U_{k-1}^i - \eta_{t-1} \nabla g_i^{j_{t-1}} (U_{t-1}^i)
 <figure id="figure-pseudocode-for-local-stochastic-factored-gradient-descent-local-sfgd">
 
 
-  <a data-fancybox="" href="/blog/local-sfgd/local-sfgd-algo_huf8b139424932042b8d09ec38c7b11bf5_121569_2000x2000_fit_lanczos_2.png" data-caption="Pseudocode for Local Stochastic Factored Gradient Descent (Local SFGD).">
+  <a data-fancybox="" href="/blog/local-sfgd/local-sfgd-algo_hu_d8eb54498a9412ba.png" data-caption="Pseudocode for Local Stochastic Factored Gradient Descent (Local SFGD).">
 
 
-  <img data-src="/blog/local-sfgd/local-sfgd-algo_huf8b139424932042b8d09ec38c7b11bf5_121569_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="60%" height="721">
+  <img data-src="/blog/local-sfgd/local-sfgd-algo_hu_d8eb54498a9412ba.png" class="lazyload" alt="" width="60%" height="721">
 </a>
 
 
@@ -833,10 +834,10 @@ Also notice that there are some pre-defined synchronization (or communication) s
 <figure id="figure-assumptions-1-and-2">
 
 
-  <a data-fancybox="" href="/blog/local-sfgd/assumptions_huc479e5c8281c624f0ee0e7f6477675cc_122304_2000x2000_fit_lanczos_2.png" data-caption="Assumptions 1 and 2">
+  <a data-fancybox="" href="/blog/local-sfgd/assumptions_hu_9217b642a7b3f017.png" data-caption="Assumptions 1 and 2">
 
 
-  <img data-src="/blog/local-sfgd/assumptions_huc479e5c8281c624f0ee0e7f6477675cc_122304_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="60%" height="660">
+  <img data-src="/blog/local-sfgd/assumptions_hu_9217b642a7b3f017.png" class="lazyload" alt="" width="60%" height="660">
 </a>
 
 
@@ -877,10 +878,10 @@ Assumption 1 is the standard strong-convexity and $L$-smoothness assumptions, <e
 <figure id="figure-local-linear-convergence-with-a-constant-step-size">
 
 
-  <a data-fancybox="" href="/blog/local-sfgd/theorem2_hu1a553baa570e41a187df39ec77da9c45_114691_2000x2000_fit_lanczos_2.png" data-caption="Local linear convergence with a constant step size">
+  <a data-fancybox="" href="/blog/local-sfgd/theorem2_hu_82561ccb3ade4a44.png" data-caption="Local linear convergence with a constant step size">
 
 
-  <img data-src="/blog/local-sfgd/theorem2_hu1a553baa570e41a187df39ec77da9c45_114691_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="60%" height="552">
+  <img data-src="/blog/local-sfgd/theorem2_hu_82561ccb3ade4a44.png" class="lazyload" alt="" width="60%" height="552">
 </a>
 
 
@@ -926,10 +927,10 @@ of machines $M$;</li>
 <figure id="figure-local-sublinear-convergence-with-diminishing-step-sizes">
 
 
-  <a data-fancybox="" href="/blog/local-sfgd/theorem4_hu922ae10404d6c5eb49ce5f3736872bf2_109670_2000x2000_fit_lanczos_2.png" data-caption="Local sublinear convergence with diminishing step sizes">
+  <a data-fancybox="" href="/blog/local-sfgd/theorem4_hu_16dfd037416f15f8.png" data-caption="Local sublinear convergence with diminishing step sizes">
 
 
-  <img data-src="/blog/local-sfgd/theorem4_hu922ae10404d6c5eb49ce5f3736872bf2_109670_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="60%" height="485">
+  <img data-src="/blog/local-sfgd/theorem4_hu_16dfd037416f15f8.png" class="lazyload" alt="" width="60%" height="485">
 </a>
 
 
@@ -974,10 +975,10 @@ $ \varepsilon = || \hat{U}_t \hat{U}_t^\top - \rho^\star ||_F^2,$ where $\rho^\s
 <figure id="figure-local-sublinear-convergence-with-diminishing-step-sizes">
 
 
-  <a data-fancybox="" href="/blog/local-sfgd/fig-crop_hu5d50ed01706b8c68eeead270a385b151_215634_2000x2000_fit_lanczos_2.png" data-caption="Local sublinear convergence with diminishing step sizes">
+  <a data-fancybox="" href="/blog/local-sfgd/fig-crop_hu_97d040825e3d43e8.png" data-caption="Local sublinear convergence with diminishing step sizes">
 
 
-  <img data-src="/blog/local-sfgd/fig-crop_hu5d50ed01706b8c68eeead270a385b151_215634_2000x2000_fit_lanczos_2.png" class="lazyload" alt="" width="60%" height="1336">
+  <img data-src="/blog/local-sfgd/fig-crop_hu_97d040825e3d43e8.png" class="lazyload" alt="" width="60%" height="1336">
 </a>
 
 
@@ -992,33 +993,33 @@ $ \varepsilon = || \hat{U}_t \hat{U}_t^\top - \rho^\star ||_F^2,$ where $\rho^\s
 
 <p>In the top panel of the above plot, we first fix the number of machines $M = 10$ and the number of total synchronization steps to be $100$, and vary the number of local iterations between two synchronization steps, i.e., $h \in {1, 10, 25, 50, 100, 200}.$ We use constant step size $\eta=1$ for all $h$.</p>
 <p>Increasing $h$, i.e., each distributed machine performing more local iterations, leads to faster convergence in terms of the synchronization steps.
-Notably, the speed up gets marginal: e.g., there is not much difference between $h=100$ and $h=200$, indicating there is an ``optimal'' $h$ that leads to the biggest reduction in the number of synchronization steps. Finally, note that $\varepsilon$ does not decrease below certain level due to the inherent finite sampling error of quantum measurements.</p>
+Notably, the speed up gets marginal: e.g., there is not much difference between $h=100$ and $h=200$, indicating there is an ``optimal&rsquo;&rsquo; $h$ that leads to the biggest reduction in the number of synchronization steps. Finally, note that $\varepsilon$ does not decrease below certain level due to the inherent finite sampling error of quantum measurements.</p>
 <p>In the bottom panel, we plot the number of synchronization steps to reach $\varepsilon \leq 0.05,$ while fixing
 % the number of local iterations, i.e., $h=20$. We vary the number of workers $M \in {5, 10, 15, 20}$, where each machine gets $200$ measurements. There is a significant speed up from $M=5$ to $M=15$, while for $M=20,$ it took one more syncrhonization step compared to $M=15,$ which is likely due to the stochasticity of SFGD within each machine.</p>
-<section class="footnotes" role="doc-endnotes">
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p>J. L. Kim, M. T. Toghani, C. A. Uribe and A. Kyrillidis. Local Stochastic Factored Gradient Descent for Distributed Quantum State Tomography. IEEE Control Systems Letters, vol. 7, pp. 199-204, 2023. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:1">
+<p>J. L. Kim, M. T. Toghani, C. A. Uribe and A. Kyrillidis. Local Stochastic Factored Gradient Descent for Distributed Quantum State Tomography. IEEE Control Systems Letters, vol. 7, pp. 199-204, 2023.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:2" role="doc-endnote">
+<li id="fn:2">
 <p>D. Gross, Y.-K. Liu, S. Flammia, S. Becker, and J. Eisert. Quantum state tomography via compressed
-sensing. Physical review letters, 105(15):150401, 2010. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+sensing. Physical review letters, 105(15):150401, 2010.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:3" role="doc-endnote">
-<p>A. Kyrillidis, A. Kalev, D. Park, S. Bhojanapalli, C. Caramanis, and S. Sanghavi. Provable quantum state tomography via non-convex methods. npj Quantum Information, 4(36), 2018. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:3">
+<p>A. Kyrillidis, A. Kalev, D. Park, S. Bhojanapalli, C. Caramanis, and S. Sanghavi. Provable quantum state tomography via non-convex methods. npj Quantum Information, 4(36), 2018.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:4" role="doc-endnote">
-<p>Guanghui Lan, Soomin Lee, and Yi Zhou. Communication-efficient algorithms for decentralized and stochastic optimization. Mathematical Programming 180.1-2. 237-284. 2020. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:4">
+<p>Guanghui Lan, Soomin Lee, and Yi Zhou. Communication-efficient algorithms for decentralized and stochastic optimization. Mathematical Programming 180.1-2. 237-284. 2020.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:5" role="doc-endnote">
-<p>S. Bhojanapalli, A. Kyrillidis, S. Sanghavi. Dropping Convexity for Faster Semi-definite Optimization. 29th Annual Conference on Learning Theory, in Proceedings of Machine Learning Research. 49:530-582. 2016. <a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:5">
+<p>S. Bhojanapalli, A. Kyrillidis, S. Sanghavi. Dropping Convexity for Faster Semi-definite Optimization. 29th Annual Conference on Learning Theory, in Proceedings of Machine Learning Research. 49:530-582. 2016.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
-<li id="fn:6" role="doc-endnote">
-<p>J. Zeng, K. Ma, and Y. Yao. &ldquo;On global linear convergence in stochastic nonconvex optimization for semidefinite programming.&rdquo; IEEE Transactions on Signal Processing 67.16. 4261-4275. 2019, <a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:6">
+<p>J. Zeng, K. Ma, and Y. Yao. &ldquo;On global linear convergence in stochastic nonconvex optimization for semidefinite programming.&rdquo; IEEE Transactions on Signal Processing 67.16. 4261-4275. 2019,&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 
     </div>
 
@@ -1031,13 +1032,13 @@ sensing. Physical review letters, 105(15):150401, 2010. <a href="#fnref:2" class
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tag/distributed-optimization/">distributed optimization</a>
+  <a class="badge badge-light" href="/tag/distributed-optimization/">Distributed Optimization</a>
   
-  <a class="badge badge-light" href="/tag/low-rank-factorization/">low-rank factorization</a>
+  <a class="badge badge-light" href="/tag/low-rank-factorization/">Low-Rank Factorization</a>
   
-  <a class="badge badge-light" href="/tag/local-updates/">local updates</a>
+  <a class="badge badge-light" href="/tag/local-updates/">Local Updates</a>
   
-  <a class="badge badge-light" href="/tag/quantum-computing/">quantum computing</a>
+  <a class="badge badge-light" href="/tag/quantum-computing/">Quantum Computing</a>
   
 </div>
 
@@ -1054,12 +1055,6 @@ sensing. Physical review letters, 105(15):150401, 2010. <a href="#fnref:2" class
 
 
   
-  
-    
-
-
-
-
   
 
 
@@ -1186,7 +1181,7 @@ sensing. Physical review letters, 105(15):150401, 2010. <a href="#fnref:2" class
     
     
     
-    <script src="/js/wowchemy.min.4c2bca31150ce93c5a5e43b8a50f22fd.js"></script>
+    <script src="/js/wowchemy.min.608ee75d447a103dc7bf2dfeb2f6f8be.js"></script>
 
     
 

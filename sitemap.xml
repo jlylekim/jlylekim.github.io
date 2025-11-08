@@ -1,633 +1,324 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://jlylekim.github.io/courses/example/example1/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/courses/example/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/courses/example/example2/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/talk/example/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/talk/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/blog/qlsp-ppa/</loc>
     <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/anastasios-kyrillidis/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/author/</loc>
     <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/authors/</loc>
-    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/categories/</loc>
     <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/author/j.-lyle-kim/</loc>
     <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/blog/</loc>
     <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/proximal-point-algorithm/</loc>
-    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/proximal-point-algorithm/</loc>
     <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/quantum-algorithm/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/proximal-point-algorithm/</loc>
     <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/quantum-algorithm/</loc>
     <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/quantum-linear-system-problem/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/quantum-algorithm/</loc>
     <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/quantum-linear-system-problem/</loc>
     <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/quantum-linear-system-problem/</loc>
+    <lastmod>2024-07-24T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jlylekim.github.io/tags/</loc>
     <lastmod>2024-07-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/junhyung-lyle-kim/</loc>
-    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/publication-type/1/</loc>
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/cruz-barnum/</loc>
-    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/fangshuo-liao/</loc>
-    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/inexact-deflation/</loc>
-    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/inexact-deflation/</loc>
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/inexact-deflation/</loc>
+    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/conference-paper/pca-deflation-icml2024/</loc>
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/power-iteration/</loc>
-    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/power-iteration/</loc>
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/principal-component-analysis/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/power-iteration/</loc>
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/principal-component-analysis/</loc>
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/principal-component-analysis/</loc>
+    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jlylekim.github.io/publication_types/</loc>
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/</loc>
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/publication-type/8/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/adaptive-optimization/</loc>
-    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/adaptive-optimization/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/hiroki-naganuma/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/adaptive-optimization/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/ioannis-mitliagkas/</loc>
-    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/local-smoothness/</loc>
-    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/local-smoothness/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/out-of-distribution-generalization/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/local-smoothness/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/out-of-distribution-generalization/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/sharpness-aware-minimization/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/out-of-distribution-generalization/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/sharpness-aware-minimization/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/sharpness-aware-minimization/</loc>
+    <lastmod>2024-03-05T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/conference-paper/autotune-sam-iclr2024-workshop/</loc>
     <lastmod>2024-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/publication-type/2/</loc>
     <lastmod>2024-01-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/cameron-wolfe/</loc>
-    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/frank-wolfe-algorithm/</loc>
-    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/frank-wolfe-algorithm/</loc>
     <lastmod>2024-01-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/frank-wolfe-algorithm/</loc>
+    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/journal-article/provable-lottery-ticket-2024/</loc>
     <lastmod>2024-01-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/lotterty-ticket-hypothesis/</loc>
-    <lastmod>2024-01-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/lotterty-ticket-hypothesis/</loc>
     <lastmod>2024-01-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/machine-learning/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/lotterty-ticket-hypothesis/</loc>
     <lastmod>2024-01-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/machine-learning/</loc>
     <lastmod>2024-01-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/qihan-wang/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/machine-learning/</loc>
     <lastmod>2024-01-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/acceleration/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/acceleration/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/acceleration/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/conference-paper/adaptive-fl-iclr2024/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/adaptive-method/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/adaptive-method/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/chebyshev-polynomials/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/adaptive-method/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/chebyshev-polynomials/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/cesar-a.-uribe/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/chebyshev-polynomials/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/differentiable-game/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/differentiable-game/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/distributed-optimization/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/differentiable-game/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/distributed-optimization/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/extragradient/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/distributed-optimization/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/extragradient/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/fabian-pedregosa/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/extragradient/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/federated-learning/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/federated-learning/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/gauthier-gidel/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/federated-learning/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/mohammad-taha-toghani/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/journal-article/momentum-extragradient-2024/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/news/</loc>
     <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/news/news/</loc>
     <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/conference-paper/adaptive-fl-icml2023-workshop/</loc>
     <lastmod>2023-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/blog/local-sfgd/</loc>
     <lastmod>2023-02-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/local-updates/</loc>
-    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/local-updates/</loc>
     <lastmod>2023-02-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/low-rank-factorization/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/local-updates/</loc>
     <lastmod>2023-02-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/low-rank-factorization/</loc>
     <lastmod>2023-02-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/quantum-computing/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/low-rank-factorization/</loc>
     <lastmod>2023-02-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/quantum-computing/</loc>
     <lastmod>2023-02-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/amir-kalev/</loc>
-    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/quantum-computing/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/journal-article/mifgd-2021/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/george-kollias/</loc>
-    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/ken-x.-wei/</loc>
-    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/non-convex-optimization/</loc>
-    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/non-convex-optimization/</loc>
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/non-convex-optimization/</loc>
+    <lastmod>2023-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/conference-paper/respoly-exstragradient-opt2022/</loc>
     <lastmod>2022-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/blog/sppam/</loc>
     <lastmod>2022-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/convex-optimization/</loc>
-    <lastmod>2022-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/convex-optimization/</loc>
     <lastmod>2022-04-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/convex-optimization/</loc>
+    <lastmod>2022-04-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/journal-article/local-sfgd-2022/</loc>
     <lastmod>2022-03-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/conference-paper/sppam-l4dc2022/</loc>
     <lastmod>2022-02-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/implicit-methods/</loc>
-    <lastmod>2022-02-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/implicit-methods/</loc>
     <lastmod>2022-02-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/panos-toulis/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/implicit-methods/</loc>
     <lastmod>2022-02-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/conference-paper/sppam-opt2021/</loc>
     <lastmod>2021-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/blog/acc-qst/</loc>
     <lastmod>2021-03-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/blog/quantum-mechanics-2/</loc>
     <lastmod>2021-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/blog/quantum-mechanics-1/</loc>
     <lastmod>2021-03-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/publication-type/3/</loc>
     <lastmod>2019-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/jose-antonio-lara-benitez/</loc>
-    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/preprint/acc-mixing-method-2021/</loc>
     <lastmod>2019-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/semi-definite-programming/</loc>
-    <lastmod>2019-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/semi-definite-programming/</loc>
     <lastmod>2019-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/zhiwei-zhang-alphabetical-order/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/semi-definite-programming/</loc>
     <lastmod>2019-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/courses/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/publication-type/4/</loc>
     <lastmod>2019-01-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/high-energy-physics/</loc>
-    <lastmod>2019-01-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/high-energy-physics/</loc>
     <lastmod>2019-01-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/author/mikael-kuusela/</loc>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/high-energy-physics/</loc>
     <lastmod>2019-01-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jlylekim.github.io/tag/uncertainty-quantification/</loc>
-    <lastmod>2019-01-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/category/uncertainty-quantification/</loc>
     <lastmod>2019-01-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://jlylekim.github.io/tag/uncertainty-quantification/</loc>
+    <lastmod>2019-01-07T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jlylekim.github.io/publication/preprint/undersmoothed-unfolding-2019/</loc>
     <lastmod>2019-01-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/tag/deep-learning/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/tag/demo/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/project/external-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/project/internal-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/author/j.-lyle-kim/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://jlylekim.github.io/post/</loc>
   </url>
-  
 </urlset>

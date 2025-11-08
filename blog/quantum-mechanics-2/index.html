@@ -248,6 +248,7 @@
 
 
 
+
   
 
 
@@ -257,8 +258,8 @@
   
 
   <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_32x32_fill_lanczos_center_2.png">
-  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_192x192_fill_lanczos_center_2.png">
+  <link rel="icon" type="image/png" href="/images/icon_hu_8b7e7e07fcb70aa5.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu_b2bb3ede0600b2ee.png">
 
   <link rel="canonical" href="https://jlylekim.github.io/blog/quantum-mechanics-2/">
 
@@ -609,7 +610,7 @@
     
 
   
-  <span >J. Lyle Kim</span>
+  
   </div>
   
   
@@ -636,7 +637,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-categories">
-    <i class="fas fa-folder mr-1"></i><a href="/category/quantum-computing/">quantum computing</a></span>
+    <i class="fas fa-folder mr-1"></i><a href="/category/quantum-computing/">Quantum Computing</a></span>
   
 
 </div>
@@ -672,17 +673,17 @@
 <p>Let&rsquo;s start with the basics. Recall that a ket $| \psi \rangle = \sum_i c_i |u_i \rangle$ where $c_i = \langle u_i | \psi \rangle$, which can be thought of as the representation of the ket $|\psi\rangle$ in the ${|u_i\rangle}$ basis. To write the ket $|\psi\rangle$ in matrix form, we simply stack the representation as a column vector as follows:</p>
 <p>$$
 \begin{bmatrix}
-\langle u_1 | \psi \rangle\\<br>
-\langle u_2 | \psi \rangle\\<br>
-\vdots\\<br>
-\langle u_i | \psi \rangle\\<br>
+\langle u_1 | \psi \rangle\\
+\langle u_2 | \psi \rangle\\
+\vdots\\
+\langle u_i | \psi \rangle\\
 \vdots
 \end{bmatrix}
 = \begin{bmatrix}
-c_1\\<br>
-c_2\\<br>
-\vdots\\<br>
-c_i\\<br>
+c_1\\
+c_2\\
+\vdots\\
+c_i\\
 \vdots
 \end{bmatrix}.
 $$</p>
@@ -693,23 +694,23 @@ $$</p>
 <p>Now, we look at an operator $\hat{A} = \sum_{ij} A_{ij} |u_i \rangle \langle u_j|$ where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle$, which can be expressed as a matrix:</p>
 <p>$$
 \begin{bmatrix}
-A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1j} &amp; \cdots \\<br>
-A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2j} &amp; \cdots \\<br>
-\vdots &amp; \vdots &amp;  &amp; \vdots &amp;  \\<br>
-A_{i1} &amp; A_{i2} &amp; \cdots &amp; A_{ij} &amp; \cdots \\<br>
+A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1j} &amp; \cdots \\
+A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2j} &amp; \cdots \\
+\vdots &amp; \vdots &amp;  &amp; \vdots &amp;  \\
+A_{i1} &amp; A_{i2} &amp; \cdots &amp; A_{ij} &amp; \cdots \\
 \vdots &amp; \vdots &amp;  &amp; \vdots &amp;
 \end{bmatrix}
 $$</p>
-<p>As an example, let&rsquo;s write the expression $|\psi'\rangle = \hat{A} |\psi\rangle$ in terms of matrix formulation. First, recall the following:</p>
+<p>As an example, let&rsquo;s write the expression $|\psi&rsquo;\rangle = \hat{A} |\psi\rangle$ in terms of matrix formulation. First, recall the following:</p>
 <ul>
-<li>$|\psi'\rangle = \sum_i c_i' |u_i\rangle$</li>
+<li>$|\psi&rsquo;\rangle = \sum_i c_i&rsquo; |u_i\rangle$</li>
 <li>$|\psi\rangle = \sum_i c_i |u_i\rangle$</li>
 </ul>
-<p>Then, we can express the coefficient $c_i'$ as follows:</p>
+<p>Then, we can express the coefficient $c_i&rsquo;$ as follows:</p>
 <p>$$
 \begin{aligned}
-c_i' &amp;= \langle u_i | \psi' \rangle = \langle u_i | \hat{A}| \psi \rangle = \langle u_i | \hat{A} \mathbb{I} | \psi \rangle \\<br>
-&amp;= \langle u_i | \hat{A} \left( \sum_j |u_j \rangle \langle u_j | \right) |\psi \rangle = \sum_j \langle u_i | \hat{A} | u_j \rangle \langle u_j | \psi \rangle \\<br>
+c_i&rsquo; &amp;= \langle u_i | \psi&rsquo; \rangle = \langle u_i | \hat{A}| \psi \rangle = \langle u_i | \hat{A} \mathbb{I} | \psi \rangle \\
+&amp;= \langle u_i | \hat{A} \left( \sum_j |u_j \rangle \langle u_j | \right) |\psi \rangle = \sum_j \langle u_i | \hat{A} | u_j \rangle \langle u_j | \psi \rangle \\
 &amp;= \sum_j A_{ij} c_j.
 \end{aligned}
 $$</p>
@@ -717,37 +718,37 @@ $$</p>
 <p>$$
 \begin{aligned}
 &amp;\begin{bmatrix}
-A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1j} &amp; \cdots \\<br>
-A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2j} &amp; \cdots \\<br>
-\vdots &amp; \vdots &amp;  &amp; \vdots &amp;  \\<br>
-A_{i1} &amp; A_{i2} &amp; \cdots &amp; A_{ij} &amp; \cdots \\<br>
+A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1j} &amp; \cdots \\
+A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2j} &amp; \cdots \\
+\vdots &amp; \vdots &amp;  &amp; \vdots &amp;  \\
+A_{i1} &amp; A_{i2} &amp; \cdots &amp; A_{ij} &amp; \cdots \\
 \vdots &amp; \vdots &amp;  &amp; \vdots &amp;
 \end{bmatrix}
 \cdot
 \begin{bmatrix}
-c_1\\<br>
-c_2\\<br>
-\vdots\\<br>
-c_i\\<br>
+c_1\\
+c_2\\
+\vdots\\
+c_i\\
 \vdots
 \end{bmatrix} =
 \begin{bmatrix}
-A_{11}c_1 + \dots + A_{1j}c_j \dots \\<br>
-A_{21}c_1 + \dots + A_{2j}c_j \dots \\<br>
-\vdots\\<br>
-A_{i1}c_1 + \dots + A_{ij}c_j \dots \\<br>
+A_{11}c_1 + \dots + A_{1j}c_j \dots \\
+A_{21}c_1 + \dots + A_{2j}c_j \dots \\
+\vdots\\
+A_{i1}c_1 + \dots + A_{ij}c_j \dots \\
 \vdots
 \end{bmatrix} =
 \begin{bmatrix}
-c_1'\\<br>
-c_2'\\<br>
-\vdots\\<br>
-c_i'\\<br>
+c_1&rsquo;\\
+c_2&rsquo;\\
+\vdots\\
+c_i&rsquo;\\
 \vdots
 \end{bmatrix}
 \end{aligned}.
 $$</p>
-<p>Therefore, we arrive at the matrix formulation for $c_i'$ we began with. Similarly, we can express other quantum mechanical quantities we have seen in terms of matrix formulation.</p>
+<p>Therefore, we arrive at the matrix formulation for $c_i&rsquo;$ we began with. Similarly, we can express other quantum mechanical quantities we have seen in terms of matrix formulation.</p>
 <h2 id="5-change-of-basis-in-quantum-mechanics">5. Change of basis in quantum mechanics</h2>
 <p>Recall that we can represent state space with an orthonormal basis. For example, we have been working with the basis ${ | u_i \rangle }$ where $\langle u_i | u_j \rangle = \delta_{ij}$. Then, we can express a ket $|\psi\rangle$ in the ${ |u_i\rangle }$ basis, i.e.</p>
 <p>$$
@@ -760,26 +761,26 @@ $$</p>
 <p>The step goes as follows: first, express the coefficient $d_j$ as above. Then, insert an identity, and using the resolution of the identity matrix <em>in</em> ${ |u_i \rangle }$ basis, we find an expression that relates the coefficient $d_j$ and $c_i$. Mathematically,</p>
 <p>$$
 \begin{aligned}
-d_j &amp;= \langle v_j | \psi \rangle = \langle v_j | \mathbb{I} | \psi \rangle = \langle v_j | \left( \sum_i |u_i \rangle \langle u_i | \right) | \psi \rangle \\<br>
+d_j &amp;= \langle v_j | \psi \rangle = \langle v_j | \mathbb{I} | \psi \rangle = \langle v_j | \left( \sum_i |u_i \rangle \langle u_i | \right) | \psi \rangle \\
 &amp;= \sum_i \langle v_j | u_i \rangle \langle u_i | \psi \rangle = \sum_i S_{ji} c_i.
 \end{aligned}
 $$</p>
 <p>Thus, to compute $d_j$ given $c_i$, we simply need to compute the quantity $S_{ji} = \langle v_j | u_i \rangle$, which is called an &ldquo;overlap.&rdquo; Using the matrix formulation we studied in the previous chapter, we can also express this relationship as follows:</p>
 <p>$$
 \begin{bmatrix}
-d_1\\<br>
-d_2\\<br>
+d_1\\
+d_2\\
 \vdots
 \end{bmatrix} =
 \begin{bmatrix}
-S_{11} &amp; S_{12} &amp; \cdots \\<br>
-S_{21} &amp; S_{22} &amp; \cdots  \\<br>
-\vdots &amp; \vdots &amp;  \ddots  \\<br>
+S_{11} &amp; S_{12} &amp; \cdots \\
+S_{21} &amp; S_{22} &amp; \cdots  \\
+\vdots &amp; \vdots &amp;  \ddots  \\
 \end{bmatrix}
 \cdot
 \begin{bmatrix}
-c_1\\<br>
-c_2\\<br>
+c_1\\
+c_2\\
 \vdots
 \end{bmatrix}.
 $$</p>
@@ -790,9 +791,9 @@ $$</p>
 <p>To close this chapter, let&rsquo;s look at how we perform a change of basis with an operator $\hat{A}$. We write the elements of operator $\hat{A}$ in ${ |u_i\rangle }$  basis and ${ |v_j\rangle }$ basis as $A_{ik}^u = \langle u_i | \hat{A} | u_k \rangle$ and $A_{j\ell}^v = \langle v_j | \hat{A} | v_\ell \rangle$, respectively. Then, we can compute $A_{j\ell}^v$ in terms of $A_{ik}^u$ as follows:</p>
 <p>$$
 \begin{aligned}
-A_{j\ell}^v &amp;= \langle v_j | \hat{A} | v_\ell \rangle = \langle v_j | \mathbb{I}\hat{A}\mathbb{I} | v_\ell \rangle \\<br>
-&amp;= \langle v_j | \left( \sum_i |u_i\rangle\langle u_i| \right) \hat{A} \left( \sum_k |u_k\rangle \langle u_k| \right) | v_\ell \rangle \\<br>
-&amp;=\sum_{i,~k} \langle v_j | u_i \rangle \langle u_i | \hat{A} | u_k \rangle \langle u_k | v_\ell \rangle \\<br>
+A_{j\ell}^v &amp;= \langle v_j | \hat{A} | v_\ell \rangle = \langle v_j | \mathbb{I}\hat{A}\mathbb{I} | v_\ell \rangle \\
+&amp;= \langle v_j | \left( \sum_i |u_i\rangle\langle u_i| \right) \hat{A} \left( \sum_k |u_k\rangle \langle u_k| \right) | v_\ell \rangle \\
+&amp;=\sum_{i,~k} \langle v_j | u_i \rangle \langle u_i | \hat{A} | u_k \rangle \langle u_k | v_\ell \rangle \\
 &amp;= \sum_{i,~k} S_{ji} A_{ik}^u S_{\ell k}^*.
 \end{aligned}
 $$</p>
@@ -820,7 +821,7 @@ $$</p>
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tag/quantum-computing/">quantum computing</a>
+  <a class="badge badge-light" href="/tag/quantum-computing/">Quantum Computing</a>
   
 </div>
 
@@ -837,12 +838,6 @@ $$</p>
 
 
   
-  
-    
-
-
-
-
   
 
 
@@ -969,7 +964,7 @@ $$</p>
     
     
     
-    <script src="/js/wowchemy.min.4c2bca31150ce93c5a5e43b8a50f22fd.js"></script>
+    <script src="/js/wowchemy.min.608ee75d447a103dc7bf2dfeb2f6f8be.js"></script>
 
     
 

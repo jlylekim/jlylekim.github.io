@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>quantum computing | JUNHYUNG LYLE KIM</title>
+    <title>Quantum Computing | JUNHYUNG LYLE KIM</title>
     <link>https://jlylekim.github.io/tag/quantum-computing/</link>
       <atom:link href="https://jlylekim.github.io/tag/quantum-computing/index.xml" rel="self" type="application/rss+xml" />
-    <description>quantum computing</description>
+    <description>Quantum Computing</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2025 Junhyung Lyle Kim</copyright><lastBuildDate>Wed, 22 Feb 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://jlylekim.github.io/images/icon_hu6a253511a905c4c58ef48adc8d74e746_25674_512x512_fill_lanczos_center_2.png</url>
-      <title>quantum computing</title>
+      <url>https://jlylekim.github.io/images/icon_hu_bf8e449b03aa4cd6.png</url>
+      <title>Quantum Computing</title>
       <link>https://jlylekim.github.io/tag/quantum-computing/</link>
     </image>
     
@@ -25,7 +25,7 @@ That is, we consider the reconstruction of a low-rank density matrix $\rho^\star
 \begin{align}
 \label{eq:objective} \tag{1}
 \min_{\rho \in \mathbb{C}^{d \times d}}
-\quad &amp;amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\&lt;br&gt;
+\quad &amp;amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\
 \text{subject to}
 \quad&amp;amp; \rho \succeq 0, ~\texttt{rank}(\rho) \leq r.
 \end{align}&lt;/p&gt;
@@ -43,7 +43,7 @@ U_{k+1} &amp;= U_{k} - \eta \nabla f(U_k U_k^\dagger) \cdot U_k \\\\
 &amp;= U_{k} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(U_k U_k^\dagger) - y\right) \cdot U_k.
 \end{align} --&gt;
 &lt;p&gt;\begin{align*} \label{eq:fgd} \tag{3}
-U_{i+1} &amp;amp;= U_{i} - \eta \nabla F(U_k U_k^\dagger) \cdot U_k \\&lt;br&gt;
+U_{i+1} &amp;amp;= U_{i} - \eta \nabla F(U_k U_k^\dagger) \cdot U_k \\
 &amp;amp;= U_k - \eta \left( \frac{1}{m} \sum_{i=1}^m ( \text{Tr}(A_k U_k U_t^\dagger) - y_k ) A_k \right) \cdot U_k
 \end{align*}&lt;/p&gt;
 &lt;!-- Here, $\mathcal{A}^\dagger: \mathbb{R}^m \rightarrow \mathbb{C}^{d \times d}$ is the adjoint of $\mathcal{A}$, defined as $\mathcal{A}^\dagger = \sum_{i=1}^m x_k A_k.$ $\eta$ is a hyperparameter called step size or learning rate. This method is called &#34;$\texttt{F}$actored $\texttt{G}$radient $\texttt{D}$escent&#34; ($\texttt{FGD}$), and was utilized to solve the non-convex objective function in Eq. \eqref{eq:factored-obj}, (surprisingly) with provable gaurantees.[^kyrillidis2018provable] --&gt;
@@ -51,7 +51,7 @@ U_{i+1} &amp;amp;= U_{i} - \eta \nabla F(U_k U_k^\dagger) \cdot U_k \\&lt;br&gt;
 &lt;h2 id=&#34;distributed-objective&#34;&gt;Distributed objective&lt;/h2&gt;
 &lt;p&gt;To handle such explosion of data, We consider the setting where the measurements $y \in \mathbb{R}^m$ and the sensing matrices $\mathcal{A}: \mathbb{C}^{d\times d} \rightarrow \mathbb{R}^m$ from a central quantum computer are locally stored across $M$ different classical machines. These classical machines perform some local operations based on their local data, and communicate back and forth with the central quantum server. Mathematically, we can write the distributed objective as:
 \begin{align} \label{eq:dist-obj} \tag{4}
-\min_{U \in \mathbb{C}^{d \times r}}  g(U) &amp;amp;= \frac{1}{M} \sum_{i=1}^M g_i(U),    \\&lt;br&gt;
+\min_{U \in \mathbb{C}^{d \times r}}  g(U) &amp;amp;= \frac{1}{M} \sum_{i=1}^M g_i(U),    \\
 \text{where} \quad g_i(U) &amp;amp;:= \mathbb{E}_{j \sim \mathcal{D}_i} ||\mathcal{A}_i^j (UU^\dagger) - y_i^j ||_2^2.
 \end{align}&lt;/p&gt;
 &lt;p&gt;We illustrate the above objective with the figure bellow:
@@ -81,10 +81,10 @@ U_{i+1} &amp;amp;= U_{i} - \eta \nabla F(U_k U_k^\dagger) \cdot U_k \\&lt;br&gt;
 &lt;figure id=&#34;figure-illustration-of-distributed-quantum-state-tomography&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/featured_hu13f4fe2809d1952c4d0168f1c8b27fcc_43292_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Illustration of distributed quantum state tomography.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/featured_hu_79f2f563dfb3ed55.png&#34; data-caption=&#34;Illustration of distributed quantum state tomography.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/featured_hu13f4fe2809d1952c4d0168f1c8b27fcc_43292_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;40%&#34; height=&#34;783&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/featured_hu_79f2f563dfb3ed55.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;40%&#34; height=&#34;783&#34;&gt;
 &lt;/a&gt;
 
 
@@ -139,10 +139,10 @@ U_k^i = U_{k-1}^i - \eta_{t-1} \nabla g_i^{j_{t-1}} (U_{t-1}^i)
 &lt;figure id=&#34;figure-pseudocode-for-local-stochastic-factored-gradient-descent-local-sfgd&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/local-sfgd-algo_huf8b139424932042b8d09ec38c7b11bf5_121569_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Pseudocode for Local Stochastic Factored Gradient Descent (Local SFGD).&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/local-sfgd-algo_hu_d8eb54498a9412ba.png&#34; data-caption=&#34;Pseudocode for Local Stochastic Factored Gradient Descent (Local SFGD).&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/local-sfgd-algo_huf8b139424932042b8d09ec38c7b11bf5_121569_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;721&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/local-sfgd-algo_hu_d8eb54498a9412ba.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;721&#34;&gt;
 &lt;/a&gt;
 
 
@@ -186,10 +186,10 @@ Also notice that there are some pre-defined synchronization (or communication) s
 &lt;figure id=&#34;figure-assumptions-1-and-2&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/assumptions_huc479e5c8281c624f0ee0e7f6477675cc_122304_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Assumptions 1 and 2&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/assumptions_hu_9217b642a7b3f017.png&#34; data-caption=&#34;Assumptions 1 and 2&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/assumptions_huc479e5c8281c624f0ee0e7f6477675cc_122304_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;660&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/assumptions_hu_9217b642a7b3f017.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;660&#34;&gt;
 &lt;/a&gt;
 
 
@@ -230,10 +230,10 @@ Assumption 1 is the standard strong-convexity and $L$-smoothness assumptions, &l
 &lt;figure id=&#34;figure-local-linear-convergence-with-a-constant-step-size&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem2_hu1a553baa570e41a187df39ec77da9c45_114691_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Local linear convergence with a constant step size&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem2_hu_82561ccb3ade4a44.png&#34; data-caption=&#34;Local linear convergence with a constant step size&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem2_hu1a553baa570e41a187df39ec77da9c45_114691_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;552&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem2_hu_82561ccb3ade4a44.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;552&#34;&gt;
 &lt;/a&gt;
 
 
@@ -279,10 +279,10 @@ of machines $M$;&lt;/li&gt;
 &lt;figure id=&#34;figure-local-sublinear-convergence-with-diminishing-step-sizes&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem4_hu922ae10404d6c5eb49ce5f3736872bf2_109670_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Local sublinear convergence with diminishing step sizes&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem4_hu_16dfd037416f15f8.png&#34; data-caption=&#34;Local sublinear convergence with diminishing step sizes&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem4_hu922ae10404d6c5eb49ce5f3736872bf2_109670_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;485&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem4_hu_16dfd037416f15f8.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;485&#34;&gt;
 &lt;/a&gt;
 
 
@@ -327,10 +327,10 @@ $ \varepsilon = || \hat{U}_t \hat{U}_t^\top - \rho^\star ||_F^2,$ where $\rho^\s
 &lt;figure id=&#34;figure-local-sublinear-convergence-with-diminishing-step-sizes&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/fig-crop_hu5d50ed01706b8c68eeead270a385b151_215634_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Local sublinear convergence with diminishing step sizes&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/fig-crop_hu_97d040825e3d43e8.png&#34; data-caption=&#34;Local sublinear convergence with diminishing step sizes&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/fig-crop_hu5d50ed01706b8c68eeead270a385b151_215634_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;1336&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/fig-crop_hu_97d040825e3d43e8.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;1336&#34;&gt;
 &lt;/a&gt;
 
 
@@ -345,33 +345,33 @@ $ \varepsilon = || \hat{U}_t \hat{U}_t^\top - \rho^\star ||_F^2,$ where $\rho^\s
 
 &lt;p&gt;In the top panel of the above plot, we first fix the number of machines $M = 10$ and the number of total synchronization steps to be $100$, and vary the number of local iterations between two synchronization steps, i.e., $h \in {1, 10, 25, 50, 100, 200}.$ We use constant step size $\eta=1$ for all $h$.&lt;/p&gt;
 &lt;p&gt;Increasing $h$, i.e., each distributed machine performing more local iterations, leads to faster convergence in terms of the synchronization steps.
-Notably, the speed up gets marginal: e.g., there is not much difference between $h=100$ and $h=200$, indicating there is an ``optimal&#39;&#39; $h$ that leads to the biggest reduction in the number of synchronization steps. Finally, note that $\varepsilon$ does not decrease below certain level due to the inherent finite sampling error of quantum measurements.&lt;/p&gt;
+Notably, the speed up gets marginal: e.g., there is not much difference between $h=100$ and $h=200$, indicating there is an ``optimal&amp;rsquo;&amp;rsquo; $h$ that leads to the biggest reduction in the number of synchronization steps. Finally, note that $\varepsilon$ does not decrease below certain level due to the inherent finite sampling error of quantum measurements.&lt;/p&gt;
 &lt;p&gt;In the bottom panel, we plot the number of synchronization steps to reach $\varepsilon \leq 0.05,$ while fixing
 % the number of local iterations, i.e., $h=20$. We vary the number of workers $M \in {5, 10, 15, 20}$, where each machine gets $200$ measurements. There is a significant speed up from $M=5$ to $M=15$, while for $M=20,$ it took one more syncrhonization step compared to $M=15,$ which is likely due to the stochasticity of SFGD within each machine.&lt;/p&gt;
-&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;J. L. Kim, M. T. Toghani, C. A. Uribe and A. Kyrillidis. Local Stochastic Factored Gradient Descent for Distributed Quantum State Tomography. IEEE Control Systems Letters, vol. 7, pp. 199-204, 2023. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;J. L. Kim, M. T. Toghani, C. A. Uribe and A. Kyrillidis. Local Stochastic Factored Gradient Descent for Distributed Quantum State Tomography. IEEE Control Systems Letters, vol. 7, pp. 199-204, 2023.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
 &lt;p&gt;D. Gross, Y.-K. Liu, S. Flammia, S. Becker, and J. Eisert. Quantum state tomography via compressed
-sensing. Physical review letters, 105(15):150401, 2010. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+sensing. Physical review letters, 105(15):150401, 2010.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;A. Kyrillidis, A. Kalev, D. Park, S. Bhojanapalli, C. Caramanis, and S. Sanghavi. Provable quantum state tomography via non-convex methods. npj Quantum Information, 4(36), 2018. &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;A. Kyrillidis, A. Kalev, D. Park, S. Bhojanapalli, C. Caramanis, and S. Sanghavi. Provable quantum state tomography via non-convex methods. npj Quantum Information, 4(36), 2018.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Guanghui Lan, Soomin Lee, and Yi Zhou. Communication-efficient algorithms for decentralized and stochastic optimization. Mathematical Programming 180.1-2. 237-284. 2020. &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;Guanghui Lan, Soomin Lee, and Yi Zhou. Communication-efficient algorithms for decentralized and stochastic optimization. Mathematical Programming 180.1-2. 237-284. 2020.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;S. Bhojanapalli, A. Kyrillidis, S. Sanghavi. Dropping Convexity for Faster Semi-definite Optimization. 29th Annual Conference on Learning Theory, in Proceedings of Machine Learning Research. 49:530-582. 2016. &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;S. Bhojanapalli, A. Kyrillidis, S. Sanghavi. Dropping Convexity for Faster Semi-definite Optimization. 29th Annual Conference on Learning Theory, in Proceedings of Machine Learning Research. 49:530-582. 2016.&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:6&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;J. Zeng, K. Ma, and Y. Yao. &amp;ldquo;On global linear convergence in stochastic nonconvex optimization for semidefinite programming.&amp;rdquo; IEEE Transactions on Signal Processing 67.16. 4261-4275. 2019, &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
+&lt;p&gt;J. Zeng, K. Ma, and Y. Yao. &amp;ldquo;On global linear convergence in stochastic nonconvex optimization for semidefinite programming.&amp;rdquo; IEEE Transactions on Signal Processing 67.16. 4261-4275. 2019,&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -431,17 +431,17 @@ One of the main difference between classical computing and quantum computing is 
 &lt;figure id=&#34;figure-bloch-sphere-figure-source-httpsenwikipediaorgwikibloch_spheremediafilebloch_spheresvg&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/bloch_hu1fdbbe82f8d04bc229a0ea2e51146515_69402_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Bloch sphere. Figure source: &amp;lt;a href=&amp;#34;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&amp;#34;&amp;gt;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&amp;lt;/a&amp;gt;&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/bloch_hu_889a8bb017de8df5.png&#34; data-caption=&#34;Bloch sphere. Figure source: &amp;lt;a href=&amp;#34;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&amp;#34; target=&amp;#34;_blank&amp;#34; rel=&amp;#34;noopener&amp;#34;&amp;gt;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&amp;lt;/a&amp;gt;&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/bloch_hu1fdbbe82f8d04bc229a0ea2e51146515_69402_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;35%&#34; height=&#34;877&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/bloch_hu_889a8bb017de8df5.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;35%&#34; height=&#34;877&#34;&gt;
 &lt;/a&gt;
 
 
   
   
   &lt;figcaption&gt;
-    Bloch sphere. Figure source: &lt;a href=&#34;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&#34;&gt;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&lt;/a&gt;
+    Bloch sphere. Figure source: &lt;a href=&#34;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&lt;/a&gt;
   &lt;/figcaption&gt;
 
 
@@ -471,7 +471,7 @@ $\texttt{Tr}\left(\rho |0_z \rangle \langle 0_z | \right) \approx \tfrac{400}{10
 &lt;p&gt;By repeating the above procedure for $r_x$ and $r_y$, we have performed a single qubit QST. Mathematically, we can solve the following optimization problem:
 \begin{align}
 &amp;amp; \underset{\rho \in \mathbb{C}^{d \times d}}{\text{minimize}}
-&amp;amp; &amp;amp; f(\rho) := \sum_{\alpha=x, y, z} \sum_{i=0,1} \left( \texttt{Tr}(\rho A_i^\alpha) - y_i^\alpha \right)^2 \\&lt;br&gt;
+&amp;amp; &amp;amp; f(\rho) := \sum_{\alpha=x, y, z} \sum_{i=0,1} \left( \texttt{Tr}(\rho A_i^\alpha) - y_i^\alpha \right)^2 \\
 &amp;amp; \text{subject to}
 &amp;amp; &amp;amp; \rho \succeq 0,~\texttt{Tr}(\rho) = 1,
 \end{align}
@@ -480,7 +480,7 @@ where the PSD constraint ($\rho \succeq 0$) and the unit trace constraint ($\tex
 &lt;p&gt;QST is generally not scalable due to two bottlenecks: $i)$ large data has to be collected to perform tomography; and $ii)$ the space of density matrices grows exponentially (a density matrix $\rho$ of $n$-qubit is of $2^n \times 2^n$ dimensional), from which the one that is consistent with the data has to be found.&lt;/p&gt;
 &lt;p&gt;To address the first bottleneck, prior information is often assumed and leveraged to reduce the number of data required. For example, in compressed sensing QST, &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt; it assumes that the density matrix is of low-rank, which physically means the state is close to a &lt;a href=&#34;https://en.wikipedia.org/wiki/Quantum_state&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pure state&lt;/a&gt;.&lt;/p&gt;
 &lt;!-- Similarly, in neural network QST, the wavefunctions are assumed to be real and positive. [^torlai2018neural] [^torlai2019machine] [^beach2019qucumber] --&gt;
-&lt;p&gt;To give a concrete example, in the figure below, real (top) and imaginary (bottom) parts of four different states are shown: $i)$ $\texttt{GHZ}$ state, $ii)$ $\texttt{GHZminus}$ state, $iii)$ $\texttt{Hadamard}$ state, and $iv)$ $\texttt{Random}$ state; for the mathematical description of the above states, refer to our paper. &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; As can be seen, for $\texttt{GHZ}$ and $\texttt{GHZminus}$ states, only four corners of the real parts have non-zero entries. Therefore, the density matrices are not only of low-rank, but also sparse. Similarly, $\texttt{Hadamard}$ has uniform entries in the real part, which can be written as a $\text{rank-}1$ matrix.
+&lt;p&gt;To give a concrete example, in the figure below, real (top) and imaginary (bottom) parts of four different states are shown: $i)$ $\texttt{GHZ}$ state, $ii)$ $\texttt{GHZminus}$ state, $iii)$ $\texttt{Hadamard}$ state, and $iv)$ $\texttt{Random}$ state; for the mathematical description of the above states, refer to our paper. &lt;sup id=&#34;fnref1:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; As can be seen, for $\texttt{GHZ}$ and $\texttt{GHZminus}$ states, only four corners of the real parts have non-zero entries. Therefore, the density matrices are not only of low-rank, but also sparse. Similarly, $\texttt{Hadamard}$ has uniform entries in the real part, which can be written as a $\text{rank-}1$ matrix.
 If these structures are smartly leveraged, one can sometimes confine the search space of density matrices greatly, leading to less number of measurements required for successful tomography results. In particular, it was proven that one can reconstruct a rank-$r$ density matrix using $O(r \cdot d \cdot \text{poly} \log d)$ measurements.&lt;/p&gt;
 
 
@@ -508,10 +508,10 @@ If these structures are smartly leveraged, one can sometimes confine the search 
 &lt;figure id=&#34;figure-from-left-to-right-textttghz-textttghzminus-texttthadamard-and-textttrandom-states-all-states-are-in-4-qubit-system&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/state-plots_hu9736c4582f4c1c7a26a8563df014da3f_333023_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;From left to right: $\texttt{GHZ}$, $\texttt{GHZminus}$, $\texttt{Hadamard}$, and $\texttt{Random}$ states. All states are in 4-qubit system.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/state-plots_hu_5c410861636b4868.png&#34; data-caption=&#34;From left to right: $\texttt{GHZ}$, $\texttt{GHZminus}$, $\texttt{Hadamard}$, and $\texttt{Random}$ states. All states are in 4-qubit system.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/state-plots_hu9736c4582f4c1c7a26a8563df014da3f_333023_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;411&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/state-plots_hu_5c410861636b4868.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;411&#34;&gt;
 &lt;/a&gt;
 
 
@@ -532,7 +532,7 @@ If these structures are smartly leveraged, one can sometimes confine the search 
 &lt;p&gt;\begin{align}
 \label{eq:objective} \tag{1}
 \min_{\rho \in \mathbb{C}^{d \times d}}
-\quad &amp;amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\&lt;br&gt;
+\quad &amp;amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\
 \text{subject to}
 \quad&amp;amp; \rho \succeq 0, ~\texttt{rank}(\rho) \leq r.
 \end{align}&lt;/p&gt;
@@ -543,7 +543,7 @@ If these structures are smartly leveraged, one can sometimes confine the search 
 (1 - \delta_r) \cdot  || X ||_F^2 \leq || \mathcal{A}(X) ||_2^2 \leq (1 + \delta_r) \cdot ||X||_F^2.
 \end{align}&lt;/p&gt;
 &lt;p&gt;Intuitively, the above RIP assumption states that the sensing matrices $\mathcal{A}(\cdot)$ only &amp;ldquo;marginally&amp;rdquo; changes the norm of the matrix $X$.&lt;/p&gt;
-&lt;p&gt;Going back to the main optimization problem in Eq. \eqref{eq:objective}, instead of solving it as is, we propose to solve a factorized version of it, following recent work &lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;:
+&lt;p&gt;Going back to the main optimization problem in Eq. \eqref{eq:objective}, instead of solving it as is, we propose to solve a factorized version of it, following recent work &lt;sup id=&#34;fnref1:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;:
 \begin{align}
 \label{eq:factored-obj} \tag{3}
 \min_{U \in \mathbb{C}^{d \times r}} f(UU^\dagger) := \tfrac{1}{2} || \mathcal{A} (UU^\dagger) - y ||_2^2,
@@ -552,21 +552,21 @@ where $U^\dagger$ denotes the &lt;a href=&#34;https://en.wikipedia.org/wiki/Conj
 &lt;p&gt;A common approach is to use gradient descent on $U$, which iterates as follows:
 \begin{align}
 \label{eq:fgd} \tag{4}
-U_{i+1} &amp;amp;= U_{i} - \eta \nabla f(U_i U_i^\dagger) \cdot U_i \\&lt;br&gt;
+U_{i+1} &amp;amp;= U_{i} - \eta \nabla f(U_i U_i^\dagger) \cdot U_i \\
 &amp;amp;= U_{i} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(U_i U_i^\dagger) - y\right) \cdot U_i.
 \end{align}&lt;/p&gt;
 &lt;!--HERE IT IS NOT CLEAR WHAT IS f - DEFINE IT IN EQ.(3).--&gt;
-&lt;p&gt;Here, $\mathcal{A}^\dagger: \mathbb{R}^m \rightarrow \mathbb{C}^{d \times d}$ is the adjoint of $\mathcal{A}$, defined as $\mathcal{A}^\dagger = \sum_{i=1}^m x_i A_i.$ $\eta$ is a hyperparameter called step size or learning rate. This method is called &amp;ldquo;$\texttt{F}$actored $\texttt{G}$radient $\texttt{D}$escent&amp;rdquo; ($\texttt{FGD}$), and was utilized to solve the non-convex objective function in Eq. \eqref{eq:factored-obj}, (surprisingly) with provable gaurantees.&lt;sup id=&#34;fnref:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Here, $\mathcal{A}^\dagger: \mathbb{R}^m \rightarrow \mathbb{C}^{d \times d}$ is the adjoint of $\mathcal{A}$, defined as $\mathcal{A}^\dagger = \sum_{i=1}^m x_i A_i.$ $\eta$ is a hyperparameter called step size or learning rate. This method is called &amp;ldquo;$\texttt{F}$actored $\texttt{G}$radient $\texttt{D}$escent&amp;rdquo; ($\texttt{FGD}$), and was utilized to solve the non-convex objective function in Eq. \eqref{eq:factored-obj}, (surprisingly) with provable gaurantees.&lt;sup id=&#34;fnref2:9&#34;&gt;&lt;a href=&#34;#fn:9&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;9&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;h2 id=&#34;momentum-inspired-factored-gradient-descent&#34;&gt;Momentum-inspired Factored Gradient Descent&lt;/h2&gt;
 &lt;p&gt;Momentum is one of the de facto techniques to achieve acceleration in gradient descent type of algorithms. Acceleration methods exist in various forms, including Polyak&amp;rsquo;s momentum, Nesterov&amp;rsquo;s acceleration, classical momentum, etc. They end up behaving pretty similarly, and we will not get into the detail of different acceleration methods in this post. For interested readers, I recommend this &lt;a href=&#34;https://jlmelville.github.io/mize/nesterov.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;blog post&lt;/a&gt; by James Melville.&lt;/p&gt;
 &lt;p&gt;A common feature accross acceleration methods is that, with proper hyper-parameter tuning, they can provide accelerated convergence rate with virtually no additional computation. This is exactly the motivation of the $\texttt{MiFGD}$ algorithm we propose for solving the non-convex objective in Eq. \eqref{eq:factored-obj}, and the algorithm proceeds as follows:
 \begin{align}
 \label{eq:mifgd} \tag{5}
-U_{i+1} &amp;amp;= Z_{i} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(Z_i Z_i^\dagger) - y\right) \cdot Z_i, \\&lt;br&gt;
+U_{i+1} &amp;amp;= Z_{i} - \eta \mathcal{A}^\dagger \left(\mathcal{A}(Z_i Z_i^\dagger) - y\right) \cdot Z_i, \\
 Z_{i+1} &amp;amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
 \end{align}&lt;/p&gt;
 &lt;p&gt;Here, $Z_i \in \mathbb{C}^{d\times r}$ is a rectangular matrix (with the same dimension as $U_i$) which accumulates the &amp;ldquo;momentum&amp;rdquo; of the iterates $U_i$. $\mu$ is the momentum parameter that balances the weight between the previous estimate $U_i$ and the current estimate $U_{i+1}.$&lt;/p&gt;
-&lt;p&gt;While the $\texttt{MiFGD}$ algorithm in Eq. \eqref{eq:mifgd} looks quite similar to $\texttt{FGD}$ in Eq. \eqref{eq:fgd}, it complicates the convergence theory significantly. This is because the two-step momentum procedure has to be considered, on top of the fact that the objective function in Eq. \eqref{eq:factored-obj} is non-convex. We will not get into the details of the convergence thoery here; interested readers are referred to our paper.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; We finish this section with an informal theorem that illustrates the convergence behavior of $\texttt{MiFGD}$:&lt;/p&gt;
+&lt;p&gt;While the $\texttt{MiFGD}$ algorithm in Eq. \eqref{eq:mifgd} looks quite similar to $\texttt{FGD}$ in Eq. \eqref{eq:fgd}, it complicates the convergence theory significantly. This is because the two-step momentum procedure has to be considered, on top of the fact that the objective function in Eq. \eqref{eq:factored-obj} is non-convex. We will not get into the details of the convergence thoery here; interested readers are referred to our paper.&lt;sup id=&#34;fnref2:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; We finish this section with an informal theorem that illustrates the convergence behavior of $\texttt{MiFGD}$:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Theorem 1&lt;/strong&gt; ($\texttt{MiFGD}$ convergence rate (informal)). Assume that $\mathcal{A}(\cdot)$ satisfies the RIP for some constant $0 &amp;lt; \delta_{2r} &amp;lt;1$. Let $y = \mathcal{A}(\rho^\star)$ denote the set of measurements, by measuring the quantum density matrix $\rho^\star$. Given a good initialization point $U_0$, and setting step size $\eta$ and momentum $\mu$ appropriately, $\texttt{MiFGD}$ converges with a linear rate to a region—with radius that depends on $O(\mu)$—around the global solution $\rho^\star$.&lt;/p&gt;
 &lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
 &lt;p&gt;In this section, we review some of the experimental results. First, we obtain real quantum data from IBM&amp;rsquo;s Quantum Processing Unit (QPU) by realizing two types of quantum states: $\texttt{GHZminus}(n)$ and $\texttt{Hadamard}(n)$, for $n = 6, 8$, where $n$ is the number of qubits. In quantum computing, obtaining measurements itself is not a trivial process, which we will not get into the detail in this post. Yet, we highlight that, in the following plots, we only use $20$% of the measurements that are information-theoretically compelete, i.e. we sample $m = 0.2 \cdot d^2$ measurements (recall that we are working on compressed sensing QST setting). We compare the effect of different momentum parameters in the figure below, where the accuracy of the estimated density matrix $\widehat{\rho}$ is measured with the true density matrix $\rho^\star$ in terms of the squared Frobenius norm, i.e. $||\widehat{\rho} - \rho^\star||_F^2$:&lt;/p&gt;
@@ -596,10 +596,10 @@ Z_{i+1} &amp;amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
 &lt;figure id=&#34;figure-textttmifgd-performance-on-real-quantum-data-from-ibm-qpu-top-left-textttghzminus6-top-right-textttghzminus8-bottom-left-texttthadamard6-bottom-right-texttthadamard8&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/ibm-data_hu9ed558def99604cea272504d5b0afe6e_128657_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;$\texttt{MiFGD}$ performance on real quantum data from IBM QPU. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/ibm-data_hu_abeb2fcbfc2865d4.png&#34; data-caption=&#34;$\texttt{MiFGD}$ performance on real quantum data from IBM QPU. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/ibm-data_hu9ed558def99604cea272504d5b0afe6e_128657_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/ibm-data_hu_abeb2fcbfc2865d4.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
 &lt;/a&gt;
 
 
@@ -640,10 +640,10 @@ Z_{i+1} &amp;amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
 &lt;figure id=&#34;figure-textttmifgd-performance-on-synthetic-data-using-ibms-qasm-simulator-top-left-textttghzminus6-top-right-textttghzminus8-bottom-left-texttthadamard6-bottom-right-texttthadamard8&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/simulator-data_hu1586622ad382eaa8ab67ffb7b3e9beca_132295_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;$\texttt{MiFGD}$ performance on synthetic data using IBM&amp;amp;rsquo;s QASM simulator. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/simulator-data_hu_c681fb45c106f710.png&#34; data-caption=&#34;$\texttt{MiFGD}$ performance on synthetic data using IBM&amp;amp;rsquo;s QASM simulator. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/simulator-data_hu1586622ad382eaa8ab67ffb7b3e9beca_132295_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/simulator-data_hu_c681fb45c106f710.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
 &lt;/a&gt;
 
 
@@ -683,10 +683,10 @@ Z_{i+1} &amp;amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
 &lt;figure id=&#34;figure-final-fidelity-of-textttmifgd-comparison-using-real-quantum-data-from-ibms-qpu-and-simulated-quantum-data-using-qasm&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/qpu-vs-qasm_hu5758ce60bc0bf36c5fbb63063c04e7bf_40419_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Final fidelity of $\texttt{MiFGD}$ comparison using real quantum data from IBM&amp;amp;rsquo;s QPU and simulated quantum data using QASM.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/qpu-vs-qasm_hu_aa8a7089c84633da.png&#34; data-caption=&#34;Final fidelity of $\texttt{MiFGD}$ comparison using real quantum data from IBM&amp;amp;rsquo;s QPU and simulated quantum data using QASM.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/qpu-vs-qasm_hu5758ce60bc0bf36c5fbb63063c04e7bf_40419_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;225&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/qpu-vs-qasm_hu_aa8a7089c84633da.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;225&#34;&gt;
 &lt;/a&gt;
 
 
@@ -703,11 +703,11 @@ Z_{i+1} &amp;amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
 &lt;p&gt;Now, we compare the performance of $\texttt{MiFGD}$ with &lt;a href=&#34;https://qiskit.org/documentation/stubs/qiskit.ignis.verification.TomographyFitter.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;QST methods&lt;/a&gt; from &lt;a href=&#34;https://qiskit.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;$\texttt{Qiskit}$&lt;/a&gt;, again using IBM&amp;rsquo;s QASM simulator. $\texttt{Qiskit}$ provides two QST methods: $i)$ the $\texttt{CVXPY}$ method which relies on convex optimiztion, and $ii)$ the $\texttt{lstsq}$ which ruses least-squares fitting. Both methods solve the following full tomography problem (not compressed sensing QST problem):&lt;/p&gt;
 &lt;p&gt;\begin{align}
 \min_{\rho \in \mathbb{C}^{d \times d}}
-\quad &amp;amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\&lt;br&gt;
+\quad &amp;amp; f(\rho) := \tfrac{1}{2} ||\mathcal{A}(\rho) - y||_2^2 \\
 \text{subject to}
 \quad &amp;amp; \rho \succeq 0, ~\texttt{Tr}(\rho) = 1.
 \end{align}&lt;/p&gt;
-&lt;p&gt;We note that $\texttt{MiFGD}$ is not restricted to ``tall&#39;&#39; $U$ scenarios to encode PSD and rank constraints: even without rank constraints, one could still exploit the matrix decomposition $\rho = UU^\dagger$ to avoid the PSD projection, $\rho \succeq 0$, where $U \in \mathbb{C}^{d \times d}$.&lt;/p&gt;
+&lt;p&gt;We note that $\texttt{MiFGD}$ is not restricted to ``tall&amp;rsquo;&amp;rsquo; $U$ scenarios to encode PSD and rank constraints: even without rank constraints, one could still exploit the matrix decomposition $\rho = UU^\dagger$ to avoid the PSD projection, $\rho \succeq 0$, where $U \in \mathbb{C}^{d \times d}$.&lt;/p&gt;
 &lt;p&gt;We consider the following cases: $\texttt{GHZ}(n), \texttt{Hadamard}(n),$ and $\texttt{Random}(n)$ for $n = 3, \dots, 8$.
 The results are shown in the figure below:&lt;/p&gt;
 
@@ -736,10 +736,10 @@ The results are shown in the figure below:&lt;/p&gt;
 &lt;figure id=&#34;figure-performance-comparison-with-textttqiskit-methods-all-experiments-are-performed-on-a-13-macbook-pro-with-23-ghz-quad-core-intel-core-i7-cpu-and-32-gb-ram&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qiskit}$ methods. All experiments are performed on a 13” Macbook Pro with 2.3 GHz Quad-Core Intel Core i7 CPU and 32 GB RAM.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/qiskit-comparison-plot_hu_49365bab942412a0.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qiskit}$ methods. All experiments are performed on a 13” Macbook Pro with 2.3 GHz Quad-Core Intel Core i7 CPU and 32 GB RAM.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/qiskit-comparison-plot_hu2d6d342ea7df9de5cc271429d5df76e2_87716_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;354&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/qiskit-comparison-plot_hu_49365bab942412a0.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;354&#34;&gt;
 &lt;/a&gt;
 
 
@@ -782,10 +782,10 @@ The results are shown in the figure below:&lt;/p&gt;
 &lt;figure id=&#34;figure-performance-comparison-with-textttqucumber-methods-all-experiments-are-performed-on-a-nvidia-geforce-gtx-1080-ti-with-11gb-ram&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qucumber}$ methods. All experiments are performed on a NVidia GeForce GTX 1080 TI with 11GB RAM.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison-plot_hu_5dce1ffcf7e4b581.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qucumber}$ methods. All experiments are performed on a NVidia GeForce GTX 1080 TI with 11GB RAM.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison-plot_hu644a7db2c2bfa79e3f8214cbba60fb92_97789_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;408&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison-plot_hu_5dce1ffcf7e4b581.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;408&#34;&gt;
 &lt;/a&gt;
 
 
@@ -830,10 +830,10 @@ In comparison, $\texttt{MiFGD}$ is several orders of magnitude faster than both 
 &lt;figure id=&#34;figure-comparison-with-qucumber-methods&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison_hua17c2be52f23f3de862b40367885380f_171885_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Comparison with Qucumber methods.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison_hu_f66acaeb06ffdd1e.png&#34; data-caption=&#34;Comparison with Qucumber methods.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison_hua17c2be52f23f3de862b40367885380f_171885_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;740&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison_hu_f66acaeb06ffdd1e.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;740&#34;&gt;
 &lt;/a&gt;
 
 
@@ -877,10 +877,10 @@ Our approach is based on &lt;a href=&#34;https://en.wikipedia.org/wiki/Message_P
 &lt;figure id=&#34;figure-effect-of-parallelization-of-textttmifgd-left-scalability-of-parallelization-of-textttmifgd-for-different-number-of-processors-middle-fidelity-versus-time-consued-for-different-number-of-processors-on-texttthadamard10-state-right-the-effect-of-momentum-on-texttthadamard10-state-with-48-processors&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/parallel_hub9237cb47336b5cec8dd803d37ed29cf_49045_2000x2000_fit_lanczos_2.png&#34; data-caption=&#34;Effect of parallelization of $\texttt{MiFGD}$. Left: scalability of parallelization of $\texttt{MiFGD}$ for different number of processors. Middle: fidelity versus time consued for different number of processors on $\texttt{Hadamard}(10)$ state. Right: The effect of momentum on $\texttt{Hadamard}(10)$ state with 48 processors.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/parallel_hu_76146691bc8f2d6b.png&#34; data-caption=&#34;Effect of parallelization of $\texttt{MiFGD}$. Left: scalability of parallelization of $\texttt{MiFGD}$ for different number of processors. Middle: fidelity versus time consued for different number of processors on $\texttt{Hadamard}(10)$ state. Right: The effect of momentum on $\texttt{Hadamard}(10)$ state with 48 processors.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/parallel_hub9237cb47336b5cec8dd803d37ed29cf_49045_2000x2000_fit_lanczos_2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;210&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/parallel_hu_76146691bc8f2d6b.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;210&#34;&gt;
 &lt;/a&gt;
 
 
@@ -901,46 +901,46 @@ We proved that, under certain assumptions on the problem parameters, $\texttt{Mi
 We demonstrate empirically, using both simulated and real data, that $\texttt{MiFGD}$ outperforms non-accelerated methods on both the original problem domain and the factorized space, contributing to recent efforts on testing QST algorithms in real quantum data.
 These results expand on existing work in the literature illustrating the promise of factorized methods for certain low-rank matrix problems.
 Finally, we provide a publicly available implementation of our approach, compatible to the open-source software $\texttt{Qiskit}$, where we further exploit parallel computations in $\texttt{MiFGD}$ by extending its implementation to enable efficient, parallel execution over shared and distributed memory systems.&lt;/p&gt;
-&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Junhyung Lyle Kim, George Kollias, Amir Kalev, Ken X. Wei, Anastasios Kyrillidis. Fast quantum state reconstruction via accelerated non-convex programming. Photonics, 10(2), 2023. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Junhyung Lyle Kim, George Kollias, Amir Kalev, Ken X. Wei, Anastasios Kyrillidis. Fast quantum state reconstruction via accelerated non-convex programming. Photonics, 10(2), 2023.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref2:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
 &lt;p&gt;D. Gross, Y.-K. Liu, S. Flammia, S. Becker, and J. Eisert. Quantum state tomography via compressed
-sensing. Physical review letters, 105(15):150401, 2010. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+sensing. Physical review letters, 105(15):150401, 2010.&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
 &lt;p&gt;A. Kalev, R. Kosut, and I. Deutsch. Quantum tomography protocols with positivity are compressed
-sensing protocols. NPJ Quantum Information, 1:15018, 2015. &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+sensing protocols. NPJ Quantum Information, 1:15018, 2015.&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:4&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
 &lt;p&gt;D. Gonçalve, M. Gomes-Ruggiero, and C. Lavor. A projected gradient method for optimization over
-density matrices. Optimization Methods and Software, 31(2):328–341, 2016. &lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+density matrices. Optimization Methods and Software, 31(2):328–341, 2016.&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:5&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;E. Bolduc, G. Knee, E. Gauger, and J. Leach. Projected gradient descent algorithms for quantum state tomography. npj Quantum Information, 3(1):44, 2017. &lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:5&#34;&gt;
+&lt;p&gt;E. Bolduc, G. Knee, E. Gauger, and J. Leach. Projected gradient descent algorithms for quantum state tomography. npj Quantum Information, 3(1):44, 2017.&amp;#160;&lt;a href=&#34;#fnref:5&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:6&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;li id=&#34;fn:6&#34;&gt;
 &lt;p&gt;Jiangwei Shang, Zhengyun Zhang, and Hui Khoon Ng. Superfast maximum-likelihood reconstruction
-for quantum tomography. Phys. Rev. A, 95:062336, Jun 2017. &lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+for quantum tomography. Phys. Rev. A, 95:062336, Jun 2017.&amp;#160;&lt;a href=&#34;#fnref:6&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:7&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;li id=&#34;fn:7&#34;&gt;
 &lt;p&gt;Zhilin Hu, Kezhi Li, Shuang Cong, and Yaru Tang. Reconstructing pure 14-qubit quantum states in
-three hours using compressive sensing. IFAC-PapersOnLine, 52(11):188 – 193, 2019. 5th IFAC Conference on Intelligent Control and Automation Sciences ICONS 2019. &lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+three hours using compressive sensing. IFAC-PapersOnLine, 52(11):188 – 193, 2019. 5th IFAC Conference on Intelligent Control and Automation Sciences ICONS 2019.&amp;#160;&lt;a href=&#34;#fnref:7&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:8&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Zhibo Hou, Han-Sen Zhong, Ye Tian, Daoyi Dong, Bo Qi, Li Li, Yuanlong Wang, Franco Nori, Guo-Yong Xiang, Chuan-Feng Li, et al. Full reconstruction of a 14-qubit state within four hours. New Journal of Physics, 18(8):083036, 2016. &lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:8&#34;&gt;
+&lt;p&gt;Zhibo Hou, Han-Sen Zhong, Ye Tian, Daoyi Dong, Bo Qi, Li Li, Yuanlong Wang, Franco Nori, Guo-Yong Xiang, Chuan-Feng Li, et al. Full reconstruction of a 14-qubit state within four hours. New Journal of Physics, 18(8):083036, 2016.&amp;#160;&lt;a href=&#34;#fnref:8&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:9&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;A. Kyrillidis, A. Kalev, D. Park, S. Bhojanapalli, C. Caramanis, and S. Sanghavi. Provable quantum state tomography via non-convex methods. npj Quantum Information, 4(36), 2018. &lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:9&#34;&gt;
+&lt;p&gt;A. Kyrillidis, A. Kalev, D. Park, S. Bhojanapalli, C. Caramanis, and S. Sanghavi. Provable quantum state tomography via non-convex methods. npj Quantum Information, 4(36), 2018.&amp;#160;&lt;a href=&#34;#fnref:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref2:9&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li id=&#34;fn:10&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;Benjamin Recht, Maryam Fazel, and Pablo A Parrilo. Guaranteed minimum-rank solutions of linear matrix equations via nuclear norm minimization. SIAM review, 52(3):471–501, 2010. &lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:10&#34;&gt;
+&lt;p&gt;Benjamin Recht, Maryam Fazel, and Pablo A Parrilo. Guaranteed minimum-rank solutions of linear matrix equations via nuclear norm minimization. SIAM review, 52(3):471–501, 2010.&amp;#160;&lt;a href=&#34;#fnref:10&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -957,17 +957,17 @@ three hours using compressive sensing. IFAC-PapersOnLine, 52(11):188 – 193, 20
 &lt;p&gt;Let&amp;rsquo;s start with the basics. Recall that a ket $| \psi \rangle = \sum_i c_i |u_i \rangle$ where $c_i = \langle u_i | \psi \rangle$, which can be thought of as the representation of the ket $|\psi\rangle$ in the ${|u_i\rangle}$ basis. To write the ket $|\psi\rangle$ in matrix form, we simply stack the representation as a column vector as follows:&lt;/p&gt;
 &lt;p&gt;$$
 \begin{bmatrix}
-\langle u_1 | \psi \rangle\\&lt;br&gt;
-\langle u_2 | \psi \rangle\\&lt;br&gt;
-\vdots\\&lt;br&gt;
-\langle u_i | \psi \rangle\\&lt;br&gt;
+\langle u_1 | \psi \rangle\\
+\langle u_2 | \psi \rangle\\
+\vdots\\
+\langle u_i | \psi \rangle\\
 \vdots
 \end{bmatrix}
 = \begin{bmatrix}
-c_1\\&lt;br&gt;
-c_2\\&lt;br&gt;
-\vdots\\&lt;br&gt;
-c_i\\&lt;br&gt;
+c_1\\
+c_2\\
+\vdots\\
+c_i\\
 \vdots
 \end{bmatrix}.
 $$&lt;/p&gt;
@@ -978,23 +978,23 @@ $$&lt;/p&gt;
 &lt;p&gt;Now, we look at an operator $\hat{A} = \sum_{ij} A_{ij} |u_i \rangle \langle u_j|$ where $A_{ij} = \langle u_i | \hat{A} | u_j \rangle$, which can be expressed as a matrix:&lt;/p&gt;
 &lt;p&gt;$$
 \begin{bmatrix}
-A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1j} &amp;amp; \cdots \\&lt;br&gt;
-A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2j} &amp;amp; \cdots \\&lt;br&gt;
-\vdots &amp;amp; \vdots &amp;amp;  &amp;amp; \vdots &amp;amp;  \\&lt;br&gt;
-A_{i1} &amp;amp; A_{i2} &amp;amp; \cdots &amp;amp; A_{ij} &amp;amp; \cdots \\&lt;br&gt;
+A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1j} &amp;amp; \cdots \\
+A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2j} &amp;amp; \cdots \\
+\vdots &amp;amp; \vdots &amp;amp;  &amp;amp; \vdots &amp;amp;  \\
+A_{i1} &amp;amp; A_{i2} &amp;amp; \cdots &amp;amp; A_{ij} &amp;amp; \cdots \\
 \vdots &amp;amp; \vdots &amp;amp;  &amp;amp; \vdots &amp;amp;
 \end{bmatrix}
 $$&lt;/p&gt;
-&lt;p&gt;As an example, let&amp;rsquo;s write the expression $|\psi&#39;\rangle = \hat{A} |\psi\rangle$ in terms of matrix formulation. First, recall the following:&lt;/p&gt;
+&lt;p&gt;As an example, let&amp;rsquo;s write the expression $|\psi&amp;rsquo;\rangle = \hat{A} |\psi\rangle$ in terms of matrix formulation. First, recall the following:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;$|\psi&#39;\rangle = \sum_i c_i&#39; |u_i\rangle$&lt;/li&gt;
+&lt;li&gt;$|\psi&amp;rsquo;\rangle = \sum_i c_i&amp;rsquo; |u_i\rangle$&lt;/li&gt;
 &lt;li&gt;$|\psi\rangle = \sum_i c_i |u_i\rangle$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Then, we can express the coefficient $c_i&#39;$ as follows:&lt;/p&gt;
+&lt;p&gt;Then, we can express the coefficient $c_i&amp;rsquo;$ as follows:&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-c_i&#39; &amp;amp;= \langle u_i | \psi&#39; \rangle = \langle u_i | \hat{A}| \psi \rangle = \langle u_i | \hat{A} \mathbb{I} | \psi \rangle \\&lt;br&gt;
-&amp;amp;= \langle u_i | \hat{A} \left( \sum_j |u_j \rangle \langle u_j | \right) |\psi \rangle = \sum_j \langle u_i | \hat{A} | u_j \rangle \langle u_j | \psi \rangle \\&lt;br&gt;
+c_i&amp;rsquo; &amp;amp;= \langle u_i | \psi&amp;rsquo; \rangle = \langle u_i | \hat{A}| \psi \rangle = \langle u_i | \hat{A} \mathbb{I} | \psi \rangle \\
+&amp;amp;= \langle u_i | \hat{A} \left( \sum_j |u_j \rangle \langle u_j | \right) |\psi \rangle = \sum_j \langle u_i | \hat{A} | u_j \rangle \langle u_j | \psi \rangle \\
 &amp;amp;= \sum_j A_{ij} c_j.
 \end{aligned}
 $$&lt;/p&gt;
@@ -1002,37 +1002,37 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
 &amp;amp;\begin{bmatrix}
-A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1j} &amp;amp; \cdots \\&lt;br&gt;
-A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2j} &amp;amp; \cdots \\&lt;br&gt;
-\vdots &amp;amp; \vdots &amp;amp;  &amp;amp; \vdots &amp;amp;  \\&lt;br&gt;
-A_{i1} &amp;amp; A_{i2} &amp;amp; \cdots &amp;amp; A_{ij} &amp;amp; \cdots \\&lt;br&gt;
+A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1j} &amp;amp; \cdots \\
+A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2j} &amp;amp; \cdots \\
+\vdots &amp;amp; \vdots &amp;amp;  &amp;amp; \vdots &amp;amp;  \\
+A_{i1} &amp;amp; A_{i2} &amp;amp; \cdots &amp;amp; A_{ij} &amp;amp; \cdots \\
 \vdots &amp;amp; \vdots &amp;amp;  &amp;amp; \vdots &amp;amp;
 \end{bmatrix}
 \cdot
 \begin{bmatrix}
-c_1\\&lt;br&gt;
-c_2\\&lt;br&gt;
-\vdots\\&lt;br&gt;
-c_i\\&lt;br&gt;
+c_1\\
+c_2\\
+\vdots\\
+c_i\\
 \vdots
 \end{bmatrix} =
 \begin{bmatrix}
-A_{11}c_1 + \dots + A_{1j}c_j \dots \\&lt;br&gt;
-A_{21}c_1 + \dots + A_{2j}c_j \dots \\&lt;br&gt;
-\vdots\\&lt;br&gt;
-A_{i1}c_1 + \dots + A_{ij}c_j \dots \\&lt;br&gt;
+A_{11}c_1 + \dots + A_{1j}c_j \dots \\
+A_{21}c_1 + \dots + A_{2j}c_j \dots \\
+\vdots\\
+A_{i1}c_1 + \dots + A_{ij}c_j \dots \\
 \vdots
 \end{bmatrix} =
 \begin{bmatrix}
-c_1&#39;\\&lt;br&gt;
-c_2&#39;\\&lt;br&gt;
-\vdots\\&lt;br&gt;
-c_i&#39;\\&lt;br&gt;
+c_1&amp;rsquo;\\
+c_2&amp;rsquo;\\
+\vdots\\
+c_i&amp;rsquo;\\
 \vdots
 \end{bmatrix}
 \end{aligned}.
 $$&lt;/p&gt;
-&lt;p&gt;Therefore, we arrive at the matrix formulation for $c_i&#39;$ we began with. Similarly, we can express other quantum mechanical quantities we have seen in terms of matrix formulation.&lt;/p&gt;
+&lt;p&gt;Therefore, we arrive at the matrix formulation for $c_i&amp;rsquo;$ we began with. Similarly, we can express other quantum mechanical quantities we have seen in terms of matrix formulation.&lt;/p&gt;
 &lt;h2 id=&#34;5-change-of-basis-in-quantum-mechanics&#34;&gt;5. Change of basis in quantum mechanics&lt;/h2&gt;
 &lt;p&gt;Recall that we can represent state space with an orthonormal basis. For example, we have been working with the basis ${ | u_i \rangle }$ where $\langle u_i | u_j \rangle = \delta_{ij}$. Then, we can express a ket $|\psi\rangle$ in the ${ |u_i\rangle }$ basis, i.e.&lt;/p&gt;
 &lt;p&gt;$$
@@ -1045,26 +1045,26 @@ $$&lt;/p&gt;
 &lt;p&gt;The step goes as follows: first, express the coefficient $d_j$ as above. Then, insert an identity, and using the resolution of the identity matrix &lt;em&gt;in&lt;/em&gt; ${ |u_i \rangle }$ basis, we find an expression that relates the coefficient $d_j$ and $c_i$. Mathematically,&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-d_j &amp;amp;= \langle v_j | \psi \rangle = \langle v_j | \mathbb{I} | \psi \rangle = \langle v_j | \left( \sum_i |u_i \rangle \langle u_i | \right) | \psi \rangle \\&lt;br&gt;
+d_j &amp;amp;= \langle v_j | \psi \rangle = \langle v_j | \mathbb{I} | \psi \rangle = \langle v_j | \left( \sum_i |u_i \rangle \langle u_i | \right) | \psi \rangle \\
 &amp;amp;= \sum_i \langle v_j | u_i \rangle \langle u_i | \psi \rangle = \sum_i S_{ji} c_i.
 \end{aligned}
 $$&lt;/p&gt;
 &lt;p&gt;Thus, to compute $d_j$ given $c_i$, we simply need to compute the quantity $S_{ji} = \langle v_j | u_i \rangle$, which is called an &amp;ldquo;overlap.&amp;rdquo; Using the matrix formulation we studied in the previous chapter, we can also express this relationship as follows:&lt;/p&gt;
 &lt;p&gt;$$
 \begin{bmatrix}
-d_1\\&lt;br&gt;
-d_2\\&lt;br&gt;
+d_1\\
+d_2\\
 \vdots
 \end{bmatrix} =
 \begin{bmatrix}
-S_{11} &amp;amp; S_{12} &amp;amp; \cdots \\&lt;br&gt;
-S_{21} &amp;amp; S_{22} &amp;amp; \cdots  \\&lt;br&gt;
-\vdots &amp;amp; \vdots &amp;amp;  \ddots  \\&lt;br&gt;
+S_{11} &amp;amp; S_{12} &amp;amp; \cdots \\
+S_{21} &amp;amp; S_{22} &amp;amp; \cdots  \\
+\vdots &amp;amp; \vdots &amp;amp;  \ddots  \\
 \end{bmatrix}
 \cdot
 \begin{bmatrix}
-c_1\\&lt;br&gt;
-c_2\\&lt;br&gt;
+c_1\\
+c_2\\
 \vdots
 \end{bmatrix}.
 $$&lt;/p&gt;
@@ -1075,9 +1075,9 @@ $$&lt;/p&gt;
 &lt;p&gt;To close this chapter, let&amp;rsquo;s look at how we perform a change of basis with an operator $\hat{A}$. We write the elements of operator $\hat{A}$ in ${ |u_i\rangle }$  basis and ${ |v_j\rangle }$ basis as $A_{ik}^u = \langle u_i | \hat{A} | u_k \rangle$ and $A_{j\ell}^v = \langle v_j | \hat{A} | v_\ell \rangle$, respectively. Then, we can compute $A_{j\ell}^v$ in terms of $A_{ik}^u$ as follows:&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-A_{j\ell}^v &amp;amp;= \langle v_j | \hat{A} | v_\ell \rangle = \langle v_j | \mathbb{I}\hat{A}\mathbb{I} | v_\ell \rangle \\&lt;br&gt;
-&amp;amp;= \langle v_j | \left( \sum_i |u_i\rangle\langle u_i| \right) \hat{A} \left( \sum_k |u_k\rangle \langle u_k| \right) | v_\ell \rangle \\&lt;br&gt;
-&amp;amp;=\sum_{i,~k} \langle v_j | u_i \rangle \langle u_i | \hat{A} | u_k \rangle \langle u_k | v_\ell \rangle \\&lt;br&gt;
+A_{j\ell}^v &amp;amp;= \langle v_j | \hat{A} | v_\ell \rangle = \langle v_j | \mathbb{I}\hat{A}\mathbb{I} | v_\ell \rangle \\
+&amp;amp;= \langle v_j | \left( \sum_i |u_i\rangle\langle u_i| \right) \hat{A} \left( \sum_k |u_k\rangle \langle u_k| \right) | v_\ell \rangle \\
+&amp;amp;=\sum_{i,~k} \langle v_j | u_i \rangle \langle u_i | \hat{A} | u_k \rangle \langle u_k | v_\ell \rangle \\
 &amp;amp;= \sum_{i,~k} S_{ji} A_{ik}^u S_{\ell k}^*.
 \end{aligned}
 $$&lt;/p&gt;
@@ -1147,10 +1147,10 @@ $$&lt;/p&gt;
 &lt;p&gt;$SP(|\psi_1,~|\psi_2\rangle) = c, \quad c \in \mathbb{C}$&lt;/p&gt;
 &lt;p&gt;Notice that the scalar $c$ is now a complex number, which is one of the crucial differences of state space and Euclidean space. Now we look at the properties of scalar product in state space:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Conjugation: $SP(|\psi \rangle,~|\phi \rangle) = [SP(|\phi \rangle,~|\psi \rangle)]^*$&lt;/li&gt;
-&lt;li&gt;Linearity in second argument: $SP(|\psi \rangle,~a |\phi \rangle) = a SP(|\psi \rangle,~|\phi \rangle)$ and $SP(|\psi \rangle,~|\phi \rangle + |\chi\rangle) = SP(|\psi \rangle,~|\phi \rangle) + SP(|\psi \rangle,~|\chi \rangle)$&lt;/li&gt;
-&lt;li&gt;Anti-linearity in first argument: $SP(a|\psi \rangle,~ |\phi \rangle) = [SP(|\psi \rangle,~a|\psi \rangle)]^* = a^*[SP(|\phi \rangle, |\psi\rangle)
-]^* = a^* SP(|\psi \rangle, |\phi \rangle)$ where $a^*$ is a complex conjugate.&lt;/li&gt;
+&lt;li&gt;Conjugation: $SP(|\psi \rangle,&lt;del&gt;|\phi \rangle) = [SP(|\phi \rangle,&lt;/del&gt;|\psi \rangle)]^*$&lt;/li&gt;
+&lt;li&gt;Linearity in second argument: $SP(|\psi \rangle,&lt;del&gt;a |\phi \rangle) = a SP(|\psi \rangle,&lt;/del&gt;|\phi \rangle)$ and $SP(|\psi \rangle,&lt;del&gt;|\phi \rangle + |\chi\rangle) = SP(|\psi \rangle,&lt;/del&gt;|\phi \rangle) + SP(|\psi \rangle,~|\chi \rangle)$&lt;/li&gt;
+&lt;li&gt;Anti-linearity in first argument: $SP(a|\psi \rangle,~ |\phi \rangle) = [SP(|\psi \rangle,~a|\psi \rangle)]^* = a^&lt;em&gt;[SP(|\phi \rangle, |\psi\rangle)
+]^&lt;/em&gt; = a^* SP(|\psi \rangle, |\phi \rangle)$ where $a^*$ is a complex conjugate.&lt;/li&gt;
 &lt;li&gt;Positivity: $SP( |\psi \rangle, |\psi \rangle ) \geq 0$, and $SP( |\psi \rangle, |\psi \rangle ) = 0$ iff $|\psi \rangle = 0$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;So the main difference comes from the fact that state space lives in complex vector space, rather than real vector space. Through the scalar product, we can define some basic notations for quantum mechanics:&lt;/p&gt;
@@ -1164,7 +1164,7 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;2-operators-in-quantum-mechanics&#34;&gt;2. Operators in quantum mechanics&lt;/h2&gt;
 &lt;p&gt;Operators are mathematical objects that allow us to describe physical properties, such as position, momentum, and energy. Let&amp;rsquo;s start by the second postulate of quantum mechanics:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Postulate II:&lt;/strong&gt; A physical quantity $\mathcal{A}$ is described by an operator $\hat{A}$ acting on the state space space $\mathcal{V}$, and this operator is an observable.&lt;/p&gt;
-&lt;p&gt;In other words, an operator acts on elements of state space $\mathcal{V}$, which are kets, and these kets are modified by the operator $\hat{A}$ in some manner. This can be written is $\hat{A} |\psi \rangle = |\psi&#39; \rangle$, meaning that the operator $\hat{A}$ acts on the ket $| \psi \rangle$, which is modified to another ket $|\psi&#39; \rangle$. It&amp;rsquo;s important to remember that the operators in quantum mechanics can act on the superposition of different states:&lt;/p&gt;
+&lt;p&gt;In other words, an operator acts on elements of state space $\mathcal{V}$, which are kets, and these kets are modified by the operator $\hat{A}$ in some manner. This can be written is $\hat{A} |\psi \rangle = |\psi&amp;rsquo; \rangle$, meaning that the operator $\hat{A}$ acts on the ket $| \psi \rangle$, which is modified to another ket $|\psi&amp;rsquo; \rangle$. It&amp;rsquo;s important to remember that the operators in quantum mechanics can act on the superposition of different states:&lt;/p&gt;
 &lt;p&gt;$$\hat{A} (a_1 |\psi_1 \rangle + a_2 |\psi_2 \rangle) = a_1 \hat{A} |\psi_1 \rangle + a_2 \hat{A} | \psi_2 \rangle.$$&lt;/p&gt;
 &lt;p&gt;As can be guessed from the above expression, these operators are called &amp;ldquo;linear operators.&amp;rdquo; Fortunately, in quantum mechanics, we can always work with linear operators, which makes the study of quantum mechanics a lot easier. Similarly to the properties of addition and multiplication of kets we studied earlier, (linear) operators have basic properties:&lt;/p&gt;
 &lt;ul&gt;
@@ -1175,7 +1175,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Multiplication of operators: $(\hat{A}\hat{B}) |\psi\rangle = \hat{A} ( \hat{B} |\psi \rangle )$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Above can also be thought of as $\hat{A}$ acting on the new state, $\hat{B} |\psi \rangle = |\psi&#39; \rangle$, i.e. $\hat{A} |\psi&#39; \rangle$. Now we state the properties of multiplication of operators:&lt;/p&gt;
+&lt;p&gt;Above can also be thought of as $\hat{A}$ acting on the new state, $\hat{B} |\psi \rangle = |\psi&amp;rsquo; \rangle$, i.e. $\hat{A} |\psi&amp;rsquo; \rangle$. Now we state the properties of multiplication of operators:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Associativity of multiplication: $\hat{A} (\hat{B}\hat{C}) = (\hat{A} \hat{B}) \hat{C}$&lt;/li&gt;
 &lt;li&gt;Non-commutativity of multiplication: $\hat{A} \hat{B} \neq \hat{B} \hat{A}$&lt;/li&gt;
@@ -1186,7 +1186,7 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;The non-commutativity of multiplication of operators, and consequently the notion of  commutators play a fundamental role in quantum mechanics. Specifically, two operators that do not commute are associated with properties that cannot be measured simultaneously in a quantum system, such as position and momentum operators.&lt;/p&gt;
 &lt;p&gt;Now, we introduce the notion of the adjoint operator. Adjoint operator can be thought of as the dual of the operator introduced above, just like a ket corresponds to a bra in the dual space. We can write this as follows:&lt;/p&gt;
-&lt;p&gt;$$|\psi&#39;\rangle =\hat{A}|\psi \rangle \longleftrightarrow \langle \psi&#39; | = \langle \psi|\hat{A}^\dagger.$$&lt;/p&gt;
+&lt;p&gt;$$|\psi&amp;rsquo;\rangle =\hat{A}|\psi \rangle \longleftrightarrow \langle \psi&amp;rsquo; | = \langle \psi|\hat{A}^\dagger.$$&lt;/p&gt;
 &lt;p&gt;Adjoint operator is also linear, just like the operator introduced previously. With this notion, we can introduce some particularly important operators in quantum mechanics:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Hermitian operator: $\hat{A} = \hat{A}^\dagger$&lt;/li&gt;
@@ -1209,29 +1209,29 @@ $$&lt;/p&gt;
 &lt;p&gt;$$\langle u_j | \psi \rangle = \langle u_j | \left( \sum_i c_i |u_i \rangle \right) = \sum_i c_i \langle u_j | u_i \rangle = \sum_i c_i \delta_{ij} = c_j.$$&lt;/p&gt;
 &lt;p&gt;In words, we can say that $\{ c_i \}$ are a representation of a ket $|\psi \rangle$ in the $\{ |u_i\rangle \}$ basis. An important concept of representation is &amp;ldquo;closure relation&amp;rdquo;:&lt;/p&gt;
 &lt;p&gt;$$\begin{aligned}
-|\psi \rangle &amp;amp;= \sum_i \langle u_i | \psi \rangle |u_i \rangle  = \left( \sum_i |u_i \rangle \langle u_i \right) | \psi \rangle \\&lt;br&gt;
+|\psi \rangle &amp;amp;= \sum_i \langle u_i | \psi \rangle |u_i \rangle  = \left( \sum_i |u_i \rangle \langle u_i \right) | \psi \rangle \\
 &amp;amp;= \sum_i c_i | u_i\rangle \quad \text{where}\quad c_i = \langle u_i | \psi \rangle.
 \end{aligned}$$&lt;/p&gt;
 &lt;p&gt;Recall from Chapter 2 that an operator can be written as an outer product. In that sense, from the above, we can see that $\sum_i |u_i \rangle \langle u_i |$ is an operator (notice that I emphasized this with parentheses) that, given a state $|\psi\rangle$, returns the same state $|\psi \rangle$. Thus, we can also write $\sum_i |u_i \rangle \langle u_i | = \mathbb{I}$, where $\mathbb{I}$ is an identity matrix. This result is sometimes also called the &amp;ldquo;resultion of the identity (in the $\{|u_i\rangle \}$ basis).&amp;rdquo; Similar result holds for a bra $\langle \psi | \in \mathcal{V}^*$ :&lt;/p&gt;
 &lt;p&gt;$$\begin{aligned}
-\langle \psi | = \langle \psi | \mathbb{I} = \langle \psi | \left(  \sum_i |u_i \rangle \langle u_i | \right) &amp;amp;= \sum_i \langle \psi | u_i \rangle \langle u_i |  \\&lt;br&gt;
+\langle \psi | = \langle \psi | \mathbb{I} = \langle \psi | \left(  \sum_i |u_i \rangle \langle u_i | \right) &amp;amp;= \sum_i \langle \psi | u_i \rangle \langle u_i |  \\
 &amp;amp;= \sum_i c_i^* \langle u_i |  \quad \text{where} \quad c_i^* = \langle u_i | \psi \rangle^*  = \langle \psi | u_i \rangle.
 \end{aligned}$$&lt;/p&gt;
-&lt;p&gt;Now, let&amp;rsquo;s look at how we represent operators. Recall the definition of an operator $\hat{A} |\psi\rangle = |\psi&#39; \rangle$. Using the same $\{ |u_i \rangle \}$ basis as before, we can write down both kets as below:&lt;/p&gt;
+&lt;p&gt;Now, let&amp;rsquo;s look at how we represent operators. Recall the definition of an operator $\hat{A} |\psi\rangle = |\psi&amp;rsquo; \rangle$. Using the same $\{ |u_i \rangle \}$ basis as before, we can write down both kets as below:&lt;/p&gt;
 &lt;p&gt;$$\begin{aligned}
-|\psi\rangle &amp;amp;= \sum_i c_i | u_i \rangle \quad\text{for}\quad c_i = \langle u_i | \psi \rangle \\&lt;br&gt;
-|\psi&#39;\rangle &amp;amp;= \sum_i c_i&#39; | u_i \rangle \quad\text{for}\quad c_i&#39; = \langle u_i | \psi&#39; \rangle.
+|\psi\rangle &amp;amp;= \sum_i c_i | u_i \rangle \quad\text{for}\quad c_i = \langle u_i | \psi \rangle \\
+|\psi&amp;rsquo;\rangle &amp;amp;= \sum_i c_i&amp;rsquo; | u_i \rangle \quad\text{for}\quad c_i&amp;rsquo; = \langle u_i | \psi&amp;rsquo; \rangle.
 \end{aligned}$$&lt;/p&gt;
-&lt;p&gt;Notice that we can write $c_i&#39;$ in an alternative way as follows:&lt;/p&gt;
+&lt;p&gt;Notice that we can write $c_i&amp;rsquo;$ in an alternative way as follows:&lt;/p&gt;
 &lt;p&gt;$$\begin{aligned}
-c_i&#39; &amp;amp;= \langle u_i | \psi&#39; \rangle = \langle u_i | \hat{A} | \psi \rangle = \langle u_i | \hat{A}\mathbb{I} | \psi \rangle
+c_i&amp;rsquo; &amp;amp;= \langle u_i | \psi&amp;rsquo; \rangle = \langle u_i | \hat{A} | \psi \rangle = \langle u_i | \hat{A}\mathbb{I} | \psi \rangle
 \quad\text{(recall closure relation)}
 \\ &amp;amp;= \langle u_i | \hat{A} \left( \sum_j |u_j \rangle \langle u_j | \right) |\psi\rangle = \sum_j \langle u_i |\hat{A} |u_j \rangle \langle u_j | \psi \rangle.
 \end{aligned}$$&lt;/p&gt;
-&lt;p&gt;Using this alternative form of $c_i&#39;$, we can write down the ket $|\psi&#39;\rangle$ in a different form:&lt;/p&gt;
+&lt;p&gt;Using this alternative form of $c_i&amp;rsquo;$, we can write down the ket $|\psi&amp;rsquo;\rangle$ in a different form:&lt;/p&gt;
 &lt;p&gt;$$\begin{aligned}
-|\psi&#39;\rangle &amp;amp;= \sum_i \left( \sum_j \langle u_i|\hat{A}|u_j \rangle \langle u_j|\psi\rangle \right) |u_i\rangle \\&lt;br&gt;
-&amp;amp;= \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) |\psi\rangle \\&lt;br&gt;
+|\psi&amp;rsquo;\rangle &amp;amp;= \sum_i \left( \sum_j \langle u_i|\hat{A}|u_j \rangle \langle u_j|\psi\rangle \right) |u_i\rangle \\
+&amp;amp;= \left( \sum_{ij} |u_i \rangle \langle u_i | \hat{A}| u_j \rangle \langle u_j| \right) |\psi\rangle \\
 &amp;amp;= \hat{A} |\psi\rangle.
 \end{aligned}$$&lt;/p&gt;
 &lt;p&gt;Therefore, we see that we can write the operator $\hat{A}$ as&lt;/p&gt;
