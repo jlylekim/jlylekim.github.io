@@ -7,7 +7,7 @@
     <description>Distributed Optimization</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2026 Junhyung Lyle Kim</copyright><lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://jlylekim.github.io/images/icon_hu_bf8e449b03aa4cd6.png</url>
+      <url>https://jlylekim.github.io/images/icon_hu_9890001126e4810b.png</url>
       <title>Distributed Optimization</title>
       <link>https://jlylekim.github.io/tag/distributed-optimization/</link>
     </image>
@@ -89,10 +89,10 @@ U_{i+1} &amp;amp;= U_{i} - \eta \nabla F(U_k U_k^\dagger) \cdot U_k \\
 &lt;figure id=&#34;figure-illustration-of-distributed-quantum-state-tomography&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/featured_hu_79f2f563dfb3ed55.png&#34; data-caption=&#34;Illustration of distributed quantum state tomography.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/featured_hu_1891aae9195b5105.png&#34; data-caption=&#34;Illustration of distributed quantum state tomography.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/featured_hu_79f2f563dfb3ed55.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;40%&#34; height=&#34;783&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/featured_hu_1891aae9195b5105.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;40%&#34; height=&#34;783&#34;&gt;
 &lt;/a&gt;
 
 
@@ -147,10 +147,10 @@ U_k^i = U_{k-1}^i - \eta_{t-1} \nabla g_i^{j_{t-1}} (U_{t-1}^i)
 &lt;figure id=&#34;figure-pseudocode-for-local-stochastic-factored-gradient-descent-local-sfgd&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/local-sfgd-algo_hu_d8eb54498a9412ba.png&#34; data-caption=&#34;Pseudocode for Local Stochastic Factored Gradient Descent (Local SFGD).&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/local-sfgd-algo_hu_25fbd9915a2a7d01.png&#34; data-caption=&#34;Pseudocode for Local Stochastic Factored Gradient Descent (Local SFGD).&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/local-sfgd-algo_hu_d8eb54498a9412ba.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;721&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/local-sfgd-algo_hu_25fbd9915a2a7d01.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;721&#34;&gt;
 &lt;/a&gt;
 
 
@@ -194,10 +194,10 @@ Also notice that there are some pre-defined synchronization (or communication) s
 &lt;figure id=&#34;figure-assumptions-1-and-2&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/assumptions_hu_9217b642a7b3f017.png&#34; data-caption=&#34;Assumptions 1 and 2&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/assumptions_hu_38f8bde26fad7ee4.png&#34; data-caption=&#34;Assumptions 1 and 2&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/assumptions_hu_9217b642a7b3f017.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;660&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/assumptions_hu_38f8bde26fad7ee4.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;660&#34;&gt;
 &lt;/a&gt;
 
 
@@ -238,10 +238,10 @@ Assumption 1 is the standard strong-convexity and $L$-smoothness assumptions, &l
 &lt;figure id=&#34;figure-local-linear-convergence-with-a-constant-step-size&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem2_hu_82561ccb3ade4a44.png&#34; data-caption=&#34;Local linear convergence with a constant step size&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem2_hu_24eae54a098219a2.png&#34; data-caption=&#34;Local linear convergence with a constant step size&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem2_hu_82561ccb3ade4a44.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;552&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem2_hu_24eae54a098219a2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;552&#34;&gt;
 &lt;/a&gt;
 
 
@@ -287,10 +287,10 @@ of machines $M$;&lt;/li&gt;
 &lt;figure id=&#34;figure-local-sublinear-convergence-with-diminishing-step-sizes&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem4_hu_16dfd037416f15f8.png&#34; data-caption=&#34;Local sublinear convergence with diminishing step sizes&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem4_hu_8c9bbbb30836f87.png&#34; data-caption=&#34;Local sublinear convergence with diminishing step sizes&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem4_hu_16dfd037416f15f8.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;485&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/theorem4_hu_8c9bbbb30836f87.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;485&#34;&gt;
 &lt;/a&gt;
 
 
@@ -335,10 +335,10 @@ $ \varepsilon = || \hat{U}_t \hat{U}_t^\top - \rho^\star ||_F^2,$ where $\rho^\s
 &lt;figure id=&#34;figure-local-sublinear-convergence-with-diminishing-step-sizes&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/fig-crop_hu_97d040825e3d43e8.png&#34; data-caption=&#34;Local sublinear convergence with diminishing step sizes&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/local-sfgd/fig-crop_hu_f24841cbe15c879b.png&#34; data-caption=&#34;Local sublinear convergence with diminishing step sizes&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/fig-crop_hu_97d040825e3d43e8.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;1336&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/local-sfgd/fig-crop_hu_f24841cbe15c879b.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;1336&#34;&gt;
 &lt;/a&gt;
 
 

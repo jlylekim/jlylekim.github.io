@@ -7,7 +7,7 @@
     <description>Non-Convex Optimization</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2026 Junhyung Lyle Kim</copyright><lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://jlylekim.github.io/images/icon_hu_bf8e449b03aa4cd6.png</url>
+      <url>https://jlylekim.github.io/images/icon_hu_9890001126e4810b.png</url>
       <title>Non-Convex Optimization</title>
       <link>https://jlylekim.github.io/category/non-convex-optimization/</link>
     </image>
@@ -60,10 +60,10 @@ One of the main difference between classical computing and quantum computing is 
 &lt;figure id=&#34;figure-bloch-sphere-figure-source-httpsenwikipediaorgwikibloch_spheremediafilebloch_spheresvg&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/bloch_hu_889a8bb017de8df5.png&#34; data-caption=&#34;Bloch sphere. Figure source: &amp;lt;a href=&amp;#34;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&amp;#34; target=&amp;#34;_blank&amp;#34; rel=&amp;#34;noopener&amp;#34;&amp;gt;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&amp;lt;/a&amp;gt;&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/bloch_hu_95220fe40b686d54.png&#34; data-caption=&#34;Bloch sphere. Figure source: &amp;lt;a href=&amp;#34;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&amp;#34; target=&amp;#34;_blank&amp;#34; rel=&amp;#34;noopener&amp;#34;&amp;gt;https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg&amp;lt;/a&amp;gt;&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/bloch_hu_889a8bb017de8df5.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;35%&#34; height=&#34;877&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/bloch_hu_95220fe40b686d54.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;35%&#34; height=&#34;877&#34;&gt;
 &lt;/a&gt;
 
 
@@ -137,10 +137,10 @@ If these structures are smartly leveraged, one can sometimes confine the search 
 &lt;figure id=&#34;figure-from-left-to-right-textttghz-textttghzminus-texttthadamard-and-textttrandom-states-all-states-are-in-4-qubit-system&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/state-plots_hu_5c410861636b4868.png&#34; data-caption=&#34;From left to right: $\texttt{GHZ}$, $\texttt{GHZminus}$, $\texttt{Hadamard}$, and $\texttt{Random}$ states. All states are in 4-qubit system.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/state-plots_hu_783f0d0239558d1c.png&#34; data-caption=&#34;From left to right: $\texttt{GHZ}$, $\texttt{GHZminus}$, $\texttt{Hadamard}$, and $\texttt{Random}$ states. All states are in 4-qubit system.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/state-plots_hu_5c410861636b4868.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;411&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/state-plots_hu_783f0d0239558d1c.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;411&#34;&gt;
 &lt;/a&gt;
 
 
@@ -225,10 +225,10 @@ Z_{i+1} &amp;amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
 &lt;figure id=&#34;figure-textttmifgd-performance-on-real-quantum-data-from-ibm-qpu-top-left-textttghzminus6-top-right-textttghzminus8-bottom-left-texttthadamard6-bottom-right-texttthadamard8&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/ibm-data_hu_abeb2fcbfc2865d4.png&#34; data-caption=&#34;$\texttt{MiFGD}$ performance on real quantum data from IBM QPU. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/ibm-data_hu_3324d6f80c7a822d.png&#34; data-caption=&#34;$\texttt{MiFGD}$ performance on real quantum data from IBM QPU. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/ibm-data_hu_abeb2fcbfc2865d4.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/ibm-data_hu_3324d6f80c7a822d.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
 &lt;/a&gt;
 
 
@@ -269,10 +269,10 @@ Z_{i+1} &amp;amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
 &lt;figure id=&#34;figure-textttmifgd-performance-on-synthetic-data-using-ibms-qasm-simulator-top-left-textttghzminus6-top-right-textttghzminus8-bottom-left-texttthadamard6-bottom-right-texttthadamard8&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/simulator-data_hu_c681fb45c106f710.png&#34; data-caption=&#34;$\texttt{MiFGD}$ performance on synthetic data using IBM&amp;amp;rsquo;s QASM simulator. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/simulator-data_hu_7aa849ff4967d0c9.png&#34; data-caption=&#34;$\texttt{MiFGD}$ performance on synthetic data using IBM&amp;amp;rsquo;s QASM simulator. Top-left: $\texttt{GHZminus}(6)$, Top-right: $\texttt{GHZminus}(8)$, Bottom-left: $\texttt{Hadamard(6)}$, Bottom-right: $\texttt{Hadamard}(8)$.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/simulator-data_hu_c681fb45c106f710.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/simulator-data_hu_7aa849ff4967d0c9.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;60%&#34; height=&#34;545&#34;&gt;
 &lt;/a&gt;
 
 
@@ -312,10 +312,10 @@ Z_{i+1} &amp;amp;= U_{i+1} + \mu \left(U_{i+1} - U_i\right).
 &lt;figure id=&#34;figure-final-fidelity-of-textttmifgd-comparison-using-real-quantum-data-from-ibms-qpu-and-simulated-quantum-data-using-qasm&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/qpu-vs-qasm_hu_aa8a7089c84633da.png&#34; data-caption=&#34;Final fidelity of $\texttt{MiFGD}$ comparison using real quantum data from IBM&amp;amp;rsquo;s QPU and simulated quantum data using QASM.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/qpu-vs-qasm_hu_cf3a9bd193e0676c.png&#34; data-caption=&#34;Final fidelity of $\texttt{MiFGD}$ comparison using real quantum data from IBM&amp;amp;rsquo;s QPU and simulated quantum data using QASM.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/qpu-vs-qasm_hu_aa8a7089c84633da.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;225&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/qpu-vs-qasm_hu_cf3a9bd193e0676c.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;225&#34;&gt;
 &lt;/a&gt;
 
 
@@ -365,10 +365,10 @@ The results are shown in the figure below:&lt;/p&gt;
 &lt;figure id=&#34;figure-performance-comparison-with-textttqiskit-methods-all-experiments-are-performed-on-a-13-macbook-pro-with-23-ghz-quad-core-intel-core-i7-cpu-and-32-gb-ram&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/qiskit-comparison-plot_hu_49365bab942412a0.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qiskit}$ methods. All experiments are performed on a 13” Macbook Pro with 2.3 GHz Quad-Core Intel Core i7 CPU and 32 GB RAM.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/qiskit-comparison-plot_hu_516d1719e8bbaa69.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qiskit}$ methods. All experiments are performed on a 13” Macbook Pro with 2.3 GHz Quad-Core Intel Core i7 CPU and 32 GB RAM.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/qiskit-comparison-plot_hu_49365bab942412a0.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;354&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/qiskit-comparison-plot_hu_516d1719e8bbaa69.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;354&#34;&gt;
 &lt;/a&gt;
 
 
@@ -411,10 +411,10 @@ The results are shown in the figure below:&lt;/p&gt;
 &lt;figure id=&#34;figure-performance-comparison-with-textttqucumber-methods-all-experiments-are-performed-on-a-nvidia-geforce-gtx-1080-ti-with-11gb-ram&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison-plot_hu_5dce1ffcf7e4b581.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qucumber}$ methods. All experiments are performed on a NVidia GeForce GTX 1080 TI with 11GB RAM.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison-plot_hu_7a44c519aa22ad4d.png&#34; data-caption=&#34;Performance comparison with $\texttt{Qucumber}$ methods. All experiments are performed on a NVidia GeForce GTX 1080 TI with 11GB RAM.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison-plot_hu_5dce1ffcf7e4b581.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;408&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison-plot_hu_7a44c519aa22ad4d.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;408&#34;&gt;
 &lt;/a&gt;
 
 
@@ -459,10 +459,10 @@ In comparison, $\texttt{MiFGD}$ is several orders of magnitude faster than both 
 &lt;figure id=&#34;figure-comparison-with-qucumber-methods&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison_hu_f66acaeb06ffdd1e.png&#34; data-caption=&#34;Comparison with Qucumber methods.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison_hu_1ec8c31749891bf8.png&#34; data-caption=&#34;Comparison with Qucumber methods.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison_hu_f66acaeb06ffdd1e.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;740&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/nn-comparison_hu_1ec8c31749891bf8.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;70%&#34; height=&#34;740&#34;&gt;
 &lt;/a&gt;
 
 
@@ -506,10 +506,10 @@ Our approach is based on &lt;a href=&#34;https://en.wikipedia.org/wiki/Message_P
 &lt;figure id=&#34;figure-effect-of-parallelization-of-textttmifgd-left-scalability-of-parallelization-of-textttmifgd-for-different-number-of-processors-middle-fidelity-versus-time-consued-for-different-number-of-processors-on-texttthadamard10-state-right-the-effect-of-momentum-on-texttthadamard10-state-with-48-processors&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/parallel_hu_76146691bc8f2d6b.png&#34; data-caption=&#34;Effect of parallelization of $\texttt{MiFGD}$. Left: scalability of parallelization of $\texttt{MiFGD}$ for different number of processors. Middle: fidelity versus time consued for different number of processors on $\texttt{Hadamard}(10)$ state. Right: The effect of momentum on $\texttt{Hadamard}(10)$ state with 48 processors.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/acc-qst/parallel_hu_c2f3ede4e4c199a0.png&#34; data-caption=&#34;Effect of parallelization of $\texttt{MiFGD}$. Left: scalability of parallelization of $\texttt{MiFGD}$ for different number of processors. Middle: fidelity versus time consued for different number of processors on $\texttt{Hadamard}(10)$ state. Right: The effect of momentum on $\texttt{Hadamard}(10)$ state with 48 processors.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/parallel_hu_76146691bc8f2d6b.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;210&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/acc-qst/parallel_hu_c2f3ede4e4c199a0.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;210&#34;&gt;
 &lt;/a&gt;
 
 

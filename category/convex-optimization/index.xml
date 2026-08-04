@@ -7,7 +7,7 @@
     <description>Convex Optimization</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© Copyright 2026 Junhyung Lyle Kim</copyright><lastBuildDate>Fri, 01 Apr 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://jlylekim.github.io/images/icon_hu_bf8e449b03aa4cd6.png</url>
+      <url>https://jlylekim.github.io/images/icon_hu_9890001126e4810b.png</url>
       <title>Convex Optimization</title>
       <link>https://jlylekim.github.io/category/convex-optimization/</link>
     </image>
@@ -155,10 +155,10 @@ A summary of these algorithms is provided in the table below.
 &lt;figure id=&#34;figure-summary-of-related-works&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/sppam/related-work_hu_814cc938c9750207.png&#34; data-caption=&#34;Summary of related works&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/sppam/related-work_hu_4d352b7155ad9d63.png&#34; data-caption=&#34;Summary of related works&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/sppam/related-work_hu_814cc938c9750207.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;873&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/sppam/related-work_hu_4d352b7155ad9d63.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;873&#34;&gt;
 &lt;/a&gt;
 
 
@@ -238,10 +238,10 @@ To minimize \eqref{eq:obj-quad} with PPAM, the step size $\eta$ and momentum $\b
 &lt;figure id=&#34;figure-we-generate-a-in-mathbbrptimes-p-and-b-xstar-inmathbbrp-from-mathcaln0-i-where-p100-and-the-condition-number-of-a-is-10-we-sweep-eta-and-beta-from--5-to-5-with-02-interval-we-plot-the-accuracy-x_t---xstar_22-after-100-iterations-with-the-maximum-replaced-by-10&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/sppam/quadratic-model_hu_b647eba933e492f1.png&#34; data-caption=&#34;We generate $A \in \mathbb{R}^{p\times p}$ and $b, x^\star \in\mathbb{R}^p$ from $\mathcal{N}(0, I)$, where $p=100$ and the condition number of $A$ is 10. We sweep $\eta$ and $\beta$ from $-5$ to $5$, with $0.2$ interval. We plot the accuracy $||x_t - x^\star||_2^2$ after 100 iterations, with the maximum replaced by 10.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/sppam/quadratic-model_hu_205d6ab42bbe9d91.png&#34; data-caption=&#34;We generate $A \in \mathbb{R}^{p\times p}$ and $b, x^\star \in\mathbb{R}^p$ from $\mathcal{N}(0, I)$, where $p=100$ and the condition number of $A$ is 10. We sweep $\eta$ and $\beta$ from $-5$ to $5$, with $0.2$ interval. We plot the accuracy $||x_t - x^\star||_2^2$ after 100 iterations, with the maximum replaced by 10.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/sppam/quadratic-model_hu_b647eba933e492f1.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;239&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/sppam/quadratic-model_hu_205d6ab42bbe9d91.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;239&#34;&gt;
 &lt;/a&gt;
 
 
@@ -446,10 +446,10 @@ The former is an &amp;ldquo;easy&amp;rdquo; case, where objective is strongly co
 &lt;figure id=&#34;figure-top-linear-regression-with-condition-number-kappa-in-1-5-10-with-gaussian-noise-level-texttt1e-3-bottom-poisson-regression-with-condition-number-kappa-in-1-3-5-we-set-p--n--100-in-both-cases-batch-size-is-10-for-all-algorithms-the-median-number-of-iterations-to-reach-varepsilon--001-is-plotted-shaded-area-are-the-standard-deviations-across-5-experiments&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/sppam/normal-poisson_hu_1093ab0eb9b10bf2.png&#34; data-caption=&#34;TOP: Linear regression with condition number $\kappa \in {1, 5, 10}$ with gaussian noise level $\texttt{1e-3}.$ BOTTOM: Poisson regression with condition number $\kappa \in {1, 3, 5}$. We set $p = n = 100$ in both cases. Batch size is 10 for all algorithms. The median number of iterations to reach $\varepsilon = 0.01$ is plotted. Shaded area are the standard deviations across 5 experiments.&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://jlylekim.github.io/blog/sppam/normal-poisson_hu_2c16aeea374c266c.png&#34; data-caption=&#34;TOP: Linear regression with condition number $\kappa \in {1, 5, 10}$ with gaussian noise level $\texttt{1e-3}.$ BOTTOM: Poisson regression with condition number $\kappa \in {1, 3, 5}$. We set $p = n = 100$ in both cases. Batch size is 10 for all algorithms. The median number of iterations to reach $\varepsilon = 0.01$ is plotted. Shaded area are the standard deviations across 5 experiments.&#34;&gt;
 
 
-  &lt;img data-src=&#34;https://jlylekim.github.io/blog/sppam/normal-poisson_hu_1093ab0eb9b10bf2.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;698&#34;&gt;
+  &lt;img data-src=&#34;https://jlylekim.github.io/blog/sppam/normal-poisson_hu_2c16aeea374c266c.png&#34; class=&#34;lazyload&#34; alt=&#34;&#34; width=&#34;100%&#34; height=&#34;698&#34;&gt;
 &lt;/a&gt;
 
 
